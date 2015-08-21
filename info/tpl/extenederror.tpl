@@ -1,0 +1,1 @@
+<p align=center><table align=center border=0 cellpadding=3 cellspacing=1 bgcolor=red><tr align=center bgcolor=#ff9999><th>เกิดข้อผิดพลาด</th></tr><tr align=center bgcolor=#ffffff><td><br>ฟอร์มข้อมูลการลงชื่อเข้าใช้ระบบผิดหรือชื่อฟิลด์ในฟอร์มไม่ถูกต้อง<br><br></td></tr></table></p>

@@ -1,0 +1,168 @@
+body {
+    text-align: left;
+    vertical-align: top;
+    color: #000000;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: #cccccc
+}
+
+table.mainbody {
+    empty-cells: hide;
+    border-collapse: collapse;
+    border-spacing: 1px;
+}
+
+td.logozone {
+    width: 1003px;
+    height: 94px
+}
+
+td.leftzone {
+    background-color: #629FE7;
+}
+td.rightzone {
+    background-color: #FFFFFF;
+    background-image: url('../img/pre-release-bg.gif');
+    width: 805px;
+}
+td.wspacezone {
+    width: 1px;
+    height: 546px;
+    background-color: #FFFFFF;
+}
+
+td.fixedleftzone {
+    background-color: #629FE7;
+}
+td.fixedrightzone, td.fixedwspacezone {
+    background-color: #FFFFFF;
+}
+
+td.footerzone {
+    background-color: #A3A3A3;
+}
+td.fixedfooterzone {
+    width: 1px;
+    height: 3px;
+    background-color: #A3A3A3;
+}
+
+table.menublog {
+    margin: 8px 6px 8px 6px;
+}
+
+td.menublogtitle {
+    background-color: #330099;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-image: url('../img/blogmenutitle-lite.gif')
+}
+
+td.menublogbody {
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    background-image: url('../img/blogmenubody-bg.gif');
+    border-bottom: 1px solid #2A4DAB
+}
+
+/* ------------- Begin calendar --------------*/
+
+#calendar {
+  border-collapse: collapse;
+  border-spacing: 1px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Ms sans serif", sans-serif;
+  font-size: 10pt;
+}
+
+#calendar tr.header th {
+  background-color: #008080;
+  color: #ffffff;
+  text-align: center;
+}
+
+tr.header th {
+    background-image: url('../img/dark_title_bg.gif');
+}
+
+#calendar tr.days th {
+  background-color: #629FE7;
+  width: 2.2em;
+  text-align: center;
+}
+
+#calendar tr.footer td {
+  border: none;
+  padding: 6px 0px 4px 0px;
+}
+
+#calendar td, #calendar th {
+  border: 1px solid #365686;
+  color: #000000;
+  empty-cells: show;
+  padding: 2px .25em 2px .25em;
+}
+
+#calendar td {
+  text-align: right;
+}
+
+#calendar td.weekend {
+  background-color: #94BCFE;
+}
+
+#calendar td.target {
+  background-color: #10377C;
+  font-weight: bold;
+}
+
+#calendar a, #calendar a:visited {
+  color: #F77E13;
+  text-decoration: none;
+}
+
+#calendar a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+#calendar a.button {
+  background-color: #629FE7;
+  border: 2px solid;
+  border-color: #A0C9FA #1C64B8 #1C64B8 #A0C9FA;
+  color: #000000;
+  font-size: 80%;
+  font-weight: bold;
+  padding: 2px .5em 2px .5em;
+  text-decoration: none;
+}
+
+#calendar a.button:visited, #calendar a.button:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+#calendar tr.empty
+{
+  visibility: hidden;
+}
+
+#calendar tr.empty td
+{
+  border-style: none;
+}
+/* -------------- End calendar ---------------*/

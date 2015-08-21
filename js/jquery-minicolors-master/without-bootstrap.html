@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery MiniColors</title>
+	<meta charset="utf-8">
+	
+	<!-- jQuery -->
+	<script src="../jquery-1.7.2.min.js"></script>
+	
+	<!-- MiniColors -->
+	<script src="jquery.minicolors.js"></script>
+	<link rel="stylesheet" href="jquery.minicolors.css">
+	
+
+	
+	<script>
+		$(document).ready( function() {
+			
+            $('.colorpicker').each( function() {
+                //
+                // Dear reader, it's actually very easy to initialize MiniColors. For example:
+                //
+                //  $(selector).minicolors();
+                //
+                // The way I've done it below is just for the demo, so don't get confused 
+                // by it. Also, data- attributes aren't supported at this time. Again, 
+                // they're only used for the purposes of this demo.
+                //
+				$(this).minicolors({
+					control: $(this).attr('data-control') || 'hue',
+					defaultValue: $(this).attr('data-defaultValue') || '',
+					inline: $(this).attr('data-inline') === 'true',
+					letterCase: $(this).attr('data-letterCase') || 'lowercase',
+					opacity: $(this).attr('data-opacity'),
+					position: $(this).attr('data-position') || 'bottom left',
+					change: function(hex, opacity) {
+						var log;
+						try {
+							log = hex ? hex : 'transparent';
+							if( opacity ) log += ', ' + opacity;
+							console.log(log);
+						} catch(e) {}
+					},
+					theme: 'default'
+				});
+                
+            });
+			
+		});
+	</script>
+</head>
+<body>
+	
+	<h1>MiniColors Demo (without Bootstrap)</h1>
+
+	<div class="form-group">
+		<label for="inline">Inline</label>
+		<br>
+		<input type="text" id="inline" class="colorpicker" data-inline="true" value="#4fc8db">
+	</div>
+	
+	
+</body>
+</html>

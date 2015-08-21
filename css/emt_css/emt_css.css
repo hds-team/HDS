@@ -1,0 +1,240 @@
+/*-------------------- BASIC ------------------------*/
+label {
+	font-size : 13px;
+	padding : 5px 10px;
+}
+comment {
+	color : #993333;
+	padding : 3px 10px;
+	display : block;
+}
+comment ul {
+	padding : 0px;
+	margin : 0px;
+	list-style: none;
+}
+
+input , select {
+	padding : 3px;
+	font-size : 13px;
+}
+
+input[type=submit], input[type=button] {
+	padding : 3px 20px;
+	font-size : 13px;
+}
+
+span.note {
+	font-size : 11px;
+	color : #888;
+	font-weight : normal;
+}
+
+.tbin table{
+		border : 1px solid #000;
+	}
+.tbin td{
+	border : 1px solid #000;
+}
+/*-------------------- CONTENT ------------------------*/
+#content {
+	border : 1px solid #EEE;
+	padding : 5px;
+	margin-bottom : 20px;
+}
+#content h3 {
+	margin : 10px;
+	font-size : 16px;
+}
+#content h4 {
+	margin : 10px;
+	font-size : 14px;
+}
+#content-header {
+
+}
+#content-body {
+	border : 1px solid #EEE;
+	background : #FDFDFD;
+	padding-bottom : 15px;
+}
+#content-body table {
+	border-spacing: 0px;
+}
+#content-body td {
+	font-size : 15px;
+	padding : 5px;
+}
+#content-body label {
+	font-size : 15px;
+	padding : 5px;
+}
+#content-body table table td{
+	padding : 0px;
+	padding-right : 3px;
+}
+
+/*-------------------- EMT TABLE ------------------------*/
+
+#content-body table.emt_table {
+	background : #EEE;
+	border-spacing: 1px;
+}
+table.emt_table th{
+	background : #3079ED;
+	height : 20px;
+	border-spacing: 0px;
+	padding : 8px;
+	color : #FEFEFE;
+	text-align : center;
+}
+table.emt_table td{
+	background : #FFF;
+	height : 25px;
+	border-spacing: 0px;
+	padding : 3px;
+}
+
+table.emt_table td.even {
+	background : #F5F5F5;
+}
+
+table.emt_table td.odd {
+	background : #FFFFFF;
+}
+
+table.emt_table .action{
+	text-align : center;
+	max-width : 80px;
+}
+
+
+/*-------------------- INPUT ------------------------*/
+table.emt_table input {
+	width : 90%;
+}
+
+
+/*-------------------- COLOR ------------------------*/
+.red{
+color:#D8000C;
+}
+
+
+/*-------------------- GUIDE ------------------------*/
+#guide {
+	width : 100%;
+}
+#guide ul {
+	list-style : none;
+	height : 55px;
+	padding : 0px;
+	margin : 0px;
+}
+#guide ul li {
+	float : left;
+	height : 30px;
+	padding : 10px 20px 5px 0px;
+	background : #F3F3F3;
+	border-top: 1px solid #ADADAD;
+	border-bottom: 1px solid #ADADAD;
+	/*text-align : center;*/
+	color : #444;
+}
+#guide ul li lable {
+	font-size : 14px;
+	font-weight : bold;
+	display : block;
+}
+#guide ul li span {
+	font-size : 11px;
+	color : #666;
+}
+#guide ul li.guide-arrow {
+	width : 15px;
+	height : 45px;
+	padding : 0px;
+}
+#guide ul li.active {
+	background : #3079ED;
+}
+#guide ul li.active span ,#guide ul li.active lable {
+	color : #FFF;
+}
+#guide ul>:first-child {
+	border-left: 1px solid #ADADAD;
+}
+#guide ul li.guide-arrow:last-child {
+	border-top: 1px solid #FFF;
+	border-bottom: 0px;
+	background : #FFF;
+}
+/*-------------------- GUIDE For IE ------------------------*/
+#guide_ie {
+	width : 100%;
+}
+#guide_ie ul {
+	list-style : none;
+	height : 55px;
+	padding : 0px;
+	margin : 0px;
+}
+#guide_ie ul li {
+	float : left;
+	height : 30px;
+	padding : 10px 20px 4px 0px;
+	background : #F3F3F3;
+	border-top: 1px solid #ADADAD;
+	border-bottom: 1px solid #ADADAD;
+	/*text-align : center;*/
+	color : #444;
+}
+#guide_ie ul li lable {
+	font-size : 14px;
+	font-weight : bold;
+	display : block;
+}
+#guide_ie ul li span {
+	font-size : 11px;
+	color : #666;
+}
+#guide_ie ul li.guide-arrow {
+	width : 15px;
+	height : 45px;
+	padding : 0px;
+}
+#guide_ie ul li.active {
+	background : #3079ED;
+}
+#guide_ie ul li.active span ,#guide_ie ul li.active lable {
+	color : #FFF;
+}
+#guide_ie ul>:first-child {
+	border-left: 1px solid #ADADAD;
+}
+#guide_ie ul li.guide-arrow:last-child {
+	border-top: 1px solid #FFF;
+	border-bottom: 0px;
+	background : #FFF;
+}
+/*------------------*/
+div.icon32 {
+	text-align : center;
+	display : inline-block;
+	padding : 0px 10px;
+}
+.emt_bold{
+	font-weight:bold;
+}
+
+.odd{
+	background:#ffffff;
+}
+.even{
+	background:#E8E8E8;
+}
+.hilight
+{
+	background: #FFFF00;
+	font-weight: bold;
+}

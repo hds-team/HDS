@@ -1,0 +1,276 @@
+@charset "utf-8";
+/*@font-face {
+	font-family: 'TH SarabunPSK';
+	src: url('font/THSarabun.ttf') format('truetype'),
+	url(‘TH Sarabun.ttf’)  format(‘truetype’);
+}*/
+BODY {
+	FONT-SIZE: 24px; MARGIN: 0px; COLOR: #444444; font-family: 'TH SarabunPSK';
+} 
+TD {
+	FONT-SIZE: 24px; MARGIN: 0px; COLOR: #444444; font-family: 'TH SarabunPSK';
+}
+TH {
+	FONT-SIZE: 24px; MARGIN: 0px; COLOR: #444444; font-family: 'TH SarabunPSK';
+}
+TD.minitext {
+	FONT-SIZE: 11px
+}
+TD.logo {
+	FONT-SIZE: 9px
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.profile A IMG {
+	BORDER-TOP-WIDTH: 5px; BORDER-LEFT-WIDTH: 5px; BORDER-BOTTOM-WIDTH: 5px; BORDER-RIGHT-WIDTH: 5px
+}
+A {
+	COLOR: #5d5d5d; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #fb8639
+}
+TD.headmenu {
+	FONT-SIZE: 11px; VERTICAL-ALIGN: middle; HEIGHT: 25px
+}
+TD.leftmenu {
+	FONT-WEIGHT: bold; VERTICAL-ALIGN: middle; COLOR: #444444; HEIGHT: 25px
+}
+TD.leftmenu A {
+	COLOR: #444444; TEXT-DECORATION: none
+}
+TD.leftmenu A:hover {
+	COLOR: #ff9933; TEXT-DECORATION: none
+}
+TD.line_ {
+	/*BACKGROUND-IMAGE: url(../include/imagesdot_line.gif); HEIGHT: 1px*/
+}
+TD.linel {
+	/*BACKGROUND-IMAGE: url(../include/imagesdot_linel.gif); WIDTH: 1px*/
+}
+.btn {
+	BORDER-RIGHT: #e8e8e8 1px solid; PADDING-RIGHT: 1em; BORDER-TOP: #e8e8e8 1px solid; PADDING-LEFT: 1em; FONT-WEIGHT: bold; FONT-SIZE: 100%; BACKGROUND: url(../include/imagesbtnbg.gif); PADDING-BOTTOM: 0px; VERTICAL-ALIGN: middle; OVERFLOW: visible; BORDER-LEFT: #e8e8e8 1px solid; COLOR: white; MARGIN-RIGHT: 0.2em; PADDING-TOP: 0px; BORDER-BOTTOM: #e8e8e8 1px solid; HEIGHT: 1.8em; TEXT-ALIGN: center; min-width: 7em
+}
+TD.barhead {
+	/*FONT-WEIGHT: bold; BACKGROUND-IMAGE: url(../include/imagesbarbg.gif)*/
+}
+TD.footer {
+	FONT-SIZE: 9px; COLOR: #9a9a9a; TEXT-ALIGN: center
+}
+TD.downloadhead {
+	FONT-WEIGHT: bold; FONT-SIZE: 1.6em; VERTICAL-ALIGN: middle; TEXT-ALIGN: left
+}
+TD.download2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11px; PADDING-BOTTOM: 3px; VERTICAL-ALIGN: middle; PADDING-TOP: 3px; TEXT-ALIGN: left
+}
+TD.download2h {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; VERTICAL-ALIGN: middle; TEXT-ALIGN: left
+}
+#container {
+	
+}
+#header {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#nav {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0px; PADDING-TOP: 5px; BACKGROUND-COLOR: #282c38
+}
+#nav UL {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px
+}
+#nav LI {
+	PADDING-RIGHT: 6px; DISPLAY: inline; PADDING-LEFT: 6px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px; LIST-STYLE-TYPE: none
+}
+#user {
+	
+}
+#user A {
+	COLOR: #bb9e61
+}
+#user UL {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px
+}
+#user LI {
+	PADDING-RIGHT: 3px; DISPLAY: inline; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px; PADDING-TOP: 3px; LIST-STYLE-TYPE: none
+}
+#title {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; MARGIN: 20px 20px 12px
+}
+#subtitle {
+	FONT-SIZE: 100%; MARGIN: 4px 20px 16px; VERTICAL-ALIGN: top
+}
+#adminmenu {
+	MARGIN: 0px 20px 2px
+}
+#main {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; VERTICAL-ALIGN: top; PADDING-TOP: 0px
+}
+#side {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; BACKGROUND-COLOR: #f3f6f7
+}
+#footer {
+	
+}
+TABLE TD {
+	VERTICAL-ALIGN: top
+}
+TABLE.flat {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 99%; PADDING-TOP: 0px; BORDER-COLLAPSE: collapse
+}
+TABLE.flat TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+TABLE.main {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; MARGIN: 0px; WIDTH: 99%; PADDING-TOP: 4px
+}
+TABLE.main TD {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+TABLE.cells {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 99%; PADDING-TOP: 0px
+}
+TABLE.cells TD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px; BACKGROUND-COLOR: #f7f7f7
+}
+TABLE.list {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0px; WIDTH: 99%; PADDING-TOP: 5px
+}
+TABLE.list TD {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; PADDING-BOTTOM: 12px; PADDING-TOP: 12px
+}
+.disp {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; PADDING-BOTTOM: 12px; MARGIN: 0px; PADDING-TOP: 12px
+}
+.block {
+	BORDER-RIGHT: #eaeaea 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #eaeaea 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; MARGIN: 12px; BORDER-LEFT: #eaeaea 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #eaeaea 1px solid; BACKGROUND-COLOR: #f8f8f8
+}
+.error {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; FONT-WEIGHT: bold; FONT-SIZE: 110%; PADDING-BOTTOM: 24px; MARGIN: 0px; COLOR: #cc1212; PADDING-TOP: 24px; TEXT-ALIGN: center
+}
+.codetitle {
+	PADDING-RIGHT: 2px; MARGIN-TOP: 5px; PADDING-LEFT: 2px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; COLOR: #59739b; PADDING-TOP: 2px
+}
+.code {
+	BORDER-RIGHT: #c0c0c0 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #c0c0c0 1px solid; COLOR: #59739b; PADDING-TOP: 2px; BORDER-BOTTOM: #c0c0c0 1px solid; BACKGROUND-COLOR: #f5f5f5
+}
+.valid {
+	VERTICAL-ALIGN: middle; HEIGHT: 48px; TEXT-ALIGN: center
+}
+.download {
+	PADDING-RIGHT: 16px; MARGIN-TOP: 16px; PADDING-LEFT: 16px; FONT-SIZE: 110%; PADDING-BOTTOM: 16px; PADDING-TOP: 16px; BACKGROUND-COLOR: #e8e8e8; TEXT-ALIGN: center
+}
+.paging {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-SIZE: 100%; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; TEXT-ALIGN: right
+}
+.coltop {
+	FONT-SIZE: 95%; COLOR: #707070; BACKGROUND-COLOR: #f7f6f3! important; TEXT-ALIGN: center
+}
+.centerall {
+	TEXT-ALIGN: center
+}
+.desc {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 100%; PADDING-BOTTOM: 3px; COLOR: #646464; PADDING-TOP: 3px
+}
+.odd {
+	BACKGROUND-COLOR: #f1f1f1! important
+}
+.even {
+	BACKGROUND-COLOR: #ebedec! important
+}
+LI {
+	MARGIN: 2px
+}
+UL {
+	LIST-STYLE-TYPE: square
+}
+FORM {
+	MARGIN: 0px
+}
+.colleft {
+	FLOAT: left; MARGIN: 0px 4px
+}
+.colright {
+	FLOAT: right; MARGIN: 0px 4px
+}
+.bar_front {
+	BORDER-RIGHT: #333333 0px solid; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; COLOR: #dddddd; PADDING-TOP: 0px; HEIGHT: 8px; BACKGROUND-COLOR: #bec2d3
+}
+.bar_back {
+	BORDER-RIGHT: #333333 1px solid; BORDER-TOP: #333333 1px solid; MARGIN: 0px 7px; BORDER-LEFT: #333333 1px solid; BORDER-BOTTOM: #333333 1px solid; HEIGHT: 8px; BACKGROUND-COLOR: #ebecf1
+}
+.bbcodes A IMG {
+	BORDER-RIGHT: #a0a0a0 1px outset; BORDER-TOP: #a0a0a0 1px outset; BORDER-LEFT: #a0a0a0 1px outset; BORDER-BOTTOM: #a0a0a0 1px outset; BACKGROUND-COLOR: #999bac
+}
+.smilies A IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BACKGROUND-COLOR: transparent; BORDER-RIGHT-WIDTH: 0px
+}
+.today {
+	BORDER-RIGHT: #ddaa00 1px dashed; BORDER-TOP: #ddaa00 1px dashed; BORDER-LEFT: #ddaa00 1px dashed; BORDER-BOTTOM: #ddaa00 1px dashed
+}
+.signature {
+	FONT-SIZE: 80%; OVERFLOW: auto; COLOR: #979797; max-height: 96px
+}
+.signature A {
+	COLOR: #000000
+}
+H1 {
+	FONT-SIZE: 16px
+}
+H2 {
+	FONT-SIZE: 15px
+}
+H3 {
+	FONT-SIZE: 14px; MARGIN: 1em 1em 1em 0px
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; MARGIN: 1.5em 1em 1em 0px
+}
+H5 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 10px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.w {
+	BACKGROUND: #e5ecf9; COLOR: #000
+}
+.bt {
+	BORDER-TOP: #36c 1px solid
+}
+.t {
+	border: 1px solid #336699;
+}
+/*CSS for pop up hint box */
+#hintbox{ 
+position:absolute;
+top: 0;
+background-color: lightyellow;
+width: 150px; /*Default width of hint.*/ 
+padding: 3px;
+border:1px solid black;
+font:normal 11px Verdana;
+line-height:18px;
+z-index:100;
+border-right: 3px solid black;
+border-bottom: 3px solid black;
+visibility: hidden;
+}
+/*CSS for link that shows hint onmouseover*/
+.hintanchor{ 
+font-weight: bold;
+color: red;
+margin: 3px 8px;
+}
+.head {
+	color: #ff6600; font-weight:bold; text-align:left;
+}
+.warning {
+	color: #ff6600; font-weight:bold; text-align:center;
+}
+ul li, ul.menu li, .item-list ul li, li.leaf {
+  padding: 0 0 .2em 1.5em;
+  list-style-type: none;
+  list-style-image: none;
+  background: transparent url(img/menu-leaf.gif) no-repeat 1px .35em; /* LTR */
+}

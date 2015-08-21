@@ -1,0 +1,163 @@
+OBJECT Report 50000 Barcode128b
+{
+  OBJECT-PROPERTIES
+  {
+    Date=31/12/04;
+    Time=14:50:22;
+    Modified=Yes;
+    Version List=geert@rozendom.com;
+  }
+  PROPERTIES
+  {
+  }
+  DATAITEMS
+  {
+    { PROPERTIES
+      {
+        DataItemTable=Table27;
+        ReqFilterFields=No.;
+        GroupTotalFields=No.;
+      }
+      SECTIONS
+      {
+        { PROPERTIES
+          {
+            SectionType=Header;
+            PrintOnEveryPage=Yes;
+            SectionWidth=18150;
+            SectionHeight=1692;
+          }
+          CONTROLS
+          {
+            { 1210130001;Label  ;0    ;0    ;7500 ;423  ;FontSize=8;
+                                                         FontBold=Yes;
+                                                         CaptionML=[ENU=Item;
+                                                                    NLD=Artikel] }
+            { 1210130002;TextBox;15000;0    ;3150 ;423  ;HorzAlign=Right;
+                                                         SourceExpr=FORMAT(TODAY,0,4) }
+            { 1210130003;TextBox;0    ;423  ;7500 ;423  ;SourceExpr=COMPANYNAME }
+            { 1210130004;TextBox;17700;423  ;450  ;423  ;CaptionML=NLD=Pagina;
+                                                         SourceExpr=CurrReport.PAGENO }
+            { 1210130005;Label  ;16950;423  ;750  ;423  ;ParentControl=1210130004 }
+            { 1210130006;TextBox;15900;846  ;2250 ;423  ;HorzAlign=Right;
+                                                         SourceExpr=USERID }
+          }
+           }
+        { PROPERTIES
+          {
+            SectionType=Header;
+            PrintOnEveryPage=Yes;
+            SectionWidth=18150;
+            SectionHeight=1269;
+          }
+          CONTROLS
+          {
+            { 1210130009;Label  ;0    ;0    ;1500 ;846  ;ParentControl=1210130008;
+                                                         VertAlign=Bottom;
+                                                         FontBold=Yes;
+                                                         MultiLine=Yes }
+            { 1210130012;Label  ;1650 ;0    ;4500 ;846  ;ParentControl=1210130011;
+                                                         VertAlign=Bottom;
+                                                         FontBold=Yes;
+                                                         MultiLine=Yes }
+            { 1210130015;Label  ;6300 ;0    ;4500 ;846  ;ParentControl=1210130014;
+                                                         VertAlign=Bottom;
+                                                         FontBold=Yes;
+                                                         MultiLine=Yes }
+          }
+           }
+        { PROPERTIES
+          {
+            SectionType=Body;
+            SectionWidth=18150;
+            SectionHeight=846;
+          }
+          CONTROLS
+          {
+            { 1210130008;TextBox;26   ;211  ;1500 ;423  ;HorzAlign=Left;
+                                                         SourceExpr="No." }
+            { 1210130011;TextBox;11100;0    ;6000 ;846  ;HorzAlign=Left;
+                                                         FontName=Code128bWin;
+                                                         FontSize=14;
+                                                         SourceExpr=EncodeBarcode128("Search Description") }
+            { 1210130014;TextBox;6326 ;211  ;4500 ;423  ;HorzAlign=Left;
+                                                         SourceExpr=Description }
+            { 1210130000;TextBox;1676 ;211  ;4500 ;423  ;HorzAlign=Left;
+                                                         SourceExpr="Search Description" }
+          }
+           }
+      }
+       }
+  }
+  REQUESTFORM
+  {
+    PROPERTIES
+    {
+      Width=9020;
+      Height=3410;
+    }
+    CONTROLS
+    {
+    }
+  }
+  CODE
+  {
+
+    PROCEDURE EncodeBarcode128@1210130000(pText@1210130000 : Text[250]) RetVal : Text[250];
+    VAR
+      Checksum@1210130001 : Integer;
+      i@1210130002 : Integer;
+      currentchar@1210130003 : Char;
+      StartChar@1210130004 : Char;
+      StopChar@1210130005 : Char;
+      ChecksumChar@1210130006 : Char;
+    BEGIN
+      // How to encode a 128 barcode:
+      //
+      // Each character has a value ranging from 0 to 105. This value is used to calculate the check
+      // character for each symbol.
+      //
+      // The check character is a Modulus 103 Checksum that is calculated by summing the start code
+      // value plus the product of each character position (most significant character position equals 1)
+      // and the character value of the character at that position. This sum is divided by 103. The
+      // remainder of the answer is the value of the Check Character (which can be looked up from the
+      // table). Every encoded character is included except the Stop and Check Character.
+      //
+      //
+      // Example: BarCode 1
+      // Message : Start B   B   a   r   C   o   d   e      1
+      // Value      104      34  65  82  35  79  68  69  0  17
+      // Position:   -       1   2   3   4   5   6   7   8  9
+      // Calculate Total: 104 + (34x1) + (65x2) + (82x3) + (35x4) + (79x5) +
+      //                  (68x6) + (69x7) + (0x8) + (17x9) = 2093
+      // 2093/103 = 20 remainder 33
+      // 33 = A
+      // Final message: (Start B)BarCode 1(A)(STOP)
+
+      StartChar:='Ú';
+      StopChar:='Ü';
+      Checksum:=104;
+
+      FOR i:=1 TO STRLEN(pText) DO BEGIN
+        currentchar:=pText[i];
+        Checksum := Checksum +(i*(currentchar-32));
+      END;
+      ChecksumChar:= Checksum MOD 103;
+      ChecksumChar:= ChecksumChar+32;
+
+      // convert SPACE to ALT+0128
+      pText:=CONVERTSTR(pText,' ','°');
+
+      RetVal:=STRSUBSTNO('%1%2%3%4',StartChar,pText,ChecksumChar,StopChar);
+      EXIT(RetVal);
+    END;
+
+    BEGIN
+    {
+      // Make sure you have the TTF Code128bWin.ttf installed on the system
+      // Enjoy. Geert Rozendom, 2004.
+    }
+    END.
+  }
+}
+

@@ -1,0 +1,15 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'TH SarabunPSK';
+	src: url('font/THSarabun.ttf') format('truetype'),
+	url(‘TH Sarabun.ttf’)  format(‘truetype’);
+}
+
+
+h1 {
+	align="center";
+	font-family: "TH SarabunPSK";
+	font-size: 70px; 
+	margin: 20px 0;
+	color:#7AA7D6;
+}

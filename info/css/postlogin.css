@@ -1,0 +1,135 @@
+body {
+    text-align: left;
+    vertical-align: top;
+    color: #000000;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: #cccccc
+}
+
+a {
+    text-decoration: none;
+}
+a:link {
+    color: #000000;
+}
+a:visited {
+    color: #000000;
+}
+a:hover {
+    color: #FFA642;
+    text-decoration: underline;
+}
+a:active {
+    color: #000000;
+}
+
+a.menulink:link {
+    color: #000000;
+}
+a.menulink:visited {
+    color: #000000;
+}
+a.menulink:hover {
+    color: #FFA642;
+    text-decoration: underline;
+}
+a.menulink:active {
+    color: #000000;
+}
+
+table.mainbody {
+    empty-cells: hide;
+    border-collapse: collapse;
+    border-spacing: 1px;
+}
+
+td.logozone {
+    background-color: #3361F8;
+    width: 1003px;
+    height: 94px
+}
+
+td.leftzone {
+    background-color: #629FE7;
+}
+td.rightzone {
+    background-color: #FFFFFF;
+    width: 805px;
+}
+td.wspacezone {
+    width: 1px;
+    height: 546px;
+    background-color: #FFFFFF;
+}
+
+td.fixedleftzone {
+    background-color: #629FE7;
+}
+td.fixedrightzone, td.fixedwspacezone {
+    background-color: #FFFFFF;
+}
+
+td.footerzone {
+    background-color: #A3A3A3;
+}
+td.fixedfooterzone {
+    width: 1px;
+    height: 3px;
+    background-color: #A3A3A3;
+}
+
+table.menublog {
+    margin: 8px 6px 8px 6px;
+}
+
+td.menublogtitle_lite {
+    background-color: #330099;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-image: url('{INFOURL}img/blogmenutitle-lite.gif')
+}
+
+td.menublogtitle_hilight {
+    background-color: #330099;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-image: url('{INFOURL}img/blogmenutitle-hilight.gif')
+}
+
+td.menublogbody_lite {
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    background-image: url('{INFOURL}img/blogmenubody-lite.gif');
+    border-bottom: 1px solid #2A4DAB
+}
+
+td.menublogbody_hilight {
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    background-image: url('{INFOURL}img/blogmenubody-hilight.gif');
+    border-bottom: 1px solid #2A4DAB
+}
+
+#bodyspace {
+    background-image: url('{INFOURL}img/pre-release-bg.gif');
+    background-repeat: repeat;
+}
