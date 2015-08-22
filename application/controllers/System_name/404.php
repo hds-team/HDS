@@ -11,7 +11,7 @@
                 	
                    	<div id="da-error-pin"></div>
                     <div id="da-error-code">
-                    	ผิดพลาด <span>404</span>
+                    	ผิดพลาด <span>4d04</span>
                     </div>
                 
                 	<h1 class="da-error-heading"><font face="THSarabunNew">ขออภัย ไม่พบหน้าเว็บนี้</font></h1>
