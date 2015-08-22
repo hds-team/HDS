@@ -6,7 +6,11 @@ class Welcome extends UMS_Controller {
 	{
 		$this->output('System_name/welcome',"");
 	}
+<<<<<<< HEAD
 	//COMMENT CHAMP
+=======
+	//conmnet DEN
+>>>>>>> origin/master
 
 
 }
