@@ -372,7 +372,7 @@
                             //echo $key." ".$value."<BR>";
                     ?>
                        <li>
-                            <a href="<?php echo base_url('/HDS/'.$menu[$value]['controller']); ?>">
+                            <a href="<?php echo base_url('index.php/HDS/'.$menu[$value]['controller']); ?>">
                                 <!-- Icon Container -->
                                 <span class="da-nav-icon">
                                     <img src="<?php echo base_url('images/icons/black/32/'.$menu[$value]['icon']); ?>" alt="<?php echo $menu[$value]['name']; ?>">
@@ -393,11 +393,13 @@
             <div id="da-content-area"> 
                 <div class="grid_4">
                     <?php 
+                    if(isset($content)){
                         if($content != NULL){
                             echo $content;
                         }else{
                             echo "ไม่มีตัวแปร Content";
                         }
+                    }
                     ?>
                 </div><!-- grid_4 --> 
             </div>  <!-- da-content-area --> 
