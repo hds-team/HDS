@@ -10,4 +10,5 @@ class Admin extends HDS_Controller{
 	public function position(){
 		include('admin_part/position.php');
 	}
+	// Comment
 }
