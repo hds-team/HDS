@@ -20,5 +20,5 @@ class Testexcelsias extends CI_Controller{
 		echo '</table>';
 	} 
 }
-
+//คอมเม้น
 ?>
