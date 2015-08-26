@@ -1,3 +1,3 @@
 <?php
-echo "pending";
+	$this->output("HDS/dev_work/v_pending");
 ?>
