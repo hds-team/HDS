@@ -1,3 +1,3 @@
 <?php
-echo "category";
+$this->output('HDS/fundamental/v_category');
 ?>
