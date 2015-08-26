@@ -1,3 +1,3 @@
 <?php
-echo "petition";
+	$this->output('HDS/screening/v_petition');
 ?>
