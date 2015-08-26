@@ -1,3 +1,5 @@
 <?php
-	$this->output("HDS/dev_work/v_pending");
+	//echo "TEST";
+	//return $this->load->view("HDS/dev_work/pending/v_pending", '', true);
+	$view = $this->hds_output('dev_work/pending/v_pending', NULL, true);
 ?>

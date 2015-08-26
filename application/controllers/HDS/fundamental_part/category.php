@@ -1,3 +1,3 @@
 <?php
-$this->output('HDS/fundamental/v_category');
+	$view = $this->hds_output('fundamental/category/v_category', NULL, true);
 ?>

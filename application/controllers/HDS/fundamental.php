@@ -7,13 +7,22 @@ class Fundamental extends HDS_Controller {
 
 	public function kind(){
 		include('fundamental_part/kind.php');
+		
+		$data['content'] = $view;
+		$this->layout_output($data);
 	}
 
 	public function category(){
 		include('fundamental_part/category.php');
+
+		$data['content'] = $view;
+		$this->layout_output($data);
 	}
 
 	public function level(){
 		include('fundamental_part/level.php');
+
+		$data['content'] = $view;
+		$this->layout_output($data);
 	}
 }

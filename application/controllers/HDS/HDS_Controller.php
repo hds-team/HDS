@@ -5,9 +5,9 @@ class HDS_Controller extends UMS_Controller {
 		echo "TEST";
 	}
 
-	public function hds_output($file="System_name/welcome", $data=""){
+	public function hds_output($file="System_name/welcome", $data=NULL, $no_display=false){
 		$file = "/HDS/".$file;
-		return $this->load->view($file, $data, true);
+		return $this->load->view($file, $data, $no_display);
 	}
 
 	public function layout_output($data=NULL){

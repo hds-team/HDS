@@ -1,3 +1,3 @@
 <?php
-echo "level";
+	$view =  "level";
 ?>

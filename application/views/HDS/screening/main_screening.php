@@ -28,13 +28,13 @@
                 <li><a href="#tab-1_nested-3"><span>ตรวจแล้ว</span></a></li>
               </ul>
               <div id="tab-1_nested-1">
-                <?php echo "SYSNAME_TAB1 "; ?>
+                <?php echo $petition; ?>
               </div>
               <div id="tab-1_nested-2">
-                <?php echo "SYSNAME_TAB2"; ?>
+                <?php echo $check; ?>
               </div>
               <div id="tab-1_nested-3">
-                <?php echo "SYSNAME_TAB3"; ?>
+                <?php echo $check_now; ?>
               </div>
               <!-- End Nested Tabs -->
           </div>

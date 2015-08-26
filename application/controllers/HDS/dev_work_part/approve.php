@@ -1,3 +1,3 @@
 <?php
-echo "approve";
+	return "approve";
 ?>

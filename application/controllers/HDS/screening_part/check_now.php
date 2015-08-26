@@ -1,3 +1,3 @@
 <?php
-echo "check_now";
+	$view = "check_now";
 ?>
