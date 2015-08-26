@@ -1,3 +1,4 @@
 <?php
-echo "kind";
+
+	$this->output("HDS/fundamental/v_kind");
 ?>
