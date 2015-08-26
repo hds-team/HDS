@@ -24,6 +24,6 @@ class Screening extends HDS_Controller {
 	}
 
 	public function petition($sys_id=""){ //get content by system id
-		include('screening_part/petition.php');
+		include('screening_part/petition.php'); 
 	}
 }
