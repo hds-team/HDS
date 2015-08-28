@@ -39,7 +39,7 @@
                     <th><center>ลำดับ</center></th>
                     <th><center>หมวด</center></th>
                     <th><center>สถานะ</center></th>
-                    <th width=20% ><center>ดำเนินการ</center></th>
+                    <th width=250 ><center>ดำเนินการ</center></th>
                 </tr>
             </thead>
             <tbody>
