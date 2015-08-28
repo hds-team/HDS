@@ -330,7 +330,7 @@
         $menu[2]['icon'] = "cog_4.png";
 
         $menu[3]['name'] = "ความสำคัญ";
-        $menu[3]['controller'] = "fundamental/level";
+        $menu[3]['controller'] = "fundamental/contact";
         $menu[3]['icon'] = "cog_4.png";
 
         $menu[4]['name'] = "ตำแหน่งงาน";
