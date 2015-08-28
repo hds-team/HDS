@@ -55,7 +55,7 @@
                                 <input type="submit" value="แก้ไข" class="da-button blue" style="width:60%" />
                             </div>
                             <div class="grid_2">
-                                <input type="submit" value="ยกเลิก" class="da-button red" style="width:60%" />
+                                <input type="submit" value="ลบ" class="da-button red" style="width:60%" />
                             </div>
                         </center>
                     </td>
