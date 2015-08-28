@@ -47,13 +47,13 @@
             <li><a href="#tab-2"><span>กำลังดำเนินการ</span></a></li>
             <li><a href="#tab-3"><span>ผลการอนุมัต</span></a></li>
         </ul>
-        <div id="tab-1">
+        <div id="tab-1" style="padding: 0;">
           <?php echo $pending; ?>
         </div>
-        <div id="tab-2">
+        <div id="tab-2" style="padding: 0;">
           <?php echo $ongoing; ?>
         </div>
-        <div id="tab-3">
+        <div id="tab-3" style="padding: 0;">
           <?php echo $approve; ?>
         </div>
         <!-- End Nested Tabs -->

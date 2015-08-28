@@ -358,15 +358,6 @@
             <!-- Main Navigation -->
             <div id="da-main-nav" class="da-button-container">
                 <ul>
-                    <li class="active">
-                        <a href="#">
-                            <!-- Icon Container -->
-                            <span class="da-nav-icon">
-                                <img src="<?php echo base_url('images/icons/black/32/home.png'); ?>" alt="Dashboard">
-                            </span>
-                            Dashboard
-                        </a>
-                    </li>
                     <?php 
                         foreach($access['all'] as $key => $value){
                             //echo $key." ".$value."<BR>";

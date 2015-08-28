@@ -48,7 +48,7 @@
             <li><a href="#tab-2"><span>ตรวจสอบ</span></a></li>
             <li><a href="#tab-3"><span>ตรวจแล้ว</span></a></li>
         </ul>
-        <div id="tab-1">
+        <div id="tab-1" style="padding: 0;">
           <?php echo $petition; ?>
         </div>
         <div id="tab-2">
