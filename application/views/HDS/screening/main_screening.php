@@ -42,7 +42,7 @@
              ตรวจสอบงาน
         </span>
     </div>
-    <div id="tabs">
+    <div class="da-panel-content" id="tabs">
         <ul>
             <li><a href="#tab-1"><span>คำร้อง</span></a></li>
             <li><a href="#tab-2"><span>ตรวจสอบ</span></a></li>
