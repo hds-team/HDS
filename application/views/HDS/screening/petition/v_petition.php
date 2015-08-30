@@ -1,12 +1,4 @@
-<div class="da-panel collapsible">
-	<div class="da-panel-header">
-    	<span class="da-panel-title">
-				<img src="images/icons/black/16/list.png" alt="">
-					ตรวจสอบคำร้องขอ
-        </span>   
-    <span class="da-panel-toggler"></span>
-	</div> <!--class="da-panel-header"-->
-    <div class="da-panel-content">
+    <div class="da-panel-content" style="border: 0;" >
         <table class="da-table">
             <thead>
                 <tr>
@@ -44,4 +36,3 @@
             </tbody>
         </table> <!--class="da-table"-->
     </div> <!--class="da-panel-content"-->
-</div> <!--class="da-panel collapsible"-->
