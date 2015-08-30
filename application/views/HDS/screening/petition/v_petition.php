@@ -13,9 +13,9 @@
 					<th style="width: 80px"><center><b>ลำดับ</b><center></th> 
                     <th style="width: 200px"><center><b>หัวเรื่อง</b><center></th> 
 					<th style="width: 200px"><center><b>วันที่</b><center></th> 
-					<th style="width: 200px"><center><b>ผประเภท</b><center></th> 
+					<th style="width: 200px"><center><b>ประเภท</b><center></th> 
 					<th style="width: 200px"><center><b>ผู้ส่ง</b><center></th> 
-                    <th style="width: 200px"><center><b>ดำเนินการ</b><center></th> 
+                    <th style="width: 250px"><center><b>ดำเนินการ</b><center></th> 
                 </tr>
             </thead>
             <tbody>
