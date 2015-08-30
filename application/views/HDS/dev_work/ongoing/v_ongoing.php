@@ -20,7 +20,7 @@
 				<td>หมวด ก</td>
 				<td>นาย ก</td>
 				<td><center>
-					<input type="button" class="da-button blue small" style="width:80%" value="ส่งตรวจ" />
+					<input type="button" class="da-button blue" value="ส่งตรวจ" />
 				</center></td>
 			</tr>
 		</tbody>

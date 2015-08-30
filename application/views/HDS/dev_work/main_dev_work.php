@@ -38,7 +38,7 @@
     <div class="da-panel-header">
         <span class="da-panel-title">
             <img src="<?php echo base_url('images/icons/color/ui_tab_content.png'); ?>" alt="">
-             ตรวจสอบงาน
+				ตรวจสอบงาน
         </span>
     </div><!-- da-panel-header -->
     <div id="tabs">
