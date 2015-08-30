@@ -19,8 +19,8 @@ class Fundamental extends HDS_Controller {
 		$this->layout_output($data);
 	}
 
-	public function level(){
-		include('fundamental_part/level.php');
+	public function contact(){
+		include('fundamental_part/contact.php');
 
 		$data['content'] = $view;
 		$this->layout_output($data);

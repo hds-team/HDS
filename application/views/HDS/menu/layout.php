@@ -329,8 +329,8 @@
         $menu[2]['controller'] = "fundamental/kind";
         $menu[2]['icon'] = "cog_4.png";
 
-        $menu[3]['name'] = "ความสำคัญ";
-        $menu[3]['controller'] = "fundamental/level";
+        $menu[3]['name'] = "ติดต่อ";
+        $menu[3]['controller'] = "fundamental/contact";
         $menu[3]['icon'] = "cog_4.png";
 
         $menu[4]['name'] = "ตำแหน่งงาน";
@@ -358,15 +358,6 @@
             <!-- Main Navigation -->
             <div id="da-main-nav" class="da-button-container">
                 <ul>
-                    <li class="active">
-                        <a href="#">
-                            <!-- Icon Container -->
-                            <span class="da-nav-icon">
-                                <img src="<?php echo base_url('images/icons/black/32/home.png'); ?>" alt="Dashboard">
-                            </span>
-                            Dashboard
-                        </a>
-                    </li>
                     <?php 
                         foreach($access['all'] as $key => $value){
                             //echo $key." ".$value."<BR>";

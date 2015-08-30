@@ -16,7 +16,7 @@
 					<th style="width: 200px"><center><b>ประเภท</b><center></th> 
 					<th style="width: 200px"><center><b>ผู้ส่ง</b><center></th> 
                     <th style="width: 250px"><center><b>ดำเนินการ</b><center></th> 
-                </tr>
+                </tr> 
             </thead>
             <tbody>
                 <tr class="odd">
