@@ -72,8 +72,38 @@
 </head>
 
 <body>
-
-
-    
+	<div class="grid_4">
+		<div class="da-panel collapsible">
+			<div class="da-panel-header">
+				<span class="da-panel-title">
+					<img src="images/icons/black/16/list.png" alt="">
+						กำหนดสิทธิผู้ใช้ระบบ
+				</span>
+			<span class="da-panel-toggler"></span></div>
+			<div class="da-panel-content">
+				<table class="da-table">
+					<thead>
+						<tr>
+							<th><center>ลำดับ</center></th>
+							<th><center>รายชื่อ</center></th>
+							<th><center>เจ้าหน้าที่</center></th>
+							<th><center>นักพัฒนาระบบ</center></th>
+							<th><center>ผู้ดูแลระบบ</center></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="odd">
+							<td><center>1</center></td>
+							<td><center>นาย ธนภัทร แก้ววิชิต</center></td>
+							<th><center><input type="radio" name="gender"></li></center></th></td>
+							<th><center><input type="radio" name="gender"></li></center></th></td>
+							<th><center><input type="radio" name="gender"></li></center></th></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>   
 </body>
 </html>
