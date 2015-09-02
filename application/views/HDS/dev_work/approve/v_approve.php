@@ -1,34 +1,26 @@
-        <div class ="da-panel collapsible">
-            <div class="da-panel-header">
-                <span class="da-panel-title">
-                    <img src="images/icons/black/16/list.png" alt="">
-                    ผลการอนุมัติ
-                </span>
-                <span class="da-panel-toggler"></span>
 
-            </div>
-            <div class="da-panel-content">
-                <table class="da-table">
-                    <thead>
-                        <th>ลำดับ</th>
-                        <th>หัวเรื่อง</th>
-                        <th>วันที่</th>
-                        <th>ประเภท</th>
-                        <th>หมวด</th>
-                        <th>ผู้ส่ง</th>
-                        <th>ดำเนินการ</th>
-                    </thead>
-                    <tbody>
-                        <td><center>1</center></td>
-                        <td>ปุ่มไอคอนการบันทึกกดไม่ไป</td>
-                        <td>29-08-2015</td>
-                        <td>Syntax</td>
-                        <td>Error</td>
-                        <td>Keroro</td>
-                        <td><input type="submit" value="อนุมัติ" class="da-button green"> <input type="submit" value="ไม่อนุมัติ" class="da-button pink"></td>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="da-panel-content">
+    <table class="da-table">
+        <thead>
+            <th>ลำดับ</th>
+            <th>หัวเรื่อง</th>
+            <th>วันที่</th>
+            <th>ประเภท</th>
+            <th>หมวด</th>
+            <th>ผู้ส่ง</th>
+            <th>ดำเนินการ</th>
+        </thead>
+        <tbody>
+            <td><center>1</center></td>
+            <td>ปุ่มไอคอนการบันทึกกดไม่ไป</td>
+            <td>29-08-2015</td>
+            <td>Syntax</td>
+            <td>Error</td>
+            <td>Keroro</td>
+            <td><input type="submit" value="อนุมัติ" class="da-button green"> <input type="submit" value="ไม่อนุมัติ" class="da-button pink"></td>
+        </tbody>
+    </table>
+</div><!-- content-->
+
     
     
