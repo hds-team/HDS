@@ -51,10 +51,10 @@
         <div id="tab-1" style="padding: 0;">
           <?php echo $petition; ?>
         </div>
-        <div id="tab-2">
+        <div id="tab-2" style="padding: 0;">
           <?php echo $check; ?>
         </div>
-        <div id="tab-3">
+        <div id="tab-3" style="padding: 0;">
           <?php echo $check_now; ?>
         </div>
     </div><!-- tabs -->

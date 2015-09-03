@@ -334,7 +334,7 @@
         $menu[3]['icon'] = "cog_4.png";
 
         $menu[4]['name'] = "ตำแหน่งงาน";
-        $menu[4]['controller'] = "position";
+        $menu[4]['controller'] = "admin/position";
         $menu[4]['icon'] = "create_write.png";
 
         $menu[5]['name'] = "ตรวจงาน";

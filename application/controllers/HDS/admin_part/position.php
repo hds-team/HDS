@@ -1,5 +1,6 @@
 <?php
-echo "TEST POSITION";
-$data['content'] = $this->hds_output('position/v_position');
-$this->layout_output($data);
+
+	//----------------LOAD VIEW
+	$data['content'] = $this->hds_output('admin/position/v_position', NULL, TRUE);
+	$this->layout_output($data);
 ?>

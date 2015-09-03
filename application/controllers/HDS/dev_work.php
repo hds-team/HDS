@@ -15,7 +15,7 @@ class Dev_work extends HDS_Controller {
 		//--------Prototype
 		$data_content['pending'] = $this->pending();
 		$data_content['ongoing'] = $this->ongoing();
-		//$data['approve'] = $this->approve();
+		$data_content['approve'] = $this->approve();
 
 		$data['content'] = $this->hds_output('dev_work/main_dev_work', $data_content, true);
 		$this->layout_output($data);
