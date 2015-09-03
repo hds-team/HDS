@@ -1,6 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require(dirname(__FILE__)."/../UMS_Controller.php");
 class HDS_Controller extends UMS_Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('HDS/m_dynamic');
+	}
+
 	public function index(){
 		echo "TEST";
 	}
