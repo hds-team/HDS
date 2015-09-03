@@ -17,7 +17,7 @@
             <td>Syntax</td>
             <td>Error</td>
             <td>Keroro</td>
-            <td><input type="submit" value="อนุมัติ" class="da-button green"> <input type="submit" value="ไม่อนุมัติ" class="da-button pink"></td>
+            <td><input type="submit" value="รับทราบ" class="da-button green"> </td>
         </tbody>
     </table>
 </div><!-- content-->
