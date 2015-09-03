@@ -21,7 +21,8 @@ class Fundamental extends HDS_Controller {
 
 	public function contact(){
 		include('fundamental_part/contact.php');
-
+		
+	
 		$data['content'] = $view;
 		$this->layout_output($data);
 	}

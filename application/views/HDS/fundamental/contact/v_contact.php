@@ -16,12 +16,16 @@
                     <th>Email</th>
                 </tr>
             </thead>
+			<?php $i='1';?>
             <tbody>
                 <tr class="odd">
-                	<td>1</td>
-                    <td>มิกซี่   จังไร</td>
-                    <td>0922924544</td>
-                    <td>mix1kingdom@hotmail.com</td>
+					<?php 
+					foreach($temp as $row) { ?>  <!-- loop name,tell,email -->
+                	<td><?php echo $i++; ?></td>
+                    <td><?php echo $row->UsName; ?></td>
+                    <td><?php echo $row->rq_tell;?></td>
+                    <td><?php echo $row->rq_email;?></td>
+					<?php } ?>
                 </tr>
             </tbody>
         </table>
