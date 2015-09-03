@@ -26,4 +26,10 @@ class Fundamental extends HDS_Controller {
 		$data['content'] = $view;
 		$this->layout_output($data);
 	}
+	public function insert_category(){
+		include('fundamental_part/insert_category.php');
+
+		//$data['content'] = $view;
+		//$this->layout_output($data);
+	}
 }

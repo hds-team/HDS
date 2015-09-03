@@ -1,6 +1,7 @@
 <div class="grid_1">
     .
 </div>
+
 <div class="grid_2">
     <div class="da-panel">
         <div class="da-panel-header">
@@ -8,18 +9,23 @@
                 เพิ่มประเภท
             </span>
         </div>
+         
         <div class="da-panel-content">
-        	<form class="da-form">
+            <?php 
+                $data['class'] = "da-form";
+                echo form_open('HDS/fundamental/insert_category', $data); 
+             ?>
             	<div class="da-form-row">
                 	<label>ประเภท</label>
-                    <div class="da-form-item large">
-                    	<input type="text" />
+                     <div class="da-form-item large">
+                    	<input type="text" name="category" />
                     </div>
                   </div>
                 <div class="da-button-row">
                 	<input type="submit" value="Submit" class="da-button green" />
+                     
                 </div>
-            </form>
+            <?php echo form_close(); ?>
         </div>
     </div><!--class="da-panel-->
 </div>
@@ -45,12 +51,19 @@
                 </tr>
             </thead>
             <tbody>
-                <?php ?>
+               <?php
+                    $index=0;
+                    
+                    foreach ($query->result() as $row)
+                    {
+                        
+                        
+                    ?>
                 <tr>
-                    <td><center>1</center></td>
-                    <td><center>หมวด</center></td>
+                    <td><center><?php echo ++$index;?></center></td>
+                    <td><center><?php echo $row->ct_name;?></center></td>
                     <td><center>
-                        <input type="checkbox" id="s11" class="i-button" name="ios-checkbox" /> 
+                        <?php echo $row->ct_status;?>
                     </center></td>
                     <td><center>
                             <div class="grid_2">
@@ -63,7 +76,9 @@
                     </td>
                     
                 </tr>
-                <?php ?>
+                <?php 
+            }
+            ?>
             </tbody>
         </table>
     </div> <!--da-panel-content-->
