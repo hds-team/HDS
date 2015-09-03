@@ -1,9 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require(dirname(__FILE__)."../../../HDS_Model.php");
-class M_check_now extends HDS_Model{
+//require(dirname(__FILE__)."../../../HDS_Model.php");
+class M_check_now extends CI_Model{
 	public function __construct(){
 		parent::__construct();
-		}
+		$this->hds = $this->load->database('hds', TRUE);
+		$this->ums = $this->load->database('ums', TRUE);
+	}
+
 	public function check_now_require(){
 		$this->hds
 		->select('*')
