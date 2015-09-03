@@ -1,7 +1,9 @@
-<!-- Content Area -->
-
-	<div class="da-panel">
-    	<div class="da-panel-header">
+<div class="grid_1">
+    .
+</div>
+<div class="grid_2">
+    <div class="da-panel">
+        <div class="da-panel-header">
         	<span class="da-panel-title">
                 เพิ่มประเภท
             </span>
@@ -17,12 +19,12 @@
                 <div class="da-button-row">
                 	<input type="submit" value="Submit" class="da-button green" />
                 </div>
-               </form>
-            </div>
-        </div><!--class="da-panel-->
-    <!--id="da-content-wrap" class="clearfix"-->
+            </form>
+        </div>
+    </div><!--class="da-panel-->
+</div>
             
-
+<div class="clear"></div>
 <!-- Content Area -->
 <div class="da-panel collapsible">
     <div class="da-panel-header">
