@@ -28,13 +28,24 @@
 	$row = $result->row_array();
 
 	$data_file['fl_rq_id'] = $row['rq_id']; // set max rq_id 
-	$data_file['fl_name'] = $this->input->post('fl_name');
-	$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
+	
 	//-------- Upload file
-	$config['upload_path'] = './uploads/';
+	$config['upload_path'] = '../uploads/';
+	$config['allowed_types'] = 'gif|jpg|png';
 	$this->load->library('upload', $config);
-	$this->upload->do_upload();
 
+	if ( ! $this->upload->do_upload())
+	{
+		$error = $this->upload->display_errors();
+		echo $error;
+	}
+	else
+	{
+		$upload_data =  $this->upload->data(); //Set info of file
+		$data_file['fl_name'] = $upload_data['file_name']; //Set filename 
+	}
+
+	$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
 	redirect(base_url($URL));
 
 ?>

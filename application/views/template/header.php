@@ -211,7 +211,7 @@
             <div class="da-form-row">
                 <label>อีเมล์</label>
                 <div class="da-form-item">
-                    <input type="text" name="rq_email" required>
+                    <input type="email" name="rq_email" required>
                 </div>
             </div>
             <div class="da-form-row">
@@ -223,7 +223,7 @@
             <div class="da-form-row">
                 <label>ไฟล์แนบ</label>
                 <div class="da-form-item">
-                    <input type="file" class="da-custom-file" name="fl_name">
+                    <input type="file" class="da-custom-file" name="userfile">
                 </div>
             </div>
             <div class="da-button-row">
