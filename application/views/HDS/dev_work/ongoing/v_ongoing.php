@@ -12,17 +12,24 @@
 			</tr>
 		</thead>
 		<tbody role="alert" aria-live="polite" aria-relevant="all">
+		<?php $index=0;
+			foreach($query->result() as $row)
+			{
+		?>
 			<tr class="odd">
-				<td><center>1</center></td>
-				<td>Test</td>
-				<td>26/08/2558</td>
-				<td>ข้อผิดพลาด</td>
-				<td>หมวด ก</td>
-				<td>นาย ก</td>
+				<td><center><?php echo $index+1; ?></center></td>
+				<td><?php echo $row->rq_subject; ?></td>
+				<td><?php echo $row->rq_date; ?></td>
+				<td><?php echo $row->ct_name; ?></td>
+				<td><?php echo $row->kn_name; ?></td>
+				<td><?php echo $UsName; ?></td>
 				<td><center>
-					<input type="button" class="da-button blue" value="ส่งตรวจ" />
+					<input type="button" class="da-button blue" value="<?php echo $row->st_name; ?>" />
 				</center></td>
 			</tr>
+		<?php 
+			}
+		?>
 		</tbody>
 	</table>
 </div><!-- da-panel-content -->
