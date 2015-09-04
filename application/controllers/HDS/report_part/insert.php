@@ -24,28 +24,31 @@
 	$this->m_dynamic->insert('hds_request', $data);
 
 	//-------- FILE insert data
-	$result = $this->m_report->get_max_rq_id();
-	$row = $result->row_array();
+	if($this->input->post('userfile') !== NULL){
+		//echo "UPLOAD CHECK";
+		$result = $this->m_report->get_max_rq_id();
+		$row = $result->row_array();
 
-	$data_file['fl_rq_id'] = $row['rq_id']; // set max rq_id 
-	
-	//-------- Upload file
-	$config['upload_path'] = '../uploads/';
-	$config['allowed_types'] = 'gif|jpg|png';
-	$this->load->library('upload', $config);
+		$data_file['fl_rq_id'] = $row['rq_id']; // set max rq_id 
+		
+		//-------- Upload file
+		$config['upload_path'] = '../uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$this->load->library('upload', $config);
 
-	if ( ! $this->upload->do_upload())
-	{
-		$error = $this->upload->display_errors();
-		echo $error;
+		if (!$this->upload->do_upload())
+		{
+			$error = $this->upload->display_errors();
+			echo $error;
+		}
+		else
+		{
+			$upload_data =  $this->upload->data(); //Set info of file
+			$data_file['fl_name'] = $upload_data['file_name']; //Set filename 
+		}
+
+		$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
 	}
-	else
-	{
-		$upload_data =  $this->upload->data(); //Set info of file
-		$data_file['fl_name'] = $upload_data['file_name']; //Set filename 
-	}
-
-	$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
 	redirect(base_url($URL));
 
 ?>
