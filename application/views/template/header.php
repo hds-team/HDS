@@ -28,9 +28,11 @@
 <!-- Demo Stylesheet -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/demo.css" media="screen" />
 
-<!-- HDS -->
 
-<!-- /HDS -->
+<!-- HDS JQ -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <title>User Management System</title>
 
@@ -90,89 +92,10 @@
                                 <li><a href="<?php echo base_url();?>index.php/UMS/showProfile">Profile</a></li>
                                 <li><a href="#">Settings</a></li>
                                 <li><a href="<?php echo base_url();?>index.php/user/ChangePassword">Change Password</a></li>
-                                <!-- HDS -->
-                                
-                                <div aria-labelledby="ui-dialog-title-da-ex-dialog-form-div" role="dialog" tabindex="-1" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" style="display: block; z-index: 1006; outline: 0px none; position: absolute; height: auto; width: 640px; top: 1109.5px; left: 310.5px;">
-                                    <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
-                                        <span id="ui-dialog-title-da-ex-dialog-form-div" class="ui-dialog-title">Report Form</span> 
-                                        <a role="button" class="ui-dialog-titlebar-close ui-corner-all" href="#"><span class="ui-icon ui-icon-closethick">close</span></a>
-                                    </div> 
-                                    <div scrollleft="0" scrolltop="0" style="width: auto; min-height: 45px; height: auto;" id="da-ex-dialog-form-div" class="no-padding ui-dialog-content ui-widget-content">
-                                        <?php $data = array('novalidate'=>'novalidate', 'id'=>'da-ex-dialog-form-val', 'class'=>'da-form', 'enctype='=>'multipart/form-data'); ?>
-                                        <?php echo form_open('HDS/report/add', $data); ?>
-                                            <input type="hidden" value="<?php echo current_url(); ?>" name="part"/>
-                                            <div id="da-validate-error" class="da-message error" style="display:none;">
-                                            </div>
-                                            <div class="da-form-inline">
-                                                <div class="da-form-row">
-                                                    <label>Subject <span class="required">*</span></label>
-                                                    <div class="da-form-item large">
-                                                        <span class="formNote">หัวข้อเรื่อง</span>
-                                                        <input type="text" name="subject">
-                                                    </div>
-                                                </div>
-                                                <div class="da-form-row" >
-                                                    <label>Report Type<span class="required">*</span></label>
-                                                    <div class="da-form-item large">
-                                                        <span class="formNote">ประเภทปัญหา</span>
-                                                        <!-- option -->
-                                                        <select id="report" onchange="show_defect()" name="report_type">
-                                                            <option value=1 selected>Requirement</option>
-                                                            <option value=2 >Defect</option>
-                                                        </select>
-                                                        <!-- option -->
-                                                    </div>
-                                                </div>
-                                                <div class="da-form-row" id="defect">
-                                                    <label>Defect Type<span class="required">*</span></label>
-                                                    <div class="da-form-item large">
-                                                        <span class="formNote">ประเภทข้อผิดพลาด</span>
-                                                        <!-- option -->
-                                                        <select name="defect_type">
-                                                            <option value=1 selected>Defect01</option>
-                                                            <option value=2>Defect02</option>
-                                                        </select>
-                                                        <!-- option -->
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="da-form-row">
-                                                    <label>Detail<span class="required">*</span></label>
-                                                    <div class="da-form-item large">
-                                                        <span class="formNote">รายละเอียด</span>
-                                                        <textarea rows="auto" cols="auto" name="detail"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="da-form-row">
-                                                    <label>File</label>
-                                                    <div class="da-form-item large">
-                                                        <!-- <input type="file" name="file[]" multiple/> -->
-                                                        <input type="file" name="userfile"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-n"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-e"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-s"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-w"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-sw"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-ne"></div>
-                                    <div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-nw"></div>
-                                    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-                                        <div class="ui-dialog-buttonset">
-                                            <button aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button">
-                                                <span class="ui-button-text">Send</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                                <li><a id="da-ex-dialog-form" onclick="hide_defect()">Report</a></li>
+                                <!-- HDS link dialog-->
+                                <li><a id="report_btn">Report</a></li>
                                 <li><a href="<?php echo base_url('index.php/HDS/report_history'); ?>" id="da-ex-dialog-form" onclick="hide_defect()">Report List</a></li>
-                                <!-- HDS -->
+                                <!-- HDS END-->
                             </ul>
                             </div>
                         <div id="da-header-button-container">
@@ -221,3 +144,91 @@
                 </div>
             </div>
            
+<!-- HDS Dialog Script-->
+<script>
+  $(function() {
+    $( "#report_input" ).dialog({
+      autoOpen: false,
+      resizable: false,
+      modal: true,
+      width: 800
+    });
+
+    $( "#report_btn" ).click(function() {
+      $( "#report_input" ).dialog( "open" );
+    });
+  });
+</script>
+
+
+<!-- HDS Dialog Report -->
+<div id="report_input" class="da-panel-content" title="แบบฟอร์มคำร้อง" style="padding: 0px">
+        <?php 
+            $data['class'] ="da-form";
+            echo form_open_multipart('HDS/report/insert', $data); 
+        ?>
+            <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" >
+            <div class="da-form-row">
+                <label>หัวเรื่อง</label>
+                <div class="da-form-item">
+                    <input type="text" name="rq_subject" required>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <label>ประเภท</label>
+                <div class="da-form-item">
+                    <select name="rq_ct_id">
+                        <?php
+                            foreach($hds_category->result() as $category){
+                        ?>
+                                <option value="<?php echo $category->ct_id; ?>"><?php echo $category->ct_name; ?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <label>หมวด</label>
+                <div class="da-form-item">
+                    <select name="rq_kn_id">
+                        <?php
+                            foreach($hds_kind->result() as $kind){
+                        ?>
+                                <option value="<?php echo $kind->kn_id; ?>"><?php echo $kind->kn_name; ?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <label>เบอร์โทร</label>
+                <div class="da-form-item">
+                    <input type="text" name="rq_tell" required>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <label>อีเมล์</label>
+                <div class="da-form-item">
+                    <input type="text" name="rq_email" required>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <label>รายละเอียด</label>
+                <div class="da-form-item">
+                    <textarea name="rq_detail" rows="auto" cols="auto" required></textarea>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <label>ไฟล์แนบ</label>
+                <div class="da-form-item">
+                    <input type="file" class="da-custom-file" name="fl_name">
+                </div>
+            </div>
+            <div class="da-button-row">
+                <input type="reset" value="Reset" class="da-button gray left">
+                <input type="submit" value="Submit" class="da-button red">
+            </div>
+        <?php echo form_close(); ?>
+</div>

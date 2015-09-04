@@ -22,6 +22,9 @@ class UMS_Controller extends CI_Controller {
 //		$this->load->model("UMS/m_umnotification"); for notification
 		$this->ums = $this->load->database('ums', TRUE);
 
+		//-------HDS DB LOAD MODEL
+		$this->load->model('HDS/report/m_report');
+
 	}
 	/*	header()=> This Function is show the header of the website and user informations
 	[[Be Careful]] ,If you want to override.
@@ -29,6 +32,10 @@ class UMS_Controller extends CI_Controller {
 		it's coming soon in next version....*/
 	function header()
 	{	
+		//------- HDS REPORT 
+		$data['hds_category'] = $this->m_report->get_category();
+		$data['hds_kind'] = $this->m_report->get_kind();
+		//------- END HDS REPORT
 		/* old way
 		if($this->session->userdata('UsID')) 
 		{																					
