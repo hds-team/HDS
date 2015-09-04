@@ -30,8 +30,8 @@ class Test extends UMS_Controller {
 		echo "//-------------UPDATE INSERT DELETE <BR>";
 
 		//-----VIEW
-			from 
-			<input name='nune' type="textbox">
+			//from 
+			//<input name='nune' type="textbox">
 
 		//-----CONTROLLER
 		
@@ -45,6 +45,10 @@ class Test extends UMS_Controller {
 
 		//$this->m_dynamic->delete('hds_category', 'ct_id', 3);
 		
+	}
+
+	public function dialog_test(){
+		$this->output('HDS/v_test');
 	}
 
 }

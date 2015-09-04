@@ -29,20 +29,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/demo.css" media="screen" />
 
 <!-- HDS -->
-<!-- show and hide dropdown list -->
-<script> 
-    function hide_defect(){
-        document.getElementById('defect').style.display = "none";
-    }
-    function show_defect(){
-        if(document.getElementById('report').value == 2){
-            document.getElementById('defect').style.display = "inherit";
-        }else{
-            document.getElementById('defect').style.display = "none";
-        }
-    }
-</script>
-<!-- Capture -->
 
 <!-- /HDS -->
 
