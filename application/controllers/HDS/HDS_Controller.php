@@ -4,6 +4,7 @@ class HDS_Controller extends UMS_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('HDS/m_dynamic');
+		$this->load->library('date_time');
 	}
 
 	public function index(){

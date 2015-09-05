@@ -6,7 +6,6 @@ class M_dynamic extends CI_Model{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
-		$this->load->library('date_time');
 	}
 	
 	public function get_all($tb){
