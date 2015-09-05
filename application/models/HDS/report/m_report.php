@@ -32,6 +32,15 @@ class M_report extends CI_Model{
 		return $this->hds->get();
 	}
 
+	public function get_detail($rq_mb_id){
+		$this->hds
+		->select('*')
+		->from('hds_request')
+		->where('rq_mb_id', $rq_mb_id)
+		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner');
+		return $this->hds->get();
+	}
+
 
 	
 

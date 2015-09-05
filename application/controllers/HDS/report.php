@@ -9,4 +9,9 @@ class Report extends HDS_Controller {
 		include('report_part/insert.php');
 	}
 
+
+	public function detail(){
+		include('report_part/detail.php');
+	}
+
 }
