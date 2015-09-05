@@ -1,6 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require(dirname(__FILE__)."/HDS_Model.php");
-class M_dynamic extends HDS_Model{
+//require(dirname(__FILE__)."/HDS_Model.php");
+class M_dynamic extends CI_Model{
+	public function __construct()
+	{
+		parent::__construct();
+		$this->hds = $this->load->database('hds', TRUE);
+		$this->ums = $this->load->database('ums', TRUE);
+	}
 	
 	public function get_all($tb){
 		$this->hds

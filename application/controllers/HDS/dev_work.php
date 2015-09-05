@@ -32,7 +32,7 @@ class Dev_work extends HDS_Controller {
 		return $view;
 	}
 
-	public function ongoing(){
+	public function ongoing($rq_sys_id = 10){
 		include('dev_work_part/ongoing.php');
 		
 		return $view;
