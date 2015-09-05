@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class M_ongoing extends CI_Model{
+//require(dirname(__FILE__)."/HDS_Model.php");
+class M_reply extends CI_Model{
 	public function __construct()
 	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
 	}
-	public function get_request() //get request and  status 
+	public function get_request($rq_id) //get request's system
 	{
 		$this->hds
 		->select('*')
@@ -15,11 +16,8 @@ class M_ongoing extends CI_Model{
 		->join('hds_v1.hds_kind', 'hds_kind.kn_id = hds_request.rq_kn_id', 'inner') //inner kind and request
 		->join('hds_v1.hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner') //inner join status
 		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner') //join ums
-		->where('hds_request.rq_sys_id',10) //system's ums
-		->where('hds_request.rq_st_id',5); //status sending
+		->where('hds_request.rq_id',$rq_id); //system's ums
 		$query = $this->hds->get();
 		return $query;
 	}
-	
-
 }
