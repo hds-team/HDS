@@ -211,7 +211,7 @@
             <div class="da-form-row">
                 <label>อีเมล์</label>
                 <div class="da-form-item">
-                    <input type="email" name="rq_email" required>
+                    <input type="text" name="rq_email" required>
                 </div>
             </div>
             <div class="da-form-row">
