@@ -94,7 +94,7 @@
                                 <li><a href="<?php echo base_url();?>index.php/user/ChangePassword">Change Password</a></li>
                                 <!-- HDS link dialog-->
                                 <li><a id="report_btn">Report</a></li>
-                                <li><a href="<?php echo base_url('index.php/HDS/report_history'); ?>" id="da-ex-dialog-form" onclick="hide_defect()">Report List</a></li>
+                                <li><a href="<?php echo base_url('index.php/HDS/report/detail'); ?>">Report List</a></li>
                                 <!-- HDS END-->
                             </ul>
                             </div>
