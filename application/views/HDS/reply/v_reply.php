@@ -1,29 +1,48 @@
-
     <!-- Detail of request -->
     <div class="da-panel">
         <div class="da-panel-header">
             <span class="da-panel-title">
-                <img src="images/icons/black/16/computer_imac.png" alt="Panel">
+                <img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
                 รายละเอียกคำร้อง 
             </span>
-            
+        <span class="da-panel-toggler"></span></div>
+        <div class="da-panel-content">
+            <table class="da-table da-detail-view">
+                <tbody>
+                    <?php 
+                        foreach($request->result() as $row)
+                        {
+                    ?>
+                    <tr class="odd">
+                        <th>หัวข้อ</th>
+                        <td><?php echo " ".$row->rq_subject; ?></td>
+                    </tr>
+                    <tr class="even">
+                        <th>ประเภท</th>
+                        <td><?php echo " ".$row->st_name; ?></td>
+                    </tr>
+                    <tr class="odd">
+                        <th>หมวด</th>
+                        <td><?php echo " ".$row->kn_name; ?></td>
+                    </tr>
+                    <tr class="even">
+                        <th>วันที่</th>
+                        <td><?php echo " ".$row->rq_date; ?></td>
+                    </tr>
+                    <tr class="odd">
+                        <th>ผู้ส่ง</th>
+                        <td><?php echo " ".$row->UsName; ?></td>
+                    </tr>
+                    <tr class="even">
+                        <th>รายละเอียด</th>
+                        <td><?php echo " ".$row->rq_detail; ?></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
-		<?php 
-			foreach($request->result() as $row)
-			{
-				$rq_id = $row->rq_id;
-		?>
-			<div class="da-panel-content with-padding">
-				<p>หัวข้อ : <?php echo " ".$row->rq_subject; ?></p>
-				<p>ประเภท : <?php echo " ".$row->st_name; ?></p>
-				<p>หมวด : <?php echo " ".$row->kn_name; ?></p>
-				<p>วันที่ : <?php echo " ".$row->rq_date; ?></p>
-				<p>ผู้ส่ง : <?php echo " ".$row->UsName; ?></p>
-				<p>รายละเอียด : <?php echo " ".$row->rq_detail; ?></p>
-			</div>
-		<?php
-			}
-		?>
     </div>
 
     <!-- File picture of request -->
@@ -85,31 +104,27 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> 
+    <div class="clear"></div><!-- new line -->
     <!-- Meassage -->
-    <div class="clear"></div><!-- new line -->
-    <div class="grid_2">
-        <div class="da-panel-widget">
-            Plain grid area
-        </div>
-    </div>
+    <?php
+     foreach($chat->result() as $row){
+        if($row->ps_ut_id == $status){
+            echo "<div class='grid_2'>.</div>"; // pull right
+        }
+    ?>
 
-    <div class="clear"></div><!-- new line -->
-    <div class="grid_2">.</div><!-- pull right -->
-    <div class="grid_2">
-        <div class="da-panel-widget">
-            Plain grid area
+       <div class="grid_2">
+            <div class="da-panel-widget">
+                <?php echo $row->rp_detail; ?>
+            </div>
         </div>
-    </div>
 
-    <div class="clear"></div><!-- new line -->
-    <div class="grid_2">.</div><!-- pull right -->
-    <div class="grid_2">
-        <div class="da-panel-widget">
-            Plain grid area
-        </div>
-    </div>
-    <div class="clear"></div><!-- new line -->
+        <div class="clear"></div><!-- new line -->
+
+    <?php
+        }
+    ?>
 	<div class="da-panel">
 		<div class="da-panel-header">
 				<span class="da-panel-title">

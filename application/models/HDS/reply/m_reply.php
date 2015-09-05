@@ -7,6 +7,7 @@ class M_reply extends CI_Model{
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
 	}
+
 	public function get_request($rq_id) //get request's system
 	{
 		$this->hds
@@ -20,4 +21,16 @@ class M_reply extends CI_Model{
 		$query = $this->hds->get();
 		return $query;
 	}
+
+	public function get_chat($rq_id, $status){
+		$this->hds
+		->select('*')
+		->from('hds_reply')
+		->join('hds_position', 'hds_position.ps_mb_id = hds_reply.rp_mb_id', 'left')
+		->where('hds_reply.rp_rq_id', $rq_id)
+		->where('hds_position.ps_ut_id', 3) // status 2 is position check
+		->or_where('hds_position.ps_ut_id', $status); 
+		return $this->hds->get();
+	}
+
 }
