@@ -1,5 +1,7 @@
 <?php
 	//------ LOAD MODEL
+	$rp_mb_id = $this->session->userdata('UsID');
+	//echo $data['UsID'];
 	$this->load->model('HDS/reply/m_reply');
 	//------ GET DATA CHAT
 	$mb_id = $this->session->userdata('UsID');
