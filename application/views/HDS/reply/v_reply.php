@@ -17,7 +17,7 @@
 				<p>หัวข้อ : <?php echo " ".$row->rq_subject; ?></p>
 				<p>ประเภท : <?php echo " ".$row->st_name; ?></p>
 				<p>หมวด : <?php echo " ".$row->kn_name; ?></p>
-				<p>วันที่ : <?php echo " ".$row->rq_date; ?></p>
+				<p>วันที่ : <?php echo " ".$this->date_time->DateThai($row->rq_date); ?></p>
 				<p>ผู้ส่ง : <?php echo " ".$row->UsName; ?></p>
 				<p>รายละเอียด : <?php echo " ".$row->rq_detail; ?></p>
 			</div>
