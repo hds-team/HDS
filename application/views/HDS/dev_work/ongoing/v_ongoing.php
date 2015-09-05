@@ -16,18 +16,22 @@
 			foreach($query->result() as $row)
 			{
 		?>
-			<tr class="odd">
-				<td><center><?php echo $index+1; ?></center></td>
-				<td><?php echo $row->rq_subject; ?></td>
-				<td><?php echo $row->rq_date; ?></td>
-				<td><?php echo $row->ct_name; ?></td>
-				<td><?php echo $row->kn_name; ?></td>
-				<td><?php echo $UsName; ?></td>
-				<td><center>
-					<input type="button" class="da-button blue" value="<?php echo $row->st_name; ?>" />
-				</center></td>
-			</tr>
+				<tr class="odd">
+					<td><center><?php echo $index+1; ?></center></td>
+					<td><?php echo $row->rq_subject; ?></td>
+					<td><?php echo $row->rq_date; ?></td>
+					<td><?php echo $row->ct_name; ?></td>
+					<td><?php echo $row->kn_name; ?></td>
+					<td><?php echo $row->UsName; ?></td>
+					<td><center>
+						<a href = "<?php echo base_url('index.php/HDS/dev_work/update_status/'.$row->rq_id.'/'.$row->st_id); ?>" />
+							<input type="button" class="da-button blue" value="<?php echo $row->st_name; ?>" />
+						</a>
+						
+					</center></td>
+				</tr>
 		<?php 
+					$index++;
 			}
 		?>
 		</tbody>

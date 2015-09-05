@@ -34,7 +34,11 @@ class Dev_work extends HDS_Controller {
 
 	public function ongoing(){
 		include('dev_work_part/ongoing.php');
+		
 		return $view;
+	}
+	public function update_status($rq_id,$st_id){
+		include('dev_work_part/update_ongoing.php');
 	}
 
 }
