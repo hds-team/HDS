@@ -10,4 +10,8 @@ class Admin extends HDS_Controller{
 	public function position(){
 		include('admin_part/position.php');
 	}
+	
+	public function update_member(){
+		include('admin_part/update_member.php');
+	}
 }
