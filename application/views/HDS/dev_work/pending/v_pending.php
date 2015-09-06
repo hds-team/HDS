@@ -1,4 +1,3 @@
-
 <div class="da-panel-content" style="border: 0;">
     <table class="da-table">
         <thead>
@@ -13,17 +12,20 @@
              </tr> 
         </thead> <!--Close header table-->
         <tbody>
+		<?php $index = 1;?>
+		<?php foreach($rq->result() as $row){?>
             <tr class="odd">
-				<td><center> 1 </center></td>
-				<td><center> Trident </center></td>
-				<td><center> Internet Explorer 4.0 </center></td>
-				<td><center> Win 95+ </center></td>
-				<td><center> 4 </center></td>
-				<td><center> X </center></td>
+				<td><center> <?php echo $index++;?></center></td>
+				<td><center> <?php echo $row->rq_subject; ?> </center></td>
+				<td><center> <?php echo $row->rq_date; ?> </center></td>
+				<td><center> <?php echo $row->ct_name;?> </center></td>
+				<td><center> <?php echo $row->kn_name;?> </center></td>
+				<td><center> <?php echo $row->UsName;?> </center></td>
 				<td class="da-icon-column">
-					<input type="button" value="ดำเนินการ" class="da-button red">
+					<a href = "<?php echo base_url('index.php/HDS/dev_work/pending_update/'.$row->rq_id);?>"><input type="button" value="ดำเนินการ" class="da-button red"></a>
 				</td>
             </tr>
+		<?php }?>
         </tbody> <!--Close body table-->
     </table> <!--Close table-->
 </div> <!--Close div class="da-panel-content -->
