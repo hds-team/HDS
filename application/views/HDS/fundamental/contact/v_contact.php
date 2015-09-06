@@ -16,17 +16,21 @@
                     <th>Email</th>
                 </tr>
             </thead>
-			<?php $i='1';?>
             <tbody>
-                <tr class="odd">
 					<?php 
-					foreach($temp as $row) { ?>  <!-- loop name,tell,email -->
+						$i='1';
+						foreach($temp as $row) {
+					?> 
+					<tr class="odd">
+						<!-- loop name,tell,email -->
 						<td><?php echo $i++; ?></td>
 						<td><?php echo $row->UsName; ?></td>
 						<td><?php echo $row->rq_tell;?></td>
 						<td><?php echo $row->rq_email;?></td>
-					<?php } ?>
-                </tr>
+					</tr>
+					<?php 
+						} 
+					?>
             </tbody>
         </table>
     </div> <!--  class="da-panel-content -->
