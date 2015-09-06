@@ -3,9 +3,8 @@
         <div class="da-panel-header">
             <span class="da-panel-title">
                 <img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
-                รายละเอียกคำร้อง 
+					รายละเอียกคำร้อง 
             </span>
-        <span class="da-panel-toggler"></span></div>
         <div class="da-panel-content">
             <table class="da-table da-detail-view">
                 <tbody>
@@ -23,11 +22,11 @@
                     </tr>
                     <tr class="odd">
                         <th>หมวด</th>
-                        <td><?php echo " ".$row->kn_name; ?></td>
+                        <td><?php echo " ".$row->ct_name; ?></td>
                     </tr>
                     <tr class="even">
                         <th>วันที่</th>
-                        <td><?php echo " ".$row->rq_date; ?></td>
+                        <td><?php echo " ".$this->date_time->DateThai($row->rq_date); ?></td>
                     </tr>
                     <tr class="odd">
                         <th>ผู้ส่ง</th>
