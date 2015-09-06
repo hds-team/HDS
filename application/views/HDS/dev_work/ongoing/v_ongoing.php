@@ -25,7 +25,7 @@
 					<td><?php echo $row->UsName; ?></td>
 					<td><center>
 						<a href = "<?php echo base_url('index.php/HDS/dev_work/update_status/'.$row->rq_id.'/'.$row->st_id); ?>" />
-							<input type="button" class="da-button blue" value="<?php echo $row->st_name; ?>" />
+							<input type="button" class="da-button blue" value="ส่งตรวจ" />
 						</a>
 						
 					</center></td>
