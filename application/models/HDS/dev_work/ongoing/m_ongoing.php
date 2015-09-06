@@ -16,7 +16,7 @@ class M_ongoing extends CI_Model{
 		->join('hds_v1.hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner') //inner join status
 		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner') //join ums
 		->where('hds_request.rq_sys_id',10) //system's ums
-		->where('hds_request.rq_st_id',5); //status sending
+		->where('hds_request.rq_st_id',4); //status sending
 		$query = $this->hds->get();
 		return $query;
 	}

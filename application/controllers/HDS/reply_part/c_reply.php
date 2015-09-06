@@ -5,6 +5,7 @@
 	$this->load->model('HDS/reply/m_reply');
 	//------ GET DATA CHAT
 	$mb_id = $this->session->userdata('UsID');
+	//echo $mb_id;
 	$result = $this->m_dynamic->get_by_id('hds_position', 'ps_mb_id', $mb_id); // get status of member
 	$row_status = $result->row_array();
 	$data['status'] = $row_status['ps_ut_id']; // assign to status
