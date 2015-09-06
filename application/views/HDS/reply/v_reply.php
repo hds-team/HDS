@@ -5,6 +5,7 @@
                 <img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
 					รายละเอียกคำร้อง 
             </span>
+        <span class="da-panel-toggler"></span></div>
         <div class="da-panel-content">
             <table class="da-table da-detail-view">
                 <tbody>
