@@ -2,7 +2,7 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Reply extends HDS_Controller{
 
-	public function detail_sys($rq_id){
+	public function detail_sys($rq_id, $status=NULL){
 		include('reply_part/c_reply.php');
 		$this->layout_output($data);
 	}
