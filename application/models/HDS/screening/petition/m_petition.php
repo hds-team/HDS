@@ -11,7 +11,9 @@ class M_petition extends CI_Model{
 	public function get_all(){
 		$this->hds
 			->select('*')
-			->from('hds_request');
+			->from('hds_request')
+			->join('hds_category','hds_request.rq_id = hds_category.ct_id','inner')
+			->join('ums.umuser','hds_request.rq_mb_id = ums.umuser.UsID','inner');
 			
 		return $this->hds->get();
 	}

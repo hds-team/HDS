@@ -19,8 +19,8 @@
                 	<td><center> <?php echo $index++; ?> </center></td>
                     <td><?php echo $row->rq_subject; ?></td>
                     <td><center><?php echo $row->rq_date; ?></center></td>
-                    <td><center><?php echo $row->rq_ct_id; ?></center></td>
-                    <td><center><?php echo $row->rq_mb_id; ?></center></td>
+                    <td><center><?php echo $row->ct_name; ?></center></td>
+                    <td><center><?php echo $row->UsName; ?></center></td>
                     <td class="da-icon-column">
 						<input type="submit" value="ตรวจรับ" class="da-button blue">
 						<input type="submit" value="เสร็จสิ้น" class="da-button blue">
