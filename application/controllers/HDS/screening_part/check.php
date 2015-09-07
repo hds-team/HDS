@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	$this->load->model("HDS/screening/check/m_check");
 	echo "dddd"."<br>";
 	$data['query'] = $this->m_check->show_category()->result_array();

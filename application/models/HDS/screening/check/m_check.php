@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //require(dirname(__FILE__)."../../../HDS_Model.php");
 class M_check extends CI_Model{
 	public function __construct()
