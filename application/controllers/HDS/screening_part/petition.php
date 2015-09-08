@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('/HDS/screening/petition/m_petition','natkamonnaksomphan');
-	$data['query'] = $this->natkamonnaksomphan->get_all(); 
+	$this->load->model('/HDS/screening/petition/m_petition','m_petition');
+	$data['query'] = $this->m_petition->get_all($sys_id); 
 	$view = $this->hds_output('screening/petition/v_petition', NULL, true); 
 ?>

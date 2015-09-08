@@ -8,12 +8,13 @@ class M_petition extends CI_Model{
 		$this->ums = $this->load->database('ums', TRUE);
 	}
 	
-	public function get_all(){
+	public function get_all($sys_id){
 		$this->hds
 			->select('*')
 			->from('hds_request')
 			->join('hds_category','hds_request.rq_id = hds_category.ct_id','inner')
-			->join('ums.umuser','hds_request.rq_mb_id = ums.umuser.UsID','inner');
+			->join('ums.umuser','hds_request.rq_mb_id = ums.umuser.UsID','inner')
+			->where('rq_sys_id',$sys_id);
 			
 		return $this->hds->get();
 	}

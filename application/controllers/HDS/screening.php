@@ -30,7 +30,7 @@ class Screening extends HDS_Controller {
 		return $view;
 	}
 
-	public function petition($sys_id=""){ //get content by system id
+	public function petition($sys_id=10){ //get content by system id
 		include('screening_part/petition.php');
 		return $view; 
 	}
