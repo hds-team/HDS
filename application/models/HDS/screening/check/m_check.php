@@ -14,7 +14,9 @@ class M_check extends CI_Model{
 		ON hds_request.rq_ct_id=hds_category.ct_id
 		INNER JOIN hds_status
 		ON hds_request.rq_st_id=hds_status.st_id
-		where hds_request.rq_sys_id = ?
+		INNER JOIN ums.umuser
+		ON hds_request.rq_mb_id=ums.umuser.UsID
+		where hds_request.rq_sys_id = ? and hds_request.rq_st_id = 5
 		";
 		$query = $this->hds->query($sql, array($sys_id));
 		//$this->hds

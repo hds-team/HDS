@@ -12,17 +12,23 @@
 			</tr>
 		</thead>
 		<tbody>
+		<?php 
+			$index = 1;
+			foreach($query as $key => $ch)
+			{
+		?>
 			<tr>
-				<td><center>01</center></td>
-				<td>อยู่ดีๆก็พิมพ์ไม่ได้</td>
-				<td><center>11/12/2558</center></td>
-				<td>โปรแกรมกาก</td>
-				<td>ปรากาณ์</td>
+				<td><center><?php echo $index++; ?></center></td>
+				<td><?php echo $ch['rq_subject']; ?></td>
+				<td><center><?php echo $ch['rq_date']; ?></center></td>
+				<td><?php echo $ch['ct_name']; ?></td>
+				<td><?php echo $ch['UsName']; ?></td>
 				<td>	
-					<center><div class="grid_2"><input type="button" class="da-button green" value="อนุมัติ"></div></center>
-					<center><div class="grid_2"><input type="button" class="da-button red" value="ไม่อนุมัติ"></div></center>
+					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/6'); ?>"><button class="da-button green" >อนุมัติ</button></a></div></center>
+					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/7'); ?>"><button class="da-button red">ไม่อนุมัติ</button></a></div></center>
 				</td>
-			</tr>  
+			</tr>  	
+			<?php } ?>
 		</tbody>
 	</table>
 </div> <!-- da-panel-content -->

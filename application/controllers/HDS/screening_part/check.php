@@ -7,5 +7,5 @@
 	{	
 			echo $ch['ct_name']."<br>";
 	}
-	$view = $this->hds_output("screening/check/v_check", NULL,true);
+	$view = $this->hds_output("screening/check/v_check", $data,true);
 ?>

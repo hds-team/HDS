@@ -34,6 +34,9 @@ class Screening extends HDS_Controller {
 		include('screening_part/petition.php');
 		return $view; 
 	}
+	public function update_check($rq_id,$st_id){
+		include('screening_part/update_check.php');
+	}
 }
 
 // Comment กกกกกก
