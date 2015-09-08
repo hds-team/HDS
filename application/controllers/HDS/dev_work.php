@@ -36,7 +36,7 @@ class Dev_work extends HDS_Controller {
 		include ('dev_work_part/pending_update.php');
 	}
 
-	public function ongoing($rq_sys_id = 10){
+	public function ongoing($sys_id = 10){
 		include('dev_work_part/ongoing.php');
 		
 		return $view;
