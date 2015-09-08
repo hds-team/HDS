@@ -20,7 +20,7 @@ class Screening extends HDS_Controller {
 		$this->layout_output($data);
 	}
 
-	public function check($sys_id=""){ //get content by system id
+	public function check($sys_id=10){ //get content by system id
 		include('screening_part/check.php');
 		return $view;
 	}

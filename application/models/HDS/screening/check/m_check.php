@@ -7,13 +7,20 @@ class M_check extends CI_Model{
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
 	}
-	public function show_category()
+	public function show_check($rq_sys_id)
 	{
-		$sql = "SELECT * FROM hds_category";
-		$query = $this->hds->query($sql, array());
+		$sql = "SELECT * FROM hds_request
+		INNER JOIN hds_category
+		ON hds_request.rq_ct_id=hds_category.ct_id
+		INNER JOIN hds_status
+		ON hds_request.rq_st_id=hds_status.st_id
+		where hds_request.rq_sys_id = ?
+		";
+		$query = $this->hds->query($sql, array($this->rq_sys_id));
 		//$this->hds
 		//->select('*')
 		//->from('hds_category');
 		return $query; 
 	}
+	
 }
