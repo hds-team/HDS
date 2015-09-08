@@ -25,7 +25,7 @@ class Screening extends HDS_Controller {
 		return $view;
 	}
 
-	public function check_now($sys_id=""){ //get content by system id
+	public function check_now($sys_id= 10){ //get content by system id
 		include('screening_part/check_now.php');
 		return $view;
 	}
