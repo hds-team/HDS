@@ -26,9 +26,9 @@
             <?php
 				echo form_close();
 			?>
-        </div>
-    </div><!--class="da-panel-->
-</div>
+        </div> <!--da-panel-content1-->
+    </div><!--class="da-panel1-->
+</div> <!--grid21-->
             
 <div class="clear"></div>
 
@@ -49,7 +49,7 @@
 					<th><center>สถานะ</center></th>
 					<th width=180 ><center>ดำเนินการ</center></th>
 				</tr>
-			</thead>
+			</thead> <!--Thead-->
 			<tbody>
 				<?php
 					$index = 0;
@@ -67,21 +67,20 @@
 						<td><center>
 								<div class="grid_2">
 									<input type="submit" value="แก้ไข" class="da-button blue" />
-								</div>
+								</div> <!--grid2/1-->
 								<div class="grid_2">
 									<a href="<?php echo base_url('index.php/HDS/fundamental/delete_kind/'.$row->kn_id); ?>" >
 										<input type="submit" value="ลบ" class="da-button red" /> 
 									</a>
-								</div>
+								</div> <!--grid2/2-->
 							</center>
-						</td>
-						
-					</tr>
+						</td> 
+					</tr> <!--tab TR-->
 				<?php
 					$index++;
-					}
+					} //loop foreach
 				?>
-			</tbody>
-		</table>
-	</div> <!--da-panel-content-->
-</div> <!--da-panel collapsible-->
+			</tbody> <!--Tbody-->
+		</table> <!--table-->
+	</div> <!--da-panel-content2-->
+</div> <!--da-panel collapsible2-->
