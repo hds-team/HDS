@@ -7,7 +7,7 @@
         <span class="da-panel-toggler"></span>
     </div>
     <div class="da-panel-content">
-        <table class="da-table">
+        <table id="da-ex-datatable-numberpaging" class="da-table">
             <thead>
                 <tr>
                     <th>ลำดับ</th>
