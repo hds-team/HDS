@@ -20,7 +20,7 @@
 			<tr>
 				<td><center><?php echo $index++; ?></center></td>
 				<td><?php echo $ch['rq_subject']; ?></td>
-				<td><center><?php echo $ch['rq_date']; ?></center></td>
+				<td><center><?php echo $this->date_time->DateThai($ch['rq_date']); ?></center></td>
 				<td><?php echo $ch['ct_name']; ?></td>
 				<td><?php echo $ch['UsName']; ?></td>
 				<td>	
