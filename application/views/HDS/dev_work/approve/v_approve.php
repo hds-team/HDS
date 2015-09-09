@@ -10,15 +10,22 @@
             <th>ผู้ส่ง</th>
             <th>ดำเนินการ</th>
         </thead>
+        <?php $index = 0;
+        foreach($approve->result() as $row)
+        {
+        ?>
         <tbody>
-            <td><center>1</center></td>
-            <td>ปุ่มไอคอนการบันทึกกดไม่ไป</td>
-            <td>29-08-2015</td>
-            <td>Syntax</td>
-            <td>Error</td>
-            <td>Keroro</td>
+            <td><center><?php echo $index; ?></center></td>
+            <td><?php echo $row->rq_suject; ?></td>
+            <td><?php echo $row->rp_date;?></td>
+            <td><?php echo $row->ct_name; ?></td>
+            <td><?php echo $row->kn_name; ?></td>
+            <td><?php echo $row->ut_name; ?></td>
             <td><input type="submit" value="รับทราบ" class="da-button green"> </td>
         </tbody>
+        <?php 
+        } 
+        ?>
     </table>
 </div><!-- content-->
 
