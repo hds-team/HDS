@@ -8,7 +8,7 @@
 				<th><center><B>วันที่</B></center></th>
 				<th><center><B>ประเภท</B></center></th>
 				<th><center><B>ผู้ส่ง</B></center></th>
-				<th><center><B>ดำเนินการ</B></center></th>
+				<th style="width:22%"><center><B>ดำเนินการ</B></center></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,7 +24,7 @@
 				<td><?php echo $ch['ct_name']; ?></td>
 				<td><?php echo $ch['UsName']; ?></td>
 				<td>	
-					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/6'); ?>"><button class="da-button green" >อนุมัติ</button></a></div></center>
+					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/6'); ?>"><button class="da-button green">อนุมัติ</button></a></div></center>
 					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/7'); ?>"><button class="da-button red">ไม่อนุมัติ</button></a></div></center>
 				</td>
 			</tr>  	
