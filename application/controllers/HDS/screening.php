@@ -40,6 +40,10 @@ class Screening extends HDS_Controller {
 	public function update_petition_accect($rq_id,$st_id){
 		include('screening_part/update_petition_accept.php');
 	}
+	public function update_petition_complete($rq_id,$st_id){
+		include('screening_part/update_petition_complete.php');
+	}
+	
 }
 
 // Comment กกกกกก

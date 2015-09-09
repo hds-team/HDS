@@ -26,8 +26,9 @@
 						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id); ?>" />
 							<input type="submit" class="da-button blue" value="ตรวจรับ" />
 						</a>
-						
-						<input type="submit" value="เสร็จสิ้น" class="da-button blue">
+						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_complete/'.$row->rq_id.'/'.$row->st_id); ?>" />
+							<input type="submit" class="da-button blue" value="เสร็จสิ้น" />
+						</a>
                     </td>
                 </tr>
 				<?php 
