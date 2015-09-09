@@ -44,5 +44,8 @@ class Dev_work extends HDS_Controller {
 	public function update_status($rq_id,$st_id){
 		include('dev_work_part/update_ongoing.php');
 	}
+	public function update_approve($rq_id, $st_id){
+		include('dev_work_part/update_approve.php');
+	}
 
 }
