@@ -6,7 +6,7 @@
                     <th style="width: 200px"><center><b>หัวเรื่อง</b><center></th> 
 					<th style="width: 200px"><center><b>วันที่</b><center></th> 
 					<th style="width: 200px"><center><b>ประเภท</b><center></th> 
-					<th style="width: 200px"><center><b>ผู้ส่ง</b><center></th> 
+					<th style="width: 300px"><center><b>ผู้ส่ง</b><center></th> 
                     <th style="width: 250px"><center><b>ดำเนินการ</b><center></th> 
                 </tr> 
             </thead>
