@@ -32,4 +32,12 @@ class Fundamental extends HDS_Controller {
 		//$data['content'] = $view;
 		//$this->layout_output($data);
 	}
+	
+	public function insert_kind(){
+		include('fundamental_part/insert_kind.php');
+	}
+	public function delete_kind($kn_id){
+		include('fundamental_part/delete_kind.php');
+	}
+	
 }
