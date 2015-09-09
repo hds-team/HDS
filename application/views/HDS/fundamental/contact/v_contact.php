@@ -17,20 +17,21 @@
                 </tr>
             </thead>
             <tbody>
-					<?php 
-						$i='1';
-						foreach($temp as $row) {
-					?> 
+				<?php 
+					$index=1;
+					foreach($temp as $row) 
+					{
+				?> 
 					<tr class="odd">
 						<!-- loop name,tell,email -->
-						<td><?php echo $i++; ?></td>
+						<td><?php echo $index++; ?></td>
 						<td><?php echo $row->UsName; ?></td>
 						<td><?php echo $row->rq_tell;?></td>
 						<td><?php echo $row->rq_email;?></td>
 					</tr>
-					<?php 
-						} 
-					?>
+				<?php 
+					} 
+				?>
             </tbody>
         </table>
     </div> <!--  class="da-panel-content -->

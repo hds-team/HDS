@@ -12,8 +12,9 @@
             </thead>
             <tbody>
 				<?php
-					$index='1';
-					foreach($query->result() as $row){
+					$index=1;
+					foreach($query->result() as $row)
+					{
 				?>
                 <tr class="odd">
                 	<td><center> <?php echo $index++; ?> </center></td>
@@ -22,11 +23,16 @@
                     <td><center><?php echo $row->ct_name; ?></center></td>
                     <td><center><?php echo $row->UsName; ?></center></td>
                     <td class="da-icon-column">
-						<input type="submit" value="ตรวจรับ" class="da-button blue">
+						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id); ?>" />
+							<input type="submit" class="da-button blue" value="ตรวจรับ" />
+						</a>
+						
 						<input type="submit" value="เสร็จสิ้น" class="da-button blue">
                     </td>
                 </tr>
-					<?php } ?>
+				<?php 
+					} 
+				?>
             </tbody>
         </table> <!--class="da-table"-->
     </div> <!--class="da-panel-content"-->
