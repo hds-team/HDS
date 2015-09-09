@@ -10,10 +10,10 @@ class M_approve extends CI_Model{
 		$this->hds
 		->select('*')
 		->from('hds_request')
-		->join('hds_reply', 'hds_reply.rp_id = hds_request.rq_id')
-		->join('hds_category', 'hds_category.ct_id = hds_request.rq_id')
-		->join('hds_kind', 'hds_kind.kn_id = hds_request.rq_id')
-		->join('hds_user_type', 'hds_user_type.ut_id = hds_request.rq_id');
+		->join('hds_reply', 'hds_reply.rp_rq_id = hds_request.rq_id', 'inner')
+		->join('hds_category', 'hds_category.ct_id = hds_request.rq_ct_id', 'inner')
+		->join('hds_kind', 'hds_kind.kn_id = hds_request.rq_kn_id', 'inner')
+		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner');
 		return $this->hds->get();
 	}//Close the function's get_report 
 
