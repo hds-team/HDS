@@ -17,11 +17,15 @@
         <tbody>
             <td><center><?php echo $index+1; ?></center></td>
             <td><?php echo $row->rq_subject; ?></td>
-            <td><?php echo $row->rp_date;?></td>
+            <td><?php echo $row->rq_date;?></td>
             <td><?php echo $row->ct_name; ?></td>
             <td><?php echo $row->kn_name; ?></td>
             <td><?php echo $row->UsName; ?></td>
-            <td><input type="submit" value="รับทราบ" class="da-button green"> </td>
+            <td>
+                <a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id); ?>" />
+                    <input type="submit" value="รับทราบ" class="da-button green"> 
+                </a>
+            </td>
         </tbody>
         <?php 
             $index++;
