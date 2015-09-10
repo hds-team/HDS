@@ -18,12 +18,12 @@
 			$index++;
 		?>
 		<tr class="odd">
-			<td><?php echo $index; ?></td>
+			<td><center><?php echo $index; ?><center></td>
 			<td><?php echo $row->rq_subject; ?></td>
-			<td><?php echo $this->date_time->DateThai($row->rq_date); ?></td>
-			<td><?php echo $row->ct_name; ?></td>
+			<td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
+			<td><center><?php echo $row->ct_name; ?></center></td>
 			<td><?php echo $row->UsName; ?></td>
-			<td><?php echo $row->st_name; ?></td>
+			<td><center><?php echo $row->st_name; ?></center></td>
 		</tr>
 		<?php
 		} // foreach query as row
