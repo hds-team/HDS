@@ -28,7 +28,7 @@ class M_reply extends CI_Model{
 		->from('hds_reply')
 		->join('hds_position', 'hds_position.ps_mb_id = hds_reply.rp_mb_id', 'left')
 		->where('hds_reply.rp_rq_id', $rq_id)
-		->where('hds_position.ps_ut_id', 3) // status 2 is position check
+		->where('hds_position.ps_ut_id', 3) // status 3 is position check
 		->or_where('hds_position.ps_ut_id', $status); 
 		return $this->hds->get();
 	}
