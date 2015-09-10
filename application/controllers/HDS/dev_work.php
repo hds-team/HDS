@@ -2,11 +2,14 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Dev_work extends HDS_Controller {
 
-	public function index(){
+	public function index($sys_id=NULL){
 		//echo "Dev_work";
 		//------GET SYSTEM NAME AND ID
-		$data['system'] = $this->input->post('system');
-
+		if($this->input->post('system') == NULL){
+			$data['system'] = $sys_id;
+		}else{
+			$data['system'] = $this->input->post('system');
+		}
 		//------ Check id of system
 		if($data['system'] == NULL){
 			$data_content['system_st'] = 0; //not have sys id set non display

@@ -1,11 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Screening extends HDS_Controller {
-	public function index(){
+	public function index($sys_id=NULL){
 
 		//echo "Screening";
 		//------GET SYSTEM NAME AND ID
-		$data['system'] = $this->input->post('system');
+		if($this->input->post('system') == NULL){
+			$data['system'] = $sys_id;
+		}else{
+			$data['system'] = $this->input->post('system');
+		}
 
 		//------ Check id of system
 		if($data['system'] == NULL){

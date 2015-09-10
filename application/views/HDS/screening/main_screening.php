@@ -1,9 +1,6 @@
 <script>
   $(document).ready(function() {
     $("#tabs").tabs();
-    $("#tab-1").tabs();
-    $("#tab-2").tabs();
-    $("#tab-3").tabs();
   });
 </script>
 <div class="row">
@@ -54,17 +51,17 @@
     </div>
     <div class="da-panel-content" id="tabs">
         <ul>
-            <li><a href="#tab-1"><span>คำร้อง</span></a></li>
-            <li><a href="#tab-2"><span>ตรวจสอบ</span></a></li>
-            <li><a href="#tab-3"><span>ตรวจแล้ว</span></a></li>
+            <li><a href="#petition"><span>คำร้อง</span></a></li>
+            <li><a href="#check"><span>ตรวจสอบ</span></a></li>
+            <li><a href="#check_now"><span>ตรวจแล้ว</span></a></li>
         </ul>
-        <div id="tab-1" style="padding: 0;">
+        <div id="petition" style="padding: 0;">
           <?php echo $petition; ?>
         </div>
-        <div id="tab-2" style="padding: 0;">
+        <div id="check" style="padding: 0;">
           <?php echo $check; ?>
         </div>
-        <div id="tab-3" style="padding: 0;">
+        <div id="check_now" style="padding: 0;">
           <?php echo $check_now; ?>
         </div>
     </div><!-- tabs -->

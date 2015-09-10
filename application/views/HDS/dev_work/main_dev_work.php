@@ -53,17 +53,17 @@
     </div><!-- da-panel-header -->
     <div id="tabs">
         <ul>
-            <li><a href="#tab-1"><span>รอดำนเนินการ</span></a></li>
-            <li><a href="#tab-2"><span>กำลังดำเนินการ</span></a></li>
-            <li><a href="#tab-3"><span>ผลการอนุมัต</span></a></li>
+            <li><a href="#pending"><span>รอดำนเนินการ</span></a></li>
+            <li><a href="#ongoing"><span>กำลังดำเนินการ</span></a></li>
+            <li><a href="#approve"><span>ผลการอนุมัต</span></a></li>
         </ul>
-        <div id="tab-1" style="padding: 0;">
+        <div id="pending" style="padding: 0;">
           <?php echo $pending; ?>
         </div>
-        <div id="tab-2" style="padding: 0;">
+        <div id="ongoing" style="padding: 0;">
           <?php echo $ongoing; ?>
         </div>
-        <div id="tab-3" style="padding: 0;">
+        <div id="approve" style="padding: 0;">
           <?php echo $approve; ?>
         </div>
         <!-- End Nested Tabs -->
