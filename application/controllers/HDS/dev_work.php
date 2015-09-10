@@ -10,9 +10,10 @@ class Dev_work extends HDS_Controller {
 		//------ Check id of system
 		if($data['system'] == NULL){
 			$data_content['system_st'] = 0; //not have sys id set non display
+			$data_content['system_select'] = 0; //set for select in dropdown default
 		}else{
 			$data_content['system_st'] = 1; //have set display report
-
+			$data_content['system_select'] = $data_content['system_st']; //set for select in dropdown to curreny system
 			$data_content['pending'] = $this->pending($data['system']);
 			$data_content['ongoing'] = $this->ongoing($data['system']);
 			$data_content['approve'] = $this->approve($data['system']);
