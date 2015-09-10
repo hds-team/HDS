@@ -2,20 +2,23 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Screening extends HDS_Controller {
 	public function index(){
+
 		//echo "Screening";
 		//------GET SYSTEM NAME AND ID
-		$data['system'] = 0;
-		//---LOOP content BY ID AND SET NAME TO ARRAY
+		$data['system'] = $this->input->post('system');
 
-		$data['check']['name'] = 0;
-		$data['check_now']['name'] = 0;
-		$data['petition']['name'] = 0;
+		//------ Check id of system
+		if($data['system'] == NULL){
+			$data_content['system_st'] = 0; //not have sys id set non display
+		}else{
+			$data_content['system_st'] = 1; //have set display report
 
-		//---------Prototye
-		$data_content['check'] = $this->check();
-		$data_content['check_now'] = $this->check_now();
-		$data_content['petition'] = $this->petition();
+			$data_content['check'] = $this->check($data['system']);
+			$data_content['check_now'] = $this->check_now($data['system']);
+			$data_content['petition'] = $this->petition($data['system']);
+		}
 
+		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
 		$data['content'] = $this->hds_output('screening/main_screening', $data_content, true);
 		$this->layout_output($data);
 	}
