@@ -28,6 +28,9 @@
 <!-- Demo Stylesheet -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/demo.css" media="screen" />
 
+<!-- iButton Plugin -->
+<script type="text/javascript" src="<?php echo base_url('plugins/ibutton/lib/jquery.ibutton.min.js'); ?>"></script>
+<link rel="stylesheet" href="<?php echo base_url('plugins/ibutton/css/jquery.ibutton-giva-original.css'); ?>" media="screen" />
 
 <!-- HDS JQ -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">

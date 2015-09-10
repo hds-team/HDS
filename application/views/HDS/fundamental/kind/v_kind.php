@@ -1,3 +1,10 @@
+<script>
+$("input[type=checkbox]").switchButton({
+  width: 100,
+  height: 40,
+  button_width: 50
+});
+</script>
 <div class="grid_1">
     .
 </div>
@@ -61,6 +68,7 @@
 						<td><center> <?php echo $index +1; ?> </center></td>
 						<td> <?php echo $row->kn_name; ?> </td>
 						<td><center>
+							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
 							<?php echo $row->kn_status; ?>
 							<!--<input type="checkbox" id="s11" class="i-button" name="ios-checkbox" />	-->
 						</center></td>
