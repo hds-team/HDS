@@ -10,8 +10,10 @@ class Screening extends HDS_Controller {
 		//------ Check id of system
 		if($data['system'] == NULL){
 			$data_content['system_st'] = 0; //not have sys id set non display
+			$data_content['system_select'] = 0; //set for select in dropdown default
 		}else{
 			$data_content['system_st'] = 1; //have set display report
+			$data_content['system_select'] = $data['system']; //set for select in dropdown
 
 			$data_content['check'] = $this->check($data['system']);
 			$data_content['check_now'] = $this->check_now($data['system']);
