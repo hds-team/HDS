@@ -51,4 +51,16 @@ class Test extends UMS_Controller {
 		$this->output('HDS/v_test');
 	}
 
+
+	public function Test_speed_code(){
+		$this->benchmark->mark('code_start');
+		//-------Code to test
+		foreach($this->session->all_userdata() as $value){
+			echo $value;
+		}
+		$this->benchmark->mark('code_end');
+		echo "<BR>TIME: ".$this->benchmark->elapsed_time('code_start', 'code_end');
+
+	}
+
 }

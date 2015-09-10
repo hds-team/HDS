@@ -17,7 +17,10 @@ class HDS_Controller extends UMS_Controller {
 	}
 
 	public function layout_output($data=NULL){
+		$this->benchmark->mark('code_start');
 		$this->output('/HDS/menu/layout', $data);
+		$this->benchmark->mark('code_end');
+		echo "<BR>TIME TO PROCESS : ".$this->benchmark->elapsed_time('code_start', 'code_end')." Second";
 	}
 
 }
