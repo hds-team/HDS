@@ -43,13 +43,13 @@ class Screening extends HDS_Controller {
 		include('screening_part/petition.php');
 		return $view; 
 	}
-	public function update_check($rq_id,$st_id){
+	public function update_check($rq_id,$st_id,$sys_id){
 		include('screening_part/update_check.php');
 	}
-	public function update_petition_accect($rq_id,$st_id){
+	public function update_petition_accect($rq_id,$st_id,$sys_id){
 		include('screening_part/update_petition_accept.php');
 	}
-	public function update_petition_complete($rq_id,$st_id){
+	public function update_petition_complete($rq_id,$st_id,$sys_id){
 		include('screening_part/update_petition_complete.php');
 	}
 	

@@ -23,10 +23,10 @@
                     <td><center><?php echo $row->ct_name; ?></center></td>
                     <td><center><?php echo $row->UsName; ?></center></td>
                     <td class="da-icon-column">
-						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id); ?>" />
+						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
 							<input type="submit" class="da-button blue" value="ตรวจรับ" />
 						</a>
-						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_complete/'.$row->rq_id.'/'.$row->st_id); ?>" />
+						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_complete/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
 							<input type="submit" class="da-button blue" value="เสร็จสิ้น" />
 						</a>
                     </td>

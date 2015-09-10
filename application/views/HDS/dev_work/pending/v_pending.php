@@ -22,7 +22,7 @@
 				<td><center> <?php echo $row->kn_name;?> </center></td>
 				<td><center> <?php echo $row->UsName;?> </center></td>
 				<td class="da-icon-column">
-					<a href = "<?php echo base_url('index.php/HDS/dev_work/pending_update/'.$row->rq_id);?>"><input type="button" value="ดำเนินการ" class="da-button red"></a>
+					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id);?>"><input type="button" value="ดำเนินการ" class="da-button red"></a>
 				</td>
             </tr>
 		<?php }?>
