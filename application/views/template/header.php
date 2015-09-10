@@ -162,7 +162,7 @@
 
 
 <!-- HDS Dialog Report -->
-<div id="report_input" class="da-panel-content" title="แบบฟอร์มคำร้อง" style="padding: 0px">
+<div id="report_input" class="da-panel-content" title="แบบฟอร์มคำร้อง" style="padding: 0px; display: none;">
         <?php 
             $data['class'] ="da-form";
             echo form_open_multipart('HDS/report/insert', $data); 
