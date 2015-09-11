@@ -28,7 +28,7 @@
                         <td><?php echo $index++; ?></td>
                         <td><?php echo $row->rq_subject; ?></td>
                         <td><?php echo $row->rq_date; ?></td>
-                        <td><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></td>
+                        <td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/4');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></td>
                         <td><?php echo $row->st_name; ?></td>
                     </tr>
                     <?php

@@ -63,4 +63,8 @@ class Test extends UMS_Controller {
 
 	}
 
+	public function timeline_test(){
+		$this->output('HDS/v_test');
+	}
+
 }
