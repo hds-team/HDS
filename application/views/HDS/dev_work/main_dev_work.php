@@ -10,7 +10,7 @@
   <div class="da-panel">
     <div class="da-panel-header">
       <span class="da-panel-title">
-            <img src="images/icons/black/16/pencil.png" alt="">
+            <img src="<?php echo base_url(); ?>images/icons/black/16/pencil.png" alt="">
             ระบบ
         </span>
     </div><!-- da-panel-header -->
