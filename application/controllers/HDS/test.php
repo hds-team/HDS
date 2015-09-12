@@ -67,4 +67,9 @@ class Test extends UMS_Controller {
 		$this->output('HDS/v_test');
 	}
 
+	public function config_test(){
+		$this->config->load('hds_config');
+		echo $this->config->item('sys_name');
+	}
+
 }
