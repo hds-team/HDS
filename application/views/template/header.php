@@ -172,66 +172,76 @@
         ?>
             <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" >
             <div class="da-form-row">
-                <label>หัวเรื่อง</label>
-                <div class="da-form-item">
-                    <input type="text" name="rq_subject" required>
+                <div class="grid_4">
+                    <label>หัวเรื่อง</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="rq_subject" required>
+                    </div>
                 </div>
             </div>
             <div class="da-form-row">
-                <label>ประเภท</label>
-                <div class="da-form-item">
-                    <select name="rq_ct_id">
-                        <?php
-                            foreach($hds_category->result() as $category){
-                        ?>
-                                <option value="<?php echo $category->ct_id; ?>"><?php echo $category->ct_name; ?></option>
-                        <?php
-                            }
-                        ?>
-                    </select>
+                <div class="grid_2">
+                    <label>ประเภท</label>
+                    <div class="da-form-item large">
+                        <select name="rq_ct_id">
+                            <?php
+                                foreach($hds_category->result() as $category){
+                            ?>
+                                    <option value="<?php echo $category->ct_id; ?>"><?php echo $category->ct_name; ?></option>
+                            <?php
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid_2">
+                    <label>หมวด</label>
+                    <div class="da-form-item large">
+                        <select name="rq_kn_id">
+                            <?php
+                                foreach($hds_kind->result() as $kind){
+                            ?>
+                                    <option value="<?php echo $kind->kn_id; ?>"><?php echo $kind->kn_name; ?></option>
+                            <?php
+                                }
+                            ?>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="da-form-row">
-                <label>หมวด</label>
-                <div class="da-form-item">
-                    <select name="rq_kn_id">
-                        <?php
-                            foreach($hds_kind->result() as $kind){
-                        ?>
-                                <option value="<?php echo $kind->kn_id; ?>"><?php echo $kind->kn_name; ?></option>
-                        <?php
-                            }
-                        ?>
-                    </select>
+                <div class="grid_2">
+                    <label>เบอร์โทร</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="rq_tell" required>
+                    </div>
+                </div>
+                <div class="grid_2">
+                    <label>อีเมล์</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="rq_email" required>
+                    </div>
                 </div>
             </div>
             <div class="da-form-row">
-                <label>เบอร์โทร</label>
-                <div class="da-form-item">
-                    <input type="text" name="rq_tell" required>
+                <div class="grid_4">
+                    <label>รายละเอียด</label>
+                    <div class="da-form-item large">
+                        <textarea name="rq_detail" rows="auto" cols="auto" required></textarea>
+                    </div>
                 </div>
             </div>
             <div class="da-form-row">
-                <label>อีเมล์</label>
-                <div class="da-form-item">
-                    <input type="text" name="rq_email" required>
-                </div>
-            </div>
-            <div class="da-form-row">
-                <label>รายละเอียด</label>
-                <div class="da-form-item">
-                    <textarea name="rq_detail" rows="auto" cols="auto" required></textarea>
-                </div>
-            </div>
-            <div class="da-form-row">
-                <label>ไฟล์แนบ</label>
-                <div class="da-form-item">
-                    <input type="file" class="da-custom-file" name="userfile">
+                <div class="grid_4">
+                    <label>ไฟล์แนบ</label>
+                    <div class="da-form-item">
+                        <input type="file" class="da-custom-file" name="userfile">
+                    </div>
                 </div>
             </div>
             <div class="da-button-row">
-                <input type="reset" value="Reset" class="da-button gray left">
-                <input type="submit" value="Submit" class="da-button red">
+                <input type="reset" value="รีเซ็ท" class="da-button gray left">
+                <input type="submit" value="ส่งคำร้อง" class="da-button blue">
             </div>
         <?php echo form_close(); ?>
 </div>
