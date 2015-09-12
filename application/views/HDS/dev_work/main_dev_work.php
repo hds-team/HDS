@@ -53,9 +53,9 @@
     </div><!-- da-panel-header -->
     <div id="tabs">
         <ul>
-            <li><a href="#pending"><span>รอดำนเนินการ</span></a></li>
-            <li><a href="#ongoing"><span>กำลังดำเนินการ</span></a></li>
-            <li><a href="#approve"><span>ผลการอนุมัต</span></a></li>
+            <li><a href="#pending"><span>รอดำนเนินงาน</span></a></li>
+            <li><a href="#ongoing"><span>กำลังดำเนินงาน</span></a></li>
+            <li><a href="#approve"><span>ผลการอนุมัติ</span></a></li>
         </ul>
         <div id="pending" style="padding: 0;">
           <?php echo $pending; ?>

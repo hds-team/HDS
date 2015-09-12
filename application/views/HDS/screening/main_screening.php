@@ -51,9 +51,9 @@
     </div>
     <div class="da-panel-content" id="tabs">
         <ul>
-            <li><a href="#petition"><span>คำร้อง</span></a></li>
-            <li><a href="#check"><span>ตรวจสอบ</span></a></li>
-            <li><a href="#check_now"><span>ตรวจแล้ว</span></a></li>
+            <li><a href="#petition"><span>คัดกรองคำร้อง</span></a></li>
+            <li><a href="#check"><span>ตรวจสอบงานแก้ไข</span></a></li>
+            <li><a href="#check_now"><span>ตรวจสอบสถานะ</span></a></li>
         </ul>
         <div id="petition" style="padding: 0;">
           <?php echo $petition; ?>
