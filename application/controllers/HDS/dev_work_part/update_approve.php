@@ -3,5 +3,5 @@
 	$data['rq_st_id'] = 6;
 	$this->m_dynamic->update('hds_request','rq_id',$rq_id,$data);
 	//echo $data['rq_st_id'];
-	redirect('HDS/dev_work');
+	redirect('HDS/dev_work/index'.$sys_id.'#approve');
 ?>
