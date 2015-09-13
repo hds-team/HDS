@@ -1,6 +1,6 @@
 
-<div class="da-panel-content">
-    <table class="da-table">
+<div class="da-panel-content" style="border: 0;">
+    <table id="da-ex-datatable-numberpaging" class="da-table">
         <thead>
             <th>ลำดับ</th>
             <th>หัวเรื่อง</th>
