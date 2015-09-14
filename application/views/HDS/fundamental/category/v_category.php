@@ -1,3 +1,31 @@
+<script>
+  //---------- DIALOG CODE
+    $(function() {
+      $( "#dialog" ).dialog({
+        autoOpen: false,
+        resizable: false,
+        modal: true
+      });
+
+      $( "#dialog1" ).dialog({
+        autoOpen: false,
+        resizable: false,
+        width: 600,
+        modal: true
+      });
+   
+      $( "#opener" ).click(function() {
+        $( "#dialog" ).dialog( "open" );
+      });
+    });
+
+    //----------- set value on click to input
+    function set_value(ct_id, ct_name){
+        $( "#ct_id").val(ct_id); //set value to input by id
+        $( "#ct_name").val(ct_name); //set value to input by id
+        $( "#dialog1" ).dialog( "open" ); //open dialog
+    }
+</script>
 <div class="grid_1">
     .
 </div>
@@ -35,7 +63,7 @@
 <div class="da-panel collapsible">
     <div class="da-panel-header">
         <span class="da-panel-title">
-            <img src="images/icons/black/16/list.png" alt="">
+            <img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
             เพิ่มประเภท
         </span>
         
@@ -74,7 +102,7 @@
                     </center></td>
                     <td><center>
                             <div class="grid_2">
-                                <input type="submit" value="แก้ไข" class="da-button blue" style="width:60%" />
+                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->ct_id; ?>', '<?php echo $row->ct_name; ?>');">แก้ไข</button>
                             </div>
                             <div class="grid_2">
                                 <input type="submit" value="ลบ" class="da-button red" style="width:60%" />
@@ -90,3 +118,24 @@
         </table>
     </div> <!--da-panel-content-->
 </div> <!--da-panel collapsible-->
+<div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
+        <?php 
+                $data['class'] = "da-form";
+                echo form_open('HDS/fundamental/update_category', $data); 
+             ?>
+                           
+                    <input type="hidden" id="ct_id"name="ct_id">
+                
+                       <div class="da-form-row">
+                <label>ประเภท</label>
+                <div class="da-form-item large">
+                    <input type="text" id="ct_name" name="ct_name">
+                </div>
+            </div>
+            <div class="da-button-row">
+                <input type="reset" value="Reset" class="da-button gray left">
+                <input type="submit" value="แก้ไข" class="da-button red">
+                <?php echo form_close(); ?>
+            </div>
+        </form>
+    </div>  

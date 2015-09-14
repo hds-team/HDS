@@ -42,5 +42,8 @@ class Fundamental extends HDS_Controller {
 	public function update_status_category($ct_id,$ct_status){
 		include('fundamental_part/update_status_category.php');
 	}
+	public function update_category(){
+		include('fundamental_part/update_category.php');
+	}
 
 }
