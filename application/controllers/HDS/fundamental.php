@@ -39,5 +39,8 @@ class Fundamental extends HDS_Controller {
 	public function delete_kind($kn_id){
 		include('fundamental_part/delete_kind.php');
 	}
-	
+	public function update_status_category($ct_id,$ct_status){
+		include('fundamental_part/update_status_category.php');
+	}
+
 }
