@@ -12,6 +12,7 @@ $("input[type=checkbox]").switchButton({
     <div class="da-panel">
         <div class="da-panel-header">
         	<span class="da-panel-title">
+			<img src="<?php echo base_url('images/icons/black/16/list.png'); ?>" alt="">
 				เพิ่มหมวด
             </span>
         </div>
@@ -42,8 +43,8 @@ $("input[type=checkbox]").switchButton({
 <div class="da-panel collapsible">
 	<div class="da-panel-header">
 		<span class="da-panel-title">
-			<img src="images/icons/black/16/list.png" alt="">
-			เพิ่มหมวด
+			<img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
+			รายการหมวด
 		</span>
 		
 	<span class="da-panel-toggler"></span></div>
@@ -54,7 +55,7 @@ $("input[type=checkbox]").switchButton({
 					<th><center>ลำดับ</center></th>
 					<th><center>หมวด</center></th>
 					<th><center>สถานะ</center></th>
-					<th width=180 ><center>ดำเนินการ</center></th>
+					<th width=180 ><center>ดำเนินงาน</center></th>
 				</tr>
 			</thead> <!--Thead-->
 			<tbody>
