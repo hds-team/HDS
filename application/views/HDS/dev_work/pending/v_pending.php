@@ -1,5 +1,5 @@
 <div class="da-panel-content" style="border: 0;">
-    <table class="da-table">
+    <table id="da-ex-datatable-numberpaging" class="da-table">
         <thead>
             <tr>
                 <th><center> ลำดับ </center></th>
@@ -22,7 +22,13 @@
 				<td><center> <?php echo $row->kn_name;?> </center></td>
 				<td><center> <?php echo $row->UsName;?> </center></td>
 				<td class="da-icon-column">
-					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id);?>"><input type="button" value="ดำเนินการ" class="da-button red"></a>
+					<?php
+						if($row->rq_st_id == 2){
+							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id)."><input type='button' value='รับทราบ' class='da-button blue'></a>";
+						}else{
+							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id)."><input type='button' value='ดำเนินการ' class='da-button green'></a>";
+						}
+					?>
 				</td>
             </tr>
 		<?php }?>
