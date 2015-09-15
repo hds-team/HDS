@@ -64,10 +64,10 @@
     <div class="da-panel-header">
         <span class="da-panel-title">
             <img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
-            เพิ่มประเภท
+				เพิ่มประเภท
         </span>
-        
-    <span class="da-panel-toggler"></span></div>
+		<span class="da-panel-toggler"></span>
+	</div>
     <div class="da-panel-content">
         <table id="da-ex-datatable-numberpaging" class="da-table">
             <thead>

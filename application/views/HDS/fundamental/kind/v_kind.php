@@ -1,12 +1,35 @@
 <script>
-$("input[type=checkbox]").switchButton({
-  width: 100,
-  height: 40,
-  button_width: 50
-});
-</script>
+
+  //---------- DIALOG CODE
+    $(function() {
+      $( "#dialog" ).dialog({
+        autoOpen: false,
+        resizable: false,
+        modal: true
+      });
+
+      $( "#dialog1" ).dialog({
+        autoOpen: false,
+        resizable: false,
+        width: 600,
+        modal: true
+      });
+   
+      $( "#opener" ).click(function() {
+        $( "#dialog" ).dialog( "open" );
+      });
+    });
+
+    //----------- set value on click to input
+    function set_value(kn_id, kn_name){
+        $( "#kn_id").val(kn_id); //set value to input by id
+        $( "#kn_name").val(kn_name); //set value to input by id
+        $( "#dialog1" ).dialog( "open" ); //open dialog
+    }
+  </script>
+
 <div class="grid_1">
-    .
+    <div class="da-panel"></div>
 </div>
 <div class="grid_2">
     <div class="da-panel">
@@ -27,7 +50,7 @@ $("input[type=checkbox]").switchButton({
                     <div class="da-form-item large">
                     	<input type="text" name="kn_name" />
                     </div>
-                  </div>
+                </div>
                 <div class="da-button-row">
                 	<input type="submit" value="Submit" class="da-button green" />
                 </div>
@@ -46,16 +69,16 @@ $("input[type=checkbox]").switchButton({
 			<img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
 			รายการหมวด
 		</span>
-		
-	<span class="da-panel-toggler"></span></div>
+		<span class="da-panel-toggler"></span>
+	</div>
 	<div class="da-panel-content">
 		<table id="da-ex-datatable-numberpaging" class="da-table">
 			<thead>
 				<tr>
-					<th><center>ลำดับ</center></th>
+					<th  width=100 ><center>ลำดับ</center></th>
 					<th><center>หมวด</center></th>
 					<th><center>สถานะ</center></th>
-					<th width=180 ><center>ดำเนินงาน</center></th>
+					<th width=250 ><center>ดำเนินงาน</center></th>
 				</tr>
 			</thead> <!--Thead-->
 			<tbody>
@@ -69,17 +92,32 @@ $("input[type=checkbox]").switchButton({
 						<td><center> <?php echo $index +1; ?> </center></td>
 						<td> <?php echo $row->kn_name; ?> </td>
 						<td><center>
-							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-							<?php echo $row->kn_status; ?>
+							<?php 
+							if ($row->kn_status==1){
+								echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/0")."'>
+									<input type='submit' value='เปิด' class='da-button green' style='width:60%' />
+								</a>";
+							}
+							else{
+								echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/1")."'>
+									<input type='submit' value='ปิด' class='da-button red' style='width:60%'/>
+								</a>";
+							}
+							?>
+							<!--<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>-->
+							<?php //echo $row->kn_status; ?>
 							<!--<input type="checkbox" id="s11" class="i-button" name="ios-checkbox" />	-->
 						</center></td>
-						<td><center>
+						<td>
+							<center>
 								<div class="grid_2">
-									<input type="submit" value="แก้ไข" class="da-button blue" />
+									<button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->kn_id; ?>','<?php echo $row->kn_name; ?>');">
+										แก้ไข 
+									</button>
 								</div> <!--grid2/1-->
 								<div class="grid_2">
 									<a href="<?php echo base_url('index.php/HDS/fundamental/delete_kind/'.$row->kn_id); ?>" >
-										<input type="submit" value="ลบ" class="da-button red" /> 
+										<input type="submit" value="ลบ" class="da-button red" style="width:60%" /> 
 									</a>
 								</div> <!--grid2/2-->
 							</center>
@@ -93,3 +131,23 @@ $("input[type=checkbox]").switchButton({
 		</table> <!--table-->
 	</div> <!--da-panel-content2-->
 </div> <!--da-panel collapsible2-->
+
+<div id="dialog1" class="da-panel-content" title="แก้ไขชื่อหมวด" style="padding: 0px">
+	<?php 
+	$data['class'] = "da-form";
+	echo form_open('HDS/fundamental/update_kind', $data); 
+	?>
+		<input type="hidden" id="kn_id"name="kn_id">
+		<div class="da-form-row">
+			<label>หมวด</label>
+			<div class="da-form-item large">
+				<input type="text" id="kn_name" name="kn_name">
+			</div>
+		</div>
+		<div class="da-button-row">
+			<input type="reset" value="Reset" class="da-button gray left">
+			<input type="submit" value="แก้ไข" class="da-button red">
+			<?php echo form_close(); ?>
+		</div>
+	</form>
+</div>  
