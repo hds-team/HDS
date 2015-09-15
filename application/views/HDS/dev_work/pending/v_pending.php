@@ -1,5 +1,5 @@
-<div class="da-panel-content" style="border: 0;"> <!--Open Content All-->
-    <table id="da-ex-datatable-numberpaging" class="da-table"> <!--Open table-->
+<div class = "da-panel-content" style = "border: 0;"> <!--Open Content All-->
+    <table id = "da-ex-datatable-numberpaging" class = "da-table"> <!--Open table-->
         <thead> <!--Open header table-->
             <tr> <!--Open row-->
                 <th><center> ลำดับ </center></th> 		<!--Head row-->
@@ -28,10 +28,10 @@
 					<?php //Loop if else about status of hd_request table.
 						if($row->rq_st_id == 2)
 						{
-							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/3')."><input type='button' value='รับทราบ' class='da-button blue'></a>";
+							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/3')."><input type = 'button' value = 'รับทราบ' class = 'da-button blue'></a>";
 						}else
 						{
-							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/4')."><input type='button' value='ดำเนินงาน' class='da-button green'></a>";
+							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/4')."><input type = 'button' value = 'ดำเนินงาน' class = 'da-button green'></a>";
 						}
 					?>
 				</td>
