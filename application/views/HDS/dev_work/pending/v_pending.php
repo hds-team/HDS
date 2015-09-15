@@ -17,7 +17,7 @@
             <tr class="odd">
 				<td><center> <?php echo $index++;?></center></td>
 				<td><center> <?php echo $row->rq_subject; ?> </center></td>
-				<td><center> <?php echo $row->rq_date; ?> </center></td>
+				<td><center> <?php echo $this->date_time->DateThai($row->rq_date);?></center></td>
 				<td><center> <?php echo $row->ct_name;?> </center></td>
 				<td><center> <?php echo $row->kn_name;?> </center></td>
 				<td><center> <?php echo $row->UsName;?> </center></td>
