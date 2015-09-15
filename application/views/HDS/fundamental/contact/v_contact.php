@@ -13,7 +13,8 @@
                     <th>ลำดับ</th>
                     <th>ชื่อ-นามสกุล</th>
                     <th>เบอร์</th>
-                    <th>Email</th>
+                    <th>อีเมล</th>
+					<th>รายละเอียดขององค์กร</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
 						<td><?php echo $row->UsName; ?></td>
 						<td><?php echo $row->rq_tell;?></td>
 						<td><?php echo $row->rq_email;?></td>
+						<td><?php echo $row->dpName;?></td>
 					</tr>
 				<?php 
 					} 

@@ -12,7 +12,8 @@ class M_Contact extends CI_Model{
 			->select('*')
 			->from('hds_request')
 			->join('ums.umuser','hds_request.rq_mb_id = ums.umuser.UsID','inner')
-			->GROUP_BY('rq_id');
+			->join('ums.umdepartment','ums.umdepartment.dpID = ums.umuser.UsID','inner')
+			->GROUP_BY('rq_tell','rq_email');
 			
 		return $this->hds->get();
 	}	
