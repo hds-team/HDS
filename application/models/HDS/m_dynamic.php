@@ -40,5 +40,4 @@ class M_dynamic extends CI_Model{
 		->where($tb_id, $id)
 		->delete($tb);
 	}
-
 }

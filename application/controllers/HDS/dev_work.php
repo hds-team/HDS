@@ -33,12 +33,14 @@ class Dev_work extends HDS_Controller {
 		return $view;
 	}
 
+	//Function pending for view page.
 	public function pending($sys_id = 10){
 		include ('dev_work_part/pending.php');
 		return $view;
 	}
 	
-	public function update_pending($rq_id,$sys_id){
+	//Function update status in view page.
+	public function update_pending($rq_id, $sys_id, $rq_st_id){
 		include ('dev_work_part/update_pending.php');
 	}
 
@@ -53,5 +55,4 @@ class Dev_work extends HDS_Controller {
 	public function update_approve($rq_id,$st_id,$sys_id){
 		include('dev_work_part/update_approve.php');
 	}
-
 }
