@@ -53,7 +53,7 @@
     </div><!-- da-panel-header -->
     <div id="tabs">
         <ul>
-            <li><a href="#pending"><span>รอดำนเนินงาน</span></a></li>
+            <li><a href="#pending"><span>รอดำเนินงาน</span></a></li>
             <li><a href="#ongoing"><span>กำลังดำเนินงาน</span></a></li>
             <li><a href="#approve"><span>ผลการอนุมัติ</span></a></li>
         </ul>
