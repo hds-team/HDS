@@ -14,7 +14,8 @@ class M_pending extends CI_Model{
 		->join('hds_kind','hds_kind.kn_id = hds_request.rq_kn_id','inner')
 		->join('ums.umuser','ums.umuser.UsId = hds_request.rq_mb_id','inner')
 		->where('hds_request.rq_sys_id',$sys_id)
-		->where('hds_request.rq_st_id',2);
+		->where('hds_request.rq_st_id',2)
+		->or_where('hds_request.rq_st_id',3);
 		return $this->hds->get();
 	}
 }
