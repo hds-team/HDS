@@ -1,20 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require(dirname(__FILE__)."/HDS_Controller.php");
-class Dev_work extends HDS_Controller {
+class Dev_work extends HDS_Controller 
+{
 
-	public function index($sys_id=NULL){
+	public function index($sys_id=NULL)
+	{
 		//echo "Dev_work";
 		//------GET SYSTEM NAME AND ID
-		if($this->input->post('system') == NULL){
+		if($this->input->post('system') == NULL)
+		{
 			$data['system'] = $sys_id;
-		}else{
+		}
+		else
+		{
 			$data['system'] = $this->input->post('system');
 		}
 		//------ Check id of system
-		if($data['system'] == NULL){
+		if($data['system'] == NULL)
+		{
 			$data_content['system_st'] = 0; //not have sys id set non display
 			$data_content['system_select'] = 0; //set for select in dropdown default
-		}else{
+		}
+		else
+		{
 			$data_content['system_st'] = 1; //have set display report
 			$data_content['system_select'] = $data['system']; //set for select in dropdown to curreny system
 			$data_content['pending'] = $this->pending($data['system']);
@@ -28,17 +36,22 @@ class Dev_work extends HDS_Controller {
 
 	}
 
-	public function approve($sys_id = 10){
+	public function approve($sys_id = 10)
+	{
 		include('dev_work_part/approve.php');
 		return $view;
 	}
 
-	public function pending($sys_id = 10){
+	//Function pending for view page.
+	public function pending($sys_id = 10)
+	{
 		include ('dev_work_part/pending.php');
 		return $view;
 	}
 	
-	public function update_pending($rq_id,$sys_id){
+	//Function update status in view page.
+	public function update_pending($rq_id, $sys_id, $rq_st_id)
+	{
 		include ('dev_work_part/update_pending.php');
 	}
 
@@ -53,5 +66,4 @@ class Dev_work extends HDS_Controller {
 	public function update_approve($rq_id,$st_id,$sys_id){
 		include('dev_work_part/update_approve.php');
 	}
-
 }

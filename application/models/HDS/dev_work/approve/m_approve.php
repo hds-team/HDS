@@ -1,12 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //require(dirname(__FILE__)."../../HDS_Model.php");
-class M_approve extends CI_Model{
-	public function __construct(){
+class M_approve extends CI_Model
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
 	}
-	public function get_report($sys_id){
+	public function get_report($sys_id)
+	{
 		$this->hds
 		->select('*')
 		->from('hds_request')

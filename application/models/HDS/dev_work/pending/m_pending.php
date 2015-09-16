@@ -1,12 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //require(dirname(__FILE__)."../../../HDS_Model.php");
-class M_pending extends CI_Model{
-	public function __construct(){
+class M_pending extends CI_Model
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
 	}
-	public function get_pending($sys_id){
+	
+	//Function get value in database hds_v1.
+	public function get_pending($sys_id)
+	{
 		$this->hds
 		->select('*')
 		->from('hds_request')

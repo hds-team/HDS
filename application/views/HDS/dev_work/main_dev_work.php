@@ -1,5 +1,6 @@
 <script>
-  $(document).ready(function() {
+  $(document).ready(function() 
+  {
     $("#tabs").tabs();
     $("#tab-1").tabs();
     $("#tab-2").tabs();
@@ -26,7 +27,8 @@
                       <select name="system">
                         <option <?php if($system_select == 0) echo "selected"; ?>>เลือกระบบ</option>
                       <?php
-                        foreach($system->result() as $row){
+                        foreach($system->result() as $row)
+						{
                       ?>
                           <option value="<?php echo $row->StID; ?>" <?php if($system_select == $row->StID) echo "selected"; ?>><?php echo $row->StNameT; ?></option>
                       <?php 
@@ -53,7 +55,7 @@
     </div><!-- da-panel-header -->
     <div id="tabs">
         <ul>
-            <li><a href="#pending"><span>รอดำนเนินงาน</span></a></li>
+            <li><a href="#pending"><span>รอดำเนินงาน</span></a></li>
             <li><a href="#ongoing"><span>กำลังดำเนินงาน</span></a></li>
             <li><a href="#approve"><span>ผลการอนุมัติ</span></a></li>
         </ul>

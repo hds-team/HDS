@@ -22,7 +22,8 @@
                 <tbody>
                     <?php
                         $index = 1;
-                        foreach($list->result() as $row){
+                        foreach($list->result() as $row)
+						{
                     ?>
                     <tr>
                         <td><?php echo $index++; ?></td>

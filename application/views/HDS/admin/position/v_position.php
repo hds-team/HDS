@@ -20,7 +20,9 @@
 			<?php $i='1';?>
 				<tbody>
 				<?php
-					foreach($query ->result() as $row){ ?>
+					foreach($query ->result() as $row)
+					{ 
+					?>
 					<tr class="odd">
 						<td><center><?php echo $i++; ?></center></td>
 						<td><center><?php echo $row->UsName; ?></center></td>
@@ -30,7 +32,7 @@
 					</tr>
 					<?php
 					}
-						?>
+					?>
 				</tbody>
 			</table>
 			<div class="da-button-row">

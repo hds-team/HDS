@@ -1,6 +1,8 @@
 <?php
-class HDS_Model extends CI_Model{
-	public function __construct(){
+class HDS_Model extends CI_Model
+{
+	public function __construct()
+	{
 		parent::__construct();
 		
 		$this->hds = $this->load->database('hds', TRUE);

@@ -1,6 +1,7 @@
 <script>
   //---------- DIALOG CODE
-    $(function() {
+    $(function() 
+	{
       $( "#dialog" ).dialog({
         autoOpen: false,
         resizable: false,
@@ -63,11 +64,11 @@
     <div class="da-panel-header">
         <span class="da-panel-title">
             <img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
-            เพิ่มประเภท
+				เพิ่มประเภท
         </span>
-        
-    <span class="da-panel-toggler"></span>
-    </div>
+		<span class="da-panel-toggler"></span>
+	</div>
+
     <div class="da-panel-content">
         <table id="da-ex-datatable-numberpaging" class="da-table">
             <thead>
@@ -91,12 +92,14 @@
                     <td>
                         <center>
                         <?php 
-                        if ($row->ct_status==1){
+                        if ($row->ct_status==1)
+						{
                         echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
-                    }
-                    else{
-                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
-                    }
+						}
+						else
+						{
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+						}
                         ?>
                         </center>
                     </td>

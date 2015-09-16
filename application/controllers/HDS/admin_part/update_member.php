@@ -7,9 +7,11 @@
 	
 	
 	
-	foreach($member->result() as $row){
+	foreach($member->result() as $row)
+	{
 		echo  "ID:". $row -> UsID." PS: ".$row ->ps_ut_id."<br>";
-		if($row->ps_ut_id == NULL){
+		if($row->ps_ut_id == NULL)
+		{
 			echo "insert <br>";
 			$data['ps_mb_id'] = $row -> UsID;
 			$data['ps_ut_id'] = 4;

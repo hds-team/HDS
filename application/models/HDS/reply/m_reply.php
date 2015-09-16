@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //require(dirname(__FILE__)."/HDS_Model.php");
-class M_reply extends CI_Model{
+class M_reply extends CI_Model
+{
 	public function __construct()
 	{
 		parent::__construct();
