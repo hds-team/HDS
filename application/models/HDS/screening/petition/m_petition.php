@@ -18,8 +18,8 @@ class M_petition extends CI_Model
 			->join('hds_category','hds_request.rq_ct_id = hds_category.ct_id','inner')
 			->join('hds_status','hds_request.rq_st_id = hds_status.st_id','inner')
 			->join('ums.umuser','hds_request.rq_mb_id = ums.umuser.UsID','inner')
-			->where('hds_request.rq_sys_id', $sys_id)
-			->where('hds_request.rq_st_id', 1);
+			->where('hds_request.rq_sys_id', $sys_id) // use only rq_sys_id that value equal to $sys_id
+			->where('hds_request.rq_st_id', 1); // use only rq_st_id that value equal to 1 only
 			
 		return $this->hds->get();
 	}
