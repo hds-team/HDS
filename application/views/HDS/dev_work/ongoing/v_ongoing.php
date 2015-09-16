@@ -18,7 +18,11 @@
 			{
 		?>
 				<tr class="odd">
-					<td><center><?php echo $index+1; ?></center></td>
+					<td>
+						<center>
+							<?php echo $index+1; ?>
+						</center>
+					</td>
 					<td>
 						<a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a>
 					</td>

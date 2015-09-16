@@ -20,7 +20,7 @@
 		?>
 		<tr class="odd">
 			<td><center><?php echo $index; ?><center></td>
-			<td><?php echo $row->rq_subject; ?></td>
+			<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td>
 			<td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
 			<td><center><?php echo $row->ct_name; ?></center></td>
 			<td><?php echo $row->UsName; ?></td>
