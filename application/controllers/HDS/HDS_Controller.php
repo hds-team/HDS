@@ -20,7 +20,7 @@ class HDS_Controller extends UMS_Controller
 		return $this->load->view($file, $data, $no_display);
 	}
 
-	public function layout_output($data=NULL)
+	public function layout_output($data=NULL)//time to process
 	{
 		$this->benchmark->mark('code_start');
 		$this->output('/HDS/menu/layout', $data);

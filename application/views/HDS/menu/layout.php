@@ -348,7 +348,9 @@
         $access['all'] = array(0, 1, 2, 3, 4, 5);
 
     ?>
-    <?php echo "MEMORY TO USE : ".$this->benchmark->memory_usage();?>
+    <?php 
+		echo "MEMORY TO USE : ".$this->benchmark->memory_usage(); //memory's use 
+	?> 
 </head>
 <div id="da-content">
     <div class="da-container clearfix">

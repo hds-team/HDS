@@ -24,7 +24,7 @@
 				<td><?php echo $row->kn_name; ?></td>
 				<td><?php echo $row->UsName; ?></td>
 				<td>
-					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id); ?>" />
+					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
 						<input type="submit" value="รับทราบ" class="da-button green"> 
 					</a>
 				</td>
