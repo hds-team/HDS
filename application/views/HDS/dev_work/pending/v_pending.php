@@ -18,12 +18,12 @@
 			{
 		?>
             <tr class = "odd"> <!--Open row-->
-				<td><center> <?php echo $index++;?></center></td> 									<!--Data in table-->
-				<td><center> <?php echo $row->rq_subject; ?> </center></td> 						<!--Data in table-->
-				<td><center> <?php echo $this->date_time->DateThai($row->rq_date);?></center></td> 	<!--Data in table-->
-				<td><center> <?php echo $row->ct_name;?> </center></td> 							<!--Data in table-->
-				<td><center> <?php echo $row->kn_name;?> </center></td>								<!--Data in table-->
-				<td><center> <?php echo $row->UsName;?> </center></td>								<!--Data in table-->
+				<td><center><?php echo $index++;?></center></td> 									<!--Data in table-->
+				<td><?php echo $row->rq_subject; ?></td> 											<!--Data in table-->
+				<td><center><?php echo $this->date_time->DateThai($row->rq_date);?></center></td> 	<!--Data in table-->
+				<td><center><?php echo $row->ct_name;?></center></td> 							<!--Data in table-->
+				<td><center><?php echo $row->kn_name;?></center></td>								<!--Data in table-->
+				<td><?php echo $row->UsName;?></td>								<!--Data in table-->
 				<td class="da-icon-column"> 														<!--Data in table-->
 					<?php //Loop if else about status of hd_request table.
 						if($row->rq_st_id == 2)
