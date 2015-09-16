@@ -1,7 +1,8 @@
 <script>
 
   //---------- DIALOG CODE
-    $(function() {
+    $(function() 
+	{
       $( "#dialog" ).dialog({
         autoOpen: false,
         resizable: false,
@@ -93,12 +94,14 @@
 						<td> <?php echo $row->kn_name; ?> </td>
 						<td><center>
 							<?php 
-							if ($row->kn_status==1){
+							if ($row->kn_status==1)
+							{
 								echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/0")."'>
 									<input type='submit' value='เปิด' class='da-button green' style='width:60%' />
 								</a>";
 							}
-							else{
+							else
+							{
 								echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/1")."'>
 									<input type='submit' value='ปิด' class='da-button red' style='width:60%'/>
 								</a>";

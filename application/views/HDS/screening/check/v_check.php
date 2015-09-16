@@ -28,7 +28,9 @@
 					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/7/'.$sys_id); ?>"><button class="da-button red">ไม่อนุมัติ</button></a></div></center>
 				</td>
 			</tr>  	
-			<?php } ?>
+			<?php 
+			} 
+			?>
 		</tbody>
 	</table>
 </div> <!-- da-panel-content -->

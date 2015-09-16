@@ -1,12 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require(dirname(__FILE__)."/../UMS_Controller.php");
-class Test extends UMS_Controller {
-	public function __construct(){
+class Test extends UMS_Controller 
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('HDS/m_dynamic');
 	}
 
-	public function index(){
+	public function index()
+	{
 		echo "TEST CONTROLLER<BR>";
 
 		echo "//-------------GET ALL <BR>";
@@ -14,7 +17,8 @@ class Test extends UMS_Controller {
 
 		$query = $this->m_dynamic->get_all('hds_category');
 
-		foreach($query->result() as $row){
+		foreach($query->result() as $row)
+		{
 			echo $row->ct_id." ".$row->ct_status." ".$row->ct_name."<BR>";
 		}
 
@@ -47,15 +51,18 @@ class Test extends UMS_Controller {
 		
 	}
 
-	public function dialog_test(){
+	public function dialog_test()
+	{
 		$this->output('HDS/v_test');
 	}
 
 
-	public function Test_speed_code(){
+	public function Test_speed_code()
+	{
 		$this->benchmark->mark('code_start');
 		//-------Code to test
-		foreach($this->session->all_userdata() as $value){
+		foreach($this->session->all_userdata() as $value)
+		{
 			echo $value;
 		}
 		$this->benchmark->mark('code_end');
@@ -63,11 +70,13 @@ class Test extends UMS_Controller {
 
 	}
 
-	public function timeline_test(){
+	public function timeline_test()
+	{
 		$this->output('HDS/v_test');
 	}
 
-	public function config_test(){
+	public function config_test()
+	{
 		$this->config->load('hds_config');
 		echo $this->config->item('sys_name');
 	}

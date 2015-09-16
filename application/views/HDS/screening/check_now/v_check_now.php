@@ -14,7 +14,8 @@
 		<tbody>
 		<?php 
 			$index=0;
-			foreach ($query->result() as $row){ 
+			foreach ($query->result() as $row)
+			{ 
 			$index++;
 		?>
 		<tr class="odd">
@@ -26,7 +27,7 @@
 			<td><center><?php echo $row->st_name; ?></center></td>
 		</tr>
 		<?php
-		} // foreach query as row
+			} // foreach query as row
 		?>
 		</tbody>
   </table>

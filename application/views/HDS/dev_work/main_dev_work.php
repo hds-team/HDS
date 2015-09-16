@@ -1,5 +1,6 @@
 <script>
-  $(document).ready(function() {
+  $(document).ready(function() 
+  {
     $("#tabs").tabs();
     $("#tab-1").tabs();
     $("#tab-2").tabs();
@@ -26,7 +27,8 @@
                       <select name="system">
                         <option <?php if($system_select == 0) echo "selected"; ?>>เลือกระบบ</option>
                       <?php
-                        foreach($system->result() as $row){
+                        foreach($system->result() as $row)
+						{
                       ?>
                           <option value="<?php echo $row->StID; ?>" <?php if($system_select == $row->StID) echo "selected"; ?>><?php echo $row->StNameT; ?></option>
                       <?php 

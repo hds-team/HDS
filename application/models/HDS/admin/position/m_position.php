@@ -1,13 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //require(dirname(__FILE__)."../../../HDS_Model.php");
-class M_position extends CI_Model{
-	public function __construct(){
+class M_position extends CI_Model
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);	
 	}
 	//--------get_all ums
-	public function get_all(){
+	public function get_all()
+	{
 		/*$this->ums
 		->select('*')
 		->from('umuser')
@@ -23,7 +26,8 @@ class M_position extends CI_Model{
 		return $this->hds->get();
 	}
 	//----------check position user
-	public function check_position(){
+	public function check_position()
+	{
 		$this->ums
 		->select('*')
 		->from('umuser')

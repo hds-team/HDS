@@ -1,6 +1,6 @@
 <?php
-	echo "เด่นแรด";
-	echo "เด่นแรด";
+	//echo "เด่นแรด";
+	//echo "เด่นแรด";
 	
 	$kn_id = $this->input->post('kn_id');
 	$data['kn_name'] = $this->input->post('kn_name');

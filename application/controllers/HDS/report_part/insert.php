@@ -15,7 +15,8 @@
 	//-------- Set URL Current
 	$URL = $this->input->post('url'); 
 	//-------- Check if null set to UMS 
-	if($data['rq_sys_id'] == NULL){
+	if($data['rq_sys_id'] == NULL)
+	{
 		$data['rq_sys_id'] = 10;
 	}
 	//-------- Set status
@@ -24,7 +25,8 @@
 	$this->m_dynamic->insert('hds_request', $data);
 
 	//-------- FILE insert data
-	if($this->input->post('userfile') !== NULL){
+	if($this->input->post('userfile') !== NULL)
+	{
 		//echo "UPLOAD CHECK";
 		$result = $this->m_report->get_max_rq_id();
 		$row = $result->row_array();

@@ -1,6 +1,7 @@
 <script>
   //---------- DIALOG CODE
-    $(function() {
+    $(function() 
+	{
       $( "#dialog" ).dialog({
         autoOpen: false,
         resizable: false,
@@ -92,12 +93,14 @@
                     <td><?php echo $row->ct_name;?></td>
                     <td><center>
                         <?php 
-                        if ($row->ct_status==1){
+                        if ($row->ct_status==1)
+						{
                         echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
-                    }
-                    else{
-                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
-                    }
+						}
+						else
+						{
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+						}
                         ?>
                     </center></td>
                     <td><center>
