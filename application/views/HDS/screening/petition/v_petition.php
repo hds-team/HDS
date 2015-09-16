@@ -18,7 +18,7 @@
 				?>
                 <tr class="odd">
                 	<td><center> <?php echo $index++; ?> </center></td>
-					<td><a href="<?php echo base_url('index.php/HDS/reply/detai1l_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td>
+					<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td>
                     <td><center><?php echo $row->rq_date; ?></center></td>
                     <td><center><?php echo $row->ct_name; ?></center></td>
                     <td><center><?php echo $row->UsName; ?></center></td>

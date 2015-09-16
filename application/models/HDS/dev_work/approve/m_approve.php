@@ -19,7 +19,7 @@ class M_approve extends CI_Model
 		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
 		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
 		->where('hds_request.rq_sys_id',$sys_id)
-		->where('hds_request.rq_st_id',5);
+		->where('hds_request.rq_st_id',6);
 		return $this->hds->get();
 	}//Close the function's get_report 
 
