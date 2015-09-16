@@ -46,12 +46,11 @@
             	<div class="da-form-row">
                 	<label>ประเภท</label>
                      <div class="da-form-item large">
-                    	<input type="text" name="category" />
+                    	<input type="text" name="category" required/>
                     </div>
-                  </div>
+                </div>
                 <div class="da-button-row">
-                	<input type="submit" value="Submit" class="da-button green" />
-                     
+                	<input type="submit" value="Submit" class="da-button green" />  
                 </div>
             <?php echo form_close(); ?>
         </div>
@@ -67,7 +66,8 @@
             เพิ่มประเภท
         </span>
         
-    <span class="da-panel-toggler"></span></div>
+    <span class="da-panel-toggler"></span>
+    </div>
     <div class="da-panel-content">
         <table id="da-ex-datatable-numberpaging" class="da-table">
             <thead>
@@ -83,14 +83,13 @@
                     $index=0;
                     
                     foreach ($query->result() as $row)
-                    {
-                        
-                        
+                    {                        
                     ?>
                 <tr>
                     <td><center><?php echo ++$index;?></center></td>
                     <td><?php echo $row->ct_name;?></td>
-                    <td><center>
+                    <td>
+                        <center>
                         <?php 
                         if ($row->ct_status==1){
                         echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
@@ -99,42 +98,48 @@
                         echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
                     }
                         ?>
-                    </center></td>
+                        </center>
+                    </td>
                     <td><center>
                             <div class="grid_2">
                               <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->ct_id; ?>', '<?php echo $row->ct_name; ?>');">แก้ไข</button>
                             </div>
                             <div class="grid_2">
                                <?php
+                               if($row->rq_ct_id==null){
                                echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                                }
+                            else{
+                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
+                            }
                                ?>
-
                             </div>
                         </center>
-                    </td>
-                    
+                    </td> 
                 </tr>
                 <?php 
-            }
-            ?>
+                    }
+                    ?>
             </tbody>
         </table>
     </div> <!--da-panel-content-->
 </div> <!--da-panel collapsible-->
-<div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
-        <?php 
+    <div id="dialog" title="แจ้งเตือน">
+    <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
+    </div>
+    <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
+                <?php 
                 $data['class'] = "da-form";
                 echo form_open('HDS/fundamental/update_category', $data); 
-             ?>
+                ?>
                            
-                    <input type="hidden" id="ct_id"name="ct_id">
-                
-                       <div class="da-form-row">
+            <input type="hidden" id="ct_id"name="ct_id">
+                <div class="da-form-row">
                 <label>ประเภท</label>
-                <div class="da-form-item large">
-                    <input type="text" id="ct_name" name="ct_name">
+                     <div class="da-form-item large">
+                    <input type="text" id="ct_name" name="ct_name" required>
+                     </div>
                 </div>
-            </div>
             <div class="da-button-row">
                 <input type="reset" value="Reset" class="da-button gray left">
                 <input type="submit" value="แก้ไข" class="da-button red">
