@@ -2,13 +2,13 @@
     <table id = "da-ex-datatable-numberpaging" class = "da-table"> <!--Open table-->
         <thead> <!--Open header table-->
             <tr> <!--Open row-->
-                <th><center> ลำดับ </center></th> 		<!--Head row-->
-                <th><center> เรื่อง </center></th> 			<!--Head row-->
-                <th><center> วันที่ </center></th> 			<!--Head row-->
-                <th><center> ประเภท </center></th> 		<!--Head row-->
-                <th><center> หมวด </center></th> 		<!--Head row-->
-                <th><center> ผู้ส่ง </center></th> 			<!--Head row-->
-                <th><center> ดำเนินการ </center></th> 		<!--Head row-->
+                <th><b><center> ลำดับ </center></b></th> 		<!--Head row-->
+                <th><b><center> เรื่อง </center></b></th> 			<!--Head row-->
+                <th><b><center> วันที่ </center></b></th> 			<!--Head row-->
+                <th><b><center> ประเภท </center></b></th> 		<!--Head row-->
+                <th><b><center> หมวด </center></b></th> 		<!--Head row-->
+                <th><b><center> ผู้ส่ง </center></b></th> 			<!--Head row-->
+                <th><b><center> ดำเนินการ </center></b></th> 		<!--Head row-->
              </tr> <!--Close row-->
         </thead> <!--Close header table-->
         <tbody> <!--Open body table-->
