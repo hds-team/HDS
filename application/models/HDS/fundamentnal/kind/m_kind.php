@@ -12,8 +12,10 @@ class M_kind extends CI_Model
 	public function get_kind()
 	{ 
 		$this->hds
-		->select(*)
-		->from('hds_kind');
+		->select('*')
+		->from('hds_kind')
+		->join('hds_request','hds_kind.kn_id = hds_request.rq_kn_id','left');
+		return $this->hds->get();
 	}
 }
 
