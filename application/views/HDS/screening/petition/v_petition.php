@@ -2,12 +2,12 @@
         <table id="da-ex-datatable-numberpaging" class="da-table">
             <thead>
                 <tr>
-					<th style="width: 80px"><center><b>ลำดับ</b><center></th> 
-                    <th style="width: 200px"><center><b>หัวเรื่อง</b><center></th> 
-					<th style="width: 200px"><center><b>วันที่</b><center></th> 
-					<th style="width: 200px"><center><b>ประเภท</b><center></th> 
-					<th style="width: 300px"><center><b>ผู้ส่ง</b><center></th> 
-                    <th style="width: 250px"><center><b>ดำเนินการ</b><center></th> 
+					<th style="width: 5%"><center><b>ลำดับ</b><center></th> 
+                    <th><center><b>หัวเรื่อง</b><center></th> 
+					<th style="width: 13%"><center><b>วันที่</b><center></th> 
+					<th style="width: 13%"><center><b>ประเภท</b><center></th> 
+					<th><center><b>ผู้ส่ง</b><center></th> 
+                    <th style="width: 20%"><center><b>ดำเนินการ</b><center></th> 
                 </tr> 
             </thead>
             <tbody>
@@ -19,9 +19,9 @@
                 <tr class="odd">
                 	<td><center> <?php echo $index++; ?> </center></td> <!-- respectively -->
 					<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td> <!-- subject // can click to increase detail -->
-                    <td><center><?php echo $row->rq_date; ?></center></td> <!-- date -->
+                    <td><center><?php echo $this->date_time->DateThai($row->rq_date);?></center></td> <!-- date -->
                     <td><center><?php echo $row->ct_name; ?></center></td> <!-- category name -->
-                    <td><center><?php echo $row->UsName; ?></center></td> <!-- User name // import from UMS Table -->
+                    <td><?php echo $row->UsName; ?></td> <!-- User name // import from UMS Table -->
                     <td class="da-icon-column"> <!-- working on button -->
 						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
 							<input type="submit" class="da-button blue" value="ตรวจรับ" />
