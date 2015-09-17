@@ -333,19 +333,15 @@
         $menu[3]['controller'] = "fundamental/contact";
         $menu[3]['icon'] = "cog_4.png";
 
-        $menu[4]['name'] = "ตำแหน่งงาน";
-        $menu[4]['controller'] = "admin/position";
-        $menu[4]['icon'] = "create_write.png";
-
-        $menu[5]['name'] = "ตรวจงาน";
-        $menu[5]['controller'] = "dev_work";
-        $menu[5]['icon'] = "images_2.png";
+        $menu[4]['name'] = "ตรวจงาน";
+        $menu[4]['controller'] = "dev_work";
+        $menu[4]['icon'] = "images_2.png";
 
         $access = array();
-        $access['admin'] = array(4);
+        $access['admin'] = array();
         $access['coordinate'] = array( 0, 1, 2, 3);
         $access['developer'] = array(5);
-        $access['all'] = array(0, 1, 2, 3, 4, 5);
+        $access['all'] = array(0, 1, 2, 3, 4);
 
     ?>
     <?php 
