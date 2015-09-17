@@ -92,34 +92,60 @@
 					<tr>
 						<td><center> <?php echo $index +1; ?> </center></td>
 						<td> <?php echo $row->kn_name; ?> </td>
-						<td><center>
-							<?php 
-							if ($row->kn_status==1)
-							{
-								echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/0")."'>
-									<input type='submit' value='เปิด' class='da-button green' style='width:60%' />
-								</a>";
-							}
-							else
-							{
-								echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/1")."'>
-									<input type='submit' value='ปิด' class='da-button red' style='width:60%'/>
-								</a>";
-							}
-							?>
-							<!--<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>-->
-							<?php //echo $row->kn_status; ?>
-							<!--<input type="checkbox" id="s11" class="i-button" name="ios-checkbox" />	-->
-						</center></td>
+						<td>
+							<center>
+								<?php 
+									if ($row->kn_status==1)
+									{
+										echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/0")."'>
+											<input type='submit' value='เปิด' class='da-button green' style='width:60%' />
+										</a>";
+									}
+									else
+									{
+										echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_kind/".$row->kn_id."/1")."'>
+											<input type='submit' value='ปิด' class='da-button red' style='width:60%'/>
+										</a>";
+									}
+								?>
+									<!--<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>-->
+								<?php 
+									//echo $row->kn_status; 
+								?>
+									<!--<input type="checkbox" id="s11" class="i-button" name="ios-checkbox" />	-->
+							</center>
+						</td>
 						<td>
 							<center>
 								<div class="grid_2">
-									<button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->kn_id; ?>','<?php echo $row->kn_name; ?>');">
-										แก้ไข 
+									<button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('		
+										<?php 
+											echo $row->kn_id; 
+										?>','
+										<?php 
+											echo $row->kn_name; 
+										?>');">
+											แก้ไข 
 									</button>
 								</div> <!--grid2/1-->
 								<div class="grid_2">
-									<a href="<?php echo base_url('index.php/HDS/fundamental/delete_kind/'.$row->kn_id); ?>" >
+									<?php
+										if($row->kn_id==null)
+										{
+											echo "<a href ='".base_url("index.php/HDS/fundamental/delete_kind/".$row->kn_id."/")."'>
+												<input type='submit' value='ลบ' class='da-button red' style='width:60%' />
+											</a>";
+										}
+										else
+										{
+											echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' />
+											</a>"; 
+										}
+									?>				
+									<a href="
+										<?php 
+											echo base_url('index.php/HDS/fundamental/delete_kind/'.$row->kn_id); 
+										?>" >
 										<input type="submit" value="ลบ" class="da-button red" style="width:60%" /> 
 									</a>
 								</div> <!--grid2/2-->
@@ -134,6 +160,10 @@
 		</table> <!--table-->
 	</div> <!--da-panel-content2-->
 </div> <!--da-panel collapsible2-->
+
+<div id="dialog" title="แจ้งเตือน">
+	<p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
+</div>
 
 <div id="dialog1" class="da-panel-content" title="แก้ไขชื่อหมวด" style="padding: 0px">
 	<?php 
