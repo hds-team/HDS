@@ -26,6 +26,9 @@
         $( "#ct_name").val(ct_name); //set value to input by id
         $( "#dialog1" ).dialog( "open" ); //open dialog
     }
+    function set_value2(){
+        $( "#dialog" ).dialog( "open" ); //open dialog
+    }
 </script>
 <div class="grid_1">
     .
@@ -98,7 +101,7 @@
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+						echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
 						}
                         ?>
                         </center>
@@ -113,7 +116,7 @@
                                echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
                                 }
                             else{
-                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
+                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' id='opener2' onclick='set_value2()'/></a>"; 
                             }
                                ?>
                             </div>
@@ -128,8 +131,9 @@
     </div> <!--da-panel-content-->
 </div> <!--da-panel collapsible-->
     <div id="dialog" title="แจ้งเตือน">
-    <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
+        <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
     </div>
+
     <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
