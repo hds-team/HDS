@@ -67,7 +67,7 @@
                     </div>
                     
                     <!-- Header Toolbar Menu -->
-                    <div id="da-header-toolbar" class="clearfix" style="margin-top:<?php echo $tem['MarginHeadTop']?>px;">
+                    <div id="da-header-toolbar" class="clearf       ix" style="margin-top:<?php echo $tem['MarginHeadTop']?>px;">
                         <div id="da-user-profile-<?php echo $tem['ColorTopButton']?>">
                             <div id="da-user-info-<?php echo $tem['ColorTopButton']?>">
 							<?php echo $this->session->userdata('UsName'); 
@@ -86,7 +86,7 @@
 								$workgroup['GpNameT'];
 							}
 */
-?></span>
+?></span>                   
                             </div>
 							<ul class="da-header-dropdown">
                                 <li class="da-dropdown-divider"></li>
@@ -160,6 +160,9 @@
     $( "#report_btn" ).click(function() {
       $( "#report_input" ).dialog( "open" );
     });
+    
+    $( "#lg_exp" ).datepicker();
+    
   });
 </script>
 
@@ -220,6 +223,20 @@
                     <label>อีเมล์</label>
                     <div class="da-form-item large">
                         <input type="text" name="rq_email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <div class="grid_2">
+                    <label>ระดับความสำคัญ</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="lv_id" required>
+                    </div>
+                </div>
+                <div class="grid_2">
+                    <label>กำหนดส่ง</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="lg_exp">
                     </div>
                 </div>
             </div>

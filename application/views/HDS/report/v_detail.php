@@ -12,11 +12,11 @@
             <table id="da-ex-datatable-default" class="da-table">
                 <thead>
                     <tr>
-                        <th>ลำดับ</th>
-                        <th>หัวเรื่อง</th>
-                        <th>วันที่</th>
-                        <th>รายละเอียด</th>
-                        <th>สถานะ</th>
+                        <th><center>ลำดับ</center></th>
+                        <th><center>หัวเรื่อง</center></th>
+                        <th><center>วันที่</center></th>
+                        <th><center>รายละเอียด</center></th>
+                        <th><center>สถานะ</center></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,11 +26,11 @@
 						{
                     ?>
                     <tr>
-                        <td><?php echo $index++; ?></td>
-                        <td><?php echo $row->rq_subject; ?></td>
-                        <td><?php echo $row->rq_date; ?></td>
-                        <td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/4');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></td>
-                        <td><?php echo $row->st_name; ?></td>
+                        <td><center><?php echo $index++; ?></center></td>
+                        <td><left><?php echo $row->rq_subject; ?></left></td>
+                        <td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
+                        <td><center><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/4');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></center></td>
+                        <td><center><?php echo $row->st_name; ?></center></td>
                     </tr>
                     <?php
                         }
