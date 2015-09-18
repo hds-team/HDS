@@ -26,6 +26,15 @@ class M_report extends CI_Model
 		return $this->hds->get();
 	}
 
+	public function get_level() //get request and  status 
+	{
+		$this->hds
+		->select('*')
+		->from('hds_level')
+		->where('lv_status', 1);
+		return $this->hds->get();
+	}
+
 	public function get_max_rq_id(){
 		$this->hds
 		->select_max('rq_id')

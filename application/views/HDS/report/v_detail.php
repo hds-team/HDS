@@ -30,7 +30,21 @@
                         <td><left><?php echo $row->rq_subject; ?></left></td>
                         <td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
                         <td><center><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/4');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></center></td>
-                        <td><center><?php echo $row->st_name; ?></center></td>
+                        <td>
+                            <center>
+                                <?php
+                                    switch($row->st_id){
+                                        case 3: echo "รอดำเนินงาน";
+                                                break;
+                                        case 5:
+                                        case 6:
+                                        case 7: echo "กำลังดำเนินงาน";
+                                                break;
+                                        default: echo $row->st_name;
+                                    } 
+                                ?>
+                            </center>
+                        </td>
                     </tr>
                     <?php
                         }

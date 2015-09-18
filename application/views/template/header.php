@@ -37,6 +37,25 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
+<!-- HDS Dialog Script-->
+<script>
+  $(function() {
+    $( "#report_input" ).dialog({
+      autoOpen: false,
+      resizable: false,
+      modal: true,
+      width: 800
+    });
+
+    $( "#report_btn" ).click(function() {
+      $( "#report_input" ).dialog( "open" );
+    });
+    
+    $( "#datepicker" ).datepicker();
+
+  });
+</script>
+
 <title>User Management System</title>
 
 </head>
@@ -146,26 +165,7 @@
                     </div>               
                 </div>
             </div>
-           
-<!-- HDS Dialog Script-->
-<script>
-  $(function() {
-    $( "#report_input" ).dialog({
-      autoOpen: false,
-      resizable: false,
-      modal: true,
-      width: 800
-    });
-
-    $( "#report_btn" ).click(function() {
-      $( "#report_input" ).dialog( "open" );
-    });
-    
-    $( "#lg_exp" ).datepicker();
-    
-  });
-</script>
-
+         
 
 <!-- HDS Dialog Report -->
 <div id="report_input" class="da-panel-content" title="แบบฟอร์มคำร้อง" style="padding: 0px; display: none;">
@@ -178,7 +178,7 @@
                 <div class="grid_4">
                     <label>หัวเรื่อง</label>
                     <div class="da-form-item large">
-                        <input type="text" name="rq_subject" required>
+                        <input type="text" name="rq_subject" maxlength="50" required>
                     </div>
                 </div>
             </div>
@@ -214,29 +214,37 @@
             </div>
             <div class="da-form-row">
                 <div class="grid_2">
-                    <label>เบอร์โทร</label>
-                    <div class="da-form-item large">
-                        <input type="text" name="rq_tell" required>
-                    </div>
-                </div>
-                <div class="grid_2">
-                    <label>อีเมล์</label>
-                    <div class="da-form-item large">
-                        <input type="text" name="rq_email" required>
-                    </div>
-                </div>
-            </div>
-            <div class="da-form-row">
-                <div class="grid_2">
                     <label>ระดับความสำคัญ</label>
                     <div class="da-form-item large">
-                        <input type="text" name="lv_id" required>
+                        <select name="lg_lv_id">
+                            <?php
+                                foreach($hds_level->result() as $level){
+                            ?>
+                                    <option value="<?php echo $level->lv_id; ?>"><?php echo $level->lv_name; ?></option>
+                            <?php
+                                }
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div class="grid_2">
                     <label>กำหนดส่ง</label>
                     <div class="da-form-item large">
-                        <input type="text" name="lg_exp">
+                        <input id="datepicker" type="text" name="lg_exp">
+                    </div>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <div class="grid_2">
+                    <label>เบอร์โทร</label>
+                    <div class="da-form-item large">
+                        <input id="rq_tell" type="text" name="rq_tell" maxlength="10" required>
+                    </div>
+                </div>
+                <div class="grid_2">
+                    <label>อีเมล์</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="rq_email" maxlength="100" required>
                     </div>
                 </div>
             </div>
@@ -244,7 +252,7 @@
                 <div class="grid_4">
                     <label>รายละเอียด</label>
                     <div class="da-form-item large">
-                        <textarea name="rq_detail" rows="auto" cols="auto" required></textarea>
+                        <textarea name="rq_detail" rows="auto" cols="auto" maxlength="255" required></textarea>
                     </div>
                 </div>
             </div>

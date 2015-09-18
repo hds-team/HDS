@@ -17,7 +17,7 @@
 
  $config['base_url'] = "http://".$_SERVER['HTTP_HOST'].str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
  $config['uploads_url'] = "http://".$_SERVER['HTTP_HOST'].str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME'])."index.php/UMS/getIcon?type=";
- $config['uploads_dir'] = "/uploads/";
+ $config['uploads_dir'] = "../uploads/hds_uploads";
 /*
 
 
