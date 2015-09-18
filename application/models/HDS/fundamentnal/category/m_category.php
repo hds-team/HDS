@@ -11,7 +11,8 @@ class M_category extends CI_Model{
 		$this->hds
 		->select('*')
 		->from('hds_category')
-		->join('hds_request','hds_category.ct_id = hds_request.rq_ct_id','left');
+		->join('hds_request','hds_category.ct_id = hds_request.rq_ct_id','left')
+		->group_by('ct_id');
 		return $this->hds->get();
 	}
 }

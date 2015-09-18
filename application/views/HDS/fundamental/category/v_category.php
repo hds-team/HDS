@@ -131,7 +131,7 @@
     </div> <!--da-panel-content-->
 </div> <!--da-panel collapsible-->
     <div id="dialog" title="แจ้งเตือน">
-        <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
+        <p>รายการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
     </div>
 
     <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
