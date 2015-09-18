@@ -3,8 +3,9 @@ require(dirname(__FILE__)."/HDS_Controller.php");
 class Dev_work extends HDS_Controller 
 {
 
-	public function index($sys_id=NULL)
+	public function index($sys_id=99)
 	{
+		$this->benchmark->mark('code_start');
 		//echo "Dev_work";
 		//------GET SYSTEM NAME AND ID
 		if($this->input->post('system') == NULL)
@@ -25,41 +26,52 @@ class Dev_work extends HDS_Controller
 		{
 			$data_content['system_st'] = 1; //have set display report
 			$data_content['system_select'] = $data['system']; //set for select in dropdown to curreny system
-			$data_content['pending'] = $this->pending($data['system']);
-			$data_content['ongoing'] = $this->ongoing($data['system']);
-			$data_content['approve'] = $this->approve($data['system']);
+
+			if($data['system'] == 99)
+			{
+				$all = TRUE; // Show all systems
+			}else{
+				$all = FALSE;
+			}
+			$data_content['pending'] = $this->pending($data['system'], $all);
+			$data_content['ongoing'] = $this->ongoing($data['system'], $all);
+			$data_content['approve'] = $this->approve($data['system'], $all);
 		}
 
 		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
 		$data['content'] = $this->hds_output('dev_work/main_dev_work', $data_content, true);
+
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		$this->layout_output($data);
 
 	}
 
-	public function approve($sys_id = 10)
+	public function approve($sys_id = 10, $all=FALSE)
 	{
 		include('dev_work_part/approve.php');
 		return $view;
 	}
 
 	//Function pending for view page.
-	public function pending($sys_id = 10)
+	public function pending($sys_id = 10, $all=FALSE)
 	{
 		include ('dev_work_part/pending.php');
 		return $view;
 	}
-	
+
+	public function ongoing($sys_id = 10, $all=FALSE){
+		include('dev_work_part/ongoing.php');
+		return $view;
+	}
+
 	//Function update status in view page.
 	public function update_pending($rq_id, $sys_id, $rq_st_id)
 	{
 		include ('dev_work_part/update_pending.php');
 	}
 
-	public function ongoing($sys_id = 10){
-		include('dev_work_part/ongoing.php');
-		
-		return $view;
-	}
+	
 	public function update_ongoing($rq_id,$st_id,$sys_id){
 		include('dev_work_part/update_ongoing.php');
 	}

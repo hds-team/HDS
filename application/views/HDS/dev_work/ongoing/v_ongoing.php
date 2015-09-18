@@ -8,6 +8,14 @@
 				<th class="sorting"><center><b>ประเภท</b></center></th>
 				<th class="sorting"><center><b>หมวด</b></center></th>
 				<th class="sorting"><center><b>ผู้ส่ง</b></center></th>
+                <?php
+                    if($sys_id == 99)
+                    {
+                ?>
+                <th><center><b>ระบบ</b><center></th> 
+                <?php
+                    }
+                ?>
 				<th class="sorting"><center><b>ดำเนินการ</b></center></th>
 			</tr>
 		</thead> <!-- thead -->
@@ -30,6 +38,14 @@
 					<td><?php echo $row->ct_name; ?></td>
 					<td><?php echo $row->kn_name; ?></td>
 					<td><?php echo $row->UsName; ?></td>
+                    <?php
+                        if($sys_id == 99)
+                        {
+                    ?>
+                    <td><center><?php echo $row->StNameT; ?><center></td> 
+                    <?php
+                        }
+                    ?>
 					<td>
 						<center>
 							<a href = "<?php echo base_url('index.php/HDS/dev_work/update_ongoing/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />

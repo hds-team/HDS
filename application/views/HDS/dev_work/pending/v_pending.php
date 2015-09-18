@@ -8,6 +8,14 @@
                 <th><center> ประเภท </center></th> 		<!--Head row-->
                 <th><center> หมวด </center></th> 		    <!--Head row-->
                 <th><center> ผู้ส่ง </center></th> 			<!--Head row-->
+                <?php
+                    if($sys_id == 99)
+                    {
+                ?>
+                <th><center><b>ระบบ</b><center></th> 
+                <?php
+                    }
+                ?>
                 <th><center> ดำเนินการ </center></th> 		<!--Head row-->
              </tr> <!--Close row-->
         </thead> <!--Close header table-->
@@ -20,14 +28,20 @@
             <tr class = "odd"> <!--Open row-->
 				<td><center> <?php echo $index++;?></center></td> 									<!--Data in table-->
 				<td>
-					<center> 
-						<a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a> 
-					</center>
+					<a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a> 
 				</td> 						<!--Data in table-->
 				<td><center> <?php echo $this->date_time->DateThai($row->rq_date);?></center></td> 	<!--Data in table-->
 				<td><center> <?php echo $row->ct_name;?> </center></td> 							<!--Data in table-->
 				<td><center> <?php echo $row->kn_name;?> </center></td>								<!--Data in table-->
 				<td><center> <?php echo $row->UsName;?> </center></td>								<!--Data in table-->
+                <?php
+                    if($sys_id == 99)
+                    {
+                ?>
+                <td><center><?php echo $row->StNameT; ?><center></td> 
+                <?php
+                    }
+                ?>
 				<td class="da-icon-column"> 														<!--Data in table-->
 					<?php //Loop if else about status of hd_request table.
 						if($row->rq_st_id == 2)

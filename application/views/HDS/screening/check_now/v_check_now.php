@@ -8,6 +8,14 @@
 			  <th><center>วันที่</center></th>
 			  <th><center>ประเภท</center></th>
 			  <th><center>ผู่ส่ง</center></th>
+	          <?php
+	              if($sys_id == 99)
+	              {
+	          ?>
+	          <th><center><b>ระบบ</b><center></th> 
+	          <?php
+	              }
+              ?>
 			  <th><center>สถานะ</center></th>
 			</tr>
 		</thead>
@@ -24,6 +32,14 @@
 			<td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
 			<td><center><?php echo $row->ct_name; ?></center></td>
 			<td><?php echo $row->UsName; ?></td>
+            <?php
+                if($sys_id == 99)
+                {
+            ?>
+            <th><center><?php echo $row->StNameT; ?><center></th> 
+            <?php
+                }
+            ?>
 			<td><center><?php echo $row->st_name; ?></center></td>
 		</tr>
 		<?php

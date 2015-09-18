@@ -11,21 +11,20 @@ class HDS_Controller extends UMS_Controller
 
 	public function index()
 	{
-		echo "TEST";
 	}
 
 	public function hds_output($file="System_name/welcome", $data=NULL, $no_display=false)
 	{
+		//$this->benchmark->mark('code_start');
 		$file = "/HDS/".$file;
+		//$this->benchmark->mark('code_end');
+		//$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		return $this->load->view($file, $data, $no_display);
 	}
 
 	public function layout_output($data=NULL)//time to process
 	{
-		$this->benchmark->mark('code_start');
-		$this->output('/HDS/menu/layout', $data);
-		$this->benchmark->mark('code_end');
-		echo "<BR>TIME TO PROCESS : ".$this->benchmark->elapsed_time('code_start', 'code_end')." Second";
+		$this->output('/HDS/menu/layout', $data, true);
 	}
 
 }

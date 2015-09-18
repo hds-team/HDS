@@ -4,7 +4,10 @@
     $("#tabs").tabs();
   });
 </script>
-<div class="row">
+  <div class="grid_1">
+    <div class="da-panel"></div>
+  </div>
+  <div class="grid_2">
     <div class="da-panel"> 
       <div class="da-panel-header">
         <span class="da-panel-title">
@@ -20,7 +23,7 @@
             <div class="da-form-inline">
                   <div class="da-form-row">
                       <label>เลือกระบบ <span class="required">*</span></label>
-                      <div class="da-form-item">
+                      <div class="da-form-item large">
                         <select name="system">
                           <option <?php if($system_select == 0) echo "selected"; ?>>เลือกระบบ</option>
                         <?php
@@ -31,19 +34,22 @@
                         <?php 
                           }
                         ?>
+                          <option value="99" <?php if($system_select == 99) echo "selected"; ?>>ทั้งหมด</option>
                         </select>
                       </div>
                   </div>
               </div>
               <div class="da-button-row">
-                <input type="submit" value="Submit" class="da-button green">
+                <input type="submit" value="ตกลง" class="da-button green">
               </div>
             <?php echo form_close(); ?>
       </div><!-- da-panel-content -->
     </div><!-- da-panel -->
-</div><!-- row -->
-
-<div class="row">
+  </div>
+  <div class="grid_1">
+    <div class="da-panel"></div>
+  </div>
+<div class="clear"></div>
   <div class="da-panel" style="<?php if($system_st == 0) echo "display: none"; ?>">
     <div class="da-panel-header">
         <span class="da-panel-title">
@@ -68,4 +74,3 @@
         </div>
     </div><!-- tabs -->
   </div><!-- da-panel -->
-</div><!-- row -->

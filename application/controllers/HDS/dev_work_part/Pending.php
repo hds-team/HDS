@@ -1,6 +1,14 @@
 <?php
 	$this->load->model("HDS/dev_work/pending/m_pending"); 						//Load model m_pending.
-	$data['rq'] = $this->m_pending->get_pending($sys_id);						//Creat data['rq'] and varible -> model.
+
+	//------- Check show all
+	if($all){
+		$data['rq'] = $this->m_pending->get_pending_all(); //show all
+	}
+	else
+	{
+		$data['rq'] = $this->m_pending->get_pending($sys_id); //show only one system
+	}
 	
 	/************************************** 
 	foreach($data['rq']->result() as $row)

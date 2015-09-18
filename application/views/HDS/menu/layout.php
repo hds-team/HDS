@@ -315,6 +315,7 @@
 
     </style>
     <?php
+        $menu_open = FALSE;
         $menu = array();
         //----------MENU-----------
         $menu[0]['name'] = "ตรวจสอบงาน";
@@ -344,41 +345,45 @@
         $access['all'] = array(0, 1, 2, 3, 4);
 
     ?>
-    <?php 
-		echo "MEMORY TO USE : ".$this->benchmark->memory_usage(); //memory's use 
-	?> 
 </head>
 <div id="da-content">
     <div class="da-container clearfix">
-        <!-- Sidebar Separator do not remove -->
-        <div id="da-sidebar-separator"></div>
-        <!-- Sidebar -->
-        <div id="da-sidebar">
-            <!-- Main Navigation -->
-            <div id="da-main-nav" class="da-button-container">
-                <ul>
-                    <?php 
-                        foreach($access['all'] as $key => $value){
-                            //echo $key." ".$value."<BR>";
-                    ?>
-                       <li>
-                            <a href="<?php echo base_url('index.php/HDS/'.$menu[$value]['controller']); ?>">
-                                <!-- Icon Container -->
-                                <span class="da-nav-icon">
-                                    <img src="<?php echo base_url('images/icons/black/32/'.$menu[$value]['icon']); ?>" alt="<?php echo $menu[$value]['name']; ?>">
-                                </span>
-                                <?php echo $menu[$value]['name']; ?>
-                            </a>
-                        </li>
- 
-                    <?php
-                        }
-                    ?>
-                </ul>
-            </div> <!-- da-main-nav -->
-        </div>
+        <?php if($menu_open){ ?>
+            <!-- Sidebar Separator do not remove -->
+            <div id="da-sidebar-separator"></div>
+            <!-- Sidebar -->
+            <div id="da-sidebar">
+                <!-- Main Navigation -->
+                <div id="da-main-nav" class="da-button-container">
+                    <ul>
+                        <?php 
+                            foreach($access['all'] as $key => $value){
+                                //echo $key." ".$value."<BR>";
+                        ?>
+                           <li>
+                                <a href="<?php echo base_url('index.php/HDS/'.$menu[$value]['controller']); ?>">
+                                    <!-- Icon Container -->
+                                    <span class="da-nav-icon">
+                                        <img src="<?php echo base_url('images/icons/black/32/'.$menu[$value]['icon']); ?>" alt="<?php echo $menu[$value]['name']; ?>">
+                                    </span>
+                                    <?php echo $menu[$value]['name']; ?>
+                                </a>
+                            </li>
+     
+                        <?php
+                            }
+                        ?>
+                    </ul>
+                </div> <!-- da-main-nav -->
+            </div>
+        <?php } ?>
         <!-- Main Content Wrapper -->
+        <?php 
+            if($menu_open)
+            { 
+        ?>
         <div id="da-content-wrap" class="clearfix">
+        <?php } ?>    
             <!-- Content Area -->
             <div id="da-content-area"> 
                 <div class="grid_4">
@@ -393,6 +398,21 @@
                     ?>
                 </div><!-- grid_4 --> 
             </div>  <!-- da-content-area --> 
+        <?php 
+            if($menu_open)
+            { 
+        ?>
         </div> <!-- da-content-wrap -->
+        <?php } ?>  
     </div> <!-- da-container clearfix -->
 </div><!-- da-content -->
+<div id="da-footer">
+    <div class="da-container clearfix">
+        <p>
+        <?php 
+            echo "MEMORY TO USE : ".$this->benchmark->memory_usage(); //memory's use 
+            echo " AND TIME PROCESS : ".$this->session->userdata('time_cpu')." SEC";
+        ?> 
+        </p>
+    </div>
+</div>

@@ -7,6 +7,14 @@
 					<th style="width: 13%"><center><b>วันที่</b><center></th> 
 					<th style="width: 13%"><center><b>ประเภท</b><center></th> 
 					<th><center><b>ผู้ส่ง</b><center></th> 
+                    <?php
+                        if($sys_id == 99)
+                        {
+                    ?>
+                    <th><center><b>ระบบ</b><center></th> 
+                    <?php
+                        }
+                    ?>
                     <th style="width: 20%"><center><b>ดำเนินการ</b><center></th> 
                 </tr> 
             </thead>
@@ -22,6 +30,14 @@
                     <td><center><?php echo $this->date_time->DateThai($row->rq_date);?></center></td> <!-- date -->
                     <td><center><?php echo $row->ct_name; ?></center></td> <!-- category name -->
                     <td><?php echo $row->UsName; ?></td> <!-- User name // import from UMS Table -->
+                    <?php
+                        if($sys_id == 99)
+                        {
+                    ?>
+                    <td><center><?php echo $row->StNameT; ?><center></td> 
+                    <?php
+                        }
+                    ?>
                     <td class="da-icon-column"> <!-- working on button -->
 						<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
 							<input type="submit" class="da-button blue" value="ตรวจรับ" />

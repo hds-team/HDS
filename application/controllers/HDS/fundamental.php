@@ -8,26 +8,31 @@ class Fundamental extends HDS_Controller {
 
 	public function kind()
 	{
+		$this->benchmark->mark('code_start');
 		include('fundamental_part/kind.php');
-		
 		$data['content'] = $view;
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		$this->layout_output($data);
 	}
 
 	public function category()
 	{
+		$this->benchmark->mark('code_start');
 		include('fundamental_part/category.php');
-
 		$data['content'] = $view;
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		$this->layout_output($data);
 	}
 
 	public function contact()
 	{
+		$this->benchmark->mark('code_start');
 		include('fundamental_part/contact.php');
-		
-	
 		$data['content'] = $view;
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		$this->layout_output($data);
 	}
 	public function insert_category()

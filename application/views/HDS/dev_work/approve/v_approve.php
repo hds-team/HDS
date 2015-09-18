@@ -8,6 +8,14 @@
 				<th><center><B>ประเภท</B></center></th>
 				<th><center><B>หมวด</B></center></th>
 				<th><center><B>ผู้ส่ง</B></center></th>
+                <?php
+                    if($sys_id == 99)
+                    {
+                ?>
+                <th><center><b>ระบบ</b><center></th> 
+                <?php
+                    }
+                ?>
 				<th><center><B>ดำเนินการ</B></center></th>
 			</tr>
         </thead>
@@ -23,6 +31,14 @@
 				<td><?php echo $row->ct_name; ?></td>
 				<td><?php echo $row->kn_name; ?></td>
 				<td><?php echo $row->UsName; ?></td>
+                <?php
+                    if($sys_id == 99)
+                    {
+                ?>
+                <td><center><?php echo $row->StNameT; ?><center></td> 
+                <?php
+                    }
+                ?>
 				<td><center>
 					<?php 
 						if($row->rq_st_id == 6){

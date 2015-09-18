@@ -2,9 +2,9 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Screening extends HDS_Controller 
 {
-	public function index($sys_id=NULL)
+	public function index($sys_id=99)
 	{
-
+		$this->benchmark->mark('code_start');
 		//echo "Screening";
 		//------GET SYSTEM NAME AND ID
 		if($this->input->post('system') == NULL)
@@ -27,33 +27,46 @@ class Screening extends HDS_Controller
 			$data_content['system_st'] = 1; //have set display report
 			$data_content['system_select'] = $data['system']; //set for select in dropdown curreny system
 
-			$data_content['check'] = $this->check($data['system']);
-			$data_content['check_now'] = $this->check_now($data['system']);
-			$data_content['petition'] = $this->petition($data['system']);
+			if($data['system'] == 99)
+			{
+				$all = TRUE; // Show all systems
+			}else{
+				$all = FALSE;
+			}
+			$data_content['check'] = $this->check($data['system'], $all);
+			$data_content['check_now'] = $this->check_now($data['system'], $all);
+			$data_content['petition'] = $this->petition($data['system'], $all);
+
 		}
 
 		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
 		$data['content'] = $this->hds_output('screening/main_screening', $data_content, true);
+
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
+		
 		$this->layout_output($data);
 	}
 
-	public function check($sys_id=10)
+	//-------- Get request by system
+	public function check($sys_id=10, $all=FALSE)
 	{ //get content by system id
 		include('screening_part/check.php');
 		return $view;
 	}
 
-	public function check_now($sys_id= 10)
+	public function check_now($sys_id= 10, $all=FALSE)
 	{ //get content by system id
 		include('screening_part/check_now.php');
 		return $view;
 	}
 
-	public function petition($sys_id=10)
+	public function petition($sys_id=10, $all=FALSE)
 	{ //get content by system id
 		include('screening_part/petition.php');
 		return $view; 
 	}
+
 	public function update_check($rq_id,$st_id,$sys_id)
 	{
 		include('screening_part/update_check.php');
@@ -69,4 +82,3 @@ class Screening extends HDS_Controller
 	
 }
 
-// Comment กกกกกก

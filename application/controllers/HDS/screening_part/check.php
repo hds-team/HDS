@@ -1,6 +1,15 @@
 ﻿<?php
 	$this->load->model("HDS/screening/check/m_check");
-	$data['query'] = $this->m_check->show_check($sys_id)->result_array();
+
+	//------- Check show all
+	if($all){
+		$data['query'] = $this->m_check->show_check_all()->result_array(); //show all
+	}
+	else
+	{
+		$data['query'] = $this->m_check->show_check($sys_id)->result_array();
+	}
+
 	/*
 	foreach($data['query'] as $key => $ch)
 	{	
