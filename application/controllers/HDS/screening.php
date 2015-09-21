@@ -2,6 +2,11 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Screening extends HDS_Controller 
 {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('HDS/screening/m_screening');
+	}
+
 	public function index($sys_id=99)
 	{
 		$this->benchmark->mark('code_start');
@@ -40,6 +45,11 @@ class Screening extends HDS_Controller
 		}
 
 		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
+
+		foreach($this->m_screening->notification()->result() as $row){
+			$data_content['system_notification'][$row->rq_sys_id] = $row->total;
+		}
+		
 		$data['content'] = $this->hds_output('screening/main_screening', $data_content, true);
 
 		$this->benchmark->mark('code_end');
