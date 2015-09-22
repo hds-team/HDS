@@ -51,6 +51,18 @@ class M_report extends CI_Model
 		return $this->hds->get();
 	}
 
+	public function get_system_by_user($UsID){
+		$this->ums
+		->select('*')
+		->from('umusergroup')
+		->join('umgroup', 'umusergroup.UgGpID = umgroup.GpID', 'inner')
+		->join('umsystem', 'umsystem.StID = umgroup.GpStID', 'inner')
+		->where('umusergroup.UgUsID', $UsID)
+		->where('umsystem.StID !=', 10)
+		->group_by('umgroup.GpStID');
+		return $this->ums->get();
+	}
+
 
 	
 

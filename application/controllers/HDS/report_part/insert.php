@@ -13,7 +13,7 @@
 	$data['rq_detail'] = $this->input->post('rq_detail');
 	$data['rq_date'] = date('y-m-d');
 	$data['rq_mb_id'] = $this->session->userdata('UsID');
-	$data['rq_sys_id'] = $this->session->userdata('StID');
+	$data['rq_sys_id'] = $this->input->post('sys_id');
 	//-------- Check date exp
 	if($this->input->post('lg_exp') != NULL){
 		//------- Convert format mm/dd/yy to yyyy-mm-dd

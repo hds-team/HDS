@@ -2,6 +2,10 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Dev_work extends HDS_Controller 
 {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('HDS/dev_work/m_dev_work');
+	}
 
 	public function index($sys_id=99)
 	{
@@ -39,6 +43,11 @@ class Dev_work extends HDS_Controller
 		}
 
 		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
+
+		foreach($this->m_dev_work->notification()->result() as $row){
+			$data_content['system_notification'][$row->rq_sys_id] = $row->total;
+		}
+
 		$data['content'] = $this->hds_output('dev_work/main_dev_work', $data_content, true);
 
 		$this->benchmark->mark('code_end');

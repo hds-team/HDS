@@ -36,6 +36,7 @@ class UMS_Controller extends CI_Controller {
 		$data['hds_category'] = $this->m_report->get_category();
 		$data['hds_kind'] = $this->m_report->get_kind();
 		$data['hds_level'] = $this->m_report->get_level();
+		$data['hds_system'] = $this->m_report->get_system_by_user($this->session->userdata('UsID'));
 		//------- END HDS REPORT
 		/* old way
 		if($this->session->userdata('UsID')) 
