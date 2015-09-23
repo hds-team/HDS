@@ -1,9 +1,13 @@
-
+<style>
+	.center{
+		text-align: center;
+	}
+</style>
 <div class="da-panel-content" style = "border:0">
 	<table id="da-ex-datatable-numberpaging" class="da-table">
 		<thead>
 			<tr>
-				<th><center><B>ลำดับ</B></center></th>
+				<th style="width:7%" class="center"><B>ลำดับ</B></th>
 				<th><center><B>หัวเรื่อง</B></center></th>
 				<th><center><B>วันที่</B></center></th>
 				<th><center><B>ประเภท</B></center></th>
@@ -16,7 +20,7 @@
 		          <?php
 		              }
 	              ?>
-				<th style="width:22%"><center><B>ดำเนินการ</B></center></th>
+				<th style="width:18%"><center><B>ดำเนินการ</B></center></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,7 +30,7 @@
 			{
 		?>
 			<tr>
-				<td><center><?php echo $index++; ?></center></td>
+				<td class="center"><?php echo $index++; ?></td>
 				<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$ch['rq_id']); ?>" target="_blank"><?php echo $ch['rq_subject']; ?></a></td>
 				<td><center><?php echo $this->date_time->DateThai($ch['rq_date']); ?></center></td>
 				<td><?php echo $ch['ct_name']; ?></td>
@@ -39,9 +43,13 @@
                 <?php
                     }
                 ?>
-				<td>	
-					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/6/'.$sys_id); ?>"><button class="da-button green">อนุมัติ</button></a></div></center>
-					<center><div class="grid_2"><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/7/'.$sys_id); ?>"><button class="da-button red">ไม่อนุมัติ</button></a></div></center>
+				<td>
+					<div class="grid_2">
+						<center><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/6/'.$sys_id); ?>"><button style="width:100%" class="da-button green">อนุมัติ</button></a></center>
+					</div>
+					<div class="grid_2">
+						<center><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/7/'.$sys_id); ?>"><button style="width:100%" class="da-button red">ไม่อนุมัติ</button></a></center>
+					</div>
 				</td>
 			</tr>  	
 			<?php 
