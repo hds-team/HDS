@@ -21,7 +21,7 @@
         </thead>
         <tbody>
 		<?php $index = 0;
-            foreach($approve->result() as $row)
+            foreach($approve->result() as $row) //Get value from database (hds) to show interface.
             {
         ?>
 			<tr role="row"> <!-- row -->
@@ -43,8 +43,9 @@
 					<?php 
 						if($row->rq_st_id == 6){
 							$row->st_id = 8;
-					?>
+					?><!-- Loop of status of report. 6 is approve and 8 is not approve.-->
 					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
+						<!-- Sending value's status (st_id) to controller's update_approve.php -->
 						<input type="submit" value="รับทราบ" class="da-button green"> 
 					</a>
 					<?php 
@@ -53,6 +54,7 @@
 							$row->st_id = 3;
 					?>
 					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
+						<!-- Sending value's status (st_id) to controller's update_approve.php -->
 						<input type="submit" value="แก้ไข" class="da-button blue">
 					</a>
 					<?php
