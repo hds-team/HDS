@@ -5,7 +5,7 @@
 	$this->load->model('HDS/reply/m_reply');
 	//------ GET DATA CHAT
 	
-	
+	/*
 	if($status == NULL)
 	{
 		//---------- case other access		
@@ -19,7 +19,7 @@
 		//---------- case co-op access
 		$data['status'] = $status;	
 	}
-
+*/
 
 	$data['chat'] = $this->m_reply->get_chat($rq_id, $data['status']); // pass rq_id and status
 	if($status !== NULL)
@@ -27,7 +27,7 @@
 		$data['status'] = 3; // set for right msg in view
 	}
 	//------ END GET DATA CHAT
-
+	
 	$data['rq_id'] = $rq_id;
 	$data['request'] = $this->m_reply->get_request($rq_id);
 	$data['file'] = $this->m_dynamic->get_by_id('hds_file', 'fl_rq_id',$rq_id);

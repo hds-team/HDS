@@ -47,12 +47,12 @@
                     <td class="da-icon-column"> <!-- working on button -->
 						<div class="grid_2">
 							<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
-								<input type="submit" class="da-button blue" style="wdith:100%" value="ตรวจรับ" />
+								<button style="width:100%" class="da-button blue">ตรวจรับ</button>
 							</a><!-- checking accept -->
 						</div>
 						<div class="grid_2">
 							<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_complete/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
-								<input type="submit" class="da-button blue" style="wdith:100%" value="เสร็จสิ้น" />
+								<button style="width:100%" class="da-button blue">เสร็จสิ้น</button>
 							</a><!-- Complete button -->
 						</div>
                     </td>
