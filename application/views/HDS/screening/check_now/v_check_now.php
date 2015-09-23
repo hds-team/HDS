@@ -1,12 +1,16 @@
-
+<style>
+	.center{
+		text-align: center;
+	}
+</style>
 <div class="da-panel-content" style = "border:0">
 	<table id="da-ex-datatable-numberpaging" class="da-table">
 		<thead>
 			<tr>
-			  <th><center>ลำดับ</center></th>
+			  <th style="width:7%"><center>ลำดับ</center></th>
 			  <th><center>หัวเรื่อง</center></th>
-			  <th><center>วันที่</center></th>
-			  <th><center>ประเภท</center></th>
+			  <th style="width:11%"><center>วันที่</center></th>
+			  <th style="width:10%"><center>ประเภท</center></th>
 			  <th><center>ผู่ส่ง</center></th>
 	          <?php
 	              if($sys_id == 99)
@@ -16,7 +20,7 @@
 	          <?php
 	              }
               ?>
-			  <th><center>สถานะ</center></th>
+			  <th style="width:10%"><center>สถานะ</center></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,7 +31,7 @@
 			$index++;
 		?>
 		<tr class="odd">
-			<td><center><?php echo $index; ?><center></td>
+			<td class="center"><?php echo $index; ?></td>
 			<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td>
 			<td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
 			<td><center><?php echo $row->ct_name; ?></center></td>

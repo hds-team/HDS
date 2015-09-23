@@ -9,8 +9,8 @@
 			<tr>
 				<th style="width:7%" class="center"><B>ลำดับ</B></th>
 				<th><center><B>หัวเรื่อง</B></center></th>
-				<th><center><B>วันที่</B></center></th>
-				<th><center><B>ประเภท</B></center></th>
+				<th style="width:11%"><center><B>วันที่</B></center></th>
+				<th style="width:10%"><center><B>ประเภท</B></center></th>
 				<th><center><B>ผู้ส่ง</B></center></th>
 		          <?php
 		              if($sys_id == 99)
