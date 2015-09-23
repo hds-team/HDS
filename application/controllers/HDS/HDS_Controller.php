@@ -27,4 +27,13 @@ class HDS_Controller extends UMS_Controller
 		$this->output('/HDS/menu/layout', $data, true);
 	}
 
+	public function save_log($al_st_id, $at_rq_id){
+		$data['al_st_id'] = $al_st_id;
+		$data['al_date'] = date('Y-m-d');
+		$data['al_time'] = date('H:i:s');
+		$data['al_mb_id'] = $this->session->userdata('UsID');
+		$data['al_rq_id'] = $at_rq_id;
+		$this->m_dynamic->insert('hds_accept_log', $data);
+	}
+
 }
