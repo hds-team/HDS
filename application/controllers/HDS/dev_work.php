@@ -42,7 +42,9 @@ class Dev_work extends HDS_Controller
 			$data_content['approve'] = $this->approve($data['system'], $all);
 		}
 
-		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
+		//$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
+		$data_content['system'] = $this->m_dev_work->get_system_by_permiss($this->session->userdata('UsID'));
+		
 
 		foreach($this->m_dev_work->notification()->result() as $row){
 			$data_content['system_notification'][$row->rq_sys_id] = $row->total;
