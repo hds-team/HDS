@@ -21,7 +21,8 @@ class M_pending extends CI_Model
 		->join('hds_kind','hds_kind.kn_id = hds_request.rq_kn_id','inner')
 		->join('ums.umuser','ums.umuser.UsID = hds_request.rq_mb_id','inner')
 		->where($where)
-		->where('hds_request.rq_sys_id',$sys_id);
+		->where('hds_request.rq_sys_id',$sys_id)
+		->order_by('hds_request.rq_date', 'DESC');
 		return $this->hds->get();
 	}
 
@@ -38,7 +39,8 @@ class M_pending extends CI_Model
 		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
 		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
 		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
-		->where($where_1);
+		->where($where_1)
+		->order_by('hds_request.rq_date', 'DESC');
 
 		$index = 1;
 		foreach($query->result() as $row){

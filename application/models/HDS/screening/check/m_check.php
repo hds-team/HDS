@@ -18,6 +18,7 @@ class M_check extends CI_Model
 		ON hds_request.rq_st_id=hds_status.st_id
 		INNER JOIN ums.umuser
 		ON hds_request.rq_mb_id=ums.umuser.UsID
+		ORDER BY hds_request.rq_date DESC
 		where hds_request.rq_sys_id = ? and hds_request.rq_st_id = 5
 		";
 		$query = $this->hds->query($sql, array($sys_id));
@@ -50,7 +51,8 @@ class M_check extends CI_Model
 		->join('hds_status', 'hds_request.rq_st_id = hds_status.st_id', 'inner')
 		->join('ums.umuser', 'hds_request.rq_mb_id = ums.umuser.UsID', 'inner')
 		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
-		->where('hds_request.rq_st_id', 5);
+		->where('hds_request.rq_st_id', 5)
+		->order_by('hds_request.rq_date', 'DESC');
 		return $this->hds->get();
 		
 		//$this->hds

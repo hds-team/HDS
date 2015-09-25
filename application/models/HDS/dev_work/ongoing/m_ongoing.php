@@ -22,7 +22,8 @@ class M_ongoing extends CI_Model
 		->join($this->db_name.'.hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner') //inner join status
 		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner') //join ums
 		->where('hds_request.rq_sys_id',$sys_id) //system's ums
-		->where('hds_request.rq_st_id',4); //status sending
+		->where('hds_request.rq_st_id',4) //status sending
+		->order_by('hds_request.rq_date', 'DESC');
 		$query = $this->hds->get();
 		return $query;
 	}
@@ -37,7 +38,8 @@ class M_ongoing extends CI_Model
 		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
 		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
 		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
-		->where('hds_request.rq_st_id' , 4);
+		->where('hds_request.rq_st_id' , 4)
+		->order_by('hds_request.rq_date', 'DESC');
 
 		$index = 1;
 		foreach($query->result() as $row){
