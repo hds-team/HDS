@@ -7,11 +7,32 @@
 	$data['rq_subject'] = $this->input->post('rq_subject');
 	$data['rq_ct_id'] = $this->input->post('rq_ct_id');
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
-	$data['rq_comp_id'] = $this->session->userdata('UsDpID');
+	if($this->input->post('comp_id') == NULL)
+	{	
+		//echo" COMP NULL";
+		$data['rq_comp_id'] = $this->session->userdata('UsDpID');
+	}
+	else
+	{
+		//echo" COMP NOT NULL";
+		$data['rq_comp_id'] = $this->input->post('comp_id');
+	}
 	$data['rq_tell'] = $this->input->post('rq_tell');
 	$data['rq_email'] = $this->input->post('rq_email');
 	$data['rq_detail'] = $this->input->post('rq_detail');
 	$data['rq_date'] = date('y-m-d');
+	if($this->input->post('UsName') == NULL)
+	{
+		//echo" NAME NULL";
+		$data['rq_mb_id'] = $this->session->userdata('UsID');
+	}
+	else
+	{
+		//echo" NAME NOT NULL";
+		$result_UsID = $this->m_dynamic->get_by_id('ums.umuser', 'UsName', $this->input->post('UsName'));
+		$UsID = $result_UsID->row_array();
+		$data['rq_mb_id'] =  $UsID['UsID'];
+	}
 	$data['rq_mb_id'] = $this->session->userdata('UsID');
 	$data['rq_sys_id'] = $this->input->post('sys_id');
 	//-------- Check date exp

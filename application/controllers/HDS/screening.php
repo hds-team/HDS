@@ -5,6 +5,7 @@ class Screening extends HDS_Controller
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('HDS/screening/m_screening');
+		$this->load->model('HDS/report/m_report');
 	}
 
 	public function index($sys_id=99)
@@ -50,6 +51,15 @@ class Screening extends HDS_Controller
 			$data_content['system_notification'][$row->rq_sys_id] = $row->total;
 		}
 		
+		//------- HDS REPORT FORM
+		$data_content['hds_category'] = $this->m_report->get_category();
+		$data_content['hds_kind'] = $this->m_report->get_kind();
+		$data_content['hds_level'] = $this->m_report->get_level();
+		$data_content['hds_system'] = $data_content['system'];
+		$data_content['hds_comp'] = $this->m_dynamic->get_all('ums.umdepartment');
+		$data_content['hds_member'] = $this->m_dynamic->get_all('ums.umuser');
+		//------- END HDS REPORT
+
 		$data['content'] = $this->hds_output('screening/main_screening', $data_content, true);
 
 		$this->benchmark->mark('code_end');
