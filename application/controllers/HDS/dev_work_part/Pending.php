@@ -3,7 +3,8 @@
 
 	//------- Check show all
 	if($all){
-		$data['rq'] = $this->m_pending->get_pending_all(); //show all
+		$data['rq'] = $this->m_pending->get_pending_all($this->session->userdata('UsID')); //show all
+		//$data['rq'] = $this->m_dev_work->get_request($this->session->userdata('UsID'));
 	}
 	else
 	{

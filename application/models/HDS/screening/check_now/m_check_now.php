@@ -17,7 +17,8 @@ class M_check_now extends CI_Model
 		->join('hds_category','hds_request.rq_ct_id=hds_category.ct_id' ,'inner')
 		->join('ums.umuser', 'hds_request.rq_mb_id=ums.umuser.UsID', 'inner')
 		->join('hds_status','hds_request.rq_st_id=hds_status.st_id','inner')
-		->where('rq_sys_id', $sys_id,'hds_status.st_id!=8');
+		->where('rq_sys_id', $sys_id)
+		->where('hds_status.st_id !=', 8);
 		return $this->hds->get();
 	} //check_now_require
 
@@ -29,7 +30,8 @@ class M_check_now extends CI_Model
 		->join('hds_category','hds_request.rq_ct_id=hds_category.ct_id' ,'inner')
 		->join('ums.umuser', 'hds_request.rq_mb_id=ums.umuser.UsID', 'inner')
 		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
-		->join('hds_status','hds_request.rq_st_id=hds_status.st_id','inner');
+		->join('hds_status','hds_request.rq_st_id=hds_status.st_id','inner')
+		->where('hds_status.st_id !=', 8);
 		return $this->hds->get();
 	} 
 } //class m_check_now

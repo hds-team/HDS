@@ -43,6 +43,15 @@ class Fundamental extends HDS_Controller {
 		//$this->layout_output($data);
 	}
 	
+	public function level()
+	{
+		include('fundamental_part/level.php');
+		
+	
+		$data['content'] = $view;
+		$this->layout_output($data);
+	}
+	
 	public function insert_kind()
 	{
 		include('fundamental_part/insert_kind.php');
