@@ -17,8 +17,9 @@
 	//-------- Check date exp
 	if($this->input->post('lg_exp') != NULL){
 		//------- Convert format mm/dd/yy to yyyy-mm-dd
-		$hds_level_log['lg_exp'] = $this->input->post('lg_exp');
-		$hds_level_log['lg_exp'] = date('Y-m-d', strtotime($hds_level_log['lg_exp']));
+		$date_exp = explode("/",$this->input->post('lg_exp'));
+		$hds_level_log['lg_exp'] = $date_exp[2]."-".$date_exp[1]."-".$date_exp[0];
+
 	}
 	$hds_level_log['lg_lv_id'] = $this->input->post('lg_lv_id');
 	$hds_level_log['lg_mb_id'] = $data['rq_mb_id'];
@@ -49,7 +50,7 @@
 		
 		//-------- Upload file
 		$config['upload_path'] = $this->config->item('uploads_dir');
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'gif|jpg|png|rar|zip|doc|docx|xlsx|pdf|xls';
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload())
@@ -66,6 +67,7 @@
 			$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
 		}
 	}
-	redirect(base_url($URL));
+	$part = explode("/",$URL);
+	redirect($part[3]."/".$part[4]."/".$part[5]);
 
 ?>

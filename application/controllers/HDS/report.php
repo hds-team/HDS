@@ -2,10 +2,17 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Report extends HDS_Controller
  {
-	public function index()
+ 	public function __construct(){
+ 		parent::__construct();
+ 		$this->load->model('HDS/report/m_report');
+ 	}
+	public function user_report()
 	{
-
+		include('report_part/user_report.php');
+		$this->layout_output($data);
 	}
+
+
 
 	public function insert()
 	{ 

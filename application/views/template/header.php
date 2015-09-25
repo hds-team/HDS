@@ -51,7 +51,7 @@
       $( "#report_input" ).dialog( "open" );
     });
     
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
 
   });
 </script>
@@ -173,7 +173,7 @@
             $data['class'] ="da-form";
             echo form_open_multipart('HDS/report/insert', $data); 
         ?>
-            <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" >
+            <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="url">
             <div class="da-form-row">
                 <div class="grid_4">
                     <label>หัวเรื่อง</label>
