@@ -1,9 +1,10 @@
+
 <!-- Detail of request -->
 <div class="da-panel">
 	<div class="da-panel-header">
 		<span class="da-panel-title">
 			<img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
-				รายละเอียกคำร้อง 
+				<b>รายละเอียกคำร้อง </b>
 		</span>
 	<span class="da-panel-toggler"></span></div>
 	<div class="da-panel-content">
@@ -13,30 +14,40 @@
 					foreach($request->result() as $row)
 					{
 				?>
-				<tr class="odd">
-					<th>หัวข้อ</th>
-					<td><?php echo " ".$row->rq_subject; ?></td>
-				</tr>
-				<tr class="even">
-					<th>ประเภท</th>
-					<td><?php echo " ".$row->st_name; ?></td>
-				</tr>
-				<tr class="odd">
-					<th>หมวด</th>
-					<td><?php echo " ".$row->ct_name; ?></td>
-				</tr>
-				<tr class="even">
-					<th>วันที่</th>
-					<td><?php echo " ".$this->date_time->DateThai($row->rq_date); ?></td>
-				</tr>
-				<tr class="odd">
-					<th>ผู้ส่ง</th>
-					<td><?php echo " ".$row->UsName; ?></td>
-				</tr>
-				<tr class="even">
-					<th>รายละเอียด</th>
-					<td><?php echo " ".$row->rq_detail; ?></td>
-				</tr>
+					<tr class="odd">
+						<th><b>หัวข้อ</b></th>
+						<td><?php echo " ".$row->rq_subject; ?></td>
+						<th><b>เบอร์โทร</b></th>
+						<td><?php echo " ".$row->rq_tell; ?></td>
+					</tr>
+					<tr class="even">
+						<th><b>ประเภท</b></th>
+						<td><?php echo " ".$row->ct_name; ?></td>
+						<th><b>อีเมล</b></th>
+						<td><?php echo " ".$row->rq_email; ?></td>
+					</tr>
+					<tr class="odd">
+						<th><b>หมวด</b></th>
+						<td><?php echo " ".$row->st_name; ?></td>
+						<th><b>ระบบ</b></th>
+						<td><?php echo " ".$row->StNameT; ?></td>
+					</tr>
+					<tr class="odd">
+						<th><b>ระดับความสำคัญ</b></th>
+						<td><?php echo " ".$row->lv_name; ?></td>
+						<th><b>วันที่</b></th>
+						<td><?php echo " ".$this->date_time->DateThai($row->rq_date); ?></td>
+					</tr>
+					<tr class="odd">
+						<th><b>กำหนดส่ง</b></th>
+						<td><?php echo " ".$this->date_time->DateThai($row->lg_exp); ?></td>
+						<th><b>ผู้ส่ง</b></th>
+						<td><?php echo " ".$row->UsName; ?></td>
+					</tr>
+					<tr class="even" colspan="4">
+						<th><b>รายละเอียด</b></th>
+						<td><?php echo " ".$row->rq_detail; ?></td>
+					</tr>
 				<?php
 					}
 				?>
@@ -50,88 +61,38 @@
 <div class="da-panel">
 	<div class="da-panel-header">
 		<span class="da-panel-title">
-			<img src="images/icons/color/layout.png" alt="" />
-				รูปภาพประกอบ
+			<img src=<?php echo base_url('images/icons/color/layout.png'); ?> alt="" />
+				<b>ดาวโหลดไฟล์</b>
 		</span>
 	</div>
 	<div class="da-panel-content with-padding">
 		<div class="da-gallery prettyPhoto">
 			<ul>
-				<li>
-					<a href="gallery/9.jpg" rel="prettyPhoto[pp1]">
-						<img src="gallery/thumbs/9.jpg" alt="" />
-					</a>
-					<span class="da-gallery-hover">
-						<ul>
-							<li class="da-gallery-update"><a href="#">Update</a></li>
-							<li class="da-gallery-delete"><a href="#">Delete</a></li>
-						</ul>
-					</span>
-				</li>
-				<li>
-					<a href="gallery/10.jpg" rel="prettyPhoto[pp1]">
-						<img src="gallery/thumbs/10.jpg" alt="" />
-					</a>
-					<span class="da-gallery-hover">
-						<ul>
-							<li class="da-gallery-update"><a href="#">Update</a></li>
-							<li class="da-gallery-delete"><a href="#">Delete</a></li>
-						</ul>
-					</span>
-				</li>
-				<li>
-					<a href="gallery/11.jpg" rel="prettyPhoto[pp1]">
-						<img src="gallery/thumbs/11.jpg" alt="" />
-					</a>
-					<span class="da-gallery-hover">
-						<ul>
-							<li class="da-gallery-update"><a href="#">Update</a></li>
-							<li class="da-gallery-delete"><a href="#">Delete</a></li>
-						</ul>
-					</span>
-				</li>
-				<li>
-					<a href="gallery/12.jpg" rel="prettyPhoto[pp1]">
-						<img src="gallery/thumbs/12.jpg" alt="" />
-					</a>
-					<span class="da-gallery-hover">
-						<ul>
-							<li class="da-gallery-update"><a href="#">Update</a></li>
-							<li class="da-gallery-delete"><a href="#">Delete</a></li>
-						</ul>
-					</span>
-				</li>
+				<?php 
+					foreach($request->result() as $row1)
+					{
+				?>
+					<div class="da-panel-body">
+						<span  class="da-panel-title">
+							<img src=<?php echo base_url("images/icons/color/application_put.png"); ?> alt="">
+							<a href=""><?php echo $row1->fl_name; ?></a>
+						</span>
+					</div>
+				<?php 
+					}
+				?>
 			</ul>
 		</div>
 	</div>
 </div> 
 <div class="clear"></div><!-- new line -->
-<!-- Meassage -->
-<?php
- foreach($chat->result() as $row)
- {
-	if($row->ps_ut_id == $status)
-	{
-		echo "<div class='grid_2'>.</div>"; // pull right
-	}
-?>
 
-   <div class="grid_2">
-		<div class="da-panel-widget">
-			<?php echo $row->rp_detail; ?>
-		</div>
-	</div>
-
-	<div class="clear"></div><!-- new line -->
-
-<?php
-}
-?>
+<!-- timeline -->
 <div class="da-panel">
 	<div class="da-panel-header">
 			<span class="da-panel-title">
 			<img src="images/icons/black/16/pencil.png" alt="">
-				ส่งข้อความ
+				<b>ส่งข้อความ</b>
 		</span>
 	</div>
 	<div class="da-panel-content">
