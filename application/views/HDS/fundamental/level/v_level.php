@@ -81,26 +81,26 @@
             </thead>
             <tbody>
                <?php
-                   // $index=0;
+                    $index=0;
                     
-                   // foreach ($query->result() as $row)
-                   // {                        
+                    foreach ($query->result() as $row)
+                    {                        
                     ?>
                 <tr>
-                    <td><center><?php //echo ++$index;?></center></td>
-                    <td><?php //echo $row->ct_name;?></td>
+                    <td><center><?php echo ++$index;?></center></td>
+                    <td><?php echo $row->lv_name;?></td>
                     <td>
                         <center>
-                        <?php /*
-                        if ($row->ct_status==1)
+                        <?php 
+                        if ($row->lv_status==1)
 						{
-                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
+                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
 						}
-                      */  ?>
+                        ?>
                         </center>
                     </td>
                     <td><center>
@@ -109,19 +109,19 @@
                             </div>
                             <div class="grid_2">
                                <?php 
-                               //if($row->rq_ct_id==null){
-                              //echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
-                               // }
-                           // else{
-                               //echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
-                           // }
+                               if($row->lg_lv_id==null){
+                              echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->lv_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                                }
+                           else{
+                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
+                           }
                                ?>
                             </div>
                         </center>
                     </td> 
                 </tr>
                 <?php 
-                   // }
+                    }
                     ?>
             </tbody>
         </table>
@@ -133,14 +133,14 @@
     <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/update_category', $data); 
+                echo form_open('HDS/fundamental/update_level', $data); 
                 ?>
                            
-            <input type="hidden" id="ct_id"name="ct_id">
+            <input type="hidden" id="lv_id"name="lv_id">
                 <div class="da-form-row">
                 <label>ประเภท</label>
                      <div class="da-form-item large">
-                    <input type="text" id="ct_name" name="ct_name" required>
+                    <input type="text" id="lv_name" name="lv_name" required>
                      </div>
                 </div>
             <div class="da-button-row">
