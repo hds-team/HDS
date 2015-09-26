@@ -30,6 +30,11 @@
         $( "#dialog" ).dialog( "open" ); //open dialog
     }
 </script>
+<style>
+	.center{
+		text-align: center;
+	}
+</style>
 <div class="grid_1">
     .
 </div>
@@ -38,7 +43,7 @@
     <div class="da-panel">
         <div class="da-panel-header">
         	<span class="da-panel-title">
-                เพิ่มประเภท
+					<b>เพิ่มประเภท</b>
             </span>
         </div>
          
@@ -67,7 +72,7 @@
     <div class="da-panel-header">
         <span class="da-panel-title">
             <img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
-				เพิ่มประเภท
+				<b>เพิ่มประเภท</b>
         </span>
 		<span class="da-panel-toggler"></span>
 	</div>
@@ -76,10 +81,10 @@
         <table id="da-ex-datatable-numberpaging" class="da-table">
             <thead>
                 <tr>
-                    <th><center>ลำดับ</center></th>
-                    <th><center>หมวด</center></th>
-                    <th><center>สถานะ</center></th>
-                    <th width=250 ><center>ดำเนินการ</center></th>
+                    <th style="width:8%"><center><b>ลำดับ</b></center></th>
+                    <th><center><b>หมวด</b></center></th>
+                    <th style="width:15%"><center><b>สถานะ</b></center></th>
+                    <th style="width:18%" ><center><b>ดำเนินการ</b></center></th>
                 </tr>
             </thead>
             <tbody>
@@ -90,7 +95,7 @@
                     {                        
                     ?>
                 <tr>
-                    <td><center><?php echo ++$index;?></center></td>
+                    <td class="center"><?php echo ++$index;?></td>
                     <td><?php echo $row->ct_name;?></td>
                     <td>
                         <center>
@@ -108,15 +113,15 @@
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->ct_id; ?>', '<?php echo $row->ct_name; ?>');">แก้ไข</button>
+                              <button id="opener1"  class="da-button blue" style="width:100%" onclick="set_value('<?php echo $row->ct_id; ?>', '<?php echo $row->ct_name; ?>');">แก้ไข</button>
                             </div>
                             <div class="grid_2">
                                <?php
                                if($row->rq_ct_id==null){
-                               echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                               echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:100%' /></a>";
                                 }
                             else{
-                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' id='opener2' onclick='set_value2()'/></a>"; 
+                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:100%' id='opener2' onclick='set_value2()'/></a>"; 
                             }
                                ?>
                             </div>

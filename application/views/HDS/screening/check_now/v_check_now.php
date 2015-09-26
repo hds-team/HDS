@@ -7,11 +7,11 @@
 	<table id="da-ex-datatable-numberpaging" class="da-table">
 		<thead>
 			<tr>
-			  <th style="width:7%"><center>ลำดับ</center></th>
-			  <th><center>หัวเรื่อง</center></th>
-			  <th style="width:11%"><center>วันที่</center></th>
-			  <th style="width:10%"><center>ประเภท</center></th>
-			  <th><center>ผู่ส่ง</center></th>
+			  <th style="width:7%"><center><b>ลำดับ</b></center></th>
+			  <th><center><b>หัวเรื่อง</b></center></th>
+			  <th style="width:11%"><center><b>วันที่</b></center></th>
+			  <th style="width:10%"><center><b>ประเภท</b></center></th>
+			  <th><center><b>ผู่ส่ง</b></center></th>
 	          <?php
 	              if($sys_id == 99)
 	              {
@@ -20,7 +20,7 @@
 	          <?php
 	              }
               ?>
-			  <th style="width:10%"><center>สถานะ</center></th>
+			  <th style="width:10%"><center><b>สถานะ</b></center></th>
 			</tr>
 		</thead>
 		<tbody>

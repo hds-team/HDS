@@ -22,7 +22,7 @@
                 <?php
                     }
                 ?>
-				<th style="width: 10%"><center><B>ดำเนินการ</B></center></th>
+				<th style="width: 11%"><center><B>ดำเนินการ</B></center></th>
 			</tr>
         </thead>
         <tbody>

@@ -21,7 +21,7 @@
                 <?php
                     }
                 ?>
-				<th style="width: 10%"><center><b>ดำเนินการ</b></center></th>
+				<th style="width: 11%"><center><b>ดำเนินการ</b></center></th>
 			</tr>
 		</thead> <!-- thead -->
 		<tbody role="alert" aria-live="polite" aria-relevant="all">

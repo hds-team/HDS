@@ -40,7 +40,11 @@
     }
 	
 </script>
-
+<style>
+	.center{
+		text-align: center;
+	}
+</style>
 <div class="grid_1">
     <div class="da-panel">
 	</div>
@@ -51,7 +55,7 @@
         <div class="da-panel-header">
         	<span class="da-panel-title">
 				<img src="<?php echo base_url('images/icons/black/16/list.png');?>" alt="">
-					เพิ่มหมวด
+					<b>เพิ่มหมวด</b>
             </span>
         </div>
 		
@@ -61,7 +65,7 @@
 			echo form_open('HDS/fundamental/insert_kind',$data);
 			?>
 				<div class="da-form-row">
-					<label>หมวด</label>
+					<label><b>หมวด</b></label>
 					<div class="da-form-item large">
 						<input type="text" name="kn_name"/>
 					</div>
@@ -83,8 +87,8 @@
 <div class="da-panel collapsible">
 	<div class="da-panel-header">
 		<span class="da-panel-title">
-			<img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
-				รายการหมวด
+			<img src="<?php echo base_url("images/icons/black/16/list.png"); ?>" alt="">
+				<b>รายการหมวด</b>
 		</span>
 		<span class="da-panel-toggler">
 		</span>
@@ -94,17 +98,17 @@
 		<table id="da-ex-datatable-numberpaging" class="da-table">
 			<thead>
 				<tr>
-					<th  width=100>
-						<center>ลำดับ</center>
+					<th  style="width:8%">
+						<center><b>ลำดับ</b></center>
 					</th>
 					<th>
-						<center>หมวด</center>
+						<center><b>หมวด</b></center>
 					</th>
-					<th>
-						<center>สถานะ</center>
+					<th style="width:15%">
+						<center><b>สถานะ</b></center>
 					</th>
-					<th width=250>
-						<center>ดำเนินงาน</center>
+					<th style="width:18%">
+						<center><b>ดำเนินงาน</b></center>
 					</th>
 				</tr>
 			</thead>	<!--Thead-->
@@ -154,7 +158,7 @@
 						<td>
 							<center>
 								<div class="grid_2">
-									<button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('	<?php echo $row->kn_id;	?>','<?php echo $row->kn_name; ?>');">
+									<button id="opener1"  class="da-button blue" style="width:100%" onclick="set_value('	<?php echo $row->kn_id;	?>','<?php echo $row->kn_name; ?>');">
 										แก้ไข 
 									</button>
 								</div>	<!--grid2/1-->
@@ -164,12 +168,12 @@
 									if($row->rq_kn_id==null)
 									{
 										echo "<a href ='".base_url("index.php/HDS/fundamental/delete_kind/".$row->kn_id."/")."'>
-											<input type='submit' value='ลบ' class='da-button red' style='width:60%' />
+											<input type='submit' value='ลบ' class='da-button red' style='width:100%' />
 										</a>";
 									}
 									else
 									{
-										echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' id='opener' onclick='set_value1()'/>
+										echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:100%' id='opener' onclick='set_value1()'/>
 										</a>"; 
 									}
 									?>
