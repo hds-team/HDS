@@ -1,5 +1,5 @@
 <?php 
-	$this->load->model('HDS/dev_work/approve/M_approve');
+	$this->load->model($this->hds_part.'/dev_work/approve/M_approve');
 	$data['rq_st_id'] = $st_id;
 	
 	//------------- Save Log -------------

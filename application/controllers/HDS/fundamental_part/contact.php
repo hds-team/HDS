@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('HDS/fundamentnal/contact/m_contact','contact'); 
+	$this->load->model($this->hds_part.'/fundamentnal/contact/m_contact','contact'); 
 	$data['temp']=$this->contact->get_contact()->result();
 	//print_r($temp);
 	//$temp=$this->contact->get_contact();

@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('HDS/dev_work/approve/m_approve');
+	$this->load->model($this->hds_part.'/dev_work/approve/m_approve');
 
 	//------- Check show all
 	if($all){

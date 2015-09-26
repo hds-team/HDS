@@ -2,11 +2,18 @@
 require(dirname(__FILE__)."/../UMS_Controller.php");
 class HDS_Controller extends UMS_Controller 
 {
+	public $hds_part;
+	public $ums_part;
+
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('HDS/m_dynamic');
 		$this->load->library('date_time');
-		$this->config->load('hds_config');
+		//----- CONFIG
+		$this->load->config('hds_config');
+		$this->load->config('config');
+		$this->hds_part = $this->config->item('sys_name');
+		$this->ums_part = $this->config->item('UMS');
 	}
 
 	public function index()
@@ -16,7 +23,7 @@ class HDS_Controller extends UMS_Controller
 	public function hds_output($file="System_name/welcome", $data=NULL, $no_display=false)
 	{
 		//$this->benchmark->mark('code_start');
-		$file = "/HDS/".$file;
+		$file = "/".$this->hds_part."/".$file;
 		//$this->benchmark->mark('code_end');
 		//$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		return $this->load->view($file, $data, $no_display);
@@ -24,7 +31,7 @@ class HDS_Controller extends UMS_Controller
 
 	public function layout_output($data=NULL)//time to process
 	{
-		$this->output('/HDS/menu/layout', $data, true);
+		$this->output('/'.$this->hds_part.'/menu/layout', $data, true);
 	}
 
 	public function save_log($al_st_id, $at_rq_id){

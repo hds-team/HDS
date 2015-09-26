@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('HDS/dev_work/ongoing/M_ongoing');
+	$this->load->model($this->hds_part.'/dev_work/ongoing/M_ongoing');
 	$data['rq_st_id'] = 5;
 	
 	//------------- Save Log -------------

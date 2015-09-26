@@ -4,5 +4,5 @@
 	$data['ct_status'] = 1;
 
 	$this->m_dynamic->insert('hds_category', $data);
-	redirect(base_url('index.php/HDS/fundamental/category'));
+	redirect(base_url('index.php/'.$this->hds_part.'/fundamental/category'));
 ?>

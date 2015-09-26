@@ -4,8 +4,8 @@ class Screening extends HDS_Controller
 {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('HDS/screening/m_screening');
-		$this->load->model('HDS/report/m_report');
+		$this->load->model($this->hds_part.'/screening/m_screening');
+		$this->load->model($this->hds_part.'/report/m_report');
 	}
 
 	public function index($sys_id=99)

@@ -1,5 +1,5 @@
 <?php
-	$this->load->model("HDS/dev_work/pending/m_pending"); 						//Load model m_pending.
+	$this->load->model($this->hds_part."/dev_work/pending/m_pending"); 						//Load model m_pending.
 
 	//------- Check show all
 	if($all){

@@ -4,7 +4,7 @@ class Dev_work extends HDS_Controller
 {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('HDS/dev_work/m_dev_work');
+		$this->load->model($this->hds_part.'/dev_work/m_dev_work');
 	}
 
 	public function index($sys_id=99)

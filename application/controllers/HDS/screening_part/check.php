@@ -1,5 +1,5 @@
 ﻿<?php
-	$this->load->model("HDS/screening/check/m_check");
+	$this->load->model($this->hds_part."/screening/check/m_check");
 
 	//------- Check show all
 	if($all){

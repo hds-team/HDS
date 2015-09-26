@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('/HDS/screening/petition/m_petition','m_petition'); // lode m_pettion from model part
+	$this->load->model($this->hds_part.'/screening/petition/m_petition','m_petition'); // lode m_pettion from model part
 
 	//------- Check show all
 	if($all){

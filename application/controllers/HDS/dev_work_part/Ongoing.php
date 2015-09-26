@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('HDS/dev_work/ongoing/m_ongoing');
+	$this->load->model($this->hds_part.'/dev_work/ongoing/m_ongoing');
 	//------- Check show all
 	if($all){
 		$data['query'] = $this->m_ongoing->get_request_all($this->session->userdata('UsID')); //show all

@@ -1,5 +1,5 @@
 <?php
-	$this->load->model('/HDS/screening/check_now/m_check_now');
+	$this->load->model($this->hds_part.'/screening/check_now/m_check_now');
 	//------- Check show all
 	if($all){
 		$data['query'] = $this->m_check_now->check_now_require_all($sys_id); //show all
