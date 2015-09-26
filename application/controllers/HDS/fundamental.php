@@ -45,10 +45,11 @@ class Fundamental extends HDS_Controller {
 	
 	public function level()
 	{
+		$this->benchmark->mark('code_start');
 		include('fundamental_part/level.php');
-		
-	
 		$data['content'] = $view;
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		$this->layout_output($data);
 	}
 	
@@ -81,5 +82,16 @@ class Fundamental extends HDS_Controller {
 	{
 		include('fundamental_part/delete_category.php');
 	}
-
+	public function insert_level()
+	{
+		include('fundamental_part/insert_level.php');
+	}
+	public function update_level()
+	{
+		include('fundamental_part/update_level.php');
+	}
+	public function delete_level($lv_id)
+	{
+		include('fundamental_part/delete_level.php');
+	}
 }

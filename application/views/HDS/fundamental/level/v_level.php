@@ -42,12 +42,12 @@
         <div class="da-panel-content">
             <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/insert_category', $data); 
+                echo form_open('HDS/fundamental/insert_level', $data); 
              ?>
             	<div class="da-form-row">
                 	<label>ประเภท</label>
                      <div class="da-form-item large">
-                    	<input type="text" name="category" required/>
+                    	<input type="text" name="level" required/>
                     </div>
                 </div>
                 <div class="da-button-row">
@@ -105,12 +105,12 @@
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php //echo $row->ct_id; ?>', '<?php //echo $row->ct_name; ?>');">แก้ไข</button>
+                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->lv_id; ?>', '<?php echo $row->lv_name; ?>');">แก้ไข</button>
                             </div>
                             <div class="grid_2">
                                <?php 
                                if($row->lg_lv_id==null){
-                              echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->lv_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                              echo "<a href ='".base_url("index.php/HDS/fundamental/delete_level/".$row->lv_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
                                 }
                            else{
                                echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
