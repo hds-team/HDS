@@ -7,18 +7,40 @@
 	$data['rq_subject'] = $this->input->post('rq_subject');
 	$data['rq_ct_id'] = $this->input->post('rq_ct_id');
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
-	$data['rq_comp_id'] = $this->session->userdata('UsDpID');
+	if($this->input->post('comp_id') == NULL)
+	{	
+		//echo" COMP NULL";
+		$data['rq_comp_id'] = $this->session->userdata('UsDpID');
+	}
+	else
+	{
+		//echo" COMP NOT NULL";
+		$data['rq_comp_id'] = $this->input->post('comp_id');
+	}
 	$data['rq_tell'] = $this->input->post('rq_tell');
 	$data['rq_email'] = $this->input->post('rq_email');
 	$data['rq_detail'] = $this->input->post('rq_detail');
 	$data['rq_date'] = date('y-m-d');
+	if($this->input->post('UsName') == NULL)
+	{
+		//echo" NAME NULL";
+		$data['rq_mb_id'] = $this->session->userdata('UsID');
+	}
+	else
+	{
+		//echo" NAME NOT NULL";
+		$result_UsID = $this->m_dynamic->get_by_id('ums.umuser', 'UsName', $this->input->post('UsName'));
+		$UsID = $result_UsID->row_array();
+		$data['rq_mb_id'] =  $UsID['UsID'];
+	}
 	$data['rq_mb_id'] = $this->session->userdata('UsID');
 	$data['rq_sys_id'] = $this->input->post('sys_id');
 	//-------- Check date exp
 	if($this->input->post('lg_exp') != NULL){
 		//------- Convert format mm/dd/yy to yyyy-mm-dd
-		$hds_level_log['lg_exp'] = $this->input->post('lg_exp');
-		$hds_level_log['lg_exp'] = date('Y-m-d', strtotime($hds_level_log['lg_exp']));
+		$date_exp = explode("/",$this->input->post('lg_exp'));
+		$hds_level_log['lg_exp'] = $date_exp[2]."-".$date_exp[1]."-".$date_exp[0];
+
 	}
 	$hds_level_log['lg_lv_id'] = $this->input->post('lg_lv_id');
 	$hds_level_log['lg_mb_id'] = $data['rq_mb_id'];
@@ -49,7 +71,7 @@
 		
 		//-------- Upload file
 		$config['upload_path'] = $this->config->item('uploads_dir');
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'gif|jpg|png|rar|zip|doc|docx|xlsx|pdf|xls';
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload())
@@ -66,6 +88,7 @@
 			$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
 		}
 	}
-	redirect(base_url($URL));
+	$part = explode("/",$URL);
+	redirect($part[3]."/".$part[4]."/".$part[5]);
 
 ?>
