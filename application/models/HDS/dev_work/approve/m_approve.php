@@ -2,12 +2,18 @@
 //require(dirname(__FILE__)."../../HDS_Model.php");
 class M_approve extends CI_Model
 {
+	public $db_name;
+	public $ums;
 	public function __construct()
 	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
 		$this->load->model('HDS/dev_work/m_dev_work');
+
+		$this->load->config('hds_config');
+		$this->db_name = $this->config->item('database');
+		$this->ums = $this->config->item('UMS');
 	}
 
 	public function get_report($sys_id)
@@ -19,8 +25,8 @@ class M_approve extends CI_Model
 		->join('hds_category', 'hds_category.ct_id = hds_request.rq_ct_id', 'inner')
 		->join('hds_kind', 'hds_kind.kn_id = hds_request.rq_kn_id', 'inner')
 		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
-		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
-		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
+		->join($this->ums.'.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
+		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
 		->where($where)
 		->where('hds_request.rq_sys_id', $sys_id)
 		->order_by('hds_request.rq_date', 'DESC');
@@ -37,8 +43,8 @@ class M_approve extends CI_Model
 		->join('hds_category', 'hds_category.ct_id = hds_request.rq_ct_id', 'inner')
 		->join('hds_kind', 'hds_kind.kn_id = hds_request.rq_kn_id', 'inner')
 		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
-		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
-		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
+		->join($this->ums.'.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
+		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
 		->where($where_1)
 		->order_by('hds_request.rq_date', 'DESC');
 

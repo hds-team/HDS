@@ -7,6 +7,7 @@ class M_dev_work extends CI_Model
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
+		$ums = $this->load->config('hds_config');
 	}
 	
 	public function notification()
@@ -31,28 +32,4 @@ class M_dev_work extends CI_Model
 		return $this->ums->get();
 	}
 
-	public function get_request($UsID){
-
-		$query = $this->get_system_by_permiss($UsID);
-		$this->hds
-		->select('*')
-		->from('hds_request')
-		->join('hds_category', 'hds_category.ct_id = hds_request.rq_ct_id', 'inner')
-		->join('hds_kind', 'hds_kind.kn_id = hds_request.rq_kn_id', 'inner')
-		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
-		->join('ums.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
-		->join('ums.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner');
-
-		$index = 1;
-		foreach($query->result() as $row){
-			if($index == 1){
-				$this->hds->where('rq_sys_id', $row->StID);
-			}else{
-				$this->hds->or_where('rq_sys_id', $row->StID);
-			}
-			$index++;
-		}
-
-		return $this->hds->get();
-	}
 }

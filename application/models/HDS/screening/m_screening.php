@@ -2,11 +2,18 @@
 //require(dirname(__FILE__)."/HDS_Model.php");
 class M_screening extends CI_Model
 {
+	public $db_name;
+	public $ums;
+	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
+
+		$this->config->load('hds_config');
+		$this->db_name = $this->config->item('database');
+		$this->ums = $this->config->item('UMS');
 	}
 	
 	public function notification()
