@@ -12,7 +12,7 @@
 <div class="da-panel collapsible">
 	<div class="da-panel-header">
     	<span class="da-panel-title">
-            <img src="images/icons/black/16/list.png" alt="">
+            <img src="<?php echo base_url('images/icons/black/16/list.png'); ?>" alt="">
 				ประวัติการแก้ไข
         </span>
         
@@ -22,27 +22,30 @@
             <thead>
                 <tr>
                 	<th><center><b>ลำดับ</b></center></th>
-                    <th><center><b>วันที่รับเรื่อง</b></center></th>
-					<th><center><b>วันที่ส่ง</b></center></th>
-                    <th><center><b>เวลาที่รับ</b></center></th>
-					<th><center><b>เวลาที่ส่ง</b></center></th>
+                    
                     <th style="width:10%"><center><b>หัวเรื่อง</b></center></th>
-                    <th><center><b>ชื่อผู้ส่งคำร้อง</b></center></th>
+                    <th><center><b>วันที่รับเรื่อง</b></center></th>
+					<th><center><b>ระบบ</b></center></th>
                     <th><center><b>สถานะ</b></center></th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd">
-                	<td class="center">1</td>
-                    <td>xxx</td>
-                    <td>xxx</td>
-                    <td>xxx</td>
-                    <td>4</td>
-                    <td><div id="text" title="test">Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div></td>
-                    <td>xxx</td>
-					<td>xxx</td>
-                </tr>
-                
+				<?php 
+					$index = 0;
+					foreach($query->result() as $row){
+				?>
+					<tr class="odd">
+						<td class="center"><?php echo $index+1; ?></td>
+						
+						<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id);?>"><div id="text" title="<?php echo $row->rq_subject; ?>"><?php echo $row->rq_subject; ?></div></td>
+						<td class="center"><?php echo $this->date_time->DateThai($row->rq_date); ?></td>
+						<td class="center"><?php echo $row->StNameT; ?></td>
+						<td class="center"><?php echo $row->st_name; ?></td>
+					</tr>
+                <?php
+					$index++;
+					}
+				?>
             </tbody>
         </table>
     </div>
