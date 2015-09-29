@@ -21,9 +21,9 @@
     });
 
     //----------- set value on click to input
-    function set_value(ct_id, ct_name){
-        $( "#ct_id").val(ct_id); //set value to input by id
-        $( "#ct_name").val(ct_name); //set value to input by id
+    function set_value(lv_id, lv_name){
+        $( "#lv_id").val(lv_id); //set value to input by id
+        $( "#lv_name").val(lv_name); //set value to input by id
         $( "#dialog1" ).dialog( "open" ); //open dialog
     }
 </script>
