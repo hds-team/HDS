@@ -29,7 +29,7 @@
 	else
 	{
 		//echo" NAME NOT NULL";
-		$result_UsID = $this->m_dynamic->get_by_id('ums.umuser', 'UsName', $this->input->post('UsName'));
+		$result_UsID = $this->m_dynamic->get_by_id($this->ums_part.'.umuser', 'UsName', $this->input->post('UsName'));
 		$UsID = $result_UsID->row_array();
 		$data['rq_mb_id'] =  $UsID['UsID'];
 	}

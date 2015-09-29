@@ -1,10 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require(dirname(__FILE__)."/HDS_Controller.php");
+
 class Dev_work extends HDS_Controller 
 {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model($this->hds_part.'/dev_work/m_dev_work');
+
 	}
 
 	public function index($sys_id=99)
@@ -57,6 +59,20 @@ class Dev_work extends HDS_Controller
 		$this->layout_output($data);
 
 	}
+	//Function pending for view page.
+	public function pending($sys_id = 10, $all=FALSE)
+	{
+		include('dev_work_part/pending.php');
+		//include('/dev_work_part/approve.php');
+		return $view;
+	}
+
+	public function ongoing($sys_id = 10, $all=FALSE)
+	{
+		include('dev_work_part/ongoing.php');
+		//include('dev_work_part/approve.php');
+		return $view;
+	}
 
 	public function approve($sys_id = 10, $all=FALSE)
 	{
@@ -64,17 +80,7 @@ class Dev_work extends HDS_Controller
 		return $view;
 	}
 
-	//Function pending for view page.
-	public function pending($sys_id = 10, $all=FALSE)
-	{
-		include ('dev_work_part/pending.php');
-		return $view;
-	}
 
-	public function ongoing($sys_id = 10, $all=FALSE){
-		include('dev_work_part/ongoing.php');
-		return $view;
-	}
 
 	//Function update status in view page.
 	public function update_pending($rq_id, $sys_id, $rq_st_id)

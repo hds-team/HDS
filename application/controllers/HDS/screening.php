@@ -45,7 +45,7 @@ class Screening extends HDS_Controller
 
 		}
 
-		$data_content['system'] = $this->m_dynamic->get_all('ums.umsystem');
+		$data_content['system'] = $this->m_dynamic->get_all($this->ums_part.'.umsystem');
 
 		foreach($this->m_screening->notification()->result() as $row){
 			$data_content['system_notification'][$row->rq_sys_id] = $row->total;
@@ -56,8 +56,8 @@ class Screening extends HDS_Controller
 		$data_content['hds_kind'] = $this->m_report->get_kind();
 		$data_content['hds_level'] = $this->m_report->get_level();
 		$data_content['hds_system'] = $data_content['system'];
-		$data_content['hds_comp'] = $this->m_dynamic->get_all('ums.umdepartment');
-		$data_content['hds_member'] = $this->m_dynamic->get_all('ums.umuser');
+		$data_content['hds_comp'] = $this->m_dynamic->get_all($this->ums_part.'.umdepartment');
+		$data_content['hds_member'] = $this->m_dynamic->get_all($this->ums_part.'.umuser');
 		//------- END HDS REPORT
 
 		$data['content'] = $this->hds_output('screening/main_screening', $data_content, true);

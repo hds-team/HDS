@@ -31,7 +31,7 @@
                           <option <?php if($system_select == 0) echo "selected"; ?>>เลือกระบบ</option>
                         <?php
                           foreach($system->result() as $row)
-              {
+                          {
                         ?>
                             <option value="<?php echo $row->StID; ?>" <?php if($system_select == $row->StID) echo "selected"; ?>><?php echo $row->StNameT; ?><span style="font-color : red;"> (<?php echo $system_notification[$row->StID];?>)</span></option>
                         <?php 

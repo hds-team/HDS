@@ -23,7 +23,7 @@ class M_check extends CI_Model
 		->from('hds_request')
 		->join('hds_category', 'hds_request.rq_ct_id = hds_category.ct_id', 'inner')
 		->join('hds_status', 'hds_request.rq_st_id = hds_status.st_id', 'inner')
-		->join($this->ums.'.umuser', 'hds_request.rq_mb_id = ums.umuser.UsID', 'inner')
+		->join($this->ums.'.umuser', 'hds_request.rq_mb_id = '.$this->ums.'.umuser.UsID', 'inner')
 		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
 		->where('hds_request.rq_st_id', 5)
 		->where('hds_request.rq_sys_id', $sys_id)
@@ -53,7 +53,7 @@ class M_check extends CI_Model
 		->from('hds_request')
 		->join('hds_category', 'hds_request.rq_ct_id = hds_category.ct_id', 'inner')
 		->join('hds_status', 'hds_request.rq_st_id = hds_status.st_id', 'inner')
-		->join($this->ums.'.umuser', 'hds_request.rq_mb_id = ums.umuser.UsID', 'inner')
+		->join($this->ums.'.umuser', 'hds_request.rq_mb_id = '.$this->ums.'.umuser.UsID', 'inner')
 		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
 		->where('hds_request.rq_st_id', 5)
 		->order_by('hds_request.rq_date', 'DESC');

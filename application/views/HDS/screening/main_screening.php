@@ -98,6 +98,7 @@
       </div> <!-- da-panel-header -->
       <div class="da-panel-content">
           <?php
+            $sum_notification = 0;
             $data['class'] = "da-form";
             echo form_open('HDS/screening/index', $data); 
           ?>
