@@ -21,9 +21,9 @@
     });
 
     //----------- set value on click to input
-    function set_value(ct_id, ct_name){
-        $( "#ct_id").val(ct_id); //set value to input by id
-        $( "#ct_name").val(ct_name); //set value to input by id
+    function set_value(lv_id, lv_name){
+        $( "#lv_id").val(lv_id); //set value to input by id
+        $( "#lv_name").val(lv_name); //set value to input by id
         $( "#dialog1" ).dialog( "open" ); //open dialog
     }
 </script>
@@ -42,12 +42,12 @@
         <div class="da-panel-content">
             <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/insert_category', $data); 
+                echo form_open('HDS/fundamental/insert_level', $data); 
              ?>
             	<div class="da-form-row">
                 	<label>ประเภท</label>
                      <div class="da-form-item large">
-                    	<input type="text" name="category" required/>
+                    	<input type="text" name="level" required/>
                     </div>
                 </div>
                 <div class="da-button-row">
@@ -81,47 +81,47 @@
             </thead>
             <tbody>
                <?php
-                   // $index=0;
+                    $index=0;
                     
-                   // foreach ($query->result() as $row)
-                   // {                        
+                    foreach ($query->result() as $row)
+                    {                        
                     ?>
                 <tr>
-                    <td><center><?php //echo ++$index;?></center></td>
-                    <td><?php //echo $row->ct_name;?></td>
+                    <td><center><?php echo ++$index;?></center></td>
+                    <td><?php echo $row->lv_name;?></td>
                     <td>
                         <center>
-                        <?php /*
-                        if ($row->ct_status==1)
+                        <?php 
+                        if ($row->lv_status==1)
 						{
-                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
+                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_category/".$row->ct_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
 						}
-                      */  ?>
+                        ?>
                         </center>
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php //echo $row->ct_id; ?>', '<?php //echo $row->ct_name; ?>');">แก้ไข</button>
+                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->lv_id; ?>', '<?php echo $row->lv_name; ?>');">แก้ไข</button>
                             </div>
                             <div class="grid_2">
                                <?php 
-                               //if($row->rq_ct_id==null){
-                              //echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
-                               // }
-                           // else{
-                               //echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
-                           // }
+                               if($row->lg_lv_id==null){
+                              echo "<a href ='".base_url("index.php/HDS/fundamental/delete_level/".$row->lv_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                                }
+                           else{
+                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
+                           }
                                ?>
                             </div>
                         </center>
                     </td> 
                 </tr>
                 <?php 
-                   // }
+                    }
                     ?>
             </tbody>
         </table>
@@ -133,14 +133,14 @@
     <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/update_category', $data); 
+                echo form_open('HDS/fundamental/update_level', $data); 
                 ?>
                            
-            <input type="hidden" id="ct_id"name="ct_id">
+            <input type="hidden" id="lv_id"name="lv_id">
                 <div class="da-form-row">
                 <label>ประเภท</label>
                      <div class="da-form-item large">
-                    <input type="text" id="ct_name" name="ct_name" required>
+                    <input type="text" id="lv_name" name="lv_name" required>
                      </div>
                 </div>
             <div class="da-button-row">

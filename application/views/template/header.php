@@ -114,8 +114,8 @@
                                 <li><a href="<?php echo base_url();?>index.php/UMS/showProfile">Profile</a></li>
                                 <li><a href="#">Settings</a></li>
                                 <li><a href="<?php echo base_url();?>index.php/user/ChangePassword">Change Password</a></li>
-                                <!-- HDS link dialog-->
-                                <li><a id="report_btn">Report</a></li>
+                                <!-- HDS link dialog id="report_btn"-->
+                                <li><a href="<?php echo base_url('index.php/HDS/report/user_report'); ?>">Report</a></li>
                                 <li><a href="<?php echo base_url('index.php/HDS/report/detail'); ?>">Report List</a></li>
                                 <!-- HDS END-->
                             </ul>
@@ -170,8 +170,8 @@
 <!-- HDS Dialog Report -->
 <div id="report_input" class="da-panel-content" title="แบบฟอร์มคำร้อง" style="padding: 0px; display: none;">
         <?php 
-            $data['class'] ="da-form";
-            echo form_open_multipart('HDS/report/insert', $data); 
+            //$data['class'] ="da-form";
+            //echo form_open_multipart('HDS/report/insert', $data); 
         ?>
             <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="url">
             <div class="da-form-row">
@@ -188,11 +188,11 @@
                     <div class="da-form-item large">
                         <select name="rq_ct_id">
                             <?php
-                                foreach($hds_category->result() as $category){
+                                //foreach($hds_category->result() as $category){
                             ?>
-                                    <option value="<?php echo $category->ct_id; ?>"><?php echo $category->ct_name; ?></option>
+                                    <option value="<?php //echo $category->ct_id; ?>"><?php //echo $category->ct_name; ?></option>
                             <?php
-                                }
+                                //}
                             ?>
                         </select>
                     </div>
@@ -202,11 +202,11 @@
                     <div class="da-form-item large">
                         <select name="rq_kn_id">
                             <?php
-                                foreach($hds_kind->result() as $kind){
+                                //foreach($hds_kind->result() as $kind){
                             ?>
-                                    <option value="<?php echo $kind->kn_id; ?>"><?php echo $kind->kn_name; ?></option>
+                                    <option value="<?php //echo $kind->kn_id; ?>"><?php //echo $kind->kn_name; ?></option>
                             <?php
-                                }
+                                //}
                             ?>
                         </select>
                     </div>
@@ -218,11 +218,11 @@
                     <div class="da-form-item large">
                         <select name="lg_lv_id">
                             <?php
-                                foreach($hds_level->result() as $level){
+                                //foreach($hds_level->result() as $level){
                             ?>
-                                    <option value="<?php echo $level->lv_id; ?>"><?php echo $level->lv_name; ?></option>
+                                    <option value="<?php //echo $level->lv_id; ?>"><?php //echo $level->lv_name; ?></option>
                             <?php
-                                }
+                                //}
                             ?>
                         </select>
                     </div>
@@ -253,13 +253,13 @@
                     <label>ระบบ</label>
                     <div class="da-form-item large">
                         <select name="sys_id">
-                            <option value="10" <?php if($this->session->userdata('StID') == 10 || $this->session->userdata('StID') == NULL) echo "selected"; ?>>ระบบจัดการผู้ใช้</option>
+                            <option value="10" <?php //if($this->session->userdata('StID') == 10 || $this->session->userdata('StID') == NULL) echo "selected"; ?>>ระบบจัดการผู้ใช้</option>
                             <?php
-                                foreach($hds_system->result() as $system){
+                                //foreach($hds_system->result() as $system){
                             ?>
-                                <option value="<?php echo $system->StID; ?>" <?php if($this->session->userdata('StID') == $system->StID ) echo "selected"; ?>><?php echo $system->StNameT; ?></option>
+                                <option value="<?php //echo $system->StID; ?>" <?php //if($this->session->userdata('StID') == $system->StID ) echo "selected"; ?>><?php //echo $system->StNameT; ?></option>
                             <?php
-                                }
+                                //}
                             ?>
                         </select>
                     </div>
@@ -285,5 +285,5 @@
                 <input type="reset" value="รีเซ็ท" class="da-button gray left">
                 <input type="submit" value="ส่งคำร้อง" class="da-button blue">
             </div>
-        <?php echo form_close(); ?>
+        <?php //echo form_close(); ?>
 </div>
