@@ -25,4 +25,14 @@ class Reply extends HDS_Controller
 	public function download($fil_url) {
 		include('reply_part/c_download.php');
 	}
+
+	public function actor_check($mb_id){
+		include('reply_part/c_actor_check.php');
+		return $value;
+	}
+
+	public function timline($rp_msg_type, $rq_id){
+		include('reply_part/c_timeline.php');
+		return $view;
+	}
 }

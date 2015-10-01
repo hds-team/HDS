@@ -140,30 +140,32 @@
       <button id="report_btn_screen" class="da-ex-buttons ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" style="float:right;"><span class="ui-button-text">ส่งคำร้อง</span></button>
     </div>
 <div class="clear"></div>
-  <div class="da-panel" style="<?php if($system_st == 0) echo "display: none"; ?>">
-    <div class="da-panel-header">
-        <span class="da-panel-title">
-            <img src="<?php echo base_url('images/icons/color/ui_tab_content.png'); ?>" alt="">
-             ตรวจสอบงาน
-        </span>
-    </div>
-    <div class="da-panel-content" id="tabs">
-        <ul>
-            <li><a href="#petition"><span>คัดกรองคำร้อง</span></a></li>
-            <li><a href="#check"><span>ตรวจสอบงานแก้ไข</span></a></li>
-            <li><a href="#check_now"><span>ตรวจสอบสถานะ</span></a></li>
-        </ul>
-        <div id="petition" style="padding: 0;">
-          <?php echo $petition; ?>
-        </div>
-        <div id="check" style="padding: 0;">
-          <?php echo $check; ?>
-        </div>
-        <div id="check_now" style="padding: 0;">
-          <?php echo $check_now; ?>
-        </div>
-    </div><!-- tabs -->
-  </div><!-- da-panel -->
+
+<!-- TAB -->
+<div class="da-panel" style="<?php if($system_st == 0) echo "display: none"; ?>">
+  <div class="da-panel-header">
+      <span class="da-panel-title">
+          <img src="<?php echo base_url('images/icons/color/ui_tab_content.png'); ?>" alt="">
+           ตรวจสอบงาน
+      </span>
+  </div>
+  <div class="da-panel-content" id="tabs">
+      <ul>
+          <li><a href="#petition"><span>คัดกรองคำร้อง</span></a></li>
+          <li><a href="#check"><span>ตรวจสอบงานแก้ไข</span></a></li>
+          <li><a href="#check_now"><span>ตรวจสอบสถานะ</span></a></li>
+      </ul>
+      <div id="petition" style="padding: 0;">
+        <?php echo $petition; ?>
+      </div>
+      <div id="check" style="padding: 0;">
+        <?php echo $check; ?>
+      </div>
+      <div id="check_now" style="padding: 0;">
+        <?php echo $check_now; ?>
+      </div>
+  </div><!-- tabs -->
+</div><!-- da-panel -->
 
 <!-- HDS Dialog Report -->
 <div id="report_input_screen" class="da-panel-content" title="แบบฟอร์มคำร้อง" style="padding: 0px; display: none;">
