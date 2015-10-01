@@ -43,4 +43,18 @@ class HDS_Controller extends UMS_Controller
 		$this->m_dynamic->insert('hds_accept_log', $data);
 	}
 
+	public function check_user(){
+		$this->load->model($this->hds_part.'/reply/m_reply');
+		$query = $this->m_reply->actor_check($this->session->userdata('UsID'));
+		$result = $query->row_array();
+
+		switch($result['GpID']){
+			case $this->config->item('user_id')		: 	redirect($this->hds_part.'/report/user_report');
+														break;
+			case $this->config->item('dev_id')		:	redirect($this->hds_part.'/dev_work');
+														break;
+			case $this->config->item('co_op_id')	:	redirect($this->hds_part.'/screening');
+														break;
+		}
+	}
 }
