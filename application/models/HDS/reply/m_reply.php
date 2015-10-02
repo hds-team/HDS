@@ -63,10 +63,10 @@ class M_reply extends CI_Model
 		->join($this->ums_part.'.umgroup', 'umgroup.GpID = umusergroup.UgGpID', 'inner')
 		->join($this->ums_part.'.umuser', 'umuser.UsID = hds_reply.rp_mb_id', 'inner')
 		//->where($where)
-		->where('hds_reply.rp_rq_id', $rq_id)
-		->where('hds_reply.rp_msg_type', $rp_msg_type)
-		->order_by('rp_date', "desc")
-		->order_by('rp_time', "desc");
+		//->where('hds_reply.rp_rq_id', $rq_id)
+		//->where('hds_reply.rp_msg_type', $rp_msg_type)
+		->where('hds_reply.rp_id', $rp_msg_type)
+		->order_by('rp_id', "desc");
 		return $this->hds->get();
 	}
 

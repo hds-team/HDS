@@ -1,6 +1,18 @@
 <script>
   $(function() {
-    $( "#datepicker_2" ).datepicker({ dateFormat: 'dd/mm/yy' });
+    var today = new Date();
+    $( "#datepicker_2" ).datepicker({ 
+        dateFormat: 'dd/mm/yy',
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    });
+
+    $("#rq_tell").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+    });
+
   });
 </script>
 <!-- HDS Dialog Report -->
@@ -81,7 +93,7 @@
                 <div class="grid_2">
                     <label>เบอร์โทร</label>
                     <div class="da-form-item large">
-                        <input id="rq_tell" type="text" name="rq_tell" maxlength="10" required>
+                        <input id="rq_tell" max = "10" type="text" name="rq_tell" maxlength="10" required>
                     </div>
                 </div>
                 <div class="grid_2">
