@@ -99,7 +99,15 @@
 			<img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
 				<b>รายละเอียกคำร้อง </b>
 		</span>
-	<span class="da-panel-toggler"></span></div>
+		<span class="da-panel-toggler"></span>
+	</div>
+	<div class="da-panel-toolbar top">
+        <ul>
+            <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
+            <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
+            <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
+        </ul>
+    </div>
 	<div class="da-panel-content">
 		<table class="da-table da-detail-view">
 			<tbody>
@@ -145,7 +153,7 @@
 						<th><b>รายละเอียด</b></th>
 						<td colspan="3"><?php echo" ".$row->rq_detail; ?></td>
 					</tr>
-					<tr class="odd">
+					<tr>
 						<th><b>ไฟล์แนบ</b></th>
 						<td colspan="3">
 							<ul>
@@ -168,6 +176,11 @@
 								?>
 							</ul>
 						</td>
+					</tr>
+					<tr>
+						<th colspan="4">
+							<input type="submit" value="แก้ไข" class="da-button green" style="float: right;">
+						</th>
 					</tr>
 				<?php
 					}
