@@ -36,4 +36,7 @@ class Reply extends HDS_Controller
 	public function update_reply(){
 		include('reply_part/c_update.php');
 	}
+	public function delete_reply($rq_id,$lg_id){
+		include('reply_part/c_delete.php');
+	}
 }

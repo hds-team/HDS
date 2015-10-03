@@ -27,6 +27,7 @@
 
 	//------ Get detail of request
 	$data['ct'] = $this->m_dynamic->get_all('hds_category');
+	$data['kn'] = $this->m_dynamic->get_all('hds_kind');
 	$data['lv'] = $this->m_dynamic->get_all('hds_level');
 	$data['syst'] = $this->m_reply->get_system();
 	$data['dep'] = $this->m_reply->get_department();

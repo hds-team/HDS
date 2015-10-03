@@ -112,6 +112,7 @@
 	foreach($request->result() as $row1)
 	{
 		$rq_id = $row1->rq_id;
+		$lg_id = $row1->lg_id;
 		//$edit = 1;
 	}
 ?>
@@ -127,8 +128,8 @@
 	<div class="da-panel-toolbar top">
         <ul>
             <li><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$rq_id.'/'. 1); ?>"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
-            <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
-            <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
+            <li><a href="<?php echo base_url('index.php/HDS/reply/delete_reply/'.$rq_id.'/'.$lg_id); ?>"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
+            <li><a href=""><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
         </ul>
     </div>
 	<div class="da-panel-content">
@@ -188,7 +189,7 @@
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
-										<select>
+										<select name="ct_id">
 										<?php
 											foreach($ct->result() as $cat){
 										?>
@@ -223,7 +224,33 @@
 						</tr>
 						<tr>
 							<th><b>หมวด</b></th>
-							<td><?php echo" ".$row->st_name; ?></td>
+							<td>
+							<?php
+								if($edit==0){
+									echo " ".$row->kn_name; 
+								}else{
+							?>
+								<div class="da-form-inline">
+									<div class="da-form-item large">
+										<select name="kn_id">
+										<?php
+											foreach($kn->result() as $kind){
+										?>
+												<option value="<?php echo $kind->kn_id; ?>">
+													<?php
+															echo $kind->kn_name;
+													?>
+												</option>
+										<?php
+											}
+										?>
+										</select>
+									</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
 							<th><b>ระบบ</b></th>
 							<td>
 							<?php
@@ -233,11 +260,11 @@
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
-										<select>
+										<select name="StID">
 										<?php
 											foreach($syst->result() as $sys){
 										?>
-												<option value="<?php echo $row->StID; ?>">
+												<option value="<?php echo $sys->StID; ?>">
 													<?php
 														//if($cat->ct_id == $row->ct_id){
 															echo $sys->StNameT;
@@ -266,7 +293,7 @@
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
-										<select>
+										<select name="lv_id">
 										<?php
 											foreach($lv->result() as $lev){
 										?>
@@ -289,17 +316,7 @@
 							<th><b>วันที่ส่ง</b></th>
 							<td>
 							<?php
-								if($edit==0){
-									echo $this->date_time->DateThai($row->rq_date);
-								}else{
-							?>
-								<div class="da-form-inline">
-									<div class="da-form-item large">
-										<input id="datepicker_2" type="text" name="lg_exp" value="<?php echo $row->rq_date; ?>">
-									</div>
-								</div>
-							<?php 
-								}
+								echo $this->date_time->DateThai($row->rq_date);
 							?>
 							</td>
 						</tr>
@@ -313,7 +330,7 @@
 							?>
 								<div class="da-form-inline">
 									<div class="da-form-item large">
-										<input id="datepicker_3" type="text" name="lg_exp" value="<?php echo $row->lg_exp; ?>">
+										<input id="datepicker_2" type="text" name="lg_exp" value="<?php echo $row->lg_exp; ?>">
 									</div>
 								</div>
 							<?php 
@@ -333,7 +350,7 @@
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
-										<select>
+										<select name="dpID">
 										<?php
 											foreach($dep->result() as $de){
 										?>
@@ -364,7 +381,7 @@
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
-											<input type="text" value="<?php echo $row->rq_detail; ?>" name="rq_detail">
+											<textarea rows="50" cols="100" name="rq_detail"><?php echo $row->rq_detail; ?></textarea>
 										</div>
 								</div>
 							<?php 
@@ -398,7 +415,13 @@
 						</tr>
 						<tr>
 							<th colspan="4">
+							<?php
+								if($edit==1){
+							?>
 								<input type="submit" value="แก้ไขเสร็จสิ้น" class="da-button green" style="float: right;">
+							<?php
+								}
+							?>
 							</th>
 						</tr>
 				<?php
