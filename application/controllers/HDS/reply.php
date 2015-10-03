@@ -33,4 +33,7 @@ class Reply extends HDS_Controller
 		include('reply_part/c_timeline.php');
 		return $view;
 	}
+	public function update_reply(){
+		include('reply_part/c_update.php');
+	}
 }

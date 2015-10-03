@@ -26,6 +26,12 @@
 	
 
 	//------ Get detail of request
+	$data['ct'] = $this->m_dynamic->get_all('hds_category');
+	$data['lv'] = $this->m_dynamic->get_all('hds_level');
+	$data['syst'] = $this->m_reply->get_system();
+	$data['dep'] = $this->m_reply->get_department();
+	$data['edit'] = $edit;
+	//echo $edit;
 	$data['rq_id'] = $rq_id;
 	$data['request'] = $this->m_reply->get_request($rq_id);
 	$data['file'] = $this->m_reply->get_file($rq_id);

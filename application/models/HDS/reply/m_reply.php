@@ -69,5 +69,16 @@ class M_reply extends CI_Model
 		->order_by('rp_id', "desc");
 		return $this->hds->get();
 	}
-
+	public function get_system(){
+		$this->ums
+		->select('*')
+		->from('umsystem');
+		return $this->ums->get();
+	}
+	public function get_department(){
+		$this->ums
+		->select('*')
+		->from('umdepartment');
+		return $this->ums->get();
+	}
 }

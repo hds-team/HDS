@@ -6,8 +6,24 @@
   {
     $("#tabs").tabs();
   });
-</script>
+  
+  $(function() {
+    var today = new Date();
+    $( "#datepicker_2" ).datepicker({ 
+        dateFormat: 'dd/mm/yy',
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    });
 
+    $("#rq_tell").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+    });
+
+  });
+  
+</script>
 <!-- Timeline styl -->
 <style>
 
@@ -92,6 +108,13 @@
         box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
 </style>
+<?php 
+	foreach($request->result() as $row1)
+	{
+		$rq_id = $row1->rq_id;
+		//$edit = 1;
+	}
+?>
 <!-- Detail of request -->
 <div class="da-panel">
 	<div class="da-panel-header">
@@ -103,90 +126,287 @@
 	</div>
 	<div class="da-panel-toolbar top">
         <ul>
-            <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
+            <li><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$rq_id.'/'. 1); ?>"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
             <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
             <li><a href="#"><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
         </ul>
     </div>
 	<div class="da-panel-content">
+	<?php
+		$data['class'] ="da-form";
+		echo form_open_multipart('HDS/reply/update_reply', $data);
+	?>
 		<table class="da-table da-detail-view">
 			<tbody>
 				<?php 
 					foreach($request->result() as $row)
 					{
 				?>
-					<tr>
-						<th><b>หัวข้อ</b></th>
-						<td><?php echo " ".$row->rq_subject; ?></td>
-						<th><b>เบอร์โทร</b></th>
-						<td><?php echo" ".$row->rq_tell; ?></td>
-					</tr>
-					<tr>
-						<th><b>ประเภท</b></th>
-						<td><?php echo" ".$row->ct_name; ?></td>
-						<th><b>อีเมล</b></th>
-						<td><?php echo" ".$row->rq_email; ?></td>
-					</tr>
-					<tr>
-						<th><b>หมวด</b></th>
-						<td><?php echo" ".$row->st_name; ?></td>
-						<th><b>ระบบ</b></th>
-						<td><?php echo" ".$row->StNameT; ?></td>
-					</tr>
-					<tr>
-						<th><b>ระดับความสำคัญ</b></th>
-						<td><?php echo" ".$row->lv_name; ?></td>
-						<th><b>วันที่ส่ง</b></th>
-						<td><?php echo" ".$this->date_time->DateThai($row->rq_date); ?></td>
-					</tr>
-					<tr>
-						<th><b>กำหนดส่ง</b></th>
-						<td><?php echo" ".$this->date_time->DateThai($row->lg_exp); ?></td>
-						<th><b>ผู้ส่ง</b></th>
-						<td><?php echo" ".$row->UsName; ?></td>
-					</tr>
-					<tr>
-						<th><b>องค์กร</b></th>
-						<td colspan="3"><?php echo" ".$row->dpName; ?></td>
-					</tr>
-					<tr>
-						<th><b>รายละเอียด</b></th>
-						<td colspan="3"><?php echo" ".$row->rq_detail; ?></td>
-					</tr>
-					<tr>
-						<th><b>ไฟล์แนบ</b></th>
-						<td colspan="3">
-							<ul>
+						<input type="hidden" value="<?php echo $row->rq_id; ?>" name="rq_id">
+						<input type="hidden" value="<?php echo $row->lg_id; ?>" name="lg_id">
+						<tr>
+							<th><b>หัวข้อ</b></th>
+							<td>
 								<?php
-									if($file->num_rows() == 0)
-									{
-										echo "ไม่มีไฟล์";
-									} 
-									foreach($file->result() as $row1)
-									{
-								?>
-									<div class="da-panel-body">
-										<span  class="da-panel-title">
-											<img src=<?php echo base_url("images/icons/color/application_put.png"); ?> alt="">
-											<a href="<?php echo base_url("index.php/HDS/reply/download/".$row1->fl_name); ?>"><?php echo $row1->fl_name; ?></a>
-										</span>
+									if($edit==0){
+										echo " ".$row->rq_subject; 
+									}else{
+								?>	
+									<div class="da-form-inline">
+											<div class="da-form-item large">
+												<input type="text" value="<?php echo $row->rq_subject; ?>" name="rq_subject">
+											</div>
 									</div>
 								<?php 
 									}
 								?>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<th colspan="4">
-							<input type="submit" value="แก้ไข" class="da-button green" style="float: right;">
-						</th>
-					</tr>
+							</td>
+							<th><b>เบอร์โทร</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo " ".$row->rq_tell; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+											<input type="text" value="<?php echo $row->rq_tell; ?>" name="rq_tell">
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
+							<th><b>ประเภท</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo " ".$row->ct_name; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+										<select>
+										<?php
+											foreach($ct->result() as $cat){
+										?>
+												<option value="<?php echo $cat->ct_id; ?>"><?php echo $cat->ct_name; ?></option>
+											
+										<?php
+												}
+										?>
+										</select>
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+							<th><b>อีเมล</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo " ".$row->rq_email; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+											<input type="text" value="<?php echo $row->rq_email; ?>" name="rq_email">
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
+							<th><b>หมวด</b></th>
+							<td><?php echo" ".$row->st_name; ?></td>
+							<th><b>ระบบ</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo " ".$row->StNameT; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+										<select>
+										<?php
+											foreach($syst->result() as $sys){
+										?>
+												<option value="<?php echo $row->StID; ?>">
+													<?php
+														//if($cat->ct_id == $row->ct_id){
+															echo $sys->StNameT;
+														//}
+													?>
+												</option>
+											
+										<?php
+											}
+										?>
+										</select>
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
+							<th><b>ระดับความสำคัญ</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo " ".$row->lv_name; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+										<select>
+										<?php
+											foreach($lv->result() as $lev){
+										?>
+												
+												<option value="<?php echo $lev->lv_id; ?>">
+													<?php
+														echo $lev->lv_name;
+													?>
+												</option>
+										<?php
+											}
+										?>
+										</select>
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+							<th><b>วันที่ส่ง</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo $this->date_time->DateThai($row->rq_date);
+								}else{
+							?>
+								<div class="da-form-inline">
+									<div class="da-form-item large">
+										<input id="datepicker_2" type="text" name="lg_exp" value="<?php echo $row->rq_date; ?>">
+									</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
+							<th><b>กำหนดส่ง</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									echo $this->date_time->DateThai($row->lg_exp);
+								}else{
+							?>
+								<div class="da-form-inline">
+									<div class="da-form-item large">
+										<input id="datepicker_3" type="text" name="lg_exp" value="<?php echo $row->lg_exp; ?>">
+									</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+							<th><b>ผู้ส่ง</b></th>
+							<td><?php echo" ".$row->UsName; ?></td>
+						</tr>
+						<tr>
+							<th><b>องค์กร</b></th>
+							<td colspan="3">
+							<?php
+								if($edit==0){
+									echo " ".$row->dpName; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+										<select>
+										<?php
+											foreach($dep->result() as $de){
+										?>
+												
+												<option value="<?php echo $de->dpID; ?>">
+													<?php
+														echo $de->dpName;
+													?>
+												</option>
+										<?php
+											}
+										?>
+										</select>
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
+							<th><b>รายละเอียด</b></th>
+							<td colspan="3">
+							<?php
+								if($edit==0){
+									echo " ".$row->rq_detail; 
+								}else{
+							?>
+								<div class="da-form-inline">
+										<div class="da-form-item large">
+											<input type="text" value="<?php echo $row->rq_detail; ?>" name="rq_detail">
+										</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
+							<th><b>ไฟล์แนบ</b></th>
+							<td colspan="3">
+								<ul>
+									<?php
+										if($file->num_rows() == 0)
+										{
+											echo "ไม่มีไฟล์";
+										} 
+										foreach($file->result() as $row1)
+										{
+									?>
+										<div class="da-panel-body">
+											<span  class="da-panel-title">
+												<img src=<?php echo base_url("images/icons/color/application_put.png"); ?> alt="">
+												<a href="<?php echo base_url("index.php/HDS/reply/download/".$row1->fl_name); ?>"><?php echo $row1->fl_name; ?></a>
+											</span>
+										</div>
+									<?php 
+										}
+									?>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th colspan="4">
+								<input type="submit" value="แก้ไขเสร็จสิ้น" class="da-button green" style="float: right;">
+							</th>
+						</tr>
 				<?php
 					}
 				?>
 			</tbody>
 		</table>
+		<?php echo form_close(); ?>
 	</div>
 </div>
 
@@ -224,8 +444,7 @@
 		    </li>
 	       	<?php
 	        }
-	    
-	        if(isset($user))
+				if(isset($user))
 	        {
 	        ?>
 	        	<li>
@@ -283,8 +502,7 @@
 			$data['class']="da-form";
 			echo form_open('HDS/reply/insert_reply', $data); 
 		?><!--  form action='' method='' class='' > -->
-			<input type="hidden" value="<?php //echo
- $rq_id; ?>" name= "rq_id" />
+			<input type="hidden" value="<?php //echo $rq_id; ?>" name= "rq_id" />
 			<div class="da-form-row">
 				<label>ข้อความ</label>
 				<div class="da-form-item large">
