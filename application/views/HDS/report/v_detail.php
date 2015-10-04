@@ -37,8 +37,9 @@
                                         case 3: echo "รอดำเนินงาน";
                                                 break;
                                         case 5:
-                                        case 6:
-                                        case 7: echo "กำลังดำเนินงาน";
+                                        case 6: echo "กำลังดำเนินงาน";
+                                                break;
+                                        case 7: echo "เสร็จสิ้น";
                                                 break;
                                         default: echo $row->st_name;
                                     } 

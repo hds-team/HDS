@@ -89,6 +89,7 @@
 		}
 	}
 	$part = explode("/",$URL);
-	redirect($part[3]."/".$part[4]."/".$part[5]);
+	//redirect($part[3]."/".$part[4]."/".$part[5]);
+	redirect('HDS/report/detail');
 
 ?>
