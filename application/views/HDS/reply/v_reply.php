@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	$this->load->config('hds_config');
 ?>
 <script>
@@ -125,6 +125,10 @@
 		</span>
 		<span class="da-panel-toggler"></span>
 	</div>
+	<?php
+		if($user == false)
+		{
+	?>
 	<div class="da-panel-toolbar top">
         <ul>
             <li><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$rq_id.'/'. 1); ?>"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
@@ -132,6 +136,9 @@
             <li><a href=""><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
         </ul>
     </div>
+    <?php
+    	}
+    ?>
 	<div class="da-panel-content">
 	<?php
 		$data['class'] ="da-form";
@@ -264,7 +271,7 @@
 										<?php
 											foreach($syst->result() as $sys){
 										?>
-												<option value="<?php echo $sys->StID; ?>">
+												<option value="<?php echo $sys->StID; ?>" <?php if($row->StID == $sys->StID) echo "selected"; ?>>
 													<?php
 														//if($cat->ct_id == $row->ct_id){
 															echo $sys->StNameT;
@@ -330,7 +337,7 @@
 							?>
 								<div class="da-form-inline">
 									<div class="da-form-item large">
-										<input id="datepicker_2" type="text" name="lg_exp" value="<?php echo $row->lg_exp; ?>">
+										<input id="datepicker_2" type="text" name="lg_exp" value="<?php echo date('d/m/Y',strtotime($row->lg_exp)); ?>">
 									</div>
 								</div>
 							<?php 
@@ -349,21 +356,21 @@
 								}else{
 							?>
 								<div class="da-form-inline">
-										<div class="da-form-item large">
-										<select name="dpID">
-										<?php
-											foreach($dep->result() as $de){
-										?>
-												
-												<option value="<?php echo $de->dpID; ?>">
-													<?php
-														echo $de->dpName;
-													?>
-												</option>
-										<?php
-											}
-										?>
-										</select>
+										<div class="da-form-item">
+											<select name="dpID">
+											<?php
+												foreach($dep->result() as $de){
+											?>
+													
+													<option value="<?php echo $de->dpID; ?>" <?php if($de->dpID == $row->dpID) echo "selected"; ?>>
+														<?php
+															echo $de->dpName;
+														?>
+													</option>
+											<?php
+												}
+											?>
+											</select>
 										</div>
 								</div>
 							<?php 
@@ -381,7 +388,7 @@
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
-											<textarea rows="50" cols="100" name="rq_detail"><?php echo $row->rq_detail; ?></textarea>
+											<textarea rows="50" cols="100" name="rq_detail" ><?php echo $row->rq_detail; ?></textarea>
 										</div>
 								</div>
 							<?php 
@@ -413,17 +420,29 @@
 								</ul>
 							</td>
 						</tr>
+						<?php //Loop if else about status of hd_request table.
+							if($row->rq_st_id == 2 && $edit == 0 && $user == false)
+							{
+								echo "	<tr>
+											<th colspan='4'>
+												<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$row->rq_sys_id.'/3')."><div class='da-button blue' style='float: right;'>รับทราบ</div></a>
+											</th>
+										</tr>";
+							}
+						?>
+
+						<?php
+							if($edit==1){
+						?>
 						<tr>
 							<th colspan="4">
-							<?php
-								if($edit==1){
-							?>
 								<input type="submit" value="แก้ไขเสร็จสิ้น" class="da-button green" style="float: right;">
-							<?php
-								}
-							?>
+							
 							</th>
 						</tr>
+						<?php
+							}
+						?>
 				<?php
 					}
 				?>

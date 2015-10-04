@@ -32,6 +32,7 @@
 	$data['syst'] = $this->m_reply->get_system();
 	$data['dep'] = $this->m_reply->get_department();
 	$data['edit'] = $edit;
+	$data['user'] = $user;
 	//echo $edit;
 	$data['rq_id'] = $rq_id;
 	$data['request'] = $this->m_reply->get_request($rq_id);

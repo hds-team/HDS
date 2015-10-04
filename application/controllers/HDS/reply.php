@@ -6,7 +6,7 @@ class Reply extends HDS_Controller
 		parent::__construct();
 		$this->load->config('config');
 	}
-	public function detail_sys($rq_id, $edit=false)
+	public function detail_sys($rq_id, $edit=false, $user=false)
 	{
 		$this->benchmark->mark('code_start');
 		include('reply_part/c_reply.php');

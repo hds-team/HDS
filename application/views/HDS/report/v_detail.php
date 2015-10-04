@@ -29,7 +29,7 @@
                         <td><center><?php echo $index++; ?></center></td>
                         <td><left><?php echo $row->rq_subject; ?></left></td>
                         <td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
-                        <td><center><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/4');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></center></td>
+                        <td><center><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/0/1');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></center></td>
                         <td>
                             <center>
                                 <?php

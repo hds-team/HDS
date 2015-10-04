@@ -124,7 +124,7 @@
                 <div class="grid_4">
                     <label>รายละเอียด</label>
                     <div class="da-form-item large">
-                        <textarea name="rq_detail" rows="auto" cols="auto" maxlength="255" required></textarea>
+                        <textarea name="rq_detail" rows="auto" cols="auto" required></textarea>
                     </div>
                 </div>
             </div>

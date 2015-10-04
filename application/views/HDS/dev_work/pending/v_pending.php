@@ -51,7 +51,7 @@
 					<?php //Loop if else about status of hd_request table.
 						if($row->rq_st_id == 2)
 						{
-							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/3')."><button style='width:100%' class='da-button blue'>รับทราบ</button></a>";
+							echo "<a href = ".base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id)."><button style='width:100%' class='da-button blue'>ดูรายละเอียด</button></a>";
 						
 						}else
 						{
