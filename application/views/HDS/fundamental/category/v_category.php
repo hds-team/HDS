@@ -121,7 +121,7 @@
                                echo "<a href ='".base_url("index.php/HDS/fundamental/delete_category/".$row->ct_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:100%' /></a>";
                                 }
                             else{
-                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:100%' id='opener2' onclick='set_value2()'/></a>"; 
+                               echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:100%' id='opener2' onclick='set_value2()'/></a>"; 
                             }
                                ?>
                             </div>

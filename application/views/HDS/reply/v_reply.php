@@ -5,6 +5,11 @@
   $(document).ready(function() 
   {
     $("#tabs").tabs();
+
+    $("#delete_btn").click(function(){
+    	confirm("คุณแน่ใจที่จะลบหรือไม่ ?");
+    });
+
   });
   
   $(function() {
@@ -22,7 +27,7 @@
     });
 
   });
-  
+
 </script>
 <!-- Timeline styl -->
 <style>
@@ -132,7 +137,7 @@
 	<div class="da-panel-toolbar top">
         <ul>
             <li><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$rq_id.'/'. 1); ?>"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
-            <li><a href="<?php echo base_url('index.php/HDS/reply/delete_reply/'.$rq_id.'/'.$lg_id); ?>"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
+            <li id="delete_btn"><a href="<?php echo base_url('index.php/HDS/reply/delete_reply/'.$rq_id.'/'.$lg_id); ?>"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
             <li><a href=""><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
         </ul>
     </div>
@@ -559,4 +564,14 @@
 			echo form_close();
 		?>	
 	</div>
+</div>
+
+<!-- Dialog -->
+<div id="delete" title="แจ้งเตือน">
+    <p>รายการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
+    <div class="da-button-row">
+        <input type="reset" value="Reset" class="da-button gray left">
+        <input type="submit" value="แก้ไข" class="da-button red">
+        <?php echo form_close(); ?>
+    </div>
 </div>

@@ -113,7 +113,7 @@
                               echo "<a href ='".base_url("index.php/HDS/fundamental/delete_level/".$row->lv_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
                                 }
                            else{
-                               echo "<input type='submit' value='ลบ'id='opener' class='da-button gray' style='width:60%' /></a>"; 
+                               echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:60%' />"; 
                            }
                                ?>
                             </div>
@@ -128,8 +128,9 @@
     </div> <!--da-panel-content-->
 </div> <!--da-panel collapsible-->
     <div id="dialog" title="แจ้งเตือน">
-    <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
+        <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
     </div>
+
     <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
