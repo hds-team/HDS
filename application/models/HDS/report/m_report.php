@@ -52,7 +52,8 @@ class M_report extends CI_Model
 		->from('hds_request')
 		->join($this->ums_part.'.umsystem', 'hds_request.rq_sys_id = umsystem.StID', 'inner')
 		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
-		->where('rq_mb_id', $rq_mb_id);
+		->where('rq_mb_id', $rq_mb_id)
+		->order_by('rq_date', 'desc');
 		return $this->hds->get();
 	}
 

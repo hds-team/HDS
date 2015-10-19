@@ -44,10 +44,14 @@ class HDS_Controller extends UMS_Controller
 	}
 
 	public function check_user(){
+		/*
 		$this->load->model($this->hds_part.'/reply/m_reply');
 		$query = $this->m_reply->actor_check($this->session->userdata('UsID'));
 		$result = $query->row_array();
-		switch($result['GpID']){
+		*/
+		//switch($result['GpID']){
+		//echo "<BR> GpID : ".$this->session->userdata('GpID')."<BR>";
+		switch($this->session->userdata('GpID')){
 			case $this->config->item('user_id')		: 	redirect($this->hds_part.'/report/user_report');
 														break;
 			case $this->config->item('dev_id')		:	redirect($this->hds_part.'/dev_work');

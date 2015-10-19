@@ -18,7 +18,11 @@
       $( "#report_input_screen" ).dialog( "open" );
     });
     
-    $( "#datepicker_screening" ).datepicker({ dateFormat: 'dd/mm/yy' });
+    var today = new Date();
+    $( "#datepicker_screening" ).datepicker({ 
+      dateFormat: 'dd/mm/yy',
+      minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    });
 
   });
 

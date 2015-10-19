@@ -1,4 +1,6 @@
 <?php
+
+	$check_from_screening = false;
 	//-------- LOAD MODEL
 	$this->load->model('HDS/report/m_report');
 
@@ -15,6 +17,7 @@
 	else
 	{
 		//echo" COMP NOT NULL";
+		$check_from_screening = true;
 		$data['rq_comp_id'] = $this->input->post('comp_id');
 	}
 	$data['rq_tell'] = $this->input->post('rq_tell');
@@ -88,8 +91,15 @@
 			$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
 		}
 	}
-	$part = explode("/",$URL);
-	//redirect($part[3]."/".$part[4]."/".$part[5]);
-	redirect('HDS/report/detail');
+	
+	if($check_from_screening)
+	{
+		$part = explode("/",$URL);
+		redirect($part[3]."/".$part[4]."/".$part[5]);
+	}
+	else
+	{
+		redirect('HDS/report/detail');
+	}
 
 ?>
