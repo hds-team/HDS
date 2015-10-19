@@ -1,11 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class M_report extends CI_Model
 {
+	public $ums_part;
 	public function __construct()
 	{
 		parent::__construct();
 		$this->hds = $this->load->database('hds', TRUE);
 		$this->ums = $this->load->database('ums', TRUE);
+
+		$this->load->config('hds_config');
+		$this->ums_part = $this->config->item('UMS');
 	}
 
 	public function get_category() //get request and  status 
@@ -46,8 +50,9 @@ class M_report extends CI_Model
 		$this->hds
 		->select('*')
 		->from('hds_request')
-		->where('rq_mb_id', $rq_mb_id)
-		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner');
+		->join($this->ums_part.'.umsystem', 'hds_request.rq_sys_id = umsystem.StID', 'inner')
+		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
+		->where('rq_mb_id', $rq_mb_id);
 		return $this->hds->get();
 	}
 

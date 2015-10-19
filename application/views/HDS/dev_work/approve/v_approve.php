@@ -47,7 +47,7 @@
                 ?>
 				<td><center>
 					<?php 
-						if($row->rq_st_id == 6){
+						if($row->rq_st_id == 7){
 							$row->st_id = 8;
 					?><!-- Loop of status of report. 6 is approve and 8 is not approve.-->
 					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />

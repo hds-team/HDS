@@ -1,4 +1,3 @@
-
 <div class="grid_4">
     <div class="da-panel collapsible">
         <div class="da-panel-header">
@@ -12,11 +11,13 @@
             <table id="da-ex-datatable-default" class="da-table">
                 <thead>
                     <tr>
-                        <th><center>ลำดับ</center></th>
-                        <th><center>หัวเรื่อง</center></th>
-                        <th><center>วันที่</center></th>
-                        <th><center>รายละเอียด</center></th>
-                        <th><center>สถานะ</center></th>
+                        <th><center><b>ลำดับ</b></center></th>
+                        <th><center><b>หัวเรื่อง</b></center></th>
+                        <th><center><b>วันที่</b></center></th>
+                        <th><center><b>ระบบ</b></center></th>
+                        <th><center><b>สถานะ</b></center></th>
+                        <th><center><b>รายละเอียด</b></center></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +30,7 @@
                         <td><center><?php echo $index++; ?></center></td>
                         <td><left><?php echo $row->rq_subject; ?></left></td>
                         <td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
-                        <td><center><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/0/1');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></center></td>
+                        <td><center><?php echo $row->StNameT; ?></center></td>
                         <td>
                             <center>
                                 <?php
@@ -46,6 +47,7 @@
                                 ?>
                             </center>
                         </td>
+                        <td><center><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id.'/0/1');?>"><img src="<?php echo base_url('images/icons/color/magnifier.png'); ?>"></center></td>
                     </tr>
                     <?php
                         }

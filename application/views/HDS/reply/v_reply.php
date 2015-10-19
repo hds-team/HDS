@@ -131,7 +131,7 @@
 		<span class="da-panel-toggler"></span>
 	</div>
 	<?php
-		if($user == false)
+		if($user_edite == false)
 		{
 	?>
 	<div class="da-panel-toolbar top">
@@ -426,7 +426,7 @@
 							</td>
 						</tr>
 						<?php //Loop if else about status of hd_request table.
-							if($row->rq_st_id == 2 && $edit == 0 && $user == false)
+							if($row->rq_st_id == 2 && $edit == 0 && $user_edite == false)
 							{
 								echo "	<tr>
 											<th colspan='4'>
@@ -529,6 +529,7 @@
         ?>
 		    <div id="user" style="padding: 0;">
 	    		<?php echo $user; ?>
+
 	   	 	</div>
         <?php
      	}
@@ -564,14 +565,4 @@
 			echo form_close();
 		?>	
 	</div>
-</div>
-
-<!-- Dialog -->
-<div id="delete" title="แจ้งเตือน">
-    <p>รายการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
-    <div class="da-button-row">
-        <input type="reset" value="Reset" class="da-button gray left">
-        <input type="submit" value="แก้ไข" class="da-button red">
-        <?php echo form_close(); ?>
-    </div>
 </div>

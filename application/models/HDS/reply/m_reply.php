@@ -55,18 +55,17 @@ class M_reply extends CI_Model
 	}
 
 	public function timeline($rp_msg_type, $rq_id){
-		//$where = "hds_reply.rq_mb_from = ".$actor_id_1." or "."hds_reply.rq_mb_to = ".$actor_id_2;
 		$this->hds
 		->select('*')
 		->from('hds_reply')
-		->join($this->ums_part.'.umusergroup', 'umusergroup.UgUsID = hds_reply.rp_mb_Id', 'inner')
-		->join($this->ums_part.'.umgroup', 'umgroup.GpID = umusergroup.UgGpID', 'inner')
 		->join($this->ums_part.'.umuser', 'umuser.UsID = hds_reply.rp_mb_id', 'inner')
-		//->where($where)
-		//->where('hds_reply.rp_rq_id', $rq_id)
-		//->where('hds_reply.rp_msg_type', $rp_msg_type)
-		->where('hds_reply.rp_id', $rp_msg_type)
-		->order_by('rp_id', "desc");
+		->join($this->ums_part.'.umusergroup', 'umuser.UsID = umusergroup.UgUsID', 'inner')
+		->join($this->ums_part.'.umgroup', 'umgroup.GpID = umusergroup.UgGpID', 'inner')
+
+		->where('hds_reply.rp_msg_type', $rp_msg_type)
+		->where('hds_reply.rp_rq_id', $rq_id)
+		->group_by('rp_id')
+		->order_by('rp_id', "asc");
 		return $this->hds->get();
 	}
 	public function get_system(){

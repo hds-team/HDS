@@ -10,18 +10,18 @@
 	if($data['actor'] == $this->config->item('user_id'))
 	{
 		//echo "USER";
-		$data['user'] = $this->timline(0, $rq_id);
+		$data['user'] = $this->timeline(0, $rq_id);
 	}
 	else if($data['actor'] == $this->config->item('dev_id'))
 	{
 		//echo "DEV";
-		$data['develope'] = $this->timline(1, $rq_id);
+		$data['develope'] = $this->timeline(1, $rq_id);
 	}
 	else if($data['actor'] == $this->config->item('co_op_id'))
 	{
 		//echo "COOP";
-		$data['user'] = $this->timline(0, $rq_id);
-		$data['develope'] = $this->timline(1, $rq_id);
+		$data['user'] = $this->timeline(0, $rq_id);
+		$data['develope'] = $this->timeline(1, $rq_id);
 	}
 	
 
@@ -32,7 +32,7 @@
 	$data['syst'] = $this->m_reply->get_system();
 	$data['dep'] = $this->m_reply->get_department();
 	$data['edit'] = $edit;
-	$data['user'] = $user;
+	$data['user_edite'] = $user;
 	//echo $edit;
 	$data['rq_id'] = $rq_id;
 	$data['request'] = $this->m_reply->get_request($rq_id);

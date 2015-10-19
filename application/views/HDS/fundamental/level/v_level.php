@@ -35,7 +35,8 @@
     <div class="da-panel">
         <div class="da-panel-header">
         	<span class="da-panel-title">
-                เพิ่มประเภท
+                เพิ่มระดับความสำคัญ
+
             </span>
         </div>
          
@@ -45,7 +46,8 @@
                 echo form_open('HDS/fundamental/insert_level', $data); 
              ?>
             	<div class="da-form-row">
-                	<label>ประเภท</label>
+                	<label>ระดับความสำคัญ
+</label>
                      <div class="da-form-item large">
                     	<input type="text" name="level" required/>
                     </div>
@@ -64,7 +66,8 @@
     <div class="da-panel-header">
         <span class="da-panel-title">
             <img src="<?php echo base_url();?>images/icons/black/16/list.png" alt="">
-				เพิ่มประเภท
+				เพิ่มระดับความสำคัญ
+
         </span>
 		<span class="da-panel-toggler"></span>
 	</div>
@@ -131,7 +134,8 @@
         <p>รากการนี้ถูกใช้งานอยู่ไม่สามารถลบได้</p>
     </div>
 
-    <div id="dialog1" class="da-panel-content" title="แก้ไขประเภท" style="padding: 0px">
+    <div id="dialog1" class="da-panel-content" title="แก้ไขระดับความสำคัญ
+" style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
                 echo form_open('HDS/fundamental/update_level', $data); 
@@ -139,7 +143,8 @@
                            
             <input type="hidden" id="lv_id"name="lv_id">
                 <div class="da-form-row">
-                <label>ประเภท</label>
+                <label>ระดับความสำคัญ
+</label>
                      <div class="da-form-item large">
                     <input type="text" id="lv_name" name="lv_name" required>
                      </div>

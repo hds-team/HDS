@@ -29,7 +29,7 @@ class Reply extends HDS_Controller
 		return $value;
 	}
 
-	public function timline($rp_msg_type, $rq_id){
+	public function timeline($rp_msg_type, $rq_id){
 		include('reply_part/c_timeline.php');
 		return $view;
 	}

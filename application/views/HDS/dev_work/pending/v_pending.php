@@ -51,7 +51,7 @@
 					<?php //Loop if else about status of hd_request table.
 						if($row->rq_st_id == 2)
 						{
-							echo "<a href = ".base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id)."><button style='width:100%' class='da-button blue'>ดูรายละเอียด</button></a>";
+							echo "<a href = ".base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id)."><img src='".base_url('images/icons/color/magnifier.png')."'</a>";
 						
 						}else
 						{

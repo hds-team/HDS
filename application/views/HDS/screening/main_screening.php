@@ -112,7 +112,7 @@
                           foreach($system->result() as $row)
 						              {
                         ?>
-                            <option value="<?php echo $row->StID; ?>" <?php if($system_select == $row->StID) echo "selected"; ?>><?php echo $row->StNameT; ?><span style="font-color : red;"> (<?php echo $system_notification[$row->StID];?>)</span></option>
+                            <option value="<?php echo $row->StID; ?>" <?php if($system_select == $row->StID) echo "selected"; ?>><?php echo $row->StNameT; ?><span style="font-color : red;"> <?php if(isset($system_notification[$row->StID])) echo "(".$system_notification[$row->StID].")";?></span></option>
                         <?php 
                             $sum_notification += $system_notification[$row->StID];
                           }

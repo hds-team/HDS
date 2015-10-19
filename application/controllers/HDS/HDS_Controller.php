@@ -47,7 +47,6 @@ class HDS_Controller extends UMS_Controller
 		$this->load->model($this->hds_part.'/reply/m_reply');
 		$query = $this->m_reply->actor_check($this->session->userdata('UsID'));
 		$result = $query->row_array();
-
 		switch($result['GpID']){
 			case $this->config->item('user_id')		: 	redirect($this->hds_part.'/report/user_report');
 														break;
@@ -57,4 +56,5 @@ class HDS_Controller extends UMS_Controller
 														break;
 		}
 	}
+
 }
