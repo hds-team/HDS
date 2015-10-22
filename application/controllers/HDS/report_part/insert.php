@@ -9,6 +9,7 @@
 	$data['rq_subject'] = $this->input->post('rq_subject');
 	$data['rq_ct_id'] = $this->input->post('rq_ct_id');
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
+	$data['rq_menu'] = $this->input->post('rq_menu');
 	if($this->input->post('comp_id') == NULL)
 	{	
 		//echo" COMP NULL";

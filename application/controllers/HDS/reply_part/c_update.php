@@ -8,6 +8,7 @@
 	$data['rq_sys_id'] = $this->input->post('StID');
 	$data['rq_comp_id'] = $this->input->post('dpID');
 	$data['rq_detail'] = $this->input->post('rq_detail');
+	$data['rq_menu'] = $this->input->post('rq_menu');
 	
 	$data_level['lg_lv_id'] = $this->input->post('lv_id');
 	//$data_level['lg_exp'] = $this->input->post('lg_exp');

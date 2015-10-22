@@ -384,6 +384,24 @@
 							</td>
 						</tr>
 						<tr>
+							<th><b>เมนู</b></th>
+							<td colspan="3">
+							<?php
+								if($edit==0){
+									echo " ".$row->rq_menu; 
+								}else{
+							?>
+								<div class="da-form-inline">
+									<div class="da-form-item">
+										<input type="text" name="rq_menu" value="<?php echo $row->rq_menu; ?>">
+									</div>
+								</div>
+							<?php 
+								}
+							?>
+							</td>
+						</tr>
+						<tr>
 							<th><b>รายละเอียด</b></th>
 							<td colspan="3">
 							<?php

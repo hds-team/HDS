@@ -121,6 +121,14 @@
                 </div>
             </div>
             <div class="da-form-row">
+                <div class="grid_3">
+                    <label>เมนู</label>
+                    <div class="da-form-item large">
+                        <input type="text" name="rq_menu" required>
+                    </div>
+                </div>
+            </div>
+            <div class="da-form-row">
                 <div class="grid_4">
                     <label>รายละเอียด</label>
                     <div class="da-form-item large">
