@@ -3,7 +3,8 @@
 	$this->load->model('HDS/reply/m_reply');
 
 	$rp_mb_id = $this->session->userdata('UsID');
-	$data['actor'] = $this->actor_check($rp_mb_id);
+	//$data['actor'] = $this->actor_check($rp_mb_id);
+	$data['actor'] = $this->session->userdata('GpID');
 	//echo "REPLY";
 	//echo $data['actor'];
 	//------ Get Content Timeline

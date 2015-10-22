@@ -2,7 +2,8 @@
 //------ DATABASE
 $config['sys_name'] = "HDS";
 $config['sys_id'] = "25";
-$config['database'] = "hds_v1_4";
+//$config['database'] = "hds_v1_4";
+$config['database'] = "hds_v1_7";
 $config['UMS'] = "ums";
 
 //------ ACTOR ID
