@@ -4,7 +4,6 @@
 	//-------- LOAD MODEL
 	$this->load->model('HDS/report/m_report');
 
-
 	//-------- Set data from post
 	$data['rq_subject'] = $this->input->post('rq_subject');
 	$data['rq_ct_id'] = $this->input->post('rq_ct_id');
@@ -66,33 +65,46 @@
 	//-------- Insert data to hds_level_log
 	$hds_level_log['lg_rq_id'] = $max_rq_id;
 	$this->m_dynamic->insert('hds_level_log', $hds_level_log);
-
 	//-------- FILE insert data
 	if($this->input->post('userfile') !== NULL)
 	{
 		//echo "UPLOAD CHECK";
 		$data_file['fl_rq_id'] = $max_rq_id; // set max rq_id 
-		
-		//-------- Upload file
-		$config['upload_path'] = $this->config->item('uploads_dir');
-		$config['allowed_types'] = 'gif|jpg|png|rar|zip|doc|docx|xlsx|pdf|xls';
-		$this->load->library('upload', $config);
+		//-------UPLOAD
 
-		if (!$this->upload->do_upload())
+		$count = 0;
+		$name_array = array();
+		$count = count($_FILES['userfile']['size']);
+		foreach($_FILES as $key=>$value)
 		{
-			$error = $this->upload->display_errors();
-			echo $error;
+			for($s=0; $s<=$count-1; $s++) 
+			{
+				$_FILES['userfile']['name']		= $value['name'][$s];
+				$_FILES['userfile']['type']		= $value['type'][$s];
+				$_FILES['userfile']['tmp_name'] = $value['tmp_name'][$s];
+				$_FILES['userfile']['error']    = $value['error'][$s];
+				$_FILES['userfile']['size']		= $value['size'][$s];  
+
+				$config['upload_path'] = $this->config->item('uploads_dir');
+				$config['allowed_types'] = 'gif|jpg|png|rar|zip|doc|docx|xlsx|pdf|xls';
+
+				
+				$this->load->library('upload', $config);
+				if ( !$this->upload->do_upload())
+				{
+					$error = $this->upload->display_errors();
+					echo $error;	
+				}else{
+					$upload_data =  $this->upload->data(); //Set info of file
+					$data_file['fl_name'] = $upload_data['file_name']; //Set filename
+					$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
+				}
+
+			}
 		}
-		else
-		{
-			$upload_data =  $this->upload->data(); //Set info of file
-			$data_file['fl_name'] = $upload_data['file_name']; //Set filename 
-		}
-		if($data_file['fl_name'] != NULL){
-			$this->m_dynamic->insert('hds_file', $data_file); // insert filename to hds_file
-		}
+
 	}
-	
+
 	if($check_from_screening)
 	{
 		$part = explode("/",$URL);
