@@ -21,9 +21,9 @@
     });
 
     //----------- set value on click to input
-    function set_value(ctr_id, ctr_value){
-        $( "#ctr_id").val(ctr_id); //set value to input by id
-        $( "#ctr_value").val(ctr_value); //set value to input by id
+    function set_value(ctt_id, ctt_name){
+        $( "#ctt_id").val(ctt_id); //set value to input by id
+        $( "#ctt_name").val(ctt_name); //set value to input by id
         $( "#dialog1" ).dialog( "open" ); //open dialog
     }
 </script>
@@ -41,12 +41,12 @@
         <div class="da-panel-content">
             <?php 
                 $data['class'] = "da-form";
-                echo form_open('', $data); 
+                echo form_open('HDS/fundamental/insert_estimation_time', $data); 
              ?>
             	<div class="da-form-row">
                 	<label>ช่องทางการติดต่อ</label>
                     <div class="da-form-item large">
-                    	<input type="text" name="ctr_value" required/>
+                    	<input type="text" name="ctt_name" required/>
                     </div>
                 </div>
                 <div class="da-button-row">
@@ -87,33 +87,33 @@
                     ?>
                 <tr>
                     <td><center><?php echo ++$index;?></center></td>
-                    <td><?php echo $row->ctr_value; ?></td>
+                    <td><?php echo $row->ctt_name; ?></td>
                     <td>
                         <center>
                         <?php 
-                        if ($row->ctr_tp_id==1)
+                        if ($row->ctt_status==1)
 						{
-                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->ctr_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_estimation_time/".$row->ctt_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->ctr_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_estimation_time/".$row->ctt_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
 						}
                         ?>
                         </center>
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->ctr_id; ?>', '<?php echo $row->ctr_value; ?>');">แก้ไข</button>
+                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->ctt_id; ?>', '<?php echo $row->ctt_name; ?>');">แก้ไข</button>
                             </div>
                             <div class="grid_2">
                                <?php 
-                               if($row->rq_ctr_id==null){
-                              echo "<a href ='".base_url("index.php/HDS/fundamental/delete_level/".$row->ctr_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                               if($row->ctl_rq_id==null){
+									echo "<a href ='".base_url("index.php/HDS/fundamental/delete_estimation_time/".$row->ctt_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
                                 }
-                           else{
-                               echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:60%' />"; 
-                           }
+							   else{
+								   echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:60%' />"; 
+							   }
                                ?>
                             </div>
                         </center>
@@ -134,15 +134,15 @@
 " style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/update_level', $data); 
+                echo form_open('HDS/fundamental/update_value_estimation_time', $data); //change value
                 ?>
                            
-            <input type="hidden" id="lv_id"name="lv_id">
+            <input type="hidden" id="ctt_id"name="ctt_id">
                 <div class="da-form-row">
                 <label>ระดับความสำคัญ
 </label>
                      <div class="da-form-item large">
-                    <input type="text" id="lv_name" name="lv_name" required>
+                    <input type="text" id="ctt_name" name="ctt_name" required>
                      </div>
                 </div>
             <div class="da-button-row">

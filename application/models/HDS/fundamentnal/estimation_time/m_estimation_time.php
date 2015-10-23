@@ -10,9 +10,10 @@ class M_estimation_time extends CI_Model{
 	public function get_contract(){ 
 		$this->hds
 		->select('*')
-		->from('hds_contract')
-		->join('hds_request','hds_contract.ctr_id = hds_request.rq_ctr_id','left')
-		->group_by('ctr_id');
+		->from('hds_contact_type')
+		->join('hds_contact_log','hds_contact_type.ctt_id = hds_contact_log.ctl_ctt_id','left')
+		->join('hds_request','hds_contact_log.ctl_rq_id = hds_request.rq_id','left')
+		->group_by('ctt_id');
 		return $this->hds->get();
 	}
 }

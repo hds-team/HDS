@@ -100,6 +100,28 @@ class Fundamental extends HDS_Controller {
 	}
 	public function estimation_time()
 	{
-		include('fundamental_part/c_estimation_time/c_estimation_time.php');
+		
+		$this->benchmark->mark('code_start');
+		include('fundamental_part/estimation_time/c_estimation_time.php');
+		$data['content'] = $view;
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
+		$this->layout_output($data);
+	}
+	public function insert_estimation_time()
+	{
+		include('fundamental_part/estimation_time/c_insert_estimation_time.php');
+	}
+	public function update_estimation_time($ctt_id,$ctt_status)
+	{
+		include('fundamental_part/estimation_time/c_update_estimation_time.php');
+	}
+	public function delete_estimation_time($ctt_id)
+	{
+		include('fundamental_part/estimation_time/c_delete_estimation_time.php');
+	}
+	public function update_value_estimation_time()
+	{
+		include('fundamental_part/estimation_time/c_update_value_estimation_time.php');
 	}
 }
