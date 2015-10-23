@@ -81,5 +81,33 @@ class Test extends UMS_Controller
 		echo $this->config->item('sys_name');
 	}
 
+	public function tree($query, $parent = NULL, $level = 1)
+	{
+		$count = 0;
+		foreach($query->result() as $row)
+		{
+			if($row->ctr_parent == $parent)
+			{
+				$count++;
+				for($i=0;$i<$level;$i++){
+					echo "-";
+				}
+				echo $row->ctr_value."<BR>";
+				$this->tree($query, $row->ctr_id, $level+1);
+			}
+			else if($count == $query->num_rows())
+			{
+				return 0;
+			}
+		}
+
+	}
+
+	public function print_tree()
+	{
+		$query = $this->m_dynamic->get_all('hds_contract');
+		$this->tree($query, NULL, 1);
+	}
+
 }
 //test
