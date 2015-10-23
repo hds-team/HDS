@@ -290,6 +290,19 @@
             </div>
           </div>
       </div>
+	  <div class="da-form-row">
+			<div class="grid_4">
+				<label>ช่องทางการติดต่อ</label>
+				<div class="da-form-item">
+					<select style="width:25%">
+						<option>1</option>
+					</select>
+					<input type="text">
+					<input type="submit" value="เพิ่ม" class="da-button green" style="width:10%">
+					<input type="submit" value="ลบ" class="da-button red" style="width:10%">
+				</div>
+			</div>
+      </div>
       <div class="da-form-row">
           <div class="grid_3">
               <label>เมนู</label>
