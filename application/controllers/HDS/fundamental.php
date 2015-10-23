@@ -98,4 +98,8 @@ class Fundamental extends HDS_Controller {
 	{
 		include('fundamental_part/delete_level.php');
 	}
+	public function estimation_time()
+	{
+		include('fundamental_part/c_estimation_time/c_estimation_time.php');
+	}
 }
