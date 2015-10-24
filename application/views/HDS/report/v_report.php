@@ -1,5 +1,5 @@
 <script>
-  $(function() {
+  $(document).ready(function() {
     var today = new Date();
     $( "#datepicker_2" ).datepicker({ 
         dateFormat: 'dd/mm/yy',
@@ -7,11 +7,27 @@
     });
 
     $("#rq_tell").keypress(function (e) {
-     //if the letter is not digit then display error and don't type anything
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        //if the letter is not digit then display error and don't type anything
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) 
+        {
             return false;
         }
     });
+
+    $(".add").click(function(){
+        //var value = $(".input_up").html();
+        //alert(value);
+        <?php $url = base_url('images/icons/color/cross.png'); ?>
+        var img_del = '<?php echo $url ?>'
+        var value_del = "<img src='"+img_del+"' alt='ลบ'>";
+
+        var value_input = "<input type='file' id='upload[]' class='da-custom-file' name='userfile[]'>"+" "+value_del;
+        //alert(value);
+        $("#upload").append(value_input);
+
+    });
+
+    $('.Multifile').MultiFile(5);
 
   });
 </script>
@@ -137,13 +153,14 @@
                 </div>
             </div>
             <div class="da-form-row">
-                <div class="grid_4">
+                <div class="grid_2">
                     <label>ไฟล์แนบ</label>
-                    <div class="da-form-item">
-                        <input type="file" class="da-custom-file" name="userfile">
+                    <div class="da-form-item large">
+                        <input type="file" class="Multifile" name="userfile[]"/>
                     </div>
                 </div>
             </div>
+
             <div class="da-button-row">
                 <input type="reset" value="รีเซ็ท" class="da-button gray left">
                 <input type="submit" value="ส่งคำร้อง" class="da-button blue">
@@ -151,3 +168,7 @@
         <?php echo form_close(); ?>
     </div>
 </div>
+
+<!-- UPload Multi -->
+<script src="https://jquery-multifile-plugin.googlecode.com/svn/trunk/jquery.MultiFile.js" type="text/javascript"></script>
+
