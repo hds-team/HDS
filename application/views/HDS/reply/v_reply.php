@@ -174,24 +174,6 @@
 									}
 								?>
 							</td>
-							<th><b>เบอร์โทร</b></th>
-							<td>
-							<?php
-								if($edit==0){
-									echo " ".$row->rq_tell; 
-								}else{
-							?>
-								<div class="da-form-inline">
-										<div class="da-form-item large">
-											<input type="text" value="<?php echo $row->rq_tell; ?>" name="rq_tell">
-										</div>
-								</div>
-							<?php 
-								}
-							?>
-							</td>
-						</tr>
-						<tr>
 							<th><b>ประเภท</b></th>
 							<td>
 							<?php
@@ -211,22 +193,6 @@
 												}
 										?>
 										</select>
-										</div>
-								</div>
-							<?php 
-								}
-							?>
-							</td>
-							<th><b>อีเมล</b></th>
-							<td>
-							<?php
-								if($edit==0){
-									echo " ".$row->rq_email; 
-								}else{
-							?>
-								<div class="da-form-inline">
-										<div class="da-form-item large">
-											<input type="text" value="<?php echo $row->rq_email; ?>" name="rq_email">
 										</div>
 								</div>
 							<?php 

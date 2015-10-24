@@ -14,21 +14,10 @@
         }
     });
 
-    $(".add").click(function(){
-        //var value = $(".input_up").html();
-        //alert(value);
-        <?php $url = base_url('images/icons/color/cross.png'); ?>
-        var img_del = '<?php echo $url ?>'
-        var value_del = "<img src='"+img_del+"' alt='ลบ'>";
-
-        var value_input = "<input type='file' id='upload[]' class='da-custom-file' name='userfile[]'>"+" "+value_del;
-        //alert(value);
-        $("#upload").append(value_input);
-
-    });
-
+    //------- Multi upload
     $('.Multifile').MultiFile(5);
 
+    //------- Auto Coomplete
     var availableTags = [
         <?php
             $count = $hds_member->num_rows();
@@ -49,6 +38,23 @@
 
     $( "#tags" ).autocomplete({
       source: availableTags
+    });
+
+    //------- Add Field input contact
+    var i = $('#contact_group label').size() + 1;
+    var option = '<?php foreach($hds_contact_type->result() as $ctt){ ?><option value="<?php echo $ctt->ctt_id; ?>"><?php echo $ctt->ctt_name; ?></option><?php } ?>';
+
+    $('#add').click(function(){
+        $('#contact_group').append('<label id="contact_lb'+i+'"><select style="width:30%" name="ctl_ctt_id[]">'+option+'</select> <input id="rq_tell'+i+'" type="text" name="ctl_value[]" required style="width:50%"> <a id="del" ><img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:3%"></a></label>');
+        i++;
+    })
+
+    $('#del').live('click', function() { 
+        if( i > 2 ) {
+                $(this).parents('label').remove();
+                i--;
+        }
+        return false;
     });
 
   });
@@ -138,6 +144,26 @@
                     <label>อีเมล์</label>
                     <div class="da-form-item large">
                         <input type="text" name="rq_email" maxlength="100" required>
+                    </div>
+                </div>
+            </div>
+            <div class="da-form-row">
+                <div class="grid_4">
+                    <label>ช่องทางติดต่อ</label>
+                    <div class="da-form-item large" id="contact_group">
+                        <label>
+                            <select style="width:30%" name="ctl_ctt_id[]">
+                            <?php 
+                            foreach($hds_contact_type->result() as $ctt){
+                            ?>
+                                <option value="<?php echo $ctt->ctt_id; ?>"><?php echo $ctt->ctt_name; ?></option>
+                            <?php
+                                }
+                            ?>
+                            </select>
+                            <input id="rq_tell0" type="text" name="ctl_value[]" required style="width:50%">
+                            <a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:3%"></a>
+                        </label>
                     </div>
                 </div>
             </div>

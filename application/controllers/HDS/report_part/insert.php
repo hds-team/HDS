@@ -1,5 +1,4 @@
 <?php
-
 	$check_from_screening = false;
 	//-------- LOAD MODEL
 	$this->load->model('HDS/report/m_report');
@@ -9,8 +8,6 @@
 	$data['rq_ct_id'] = $this->input->post('rq_ct_id');
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
 	$data['rq_menu'] = $this->input->post('rq_menu');	
-	$data['rq_tell'] = $this->input->post('rq_tell');
-	$data['rq_email'] = $this->input->post('rq_email');
 	$data['rq_detail'] = $this->input->post('rq_detail');
 	$data['rq_date'] = date('y-m-d');
 	$data['rq_sys_id'] = $this->input->post('sys_id');
@@ -40,7 +37,15 @@
 		//echo" NAME NOT NULL";
 		$result_UsID = $this->m_dynamic->get_by_id($this->ums_part.'.umuser', 'UsName', $this->input->post('UsName'));
 		$UsID = $result_UsID->row_array();
-		$data['rq_mb_id'] =  $UsID['UsID']; //From Coop
+		if($UsID['UsID'] == NULL)
+		{
+			$data['rq_mb_id'] = $this->session->userdata('UsID'); //From User
+		}
+		else
+		{
+			$data['rq_mb_id'] =  $UsID['UsID']; //From Coop
+		}
+		
 		//echo $data['rq_mb_id'];
 	}
 	
@@ -120,6 +125,19 @@
 
 	}
 
+	//-------- insert contact
+	$ctl_ctt_id = $this->input->post('ctl_ctt_id');
+	$ctl_value = $this->input->post('ctl_value');
+	
+	$hds_contact_log['ctl_rq_id'] = $max_rq_id;
+
+	foreach($ctl_ctt_id as $key => $value){
+		$hds_contact_log['ctl_ctt_id'] = $value;
+		$hds_contact_log['ctl_value'] = $ctl_value[$key];
+		$this->m_dynamic->insert('hds_contact_log', $hds_contact_log);
+	}
+
+	//------- redirect
 	if($check_from_screening)
 	{
 		//$part = explode("/",$URL);
