@@ -2,9 +2,15 @@
 require(dirname(__FILE__)."/HDS_Controller.php");
 class Report extends HDS_Controller
  {
+ 	public $hds_part;
+ 	public $ums_part;
+
  	public function __construct(){
  		parent::__construct();
  		$this->load->model('HDS/report/m_report');
+ 		$this->load->config('hds_config');
+ 		$this->hds_part = $this->config->item('sys_name');
+ 		$this->ums_part = $this->config->item('UMS');
  	}
 	public function user_report()
 	{

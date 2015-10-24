@@ -46,43 +46,6 @@
         ?>
     ];
 
-    var id = [
-      [
-          <?php
-            $count = $hds_member->num_rows();
-            foreach($hds_member->result() as $row)
-            {
-              if($count == 1)
-              {
-                echo '"'.$row->UsName.'"';
-              }
-              else
-              {
-                echo '"'.$row->UsName.'",';
-              }
-              $count--;
-            }
-          ?>
-      ],
-      [
-        <?php
-          $count = $hds_member->num_rows();
-          foreach($hds_member->result() as $row)
-          {
-            if($count == 1)
-            {
-              echo '"'.$row->UsID.'"';
-            }
-            else
-            {
-              echo '"'.$row->UsID.'",';
-            }
-            $count--;
-          }
-        ?>
-      ]
-    ];
- 
     $( "#tags" ).autocomplete({
       source: availableTags
     });

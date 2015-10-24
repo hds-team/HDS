@@ -29,6 +29,28 @@
 
     $('.Multifile').MultiFile(5);
 
+    var availableTags = [
+        <?php
+            $count = $hds_member->num_rows();
+            foreach($hds_member->result() as $row)
+            {
+                if($count == 1)
+                {
+                  echo '"'.$row->UsName.'"';
+                }
+                else
+                {
+                  echo '"'.$row->UsName.'",';
+                }
+                $count--;
+            }
+        ?>
+    ];
+
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+
   });
 </script>
 <!-- HDS Dialog Report -->
@@ -133,6 +155,28 @@
                                 }
                             ?>
                         </select>
+                    </div>
+                </div>
+                <div class="grid_2" style="display: <?php echo $display; ?>">
+                    <label>องค์กร</label>
+                    <div class="da-form-item large">
+                        <select name="comp_id">
+                            <?php
+                              foreach($hds_comp->result() as $comp){
+                            ?>
+                              <option value="<?php echo $comp->dpID; ?>"><?php echo $comp->dpName; ?></option>
+                            <?php
+                              }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="da-form-row" style="display: <?php echo $display; ?>">
+                <div class="grid_2">
+                    <label>ผู้ส่ง</label>
+                    <div class="da-form-item large">
+                        <input id="tags" type="text" size="50" name="UsName" <?php if($display != "none") echo "required"; ?>> 
                     </div>
                 </div>
             </div>

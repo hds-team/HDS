@@ -8,64 +8,79 @@
 	$data['rq_subject'] = $this->input->post('rq_subject');
 	$data['rq_ct_id'] = $this->input->post('rq_ct_id');
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
-	$data['rq_menu'] = $this->input->post('rq_menu');
+	$data['rq_menu'] = $this->input->post('rq_menu');	
+	$data['rq_tell'] = $this->input->post('rq_tell');
+	$data['rq_email'] = $this->input->post('rq_email');
+	$data['rq_detail'] = $this->input->post('rq_detail');
+	$data['rq_date'] = date('y-m-d');
+	$data['rq_sys_id'] = $this->input->post('sys_id');
+
+
+	//-------- Checl source of data
 	if($this->input->post('comp_id') == NULL)
 	{	
 		//echo" COMP NULL";
-		$data['rq_comp_id'] = $this->session->userdata('UsDpID');
+		$data['rq_comp_id'] = $this->session->userdata('UsDpID'); //From user
 	}
 	else
 	{
 		//echo" COMP NOT NULL";
 		$check_from_screening = true;
-		$data['rq_comp_id'] = $this->input->post('comp_id');
+		$data['rq_comp_id'] = $this->input->post('comp_id');//From Coop
 	}
-	$data['rq_tell'] = $this->input->post('rq_tell');
-	$data['rq_email'] = $this->input->post('rq_email');
-	$data['rq_detail'] = $this->input->post('rq_detail');
-	$data['rq_date'] = date('y-m-d');
+
+	//-------- Check who send
 	if($this->input->post('UsName') == NULL)
 	{
 		//echo" NAME NULL";
-		$data['rq_mb_id'] = $this->session->userdata('UsID');
+		$data['rq_mb_id'] = $this->session->userdata('UsID'); //From User
 	}
 	else
 	{
 		//echo" NAME NOT NULL";
 		$result_UsID = $this->m_dynamic->get_by_id($this->ums_part.'.umuser', 'UsName', $this->input->post('UsName'));
 		$UsID = $result_UsID->row_array();
-		$data['rq_mb_id'] =  $UsID['UsID'];
+		$data['rq_mb_id'] =  $UsID['UsID']; //From Coop
+		//echo $data['rq_mb_id'];
 	}
-	$data['rq_mb_id'] = $this->session->userdata('UsID');
-	$data['rq_sys_id'] = $this->input->post('sys_id');
+	
 	//-------- Check date exp
 	if($this->input->post('lg_exp') != NULL){
+
 		//------- Convert format mm/dd/yy to yyyy-mm-dd
 		$date_exp = explode("/",$this->input->post('lg_exp'));
 		$hds_level_log['lg_exp'] = $date_exp[2]."-".$date_exp[1]."-".$date_exp[0];
 
 	}
+
 	$hds_level_log['lg_lv_id'] = $this->input->post('lg_lv_id');
 	$hds_level_log['lg_mb_id'] = $data['rq_mb_id'];
+
 	//-------- Set URL Current
 	$URL = $this->input->post('url'); 
+
 	//-------- Check if null set to UMS 
 	if($data['rq_sys_id'] == NULL)
 	{
 		$data['rq_sys_id'] = 10;
 	}
+
 	//-------- Set status default
 	$data['rq_st_id'] = 1;
+
 	//-------- Insert data to hds_request 
 	$this->m_dynamic->insert('hds_request', $data);
+
 	//-------- Get max id of hds_request
 	$result = $this->m_report->get_max_rq_id(); //get max id of hds_request
 	$row = $result->row_array();
 	$max_rq_id = $row['rq_id'];
+
 	//-------- Insert data to hds_level_log
 	$hds_level_log['lg_rq_id'] = $max_rq_id;
 	$this->m_dynamic->insert('hds_level_log', $hds_level_log);
-	//-------- FILE insert data
+
+	//-------- FILE insert data and Upload Multifile
 	if($this->input->post('userfile') !== NULL)
 	{
 		//echo "UPLOAD CHECK";
@@ -107,12 +122,13 @@
 
 	if($check_from_screening)
 	{
-		$part = explode("/",$URL);
-		redirect($part[3]."/".$part[4]."/".$part[5]);
+		//$part = explode("/",$URL);
+		//redirect($part[3]."/".$part[4]."/".$part[5]);
+		redirect($this->hds_part.'/screening');
 	}
 	else
 	{
-		redirect('HDS/report/detail');
+		redirect($this->hds_part.'/report/detail');
 	}
 
 ?>
