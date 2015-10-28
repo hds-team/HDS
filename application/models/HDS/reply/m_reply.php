@@ -80,4 +80,12 @@ class M_reply extends CI_Model
 		->from('umdepartment');
 		return $this->ums->get();
 	}
+	public function get_accept_log($rq_id){
+		$this->hds
+		->select('*')
+		->from('hds_accept_log')
+		->where('al_rq_id',$rq_id)
+		->where('al_st_id', 6);
+		return $this->hds->get();
+	}
 }

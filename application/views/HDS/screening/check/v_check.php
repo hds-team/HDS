@@ -46,7 +46,7 @@
 				<td>
 					<div class="grid_4">
 
-						<center><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/7/'.$sys_id); ?>"><button style="width:70%" class="da-button green">ยืนยัน</button></a></center>
+						<center><a href="<?php echo base_url('index.php/HDS/screening/update_check/'.$ch['rq_id'].'/6/'.$sys_id); ?>"><button style="width:70%" class="da-button green">ยืนยัน</button></a></center>
 					</div>
 				</td>
 			</tr>  	

@@ -201,20 +201,7 @@
               </div>
           </div>
       </div>
-      <div class="da-form-row">
-          <div class="grid_2">
-              <label>เบอร์โทร</label>
-              <div class="da-form-item large">
-                  <input id="rq_tell" type="text" name="rq_tell" maxlength="10" required>
-              </div>
-          </div>
-          <div class="grid_2">
-              <label>อีเมล์</label>
-              <div class="da-form-item large">
-                  <input type="text" name="rq_email" maxlength="100" required>
-              </div>
-          </div>
-      </div>
+      <!-- -------------------->
       <div class="da-form-row">
           <div class="grid_2">
               <label>ระบบ</label>

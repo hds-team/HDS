@@ -1,4 +1,11 @@
 <?php
+	if($this->input->post('rq_est_date') != NULL){
+		//covert format date mm/dd/yy to yyy-mm-dd
+		$est_date = explode("/",$this->input->post('rq_est_date'));
+		$data['rq_est_date'] = $est_date[2]."-".$est_date[1]."-".$est_date[0];
+	}else{
+		$data['rq_est_date'] = NULL;
+	}
 	//echo "test";
 	$data['rq_subject'] = $this->input->post('rq_subject');
 	$data['rq_tell'] = $this->input->post('rq_tell');

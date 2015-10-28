@@ -38,7 +38,7 @@
 	$data['rq_id'] = $rq_id;
 	$data['request'] = $this->m_reply->get_request($rq_id);
 	$data['file'] = $this->m_reply->get_file($rq_id);
-
+	$data['accept'] = $this->m_reply->get_accept_log($rq_id);
 	//------ Output view
 	$data['content'] = $this->hds_output('reply/v_reply',$data,TRUE);
 ?>

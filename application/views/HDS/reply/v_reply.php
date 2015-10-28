@@ -19,6 +19,11 @@
         minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
     });
 
+	$( "#datepicker_3" ).datepicker({ 
+        dateFormat: 'dd/mm/yy',
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    });
+	
     $("#rq_tell").keypress(function (e) {
      //if the letter is not digit then display error and don't type anything
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -317,6 +322,47 @@
 							</td>
 							<th><b>ผู้ส่ง</b></th>
 							<td><?php echo" ".$row->UsName; ?></td>
+						</tr>
+						<tr>
+							<th><b>ประมาณการเวลา</b></th>
+							<td>
+							<?php
+								if($edit==0){
+									if($row->rq_est_date == NULL){
+										echo "ไม่ระบุ";
+									}else{
+							?>
+										<?php echo $this->date_time->DateThai($row->rq_est_date);
+									}
+								}else{
+							?>
+									<div class="da-form-inline">
+										<div class="da-form-item large">
+											<input type="text" name="rq_est_date" id="datepicker_3" 
+											value="<?php
+												if($row->rq_est_date == NULL){
+													echo "ยังไม่ไดระบุ";
+												}else{
+													echo $this->date_time->DateThai($row->rq_est_date);
+												}
+											?>">
+										</div>
+									</div>
+							<?php
+								}
+							?>
+							</td>
+							<th><b>เวลาที่ส่ง</b></th>
+							<td>
+							<?php
+								if($row->rq_st_id == 6){
+									$real_time = $accept->row_array();
+									echo $this->date_time->DateThai($real_time['al_date']);
+								}else{
+									echo "ยังไม่เสร็จสิ้น";
+								}
+							?>
+							</td>
 						</tr>
 						<tr>
 							<th><b>องค์กร</b></th>
