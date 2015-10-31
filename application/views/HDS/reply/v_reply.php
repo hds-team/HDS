@@ -1,4 +1,5 @@
-﻿<?php
+﻿<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/hds/prog_bar/css/style.css" media="screen" />
+<?php
 	$this->load->config('hds_config');
 ?>
 <script>
@@ -118,6 +119,66 @@
         box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
 </style>
+<div style="height:400">
+	<div class="checkout-wrap">
+	  <ul class="checkout-bar">
+
+
+	    <?php
+	    $index = 1;
+	    $check_prg = $request->row_array();
+	    $active = 0;
+	    foreach($status->result() as $rs_st){
+
+	   		switch($rs_st->st_id){ 
+	   			case 1: ;
+	   			case 2: ;
+	   			case 3: ;
+	   			case 4: ;
+	   			case 8:
+			    	if($index == 1)
+			    	{
+			    		$class = "visited first";
+			    		if($rs_st->st_id == $check_prg['rq_st_id'])
+			    		{
+				    		$active = $index;
+			    			$class = "active";
+			    		}
+			    	}
+			    	else if($rs_st->st_id == $check_prg['rq_st_id'])
+			    	{	
+			    		$active = $index;
+			    		$class = "active";
+			    	}
+			    	else if(($active + 1) == $index){
+			    		$class = "next";
+			    	}
+			    	else if($active == 0)
+			    	{
+			    		$class = "previous visited";
+			    	}
+			    	else if($active + 1 < $index)
+			    	{
+			    		$class = "";
+			    	}
+
+			    	echo '<li class="'.$class.'">'.$rs_st->st_name.'</li>';
+			    	$index++;
+
+			    	break;
+			    	
+			    case 5: ;
+			    case 6: ;
+			    case 7: break;
+		    }
+	    }
+	    ?>
+	       
+	  </ul>
+	</div>
+</div>
+
+<div class="clear"></div>
 <?php 
 	foreach($request->result() as $row1)
 	{
@@ -126,6 +187,8 @@
 		//$edit = 1;
 	}
 ?>
+
+<br><br><br>
 <!-- Detail of request -->
 <div class="da-panel">
 	<div class="da-panel-header">
@@ -486,6 +549,7 @@
 		<?php echo form_close(); ?>
 	</div>
 </div>
+
 
 <div class="clear"></div><!-- new line -->
 

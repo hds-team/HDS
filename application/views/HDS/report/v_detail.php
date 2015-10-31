@@ -6,6 +6,8 @@
         text-align: center;
     }
 </style>
+
+
 <div class="grid_4">
     <div class="da-panel collapsible">
         <div class="da-panel-header">
