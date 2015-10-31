@@ -4,7 +4,12 @@ class M_tor extends CI_Model
 {
 	public $db_name;
 	public $ums;
-
+	
+	public $ts_tp_id;
+	public $tp_name;
+	public $tp_year;
+	public $ts_sys_id;
+	
 	public function __construct()
 	{
 		parent::__construct();
@@ -54,6 +59,25 @@ class M_tor extends CI_Model
 		$query = $this->hds->query($sql);
 		return $query; 
 	}
-	
+	public function show_max_ts_id()
+	{
+		$sql = "SELECT MAX(tp_id) AS ts_max FROM hds_tor_proj;";
+		$query = $this->hds->query($sql);
+		return $query; 
+	}
+	public function ins_hds_tor_proj()
+	{
+		$sql = "INSERT INTO
+		hds_tor_proj (tp_name,tp_year)
+		VALUES (?,?)";
+		$this->hds->query($sql, array( $this->tp_name,$this->tp_year));
+	}
+	public function ins_hds_tor_system()
+	{
+		$sql = "INSERT INTO
+		hds_tor_system (ts_sys_id,ts_tp_id)
+		VALUES (?,?)";
+		$this->hds->query($sql, array( $this->ts_sys_id,$this->ts_tp_id));
+	}
 	
 }

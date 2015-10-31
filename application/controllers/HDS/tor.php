@@ -24,11 +24,33 @@ class Tor extends HDS_Controller
 		$data['content'] = $this->hds_output("tor/ins_tor", $data, true);
 		$this->layout_output($data);
 	}
-	public function insert_tor()
+ 	public function insert_tor()
 	{
 		$tp_name = $this->input->post("namekong");
 		$tp_year = $this->input->post("year");
 		$ts_sys_id = $this->input->post("sys");
+		
+		$this->m_tor->tp_name = $tp_name;
+		$this->m_tor->tp_year = $tp_year;
+
+		$this->m_tor->ins_hds_tor_proj();
+		
+		$this->m_tor->ts_sys_id = $ts_sys_id;
+		$data['query'] = $this->m_tor->show_max_ts_id()->result_array();
+		foreach($data['query'] as $key => $max)
+		{
+			$this->m_tor->ts_tp_id = $max['ts_max'];
+		}
+		
+		$this->m_tor->ins_hds_tor_system();
+	} 
+	public function insert_tree_tor()
+	{
+		$data['query'] = $this->m_dynamic->get_all('hds_contract');
+		
+		$data['content'] = $this->hds_output("tor/tree_tor", $data, true);
+		$this->layout_output($data);
+		
 	}
 }
 

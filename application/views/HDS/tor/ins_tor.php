@@ -1,4 +1,26 @@
-﻿<!-- Demo JavaScript Files -->
+﻿<script>
+  $(document).ready(function() {
+
+
+    //------- Add Field input contact
+    var i = $('#contact_group label').size() + 1;
+
+    $('#add').click(function(){
+        $('#contact_group').append('<label id="contact_lb'+i+'"> <input style="width:30%" id="rq_tell2'+i+'" type="text" name="ctr_number[]" required > <input id="rq_tell'+i+'" type="text" name="ctr_value[]" required style="width:60%"> <a id="del" ><img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:4%"></a></label>');
+        i++;
+    })
+
+    $('#del').live('click', function() { 
+        if( i > 2 ) {
+                $(this).parents('label').remove();
+                i--;
+        }
+        return false;
+    });
+
+  });
+</script>
+<!-- Demo JavaScript Files -->
 <script type="text/javascript" src="<?php echo base_url(); ?>plugins/elastic/jquery.elastic.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/demo/demo.form.js"></script>
 <div class="grid_1">
@@ -53,9 +75,22 @@
 						</select>
 					</div>
 				</div>
+				<div class="da-form-row">
+					<div class="grid_4">
+						<label>สัญญา</label>
+						<div class="da-form-item large" id="contact_group">
+							<label>
+								<input style="width:30%" id="rq_tell20" type="text" name="ctr_number[]" required >
+								<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" required >
+								<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
+							</label>
+						</div>
+					</div>
+					
+				</div>
 				<div class="da-button-row">
 					<input type="submit" value="ตกลง" class="da-button green">
-              </div>
+				</div>
 			 <?php echo form_close(); ?>
 		</div>
 	</div>
