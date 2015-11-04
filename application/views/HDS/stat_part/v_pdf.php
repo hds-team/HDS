@@ -21,25 +21,4 @@
                     <th style="width: 20%"><center><b>หมายเหตุ</b><center></th> 
                 </tr>
             </thead>
-            <tbody>
-				<?php 
-					$index=1;
-					foreach($query->result() as $row)
-					{
-				?> 
-					<tr class="odd">
-						<td class="center"><?php echo $index++; ?></td>
-						<td><?php echo $row->rq_subject; ?></td>
-						<td class="center"><?php echo $row->rq_date;?></td>
-						<td class="center"><?php echo $row->ctr_value;?></td>
-					</tr>
-				<?php 
-					} 
-				?>
-            </tbody>
-        </table>
-    </div> <!--  class="da-panel-content -->
-</div> <!-- class="da-panel collapsible -->
-<a href = "<?php echo base_url('index.php/HDS/stats/export_pdf/')?>" />
-			<button style="width:10%" class="da-button blue">Export</button>
-</a>
+          
