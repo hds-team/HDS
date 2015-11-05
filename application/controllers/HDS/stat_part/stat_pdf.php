@@ -9,5 +9,5 @@
 	*/
 	//$view = $this->hds_output('stat_part/v_pdf', $data, true); // Out put to View
 	//$this->hds_output('stat_part/v_pdf',NULL,true);
-	$this->load->view($this->hds_part.'/stat_part/v_pdf');
+	$this->load->view($this->hds_part.'/stat_part/v_pdf',$data);
 	?>
