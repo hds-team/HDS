@@ -24,6 +24,9 @@
 		$data['user'] = $this->timeline(0, $rq_id);
 		$data['develope'] = $this->timeline(1, $rq_id);
 	}
+
+	//------ Get type of contact
+	$data['hds_contact_type'] = $this->m_dynamic->get_by_id('hds_contact_type', 'ctt_status', 1);
 	
 
 	//------ Get detail of request
@@ -32,6 +35,7 @@
 	$data['lv'] = $this->m_dynamic->get_all('hds_level');
 	$data['syst'] = $this->m_reply->get_system();
 	$data['dep'] = $this->m_reply->get_department();
+	$data['contact'] = $this->m_reply->get_contact($rq_id);
 	$data['edit'] = $edit;
 	$data['user_edite'] = $user;
 	//echo $edit;

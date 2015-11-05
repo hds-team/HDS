@@ -88,4 +88,13 @@ class M_reply extends CI_Model
 		->where('al_st_id', 6);
 		return $this->hds->get();
 	}
+
+	public function get_contact($rq_id){
+		$this->hds
+		->select('*')
+		->from('hds_contact_log')
+		->join('hds_contact_type', 'hds_contact_type.ctt_id = hds_contact_log.ctl_ctt_id', 'inner')
+		->where('hds_contact_log.ctl_rq_id', $rq_id);
+		return $this->hds->get();
+	}
 }

@@ -1,10 +1,21 @@
 <script>
   $(document).ready(function() {
     var today = new Date();
-    $( "#datepicker_2" ).datepicker({ 
+
+    $( ".datepicker_limit" ).datepicker({ 
         dateFormat: 'dd/mm/yy',
         minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
     });
+
+    $( ".datepicker_none_limit" ).datepicker({ 
+        dateFormat: 'dd/mm/yy'
+    });
+
+    $( ".datepicker_rang" ).datepicker({ 
+        dateFormat: 'dd/mm/yy',
+        minDate: new Date($( "#date_start" ).datepicker('getDate'))
+    });
+
 
     $("#rq_tell").keypress(function (e) {
         //if the letter is not digit then display error and don't type anything
@@ -47,7 +58,7 @@
     $('#add').click(function(){
         $('#contact_group').append('<label id="contact_lb'+i+'"><select style="width:30%" name="ctl_ctt_id[]">'+option+'</select> <input id="rq_tell'+i+'" type="text" name="ctl_value[]" required style="width:50%"> <a id="del" ><img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:3%"></a></label>');
         i++;
-    })
+    });
 
     $('#del').live('click', function() { 
         if( i > 2 ) {
@@ -59,6 +70,16 @@
 
   });
 </script>
+
+<?php
+    $datepicker = "";
+    if($display == "none"){
+        
+        $datepicker = "datepicker_limit";
+    }else{
+        $datepicker = "datepicker_none_limit";
+    }
+?>
 <!-- HDS Dialog Report -->
 <div class="da-panel">
     <div class="da-panel-header">
@@ -129,7 +150,7 @@
                 <div class="grid_2">
                     <label>กำหนดส่ง</label>
                     <div class="da-form-item large">
-                        <input id="datepicker_2" type="text" name="lg_exp">
+                        <input class="<?php echo $datepicker; ?>" id="date_start" type="text" name="lg_exp">
                     </div>
                 </div>
             </div>
@@ -186,6 +207,12 @@
                 </div>
             </div>
             <div class="da-form-row" style="display: <?php echo $display; ?>">
+                <div class="grid_2">
+                    <label>วันที่ส่ง</label>
+                    <div class="da-form-item large">
+                        <input class="datepicker_rang" type="text" name="rq_date">
+                    </div>
+                </div>
                 <div class="grid_2">
                     <label>ผู้ส่ง</label>
                     <div class="da-form-item large">

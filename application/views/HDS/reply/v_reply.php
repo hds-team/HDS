@@ -1,6 +1,12 @@
 ﻿<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/hds/prog_bar/css/style.css" media="screen" />
 <?php
 	$this->load->config('hds_config');
+	foreach($request->result() as $row1)
+	{
+		$rq_id = $row1->rq_id;
+		$lg_id = $row1->lg_id;
+		//$edit = 1;
+	}
 ?>
 <script>
   $(document).ready(function() 
@@ -11,7 +17,33 @@
     	confirm("คุณแน่ใจที่จะลบหรือไม่ ?");
     });
 
+    //----------- Add element contact
+    var i = 1
+    var option = '<?php foreach($hds_contact_type->result() as $ctt){ ?><option value="<?php echo $ctt->ctt_id; ?>"><?php echo $ctt->ctt_name; ?></option><?php } ?>';
+    $('#add').click(function(){
+    	//alert("add");
+    	var Class;
+    	if(i % 2 == 0)
+    	{
+    		Class = "even"; 
+    	}
+    	else
+    	{
+    		Class = "odd";
+    	}
+    	$('#contact_group').append('<tr class="'+Class+'"><td><select name="ctl_ctt_id[]"></select></td><td><input id="rq_tell" type="text" name="ctl_value[]" required style="width:90%"><a id="del" > <img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:5%"></a></td></tr>');
+   		i++;
+   	});
+
+    $('#del').live('click', function() { 
+    	//alert("dell");
+    	$(this).parents('tr').remove();
+    	i--;
+    });
+
+    //----------- END
   });
+
   
   $(function() {
     var today = new Date();
@@ -118,6 +150,10 @@
         background-color: #9DB668;
         box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
+
+    .center{
+    	text-align: center;
+    }
 </style>
 <div style="height:400">
 	<div class="checkout-wrap">
@@ -179,17 +215,14 @@
 </div>
 
 <div class="clear"></div>
-<?php 
-	foreach($request->result() as $row1)
-	{
-		$rq_id = $row1->rq_id;
-		$lg_id = $row1->lg_id;
-		//$edit = 1;
-	}
-?>
+
 
 <br><br><br>
-<!-- Detail of request -->
+<!--
+#####################################################
+	Detail of request
+#####################################################
+-->
 <div class="da-panel">
 	<div class="da-panel-header">
 		<span class="da-panel-title">
@@ -550,6 +583,105 @@
 	</div>
 </div>
 
+<div class="clear"></div><!-- new line -->
+
+<!-- 
+#####################################################
+	Contact Detail 
+#####################################################
+-->
+<div class="da-panel" style="width:50%; float: right">
+
+	<div class="da-panel-header">
+		<span class="da-panel-title">
+			<img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
+				<b>ข้อมูลติดต่อ</b>
+		</span>
+		<span class="da-panel-toggler"></span>
+	</div>
+
+	<div class="da-panel-content">	
+	<?php
+		if($edit==0){
+	?>
+			<table class="da-table da-detail-view">
+				<?php
+					foreach($contact->result() as $ct_rs){
+				?>
+				<tr>
+					
+					<td class="center">
+						<b>
+						<?php echo $ct_rs->ctt_name; ?>
+						</b>
+					</td>
+					<td>
+						<?php echo $ct_rs->ctl_value; ?>
+					</td>
+
+				</tr>
+				<?php
+					}
+				?>
+		    </table>	
+
+	<?php
+		}else{
+			$data['class'] ="da-form";
+			echo form_open_multipart('HDS/reply/update_reply', $data);
+	?>
+			<table class="da-table da-detail-view" id="contact_group">
+				<?php
+					$index = 1;
+					foreach($contact->result() as $ct_rs){
+				?>
+				<tr>
+					<td>
+		                <select name="ctl_ctt_id[]">
+		                <?php 
+		                foreach($hds_contact_type->result() as $ctt){
+		                ?>
+		                    <option value="<?php echo $ctt->ctt_id; ?>" <?php if($ct_rs->ctt_id == $ctt->ctt_id) echo "selected"; ?> ><?php echo $ctt->ctt_name; ?></option>
+		                <?php
+		                    }
+		                ?>
+		                </select>
+			    	</td>
+			    	<td>
+
+		                <input id="rq_tell0" type="text" name="ctl_value[]" value="<?php echo $ct_rs->ctl_value; ?>"required style="width:90%">
+		                <?php
+		                	if($index++ == 1){
+		                ?>
+		                		<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:5%"></a>
+		                <?php
+		                	}
+		                	else
+		                	{
+		                ?>
+		                		<a id="del" ><img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:5%"></a>
+		                <?php
+		                	}
+
+		               	?>
+				        </div>
+			    	</td>
+		    	</tr>
+                <?php
+                    }
+                ?>
+		    </table>	
+		<?php 
+			}
+		?>
+    </div>
+	<?php 
+		echo form_close(); 
+	?>
+
+</div>
+
+
 
 <div class="clear"></div><!-- new line -->
 
@@ -630,33 +762,3 @@
         ?>
 	</div><!-- tabs -->
 </div><!-- da-panel -->
-<!-- Input Box -->
-<div class="da-panel" style="display: none;">
-	<div class="da-panel-header">
-			<span class="da-panel-title">
-			<img src=<?php echo base_url("images/icons/black/16/pencil.png"); ?> alt="">
-				<b>ส่งข้อความ</b>
-		</span>
-	</div>
-	<div class="da-panel-content">
-		
-		<?php 
-			$data['class']="da-form";
-			echo form_open('HDS/reply/insert_reply', $data); 
-		?><!--  form action='' method='' class='' > -->
-			<input type="hidden" value="<?php //echo $rq_id; ?>" name= "rq_id" />
-			<div class="da-form-row">
-				<label>ข้อความ</label>
-				<div class="da-form-item large">
-					<textarea rows="auto" cols="auto" name="rp_detail"></textarea>
-				</div>
-			</div>
-			<div class="da-button-row">
-				<input type="reset" value="Reset" class="da-button gray left">
-				<input type="submit" value="ส่งข้อความ" class="da-button green">
-			</div>
-		<?php
-			echo form_close();
-		?>	
-	</div>
-</div>

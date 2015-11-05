@@ -9,9 +9,17 @@
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
 	$data['rq_menu'] = $this->input->post('rq_menu');	
 	$data['rq_detail'] = $this->input->post('rq_detail');
-	$data['rq_date'] = date('y-m-d');
+	//$data['rq_date'] = date('y-m-d');
 	$data['rq_sys_id'] = $this->input->post('sys_id');
 
+	if($this->input->post('rq_date') == NULL){
+		$data['rq_date'] = date('y-m-d');
+	}
+	else
+	{
+		$rq_date = explode("/",$this->input->post('rq_date'));
+		$data['rq_date'] = $rq_date[2]."-".$rq_date[1]."-".$rq_date[0];
+	}
 
 	//-------- Checl source of data
 	if($this->input->post('comp_id') == NULL)
@@ -57,6 +65,8 @@
 		$hds_level_log['lg_exp'] = $date_exp[2]."-".$date_exp[1]."-".$date_exp[0];
 
 	}
+
+
 
 	$hds_level_log['lg_lv_id'] = $this->input->post('lg_lv_id');
 	$hds_level_log['lg_mb_id'] = $data['rq_mb_id'];

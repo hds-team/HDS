@@ -8,10 +8,8 @@
 	}
 	//echo "test";
 	$data['rq_subject'] = $this->input->post('rq_subject');
-	$data['rq_tell'] = $this->input->post('rq_tell');
 	$data['rq_ct_id'] = $this->input->post('ct_id');
 	$data['rq_kn_id'] = $this->input->post('kn_id');
-	$data['rq_email'] = $this->input->post('rq_email');
 	$data['rq_sys_id'] = $this->input->post('StID');
 	$data['rq_comp_id'] = $this->input->post('dpID');
 	$data['rq_detail'] = $this->input->post('rq_detail');
