@@ -265,6 +265,10 @@ function SetThaiFont(){
 			$this->AddFont('AngsanaNew','B','angsab.php');
 			$this->AddFont('AngsanaNew','I','angsai.php');
 			$this->AddFont('AngsanaNew','IB','angsaz.php');
+			$this->AddFont('THSarabun','','THSarabun.php');
+			$this->AddFont('THSarabun','B','THSarabun Bold.php');
+			$this->AddFont('THSarabun','I','THSarabun Italic.php');
+			$this->AddFont('THSarabun','IB','THSarabun Bold Italic.php');
 			/*$this->AddFont('CordiaNew','','cordia.php');
 			$this->AddFont('CordiaNew','B','cordiab.php');
 			$this->AddFont('CordiaNew','I','cordiai.php');

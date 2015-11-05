@@ -69,7 +69,29 @@ class M_report extends CI_Model
 		return $this->ums->get();
 	}
 
-
+	public function get_copy_detail_report($rq_id){
+		$this->hds
+		->select('*')
+		->from('hds_request')
+		->join('hds_category', 'hds_request.rq_ct_id = hds_category.ct_id', 'inner')
+		->join('hds_kind', 'hds_request.rq_kn_id = hds_kind.kn_id', 'inner')
+		->join('hds_level_log', 'hds_request.rq_id = hds_level_log.lg_rq_id', 'inner')
+		->join('hds_level', 'hds_level.lv_id = hds_level_log.lg_lv_id', 'inner')
+		->join('ums.umdepartment', 'hds_request.rq_comp_id = ums.umdepartment.dPId', 'inner')
+		->join('ums.umuser', 'hds_request.rq_mb_id = ums.umuser.UsID', 'inner')
+		->join('ums.umsystem', 'hds_request.rq_sys_id = ums.umsystem.StId', 'inner')
+		->where('rq_id',$rq_id);
+		return $this->hds->get();
+	}
+	
+	public function get_copy_detail_contact($rq_id){
+		$this->hds
+		->select('*')
+		->from('hds_contact_log')
+		->join('hds_contact_type', 'hds_contact_log.ctl_ctt_id = hds_contact_type.ctt_id', 'inner')
+		->where('ctl_rq_id', $rq_id);
+		return $this->hds->get();
+	}
 	
 
 }
