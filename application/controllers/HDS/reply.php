@@ -5,6 +5,8 @@ class Reply extends HDS_Controller
 	public function __construct(){
 		parent::__construct();
 		$this->load->config('config');
+		$this->load->config('hds_config');
+		$this->load->model($this->config->item('sys_name').'/reply/m_reply');
 	}
 	public function detail_sys($rq_id, $edit=false, $user=false)
 	{

@@ -27,6 +27,9 @@
 
 	//------ Get type of contact
 	$data['hds_contact_type'] = $this->m_dynamic->get_by_id('hds_contact_type', 'ctt_status', 1);
+
+	//------ Get accept log
+	$data['hds_accept_log'] = $this->m_reply->get_acceopt_log($rq_id);
 	
 
 	//------ Get detail of request

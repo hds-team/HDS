@@ -97,4 +97,21 @@ class M_reply extends CI_Model
 		->where('hds_contact_log.ctl_rq_id', $rq_id);
 		return $this->hds->get();
 	}
+
+	public function del_contact_by_id($rq_id){
+		$this->hds
+		->where('ctl_rq_id', $rq_id)
+		->delete('hds_contact_log');
+	}
+
+	public function get_acceopt_log($rq_id){
+		$this->hds
+		->select('*')
+		->from('hds_accept_log')
+		->join($this->ums_part.'.umuser', 'umuser.UsID = hds_accept_log.al_mb_id', 'inner')
+		->join('hds_status', 'hds_status.st_id = hds_accept_log.al_st_id', 'inner')
+		->where('hds_accept_log.al_rq_id', $rq_id);
+
+		return $this->hds->get();
+	}
 }

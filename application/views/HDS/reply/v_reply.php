@@ -5,7 +5,6 @@
 	{
 		$rq_id = $row1->rq_id;
 		$lg_id = $row1->lg_id;
-		//$edit = 1;
 	}
 ?>
 <script>
@@ -18,10 +17,11 @@
     });
 
     //----------- Add element contact
-    var i = 1
+    var i = <?php echo $contact->num_rows(); ?>; 
     var option = '<?php foreach($hds_contact_type->result() as $ctt){ ?><option value="<?php echo $ctt->ctt_id; ?>"><?php echo $ctt->ctt_name; ?></option><?php } ?>';
     $('#add').click(function(){
     	//alert("add");
+    	event.preventDefault();
     	var Class;
     	if(i % 2 == 0)
     	{
@@ -31,7 +31,7 @@
     	{
     		Class = "odd";
     	}
-    	$('#contact_group').append('<tr class="'+Class+'"><td><select name="ctl_ctt_id[]"></select></td><td><input id="rq_tell" type="text" name="ctl_value[]" required style="width:90%"><a id="del" > <img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:5%"></a></td></tr>');
+    	$('#contact_group').append('<tr class="'+Class+'"><td><select name="ctl_ctt_id['+i+']">'+option+'</select></td><td><input type="text" name="ctl_value['+i+']" required style="width:90%"><a id="del" style="cursor: pointer;"> <img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:5%"></a></td></tr>');
    		i++;
    	});
 
@@ -154,6 +154,7 @@
     .center{
     	text-align: center;
     }
+
 </style>
 <div style="height:400">
 	<div class="checkout-wrap">
@@ -223,6 +224,10 @@
 	Detail of request
 #####################################################
 -->
+<?php
+		$data['class'] ="da-form";
+		echo form_open_multipart('HDS/reply/update_reply', $data);
+?>
 <div class="da-panel">
 	<div class="da-panel-header">
 		<span class="da-panel-title">
@@ -246,10 +251,6 @@
     	}
     ?>
 	<div class="da-panel-content">
-	<?php
-		$data['class'] ="da-form";
-		echo form_open_multipart('HDS/reply/update_reply', $data);
-	?>
 		<table class="da-table da-detail-view">
 			<tbody>
 				<?php 
@@ -262,9 +263,12 @@
 							<th><b>หัวข้อ</b></th>
 							<td>
 								<?php
-									if($edit==0){
+									if($edit==0)
+									{
 										echo " ".$row->rq_subject; 
-									}else{
+									}
+									else
+									{
 								?>	
 									<div class="da-form-inline">
 											<div class="da-form-item large">
@@ -278,20 +282,24 @@
 							<th><b>ประเภท</b></th>
 							<td>
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo " ".$row->ct_name; 
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
 										<select name="ct_id">
 										<?php
-											foreach($ct->result() as $cat){
+											foreach($ct->result() as $cat)
+											{
 										?>
 												<option value="<?php echo $cat->ct_id; ?>"><?php echo $cat->ct_name; ?></option>
 											
 										<?php
-												}
+											}
 										?>
 										</select>
 										</div>
@@ -305,19 +313,23 @@
 							<th><b>หมวด</b></th>
 							<td>
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo " ".$row->kn_name; 
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 									<div class="da-form-item large">
 										<select name="kn_id">
 										<?php
-											foreach($kn->result() as $kind){
+											foreach($kn->result() as $kind)
+											{
 										?>
 												<option value="<?php echo $kind->kn_id; ?>">
 													<?php
-															echo $kind->kn_name;
+														echo $kind->kn_name;
 													?>
 												</option>
 										<?php
@@ -333,21 +345,23 @@
 							<th><b>ระบบ</b></th>
 							<td>
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo " ".$row->StNameT; 
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
 										<select name="StID">
 										<?php
-											foreach($syst->result() as $sys){
+											foreach($syst->result() as $sys)
+											{
 										?>
 												<option value="<?php echo $sys->StID; ?>" <?php if($row->StID == $sys->StID) echo "selected"; ?>>
 													<?php
-														//if($cat->ct_id == $row->ct_id){
-															echo $sys->StNameT;
-														//}
+														echo $sys->StNameT;
 													?>
 												</option>
 											
@@ -366,15 +380,19 @@
 							<th><b>ระดับความสำคัญ</b></th>
 							<td>
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo " ".$row->lv_name; 
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
 										<select name="lv_id">
 										<?php
-											foreach($lv->result() as $lev){
+											foreach($lv->result() as $lev)
+											{
 										?>
 												
 												<option value="<?php echo $lev->lv_id; ?>">
@@ -403,9 +421,12 @@
 							<th><b>กำหนดส่ง</b></th>
 							<td>
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo $this->date_time->DateThai($row->lg_exp);
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 									<div class="da-form-item large">
@@ -424,9 +445,12 @@
 							<td>
 							<?php
 								if($edit==0){
-									if($row->rq_est_date == NULL){
+									if($row->rq_est_date == NULL)
+									{
 										echo "ไม่ระบุ";
-									}else{
+									}
+									else
+									{
 							?>
 										<?php echo $this->date_time->DateThai($row->rq_est_date);
 									}
@@ -439,7 +463,7 @@
 												if($row->rq_est_date == NULL){
 													echo "ยังไม่ไดระบุ";
 												}else{
-													echo $this->date_time->DateThai($row->rq_est_date);
+													echo date('d/m/Y',strtotime($row->rq_est_date));
 												}
 											?>">
 										</div>
@@ -451,10 +475,13 @@
 							<th><b>เวลาที่ส่ง</b></th>
 							<td>
 							<?php
-								if($row->rq_st_id == 6){
+								if($row->rq_st_id == 6)
+								{
 									$real_time = $accept->row_array();
 									echo $this->date_time->DateThai($real_time['al_date']);
-								}else{
+								}
+								else
+								{
 									echo "ยังไม่เสร็จสิ้น";
 								}
 							?>
@@ -472,7 +499,8 @@
 										<div class="da-form-item">
 											<select name="dpID">
 											<?php
-												foreach($dep->result() as $de){
+												foreach($dep->result() as $de)
+												{
 											?>
 													
 													<option value="<?php echo $de->dpID; ?>" <?php if($de->dpID == $row->dpID) echo "selected"; ?>>
@@ -495,9 +523,12 @@
 							<th><b>เมนู</b></th>
 							<td colspan="3">
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo " ".$row->rq_menu; 
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 									<div class="da-form-item">
@@ -513,9 +544,12 @@
 							<th><b>รายละเอียด</b></th>
 							<td colspan="3">
 							<?php
-								if($edit==0){
+								if($edit==0)
+								{
 									echo " ".$row->rq_detail; 
-								}else{
+								}
+								else
+								{
 							?>
 								<div class="da-form-inline">
 										<div class="da-form-item large">
@@ -563,14 +597,10 @@
 						?>
 
 						<?php
-							if($edit==1){
+							if($edit==1)
+							{
 						?>
-						<tr>
-							<th colspan="4">
-								<input type="submit" value="แก้ไขเสร็จสิ้น" class="da-button green" style="float: right;">
-							
-							</th>
-						</tr>
+
 						<?php
 							}
 						?>
@@ -579,7 +609,7 @@
 				?>
 			</tbody>
 		</table>
-		<?php echo form_close(); ?>
+		<?php //echo form_close(); ?>
 	</div>
 </div>
 
@@ -587,10 +617,55 @@
 
 <!-- 
 #####################################################
+	Action Log
+#####################################################
+-->
+
+<div class="da-panel" style="width:49%; float: left">
+
+	<div class="da-panel-header">
+		<span class="da-panel-title">
+			<img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
+				<b>ประวัตสถานะ</b>
+		</span>
+		<span class="da-panel-toggler"></span>
+	</div>
+
+	<div class="da-panel-content">	
+		<table class="da-table">
+			<thead>
+				<th class="center" width="20%"><b> วันที่ </b></th>
+				<th class="center" width="20%"><b> เวลา </b></th>
+				<th class="center" width="20%"><b> สถานะ </b></th>
+				<th class="center" width="30%"><b> ชื่อ-สกุล </b></th>
+			</thead>
+			<tbody>
+			<?php
+				foreach($hds_accept_log->result() as $action_log)
+				{
+			?>
+			<tr>
+					<td class="center"><?php echo $this->date_time->DateThai($action_log->al_date); ?></td>
+					<td class="center"><?php echo $action_log->al_time; ?></td>
+					<td class="center"><?php echo $action_log->st_name; ?></td>
+					<td><?php echo $action_log->UsName; ?></td>
+			</tr>
+			<?php
+				}
+			?>
+		</tbody>
+		</table>
+    </div>
+
+
+</div>
+
+<!-- 
+#####################################################
 	Contact Detail 
 #####################################################
 -->
-<div class="da-panel" style="width:50%; float: right">
+<div class="da-panel" style="width:49%; float: right">
 
 	<div class="da-panel-header">
 		<span class="da-panel-title">
@@ -627,17 +702,15 @@
 
 	<?php
 		}else{
-			$data['class'] ="da-form";
-			echo form_open_multipart('HDS/reply/update_reply', $data);
 	?>
 			<table class="da-table da-detail-view" id="contact_group">
 				<?php
-					$index = 1;
+					$index = 0;
 					foreach($contact->result() as $ct_rs){
 				?>
 				<tr>
 					<td>
-		                <select name="ctl_ctt_id[]">
+		                <select name="ctl_ctt_id[<?php echo $index;  ?>]" required>
 		                <?php 
 		                foreach($hds_contact_type->result() as $ctt){
 		                ?>
@@ -649,17 +722,17 @@
 			    	</td>
 			    	<td>
 
-		                <input id="rq_tell0" type="text" name="ctl_value[]" value="<?php echo $ct_rs->ctl_value; ?>"required style="width:90%">
+		                <input type="text" name="ctl_value[<?php echo $index;  ?>]" value="<?php echo $ct_rs->ctl_value; ?>" required style="width:90%">
 		                <?php
-		                	if($index++ == 1){
+		                	if($index++ == 0){
 		                ?>
-		                		<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:5%"></a>
+		                		<a id="add" style="cursor: pointer;"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:5%"></a>
 		                <?php
 		                	}
 		                	else
 		                	{
 		                ?>
-		                		<a id="del" ><img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:5%"></a>
+		                		<a id="del" style="cursor: pointer;"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" title="ลบ" style="width:5%"></a>
 		                <?php
 		                	}
 
@@ -671,16 +744,23 @@
                     }
                 ?>
 		    </table>	
+		    <table class="da-table da-detail-view" >
+				<tr>
+					<th colspan="2">
+						<input type="submit" value="แก้ไขเสร็จสิ้น" class="da-button green" style="float: right;">
+					</th>
+				</tr>
+			</table>
 		<?php 
 			}
 		?>
     </div>
-	<?php 
-		echo form_close(); 
-	?>
+
 
 </div>
-
+<?php 
+	echo form_close(); 
+?>
 
 
 <div class="clear"></div><!-- new line -->
