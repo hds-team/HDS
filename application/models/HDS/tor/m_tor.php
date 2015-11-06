@@ -7,8 +7,13 @@ class M_tor extends CI_Model
 	
 	public $ts_tp_id;
 	public $tp_name;
+	public $tp_date_start;
+	public $tp_date_stop;
 	public $tp_year;
 	public $ts_sys_id;
+	public $ctr_value;
+	public $ctr_number;
+	public $ctr_tp_id;
 	
 	public function __construct()
 	{
@@ -59,6 +64,12 @@ class M_tor extends CI_Model
 		$query = $this->hds->query($sql);
 		return $query; 
 	}
+	public function show_main()
+	{
+		$sql = "SELECT * FROM hds_tor_proj";
+		$query = $this->hds->query($sql);
+		return $query; 
+	}
 	public function show_max_ts_id()
 	{
 		$sql = "SELECT MAX(tp_id) AS ts_max FROM hds_tor_proj;";
@@ -68,9 +79,9 @@ class M_tor extends CI_Model
 	public function ins_hds_tor_proj()
 	{
 		$sql = "INSERT INTO
-		hds_tor_proj (tp_name,tp_year)
-		VALUES (?,?)";
-		$this->hds->query($sql, array( $this->tp_name,$this->tp_year));
+		hds_tor_proj (tp_name,tp_date_start,tp_date_stop,tp_year)
+		VALUES (?,?,?,?)";
+		$this->hds->query($sql, array( $this->tp_name,$this->tp_date_start,$this->tp_date_stop,$this->tp_year));
 	}
 	public function ins_hds_tor_system()
 	{
@@ -79,5 +90,43 @@ class M_tor extends CI_Model
 		VALUES (?,?)";
 		$this->hds->query($sql, array( $this->ts_sys_id,$this->ts_tp_id));
 	}
+	public function ins_hds_contract()
+	{
+		$sql = "INSERT INTO
+		hds_contract(ctr_value,ctr_number,ctr_tp_id)
+		VALUES (?,?,?)";
+		$this->hds->query($sql, array( $this->ctr_value,$this->ctr_number,$this->ctr_tp_id));
+	}
+	public function show_tor_edit()
+	{
+		$sql = "SELECT * FROM hds_tor_proj
+		INNER JOIN hds_tor_system
+		ON hds_tor_proj.tp_id=hds_tor_system.ts_tp_id
+		INNER JOIN hds_contract
+		ON hds_tor_proj.tp_id=hds_contract.ctr_tp_id
+		where hds_tor_proj.tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->tp_id));
+		return $query; 
+	}
+	public function show_tor_edit_pro()
+	{
+		$sql = "SELECT * FROM hds_tor_proj
+		where hds_tor_proj.tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->tp_id));
+		return $query; 
+	}
+	public function show_tor_edit_system()
+	{
+		$sql = "SELECT * FROM hds_tor_system
+		INNER JOIN ums.umsystem
+		ON ums.umsystem.StID=hds_tor_system.ts_sys_id
+		where hds_tor_system.ts_tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->ts_tp_id));
+		return $query; 
+	}
+	
 	
 }

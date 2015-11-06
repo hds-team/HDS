@@ -23,11 +23,6 @@
 
   });
 </script>
-<style>
-	.center{
-		text-align: center;
-	}
-</style>
 <!-- Demo JavaScript Files -->
 <script type="text/javascript" src="<?php echo base_url(); ?>plugins/elastic/jquery.elastic.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/demo/demo.form.js"></script>
@@ -39,32 +34,38 @@
 		<div class="da-panel-header">
 		<span class="da-panel-title">
 			<img src="<?php echo base_url(); ?>images/icons/black/16/pencil.png" alt="">
-			เพิ่มโครงการ
+			แก้ไขโครงการ
 		</span>
 		</div><!-- da-panel-header -->
 		<div class="da-panel-content">
 			<?php
 				$data['class'] = "da-form";
-				echo form_open('HDS/tor/insert_tor', $data); 
+				echo form_open('HDS/tor/...', $data); 
 			?>
 				<div class="da-form-row">
 				<label>ชื่อโครงการ <span class="required">*</span></label>
 					<div class="da-form-item large">
-						<input type="text" name="namekong" class="required" />
+					<?php 
+						foreach($pro as $key => $sh)
+						{ 	
+					?>
+						<input type="text" name="namekong" value="<?php echo $sh['tp_name']; ?>" />
+						
 					</div>	
 				</div>
 				<div class="da-form-row">
 				<label>วันที่เริ่ม <span class="required">*</span></label>
 					<div class="da-form-item large">
-						<input class="datepicker_2" type="text" name="dayf" class="required" />
+						<input class="datepicker_2" type="text" name="dayf" value="<?php echo $sh['tp_date_start']; ?>" class="required" />
 					</div>	
 				</div>
 				<div class="da-form-row">
 				<label>วันที่สิ้นสุด <span class="required">*</span></label>
 					<div class="da-form-item large">
-						<input class="datepicker_2" type="text" name="dayend" class="required" />
+						<input class="datepicker_2" type="text" name="dayend" value="<?php echo $sh['tp_date_stop']; ?>" class="required" />
 					</div>	
 				</div>
+						<?php } ?>
 				<div class="da-form-row">
 				<label>ปีงบประมาณ <span class="required">*</span></label>
 					<div class="da-form-item large">
@@ -83,12 +84,12 @@
 				<div class="da-form-row">
 				<label>ระบบ</label>
 					<div class="da-form-item large">
-						<select class="chzn-select" size="20" multiple="multiple" style='height:7%' name="sys[]">
+						<select class="chzn-select" size="20" multiple="multiple" style='height:7%' name="sys">
 							<?php
-							foreach($query as $key => $sys)
+							foreach($system as $key => $sys)
 							{
 							?>
-								<option value="<?php echo $sys['StID']; ?>"><?php echo $sys['StNameT']; ?></option>
+								<option selected="selected" value="<?php echo $sys['StID']; ?>"><?php echo $sys['StNameT']; ?></option>
 							<?php
 							}
 							?>
