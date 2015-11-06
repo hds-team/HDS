@@ -72,7 +72,7 @@
 	</center>
 	</div>
 	<br>
-	
-	PDF Created Click <a href="MyPDF/MyPDF.pdf">here</a> to Download
+</body>
+	PDF Created Click <a href="../MyPDF/MyPDF.pdf">here</a> to Download
 </body>
 </html>
