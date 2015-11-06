@@ -17,6 +17,7 @@ class M_ongoing extends CI_Model
 
 	public function get_request($sys_id) //get request and  status 
 	{
+		$where = "hds_request.rq_st_id = 4 or hds_request.rq_st_id = 5";
 		$this->hds
 		->select('*')
 		->from($this->db_name.'.hds_request')
@@ -25,7 +26,7 @@ class M_ongoing extends CI_Model
 		->join($this->db_name.'.hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner') //inner join status
 		->join($this->ums.'.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner') //join ums
 		->where('hds_request.rq_sys_id',$sys_id) //system's ums
-		->where('hds_request.rq_st_id',4) //status sending
+		->where($where) //status sending
 		->order_by('hds_request.rq_date', 'DESC');
 		$query = $this->hds->get();
 		return $query;
@@ -33,6 +34,7 @@ class M_ongoing extends CI_Model
 
 	public function get_request_all($UsID){
 		$query = $this->m_dev_work->get_system_by_permiss($UsID);
+		$where = "hds_request.rq_st_id = 4 or hds_request.rq_st_id = 5";
 		$this->hds
 		->select('*')
 		->from('hds_request')
@@ -41,7 +43,7 @@ class M_ongoing extends CI_Model
 		->join('hds_status', 'hds_status.st_id = hds_request.rq_st_id', 'inner')
 		->join($this->ums.'.umuser', 'umuser.UsID = hds_request.rq_mb_id', 'inner')
 		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
-		->where('hds_request.rq_st_id' , 4)
+		->where($where)
 		->order_by('hds_request.rq_date', 'DESC');
 
 		$index = 1;

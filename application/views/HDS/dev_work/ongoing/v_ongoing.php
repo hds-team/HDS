@@ -48,11 +48,28 @@
                         }
                     ?>
 					<td>
+						<?php 
+							if($row->rq_st_id == 4)
+							{
+						?>
 						<center>
 							<a href = "<?php echo base_url('index.php/HDS/dev_work/update_ongoing/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" /> 
 								<button style="width:100%" class="da-button blue">ส่งตรวจ</button><!-- button submit -->
 							</a>
 						</center>
+						<?php
+							}
+							else
+							{
+						?>
+							<center>
+							<a href = "#" /> 
+								<button style="width:100%" class="da-button gray">ส่งตรวจ</button><!-- button submit -->
+							</a>
+						</center>
+						<?php
+						}
+						?>
 					</td>
 				</tr>
 		<?php 
