@@ -1,5 +1,7 @@
 <?php
+	//-------- Check source of data
 	$check_from_screening = false;
+
 	//-------- LOAD MODEL
 	$this->load->model('HDS/report/m_report');
 
@@ -9,7 +11,6 @@
 	$data['rq_kn_id'] = $this->input->post('rq_kn_id');
 	$data['rq_menu'] = $this->input->post('rq_menu');	
 	$data['rq_detail'] = $this->input->post('rq_detail');
-	//$data['rq_date'] = date('y-m-d');
 	$data['rq_sys_id'] = $this->input->post('sys_id');
 
 	if($this->input->post('rq_date') == NULL){
@@ -33,6 +34,7 @@
 		$check_from_screening = true;
 		$data['rq_comp_id'] = $this->input->post('comp_id');//From Coop
 	}
+
 
 	//-------- Check who send
 	if($this->input->post('UsName') == NULL)
@@ -148,7 +150,7 @@
 	}
 
 	//------- redirect
-	if($check_from_screening)
+	if($this->session->userdata('GpID') == $this->config->item('co_op_id'))
 	{
 		//$part = explode("/",$URL);
 		//redirect($part[3]."/".$part[4]."/".$part[5]);
