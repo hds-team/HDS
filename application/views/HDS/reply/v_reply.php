@@ -296,7 +296,9 @@
 											foreach($ct->result() as $cat)
 											{
 										?>
-												<option value="<?php echo $cat->ct_id; ?>"><?php echo $cat->ct_name; ?></option>
+												<option value="<?php echo $cat->ct_id; ?>" <?php if($cat->ct_id == $row->ct_id) echo "selected"; ?>>
+													<?php echo $cat->ct_name; ?>
+												</option>
 											
 										<?php
 											}
@@ -327,7 +329,7 @@
 											foreach($kn->result() as $kind)
 											{
 										?>
-												<option value="<?php echo $kind->kn_id; ?>">
+												<option value="<?php echo $kind->kn_id; ?>" <?php if($kind->kn_id == $row->kn_id) echo "selected"; ?>>
 													<?php
 														echo $kind->kn_name;
 													?>
@@ -395,7 +397,7 @@
 											{
 										?>
 												
-												<option value="<?php echo $lev->lv_id; ?>">
+												<option value="<?php echo $lev->lv_id; ?>" <?php if($lev->lv_id == $row->lv_id) echo "selected"; ?>>
 													<?php
 														echo $lev->lv_name;
 													?>
@@ -459,13 +461,13 @@
 									<div class="da-form-inline">
 										<div class="da-form-item large">
 											<input type="text" name="rq_est_date" id="datepicker_3" 
-											value="<?php
+											<?php
 												if($row->rq_est_date == NULL){
-													echo "ยังไม่ไดระบุ";
+													echo 'placeholder="ยังไม่ไดระบุ"';
 												}else{
-													echo date('d/m/Y',strtotime($row->rq_est_date));
+													echo 'value ='.date("d/m/Y",strtotime($row->rq_est_date));
 												}
-											?>">
+											?>>
 										</div>
 									</div>
 							<?php
