@@ -1,7 +1,4 @@
 <?php
-	//-------- Check source of data
-	$check_from_screening = false;
-
 	//-------- LOAD MODEL
 	$this->load->model('HDS/report/m_report');
 

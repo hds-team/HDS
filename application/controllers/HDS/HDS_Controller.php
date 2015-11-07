@@ -61,4 +61,13 @@ class HDS_Controller extends UMS_Controller
 		}
 	}
 
+	public function array_convert($query, $index, $value)
+	{
+		$arr = array();
+		foreach($query->result_array() as $row){
+			$arr[$row[$index]] = $row[$value];
+		}
+		return $arr;
+	}
+
 }

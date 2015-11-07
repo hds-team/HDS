@@ -5,6 +5,7 @@ class Stats extends HDS_Controller
 	public function __construct(){
 		parent::__construct();
 		$this->load->model($this->hds_part.'/stat_part/m_stat_tor');
+		$this->load->model($this->hds_part.'/stat_part/m_stat_chart');
 	}
 
 	public function getall_stat_tor()
@@ -24,6 +25,19 @@ class Stats extends HDS_Controller
 		//$this->benchmark->mark('code_end');
 		//$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		//$this->layout_output($data);
+	}
+
+	public function bar_chart(){
+		$this->benchmark->mark('code_start');
+		include('stat_part/c_bar_chart.php');
+		$data['content'] = $view;
+		$this->benchmark->mark('code_end');
+		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
+		$this->layout_output($data);
+	}
+
+	public function get_stat_chart($table_main, $key_main, $key_rq, $system){
+		include('stat_part/c_get_stat_chart.php');
 	}
 }
 

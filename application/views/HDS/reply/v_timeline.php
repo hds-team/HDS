@@ -1,6 +1,6 @@
 <!-- Timeline styl -->
+<script src="//cdn.ckeditor.com/4.5.4/standard/ckeditor.js"></script>
 <style>
-
     div {
         font-family: Helvetica, Arial, sans-serif;
         box-sizing: border-box;
@@ -83,6 +83,43 @@
 
 
 </style>
+<script>
+    $(document).ready(function(){
+
+
+    });
+
+    function show_alert(rp_msg_type){
+        //------- Get data from CKEditer
+        var rp_detail_id = 'rp_detail_'+rp_msg_type;
+        var text = CKEDITOR.instances[rp_detail_id].getData();
+        var required = false;
+
+        if(text !== "")
+        {
+            //alert("PASS");
+            required = true;
+            $("#rp_detail_confirm").val(text);
+        }
+        else
+        {
+            //alert("FAIL");
+            text = "--------กรุณากรอกข้อมูล--------";
+        }
+
+        $("#confirm_text").html(text);
+
+        //------- Get rq_id
+        var rq_id = $("#rq_id_"+rp_msg_type).val()
+        $("#rq_id_confirm").val(rq_id);
+
+        //------- Get type
+        $("#rp_msg_type_confirm").val(rp_msg_type);
+
+        $( "#confirm" ).dialog( "open" );
+    }
+
+</script>
 <?php
     if($timeline_content->num_rows() == 0)
     {
@@ -96,17 +133,17 @@
         {
             if($count == 0)
             {
-                $dot_color_check = $rs->UgID;
+                $dot_color_check = $rs->GpID;
             }
             $count++;
     ?>
     <div class="timeline-item active">
         <div class="year">
-            <?php echo $this->date_time->DateThai($rs->rp_date); ?>
+            <h1 style="color: #9DB668"><b><?php echo $this->date_time->DateThai($rs->rp_date); ?></b></h1>
             <span class="marker">
                 <span class="dot" style="background-color: 
                     <?php 
-                        if($dot_color_check == $rs->UgID) 
+                        if($dot_color_check == $rs->GpID) 
                         {
                             // orang
                             echo '#FF9933';
@@ -122,7 +159,8 @@
             </span>
         </div>
         <div class="info">
-            <?php echo $rs->rp_detail."<BR> โดย : ".$rs->UsName; ?>
+            <p><?php echo $rs->rp_detail."</p><p> โดย : ".$rs->UsName." (".$rs->GpNameT.")<BR>"; ?>
+            <?php echo "เวลา : ".$rs->rp_time; ?></p>
         </div>
     </div>
     <?php
@@ -130,10 +168,11 @@
     ?>
 </div> 
 <div class="clear"></div>
+
 <!-- Input Box -->
 <div class="da-panel grid_4" style="">
     <div class="da-panel-header">
-            <span class="da-panel-title">
+        <span class="da-panel-title">
             <img src=<?php echo base_url("images/icons/black/16/pencil.png"); ?> alt="">
                 <b>ส่งข้อความ</b>
         </span>
@@ -141,20 +180,23 @@
     <div class="da-panel-content">
         
         <?php 
-            $data['class']="da-form";
-            echo form_open('HDS/reply/insert_reply', $data); 
-        ?><!--  form action='' method='' class='' > -->
-            <input type="hidden" value="<?php echo $rq_id; ?>" name= "rq_id" />
-            <input type="hidden" value="<?php echo $rp_msg_type; ?>" name= "rp_msg_type" />
+            $data['class']= "da-form";
+            $data['id']= "timeline_form".$rp_msg_type;
+            echo form_open('', $data); 
+        ?>
+            <input type="hidden" value="<?php echo $rq_id; ?>" id="rq_id_<?php echo $rp_msg_type; ?>" />
             <div class="da-form-row">
                 <label>ข้อความ</label>
                 <div class="da-form-item large">
-                    <textarea rows="auto" cols="auto" width="100%" name="rp_detail"></textarea>
+                    <textarea id="rp_detail_<?php echo $rp_msg_type; ?>" rows="auto" cols="auto" width="100%" required></textarea>
+                    <script>
+                        CKEDITOR.replace( 'rp_detail_<?php echo $rp_msg_type; ?>' );
+                    </script>
                 </div>
             </div>
             <div class="da-button-row">
                 <input type="reset" value="Reset" class="da-button gray left">
-                <input type="submit" value="ส่งข้อความ" class="da-button green">
+                <input type="button" class="da-button green" onclick="show_alert(<?php echo $rp_msg_type; ?>)" value="ส่งข้อความ">
             </div>
         <?php
             echo form_close();

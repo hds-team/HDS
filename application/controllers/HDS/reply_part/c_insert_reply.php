@@ -4,7 +4,7 @@
 	$data['rp_rq_id'] = $this->input->post('rq_id'); //id request
 	$data['rp_msg_type'] = $this->input->post('rp_msg_type'); //id request
 	$data['rp_date'] = date("y-m-d"); //date now
-	$data['rp_time'] = date("H-i-s"); //time now
+	$data['rp_time'] = date("H:i:s"); //time now
 	$this->m_dynamic->insert('hds_reply',$data);
 	//echo $data['rp_detail'];
 	//echo $data['rp_rq_id'];

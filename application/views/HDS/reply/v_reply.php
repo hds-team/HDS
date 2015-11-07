@@ -42,6 +42,24 @@
     });
 
     //----------- END
+
+    $( "#confirm" ).dialog({
+        autoOpen: false,
+        resizable: true,
+        modal: false,
+        width: 500,
+        buttons: {
+	        Ok: function() {
+	        	if(required)
+	        	{
+	          		$("#confirm_form").submit();
+	           	}
+	        },
+	       	Cancel: function() {
+	          $( this ).dialog("close");
+	        }
+      	}
+    });
   });
 
   
@@ -643,6 +661,10 @@
 			</thead>
 			<tbody>
 			<?php
+				if($hds_accept_log->num_rows() == 0)
+				{
+					echo "<tr><td class='center' colspan='4'> ไม่มีข้อมูล </td></tr>";
+				}
 				foreach($hds_accept_log->result() as $action_log)
 				{
 			?>
@@ -844,3 +866,23 @@
         ?>
 	</div><!-- tabs -->
 </div><!-- da-panel -->
+
+<!-- HDS Dialog Report -->
+<div id = "confirm" class="da-panel-content" title="ยืนยันการส่งข้อความ" style="padding: 0px; display: none;">
+	<?php 
+		$data['class'] ="da-form";
+		$data['id'] ="confirm_form";
+		echo form_open($this->config->item('sys_name').'/reply/insert_reply', $data); 
+	?>
+	<input type = "hidden"  id = "rq_id_confirm" name = "rq_id"/>
+	<input type = "hidden"  id = "rp_msg_type_confirm" name = "rp_msg_type"/>
+	<input type = "hidden"  id = "rp_detail_confirm" name = "rp_detail"/>
+
+	<div class="da-form-row">
+		<div class="grid_4" id="confirm_text" align="center">
+		</div>
+	</div>
+  	<?php 
+  		echo form_close(); 
+  	?>
+</div>
