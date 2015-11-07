@@ -4,10 +4,34 @@
 </head>
 <body>
 <?php
-	//require('fpdf.php');
+	//require('fpdf.php'); 
+	define('FPDF_FONTPATH','font/');
 	$this->load->library('fpdf');
 	
-	define('FPDF_FONTPATH','font/');
+	//ini_set("session.auto_start", 0);
+	$pdf=new PDF();
+	$pdf->SetMargins( 5,5,5 );
+	$pdf->AddPage();
+	$pdf->AddFont('angsa','','angsa.php');
+	$pdf->SetFont('angsa','',15);
+	$pdf->SetXY (10,50);
+	//mysql_query("SET NAMES 'tis620' ");
+	
+				$index=1;
+					foreach($query->result() as $row)
+					{
+						$pdf->Write(5,$row->rq_subject);
+					}
+	
+	$pdf->SetFontSize(10);
+	$pdf->Write(5,'Congratulations! You have generated a PDF.');
+	
+	ob_end_clean();
+	$pdf->Output("MyPDF/MyPDF.pdf","D");
+	
+	/*for( $i=0;$i<=50;$i++ ){
+		$pdf->Cell(0,10,iconv( 'UTF-8','TIS-620','ไทยครีเอทดอทคอม '. $i),0,1,"C");
+	} */
 
 	class PDF extends FPDF
 	{
@@ -15,31 +39,18 @@
 			//$this->Image('thaicreate-logo.jpg',87,0,40);
 			$this->AddFont('angsa','','angsa.php');
 			$this->SetFont('angsa','',15);
-	 		$this->Cell(0,0,iconv( 'UTF-8','TIS-620','หน้าที่... '.$this->PageNo()),0,1,"R");
+	 		$this->Cell(0,0,iconv( 'UTF-8','TIS-620','page '.$this->PageNo()),0,1,"R");
 			$this->Ln(20);
 		}
-
+			
 		function Footer(){
 			$this->AddFont('angsa','','angsa.php');
 			$this->SetFont('angsa','',10);
 			$this->SetY(-15);
 	 		$this->Cell(0,0,iconv( 'UTF-8','TIS-620','By... ไทยครีเอทดอทคอม'),0,1,"L");
-			$this->Cell(0,0,iconv( 'UTF-8','TIS-620','Create date : '.date("Y-m-d")),0,1,"R");
+			$this->Cell(0,0,iconv( 'UTF-8','TIS-620','Date : '.date("Y-m-d")),0,1,"R");
 		}
-	 
 	}
-
-	$pdf=new PDF();
-	$pdf->SetMargins( 5,5,5 );
-	$pdf->AddPage();
-	$pdf->AddFont('angsa','','angsa.php');
-	$pdf->SetFont('angsa','',15);
-	
-	for( $i=0;$i<=50;$i++ ){
-		$pdf->Cell(0,10,iconv( 'UTF-8','TIS-620','ไทยครีเอทดอทคอม '. $i),0,1,"C");
-	}
-	
-	$pdf->Output("MyPDF/MyPDF.pdf","F");
 ?>
 	<br>
 	<div>
@@ -74,5 +85,4 @@
 	<br>
 </body>
 	PDF Created Click <a href="../MyPDF/MyPDF.pdf">here</a> to Download
-</body>
 </html>
