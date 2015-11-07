@@ -88,12 +88,12 @@
 
 
     });
-
+    var required = false;
     function show_alert(rp_msg_type){
         //------- Get data from CKEditer
         var rp_detail_id = 'rp_detail_'+rp_msg_type;
         var text = CKEDITOR.instances[rp_detail_id].getData();
-        var required = false;
+        //var required = false;
 
         if(text !== "")
         {
@@ -103,6 +103,7 @@
         }
         else
         {
+            required = false;
             //alert("FAIL");
             text = "--------กรุณากรอกข้อมูล--------";
         }

@@ -50,6 +50,7 @@
         width: 500,
         buttons: {
 	        Ok: function() {
+	        	console.log(required);
 	        	if(required)
 	        	{
 	          		$("#confirm_form").submit();
