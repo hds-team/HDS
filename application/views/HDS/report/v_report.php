@@ -182,7 +182,14 @@
                         <select name="sys_id">
                             <option value="10" <?php if($this->session->userdata('StID') == 10 || $this->session->userdata('StID') == NULL) echo "selected"; ?>>ระบบจัดการผู้ใช้</option>
                             <?php
-                                foreach($hds_system->result() as $system){
+                                if($display == ""){
+                                    $systems_query = $hds_system_coop;
+                                }
+                                else
+                                {
+                                    $systems_query = $hds_system;
+                                }
+                                foreach($systems_query->result() as $system){
                             ?>
                                 <option value="<?php echo $system->StID; ?>" <?php if($this->session->userdata('StID') == $system->StID ) echo "selected"; ?>><?php echo $system->StNameT; ?></option>
                             <?php
