@@ -44,6 +44,7 @@
 					{ 
 					?>
 				<tr>
+					
 					<td class="center"><?php echo $index++; ?></td>
 					<td><?php echo $value['tp_name'] ?></td>
 					<td><center><?php echo $value['tp_year'] ?></center></td>
@@ -52,10 +53,10 @@
 					</center></td>
 					<td><center>
 						<div class="grid_2">
-							 <input type="button" class="da-button red large" value="ลบ" style='width:70%'>
+							<a href="<?php echo base_url('index.php/HDS/tor/delete_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button red large" value="ลบ" style='width:70%'></a>
 						</div>
 						<div class="grid_2">
-							 <a href="<?php echo base_url('index.php/HDS/tor/edit_tor/'.$value['tp_id']); ?>" target="_blank"><input type="button" class="da-button blue large" value="แก้ไข" style='width:70%'></a>
+							<a href="<?php echo base_url('index.php/HDS/tor/show_edit_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button blue large" value="แก้ไข" style='width:70%'></a>
 						</div>
 					</center></td>
 				</tr>  	

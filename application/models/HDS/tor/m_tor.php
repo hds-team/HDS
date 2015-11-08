@@ -5,6 +5,7 @@ class M_tor extends CI_Model
 	public $db_name;
 	public $ums;
 	
+	public $tp_id;
 	public $ts_tp_id;
 	public $tp_name;
 	public $tp_date_start;
@@ -120,13 +121,62 @@ class M_tor extends CI_Model
 	public function show_tor_edit_system()
 	{
 		$sql = "SELECT * FROM hds_tor_system
-		INNER JOIN ums.umsystem
-		ON ums.umsystem.StID=hds_tor_system.ts_sys_id
 		where hds_tor_system.ts_tp_id = ?
 		";
 		$query = $this->hds->query($sql,array( $this->ts_tp_id));
 		return $query; 
 	}
-	
-	
+	public function show_hds_contract_limit1()
+	{
+		$sql = "SELECT * FROM hds_contract
+		where hds_contract.ctr_tp_id = ?
+		limit 1
+		";
+		$query = $this->hds->query($sql,array( $this->ctr_tp_id));
+		return $query; 
+	}
+	public function show_hds_contract()
+	{
+		$sql = "SELECT * FROM hds_contract
+		where hds_contract.ctr_tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->ctr_tp_id));
+		return $query; 
+	}
+	public function update_proj()
+	{
+		$sql = "UPDATE hds_tor_proj 
+		SET tp_name = ? ,
+		tp_date_start = ? ,
+		tp_date_stop = ? ,
+		tp_year = ?
+		where hds_tor_proj.tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->tp_name,$this->tp_date_start,$this->tp_date_stop,$this->tp_year,$this->tp_id));
+	}
+	public function delete_sys()
+	{
+		$sql = "DELETE 
+		FROM hds_tor_system
+		WHERE hds_tor_system.ts_tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->ts_tp_id));
+	}
+	public function delete_cont()
+	{
+		$sql = "DELETE 
+		FROM hds_contract
+		WHERE hds_contract.ctr_tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->ctr_tp_id));
+	}
+	public function delete_proj()
+	{
+		$sql = "DELETE 
+		FROM hds_tor_proj
+		WHERE hds_tor_proj.tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->tp_id));
+	}
+
 }
