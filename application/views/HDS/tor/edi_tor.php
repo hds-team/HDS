@@ -161,10 +161,9 @@
 									<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" value="<?php echo $cont['ctr_value']; ?>" required >
 									<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
 								</label>
-							</div>
 							<?php	
 								} ?>
-								</div>
+							</div>
 							<?php 
 							} 
 							else
