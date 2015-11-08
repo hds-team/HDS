@@ -256,6 +256,12 @@
 		<span class="da-panel-toggler"></span>
 	</div>
 	<?php
+		$check = $request->row_array();
+		if($check['rq_st_id'] == 8 || $check['rq_st_id'] == 6)
+		{
+			$user_edite = true;
+		}
+
 		if($user_edite == false)
 		{
 	?>
