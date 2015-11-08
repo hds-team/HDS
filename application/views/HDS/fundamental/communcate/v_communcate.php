@@ -41,7 +41,7 @@
         <div class="da-panel-content">
             <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/insert_estimation_time', $data); 
+                echo form_open('HDS/fundamental/insert_communcate', $data); 
              ?>
             	<div class="da-form-row">
                 	<label>ช่องทางการติดต่อ</label>
@@ -93,11 +93,11 @@
                         <?php 
                         if ($row->ctt_status==1)
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_estimation_time/".$row->ctt_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_communcate/".$row->ctt_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_estimation_time/".$row->ctt_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
+							echo "<a href ='".base_url("index.php/HDS/fundamental/update_communcate/".$row->ctt_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
 						}
                         ?>
                         </center>
@@ -109,7 +109,7 @@
                             <div class="grid_2">
                                <?php 
                                if($row->ctl_rq_id==null){
-									echo "<a href ='".base_url("index.php/HDS/fundamental/delete_estimation_time/".$row->ctt_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+									echo "<a href ='".base_url("index.php/HDS/fundamental/delete_communcate/".$row->ctt_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
                                 }
 							   else{
 								   echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:60%' />"; 
@@ -134,7 +134,7 @@
 " style="padding: 0px">
                 <?php 
                 $data['class'] = "da-form";
-                echo form_open('HDS/fundamental/update_value_estimation_time', $data); //change value
+                echo form_open('HDS/fundamental/update_value_communcate', $data); //change value
                 ?>
                            
             <input type="hidden" id="ctt_id"name="ctt_id">

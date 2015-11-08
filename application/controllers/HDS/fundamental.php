@@ -98,30 +98,30 @@ class Fundamental extends HDS_Controller {
 	{
 		include('fundamental_part/delete_level.php');
 	}
-	public function estimation_time()
+	public function communcate()
 	{
 		
 		$this->benchmark->mark('code_start');
-		include('fundamental_part/estimation_time/c_estimation_time.php');
+		include('fundamental_part/communcate/c_communcate.php');
 		$data['content'] = $view;
 		$this->benchmark->mark('code_end');
 		$this->session->set_userdata('time_cpu', $this->benchmark->elapsed_time('code_start', 'code_end'));
 		$this->layout_output($data);
 	}
-	public function insert_estimation_time()
+	public function insert_communcate()
 	{
-		include('fundamental_part/estimation_time/c_insert_estimation_time.php');
+		include('fundamental_part/communcate/c_insert_communcate.php');
 	}
-	public function update_estimation_time($ctt_id,$ctt_status)
+	public function update_communcate($ctt_id,$ctt_status)
 	{
-		include('fundamental_part/estimation_time/c_update_estimation_time.php');
+		include('fundamental_part/communcate/c_update_communcate.php');
 	}
-	public function delete_estimation_time($ctt_id)
+	public function delete_communcate($ctt_id)
 	{
-		include('fundamental_part/estimation_time/c_delete_estimation_time.php');
+		include('fundamental_part/communcate/c_delete_communcate.php');
 	}
-	public function update_value_estimation_time()
+	public function update_value_communcate()
 	{
-		include('fundamental_part/estimation_time/c_update_value_estimation_time.php');
+		include('fundamental_part/communcate/c_update_value_communcate.php');
 	}
 }

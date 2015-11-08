@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class M_estimation_time extends CI_Model{
+class M_communcate extends CI_Model{
 	
 	public function __construct(){
 		parent::__construct();
