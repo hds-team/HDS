@@ -67,10 +67,10 @@
 			$this->Cell(0,0,iconv("UTF-8","TIS-620","โครงการดูแลบำรุงรักษาระบบสารสนเทศและระบบเครื่องแม่ข่ายคอมพิวเตอร์ ของวิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น "),0,0,'L');
 			$this->Cell(-5,0,iconv('UTF-8','TIS-620',''.$this->PageNo()),0,1,"R");
 			$this->Line(10,15,200,15);
-			$this->Ln(20);
+			$this->Ln(20); //Blank space for 20
 			}
 		}
-			
+			 
 		function Footer(){
 			if($this->PageNo() == 1){ 
 			$this->SetTextColor(105, 105, 105);
