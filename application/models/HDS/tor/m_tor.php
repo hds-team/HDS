@@ -178,5 +178,13 @@ class M_tor extends CI_Model
 		";
 		$query = $this->hds->query($sql,array( $this->tp_id));
 	}
+	public function tor_open()
+	{
+		$sql = "SELECT * FROM hds_contract 
+		LEFT JOIN hds_request ON hds_contract.ctr_id = hds_request.rq_ctr_id
+		";
+		$query = $this->hds->query($sql,array());
+		return $query;
+	}
 
 }

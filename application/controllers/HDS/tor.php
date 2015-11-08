@@ -10,6 +10,7 @@ class Tor extends HDS_Controller
 	public function index()
 	{ 
 		$data['query'] = $this->m_tor->show_main()->result_array();
+		$data['open'] = $this->m_tor->tor_open()->result_array();
 		$data['content'] = $this->hds_output("tor/v_tor", $data, true);
 		$this->layout_output($data);
 	}
