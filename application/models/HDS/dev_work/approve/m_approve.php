@@ -18,7 +18,7 @@ class M_approve extends CI_Model
 
 	public function get_report($sys_id)
 	{
-		$where = "( hds_request.rq_st_id = 6 or hds_request.rq_st_id = 7)";
+		$where = "( hds_request.rq_st_id = 6)";
 		$this->hds
 		->select('*')
 		->from('hds_request')
@@ -36,7 +36,7 @@ class M_approve extends CI_Model
 
 	public function get_report_all($UsID){
 		$query = $this->m_dev_work->get_system_by_permiss($UsID);
-		$where_1 = "(hds_request.rq_st_id = 6 or hds_request.rq_st_id = 7)";
+		$where_1 = "(hds_request.rq_st_id = 6)";
 		$this->hds
 		->select('*')
 		->from('hds_request')

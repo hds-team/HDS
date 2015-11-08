@@ -45,28 +45,20 @@
                 <?php
                     }
                 ?>
-				<td><center>
+				<td>
+					<center>
 					<?php 
-						if($row->rq_st_id == 7){
+						if($row->rq_st_id == 6){
 							$row->st_id = 8;
 					?><!-- Loop of status of report. 6 is approve and 8 is not approve.-->
 					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
 						<!-- Sending value's status (st_id) to controller's update_approve.php -->
 						<button style="width:100%" class="da-button green">รับทราบ</button>
 					</a>
-					<?php 
-						}
-						else{
-							$row->st_id = 3;
-					?>
-					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
-						<!-- Sending value's status (st_id) to controller's update_approve.php -->
-						<button style="width:100%" class="da-button blue">แก้ไข</button>
-					</a>
+					</center>
 					<?php
 						}
 					?>
-					</center>
 				</td>
 			</tr>
 			<?php 
