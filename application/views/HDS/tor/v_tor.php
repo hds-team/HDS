@@ -20,7 +20,7 @@
                 <div class="grid_1">
                     
                     <div class="da-form-item large">
-                        <a href="http://localhost/hds/index.php/HDS/tor/ins_tor"><input type="button" class="da-button blue gray" value="เพิ่มโครงการ"  style='height:6%'></a>
+                        <a href="<?php echo base_url('index.php/HDS/tor/ins_tor/'); ?>"><input type="button" class="da-button blue gray" value="เพิ่มโครงการ"  style='height:6%'></a>
                     </div>
                 </div>
             </div>	
