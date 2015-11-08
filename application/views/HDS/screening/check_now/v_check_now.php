@@ -32,7 +32,7 @@
 		?>
 		<tr class="odd">
 			<td class="center"><?php echo $index; ?></td>
-			<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td>
+			<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>"><?php echo $row->rq_subject; ?></a></td>
 			<td><center><?php echo $this->date_time->DateThai($row->rq_date); ?></center></td>
 			<td><center><?php echo $row->ct_name; ?></center></td>
 			<td><?php echo $row->UsName; ?></td>

@@ -31,7 +31,7 @@
 		?>
 			<tr>
 				<td class="center"><?php echo $index++; ?></td>
-				<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$ch['rq_id']); ?>" target="_blank"><?php echo $ch['rq_subject']; ?></a></td>
+				<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$ch['rq_id']); ?>"><?php echo $ch['rq_subject']; ?></a></td>
 				<td><center><?php echo $this->date_time->DateThai($ch['rq_date']); ?></center></td>
 				<td><?php echo $ch['ct_name']; ?></td>
 				<td><?php echo $ch['UsName']; ?></td>

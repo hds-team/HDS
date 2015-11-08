@@ -32,7 +32,7 @@
 				?>
                 <tr class="odd">
                 	<td class="center"><?php echo $index++; ?></td> <!-- respectively -->
-					<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a></td> <!-- subject // can click to increase detail -->
+					<td><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>"><?php echo $row->rq_subject; ?></a></td> <!-- subject // can click to increase detail -->
                     <td><center><?php echo $this->date_time->DateThai($row->rq_date);?></center></td> <!-- date -->
                     <td><center><?php echo $row->ct_name; ?></center></td> <!-- category name -->
                     <td><?php echo $row->UsName; ?></td> <!-- User name // import from UMS Table -->

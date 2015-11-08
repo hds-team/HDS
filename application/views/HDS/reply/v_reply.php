@@ -13,7 +13,7 @@
     $("#tabs").tabs();
 
     $("#delete_btn").click(function(){
-    	confirm("คุณแน่ใจที่จะลบหรือไม่ ?");
+    	confirm("คุณต้องการที่จะยกเลิกคำร้อง ?");
     });
 
     //----------- Add element contact
@@ -262,7 +262,7 @@
 	<div class="da-panel-toolbar top">
         <ul>
             <li><a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$rq_id.'/'. 1); ?>"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt="">แก้ไข</a></li>
-            <li id="delete_btn"><a href="<?php echo base_url('index.php/HDS/reply/delete_reply/'.$rq_id.'/'.$lg_id); ?>"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ลบ</a></li>
+            <li id="delete_btn"><a href="<?php echo base_url('index.php/HDS/reply/cancel_reply/'.$rq_id.'/'.$lg_id); ?>"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt="">ยกเลิก</a></li>
             <li><a href=""><img src="<?php echo base_url(); ?>images/icons/color/arrow_redo.png" alt="">รีเฟรช</a></li>
         </ul>
     </div>

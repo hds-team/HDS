@@ -38,7 +38,15 @@ class Reply extends HDS_Controller
 	public function update_reply(){
 		include('reply_part/c_update.php');
 	}
-	public function delete_reply($rq_id,$lg_id){
-		include('reply_part/c_delete.php');
+	public function cancel_reply($rq_id,$lg_id){
+	/*
+	date edit: 8/11/2015
+	create: santisuk kamlangyong
+	id: 56160416
+	tel: 0814527114
+	facebook: Modnoiizz Crazie
+	email: mod_2660@hotmail.com
+	*/
+		include('reply_part/c_cancel.php');
 	}
 }

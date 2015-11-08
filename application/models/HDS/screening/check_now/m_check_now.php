@@ -26,6 +26,7 @@ class M_check_now extends CI_Model
 		->join('hds_status','hds_request.rq_st_id=hds_status.st_id','inner')
 		->where('rq_sys_id', $sys_id)
 		->where('hds_status.st_id !=', 8)
+		->where('hds_status.st_id !=', 7)
 		->order_by('hds_request.rq_date', 'DESC');
 		return $this->hds->get();
 	} //check_now_require
@@ -40,6 +41,7 @@ class M_check_now extends CI_Model
 		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
 		->join('hds_status','hds_request.rq_st_id=hds_status.st_id','inner')
 		->where('hds_status.st_id !=', 8)
+		->where('hds_status.st_id !=', 7)
 		->order_by('hds_request.rq_date', 'DESC');
 		return $this->hds->get();
 	} 

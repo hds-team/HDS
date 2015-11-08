@@ -33,7 +33,7 @@
             <tr class = "odd"> <!--Open row-->
 				<td class="center"><?php echo $index++;?></td> 									<!--Data in table-->
 				<td>
-					<a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>" target="_blank"><?php echo $row->rq_subject; ?></a> 
+					<a href="<?php echo base_url('index.php/HDS/reply/detail_sys/'.$row->rq_id); ?>"><?php echo $row->rq_subject; ?></a> 
 				</td> 						<!--Data in table-->
 				<td><center> <?php echo $this->date_time->DateThai($row->rq_date);?></center></td> 	<!--Data in table-->
 				<td><center> <?php echo $row->ct_name;?> </center></td> 							<!--Data in table-->
