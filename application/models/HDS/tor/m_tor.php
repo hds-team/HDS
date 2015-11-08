@@ -180,8 +180,10 @@ class M_tor extends CI_Model
 	}
 	public function tor_open()
 	{
-		$sql = "SELECT * FROM hds_contract 
-		LEFT JOIN hds_request ON hds_contract.ctr_id = hds_request.rq_ctr_id
+		$sql = "SELECT * FROM hds_tor_proj
+		LEFT JOIN hds_contract ON hds_tor_proj.tp_id = hds_contract.ctr_tp_id
+		LEFT JOIN hds_request ON hds_request.rq_ctr_id = hds_contract.ctr_id
+        GROUP BY hds_tor_proj.tp_id
 		";
 		$query = $this->hds->query($sql,array());
 		return $query;

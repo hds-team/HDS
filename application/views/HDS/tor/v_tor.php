@@ -49,19 +49,28 @@
 					<td><?php echo $value['tp_name'] ?></td>
 					<td><center><?php echo $value['tp_year'] ?></center></td>
 					<td>
-					<?php 
-					foreach($open as $key => $op)
-					{
-						?>
-						<center><input type="button" class="da-button green large" value="เปิด" style='width:70%'>
+						<center><a href ="<?php echo base_url('index.php/HDS/'); ?>"><input type='submit' value='เปิด' class='da-button green' style='width:70%' /></a>
 						</center>
-					<?php } ?>
 					</td>
 					<td>
 						<center>
+							<?php 
+							if($value['rq_id'] == NULL)
+							{ ?>
 							<div class="grid_2">
 								<a href="<?php echo base_url('index.php/HDS/tor/delete_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button red large" value="ลบ" style='width:70%'></a>
 							</div>
+							<?php 
+							} 
+							else
+							{ ?>
+							<div class="grid_2">
+								<a href=""><input type="button" class="da-button gray large" value="ลบ" style='width:70%'></a>
+							</div>
+							<?php
+							}
+							?>
+							
 							<div class="grid_2">
 								<a href="<?php echo base_url('index.php/HDS/tor/show_edit_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button blue large" value="แก้ไข" style='width:70%'></a>
 							</div>
