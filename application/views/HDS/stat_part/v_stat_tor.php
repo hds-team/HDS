@@ -31,7 +31,7 @@
 						<td class="center"><?php echo $index++; ?></td>
 						<td><?php echo $row->rq_subject; ?></td>
 						<td class="center"><?php echo $this->date_time->DateThai($row->rq_date)?></td>
-						<td class="center"><?php echo $row->ctr_value;?></td>
+						<td class="center"><?php echo 'TOR ข้อ'.$row->ctr_number;?></td>
 					</tr>
 				<?php 
 					} 
