@@ -6,6 +6,7 @@ class M_tor extends CI_Model
 	public $ums;
 	
 	public $tp_id;
+	public $tp_status;
 	public $ts_tp_id;
 	public $tp_name;
 	public $tp_date_start;
@@ -80,9 +81,9 @@ class M_tor extends CI_Model
 	public function ins_hds_tor_proj()
 	{
 		$sql = "INSERT INTO
-		hds_tor_proj (tp_name,tp_date_start,tp_date_stop,tp_year)
-		VALUES (?,?,?,?)";
-		$this->hds->query($sql, array( $this->tp_name,$this->tp_date_start,$this->tp_date_stop,$this->tp_year));
+		hds_tor_proj (tp_name,tp_date_start,tp_date_stop,tp_year,tp_status)
+		VALUES (?,?,?,?,?)";
+		$this->hds->query($sql, array( $this->tp_name,$this->tp_date_start,$this->tp_date_stop,$this->tp_year,$this->tp_status));
 	}
 	public function ins_hds_tor_system()
 	{
@@ -187,6 +188,14 @@ class M_tor extends CI_Model
 		";
 		$query = $this->hds->query($sql,array());
 		return $query;
+	}
+	public function update_open()
+	{
+		$sql = "UPDATE hds_tor_proj 
+		SET tp_status = ? 
+		where hds_tor_proj.tp_id = ?
+		";
+		$query = $this->hds->query($sql,array( $this->tp_status,$this->tp_id));
 	}
 
 }

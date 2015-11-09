@@ -49,8 +49,21 @@
 					<td><?php echo $value['tp_name'] ?></td>
 					<td><center><?php echo $value['tp_year'] ?></center></td>
 					<td>
-						<center><a href ="<?php echo base_url('index.php/HDS/'); ?>"><input type='submit' value='เปิด' class='da-button green' style='width:70%' /></a>
-						</center>
+						<?php if($value['tp_status'] == 1)
+						{
+						?>
+							<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/0/'.$value['tp_id']); ?>"><input type='submit' value='เปิด' class='da-button green' style='width:70%' /></a>
+							</center>
+						<?php 
+						}
+						else
+						{
+						?>
+							<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/1/'.$value['tp_id']); ?>"><input type='submit' value='ปิด' class='da-button red' style='width:70%' /></a>
+							</center>
+						<?php 
+						}
+						?>
 					</td>
 					<td>
 						<center>

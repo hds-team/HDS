@@ -29,11 +29,13 @@ class Tor extends HDS_Controller
 	{
 		$tp_name = $this->input->post("namekong");
 		$tp_year = $this->input->post("year");
+		
 		$ts_sys_id = array();
 		$ts_sys_id = $this->input->post("sys");
 		
 		$this->m_tor->tp_name = $tp_name;
 		$this->m_tor->tp_year = $tp_year;
+		$this->m_tor->tp_status = 1;
 		
 		$dayf = explode("/",$this->input->post('dayf'));
 		$this->m_tor->tp_date_start = $dayf[2]."-".$dayf[1]."-".$dayf[0];
@@ -188,5 +190,16 @@ class Tor extends HDS_Controller
 		
 		redirect($this->config->item('sys_name').'/tor/' );
 	}
+	public function update_open($tp_status,$tp_id)
+	{
+		echo "GG"."<BR>";
+		echo $tp_status;
+		$this->m_tor->tp_status = $tp_status;
+		$this->m_tor->tp_id = $tp_id;
+		$this->m_tor->update_open();
+		
+		redirect($this->config->item('sys_name').'/tor/' );
+	}
+	
 }
 
