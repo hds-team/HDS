@@ -34,24 +34,31 @@
 					$index=1;
 					foreach($query->result() as $row)
 					{
-						//$pdf->SetFont('THSarabun','',16);
-						//$pdf->MultiCell(15,7,iconv("UTF-8","TIS-620",$index++),1,0);
-						$pdf->Cell(15,7,iconv("UTF-8","TIS-620",$index++),1,0,'C');
-						 
-						//$pdf->SetFont('THSarabun','',16);
-						//$pdf->MultiCell(100,7,iconv("UTF-8","TIS-620",$row->rq_subject),1);
-						$pdf->Cell(100,7,iconv("UTF-8","TIS-620",$row->rq_subject),1,0,'L');
-
-						//$pdf->SetFont('THSarabun','',16);
-						//$pdf->MultiCell(30,7,iconv("UTF-8","TIS-620",$this->date_time->DateThai($row->rq_date)),1,0);
-						$pdf->Cell(30,7,iconv("UTF-8","TIS-620",$this->date_time->DateThai($row->rq_date)),1,0,'C');
+						++$cnt;
+						$nPrs = count($row->rq_subject);
+						$strPrsNames = '';
+						for($cPrs=0; $cPrs<$nPrs && $cPrs<=5 && is_array($row->rq_subject); $cPrs++){
+							$strPrsNames .= $row->rq_subject[$cPrs];
+						}
 						
-						//$pdf->SetFont('THSarabun','',16);
-						//$pdf->MultiCell(15,7,iconv("UTF-8","TIS-620",$row->ctr_value),1,0);
-						$pdf->Cell(45,7,iconv("UTF-8","TIS-620",'TOR ข้อ'.$row->ctr_number),1,0,'C');
+						$pdf->Cell(15,7,iconv("UTF-8","TIS-620",$index++),1,0,'C'); //ปริ๊นเลขลำดับ
+						
+						//$pdf->Cell(100,7,iconv("UTF-8","TIS-620",$row->rq_subject),1,0,'L'); // ปริ๊นชื่อกิจกรรม
+							if($nPrs > 35){ 
+								$pdf->Ln(7);
+									$strPrsNames = '';
+									for($cPrs=6; $cPrs<$nPrs ; $cPrs++){
+										$strPrsNames .= $row->rq_subject[$cPrs];
+									}
+								$pdf->Cell(100,7,iconv('UTF-8', 'TIS-620', $strPrsNames),1,1,'L');	// <- อันนี้
+							}
+						
+						$pdf->Cell(30,7,iconv("UTF-8","TIS-620",$this->date_time->DateThai($row->rq_date)),1,0,'C'); //ปริ๊นวันที่
+						
+						$pdf->Cell(45,7,iconv("UTF-8","TIS-620",'TOR ข้อ'.$row->ctr_number),1,0,'C'); //ปริ๊นหมายเหตุ
 						
 						$pdf->Ln(); 
-						if($cnt == 35)
+						if($cnt == 33)
 						{
 							$cnt = 0;
 							$pdf->AddPage();
@@ -84,7 +91,7 @@
 		}
 			 
 		function Footer(){
-			if($this->PageNo() == 1){ 
+			if($this->PageNo() == 1 || $this->PageNo() != 1){ 
 			$this->SetTextColor(105, 105, 105);
 			$this->AddFont('THSarabun','','THSarabun.php');
 			$this->SetFont('THSarabun','',13);
@@ -94,7 +101,7 @@
 			$this->Cell(190,0,iconv("UTF-8","TIS-620","ห้องปฏิบัติการวิจัยวิศวกรรมระบบสารสนเทศ คณะวิทยาการสารสนเทศ มหาวิทยาลัยบูรพา "),0,1,'R'); //-5 old value if not have line 2 of right
 			$this->Ln(5);
 			$this->Cell(190,0,iconv("UTF-8","TIS-620","วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น สถาบันพระบรมราชชนก "),0,1,'R');
-			$this->Line(10,270,200,270);  
+			$this->Line(10,275,200,275);  
 			}
 		}
 	}
