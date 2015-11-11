@@ -35,7 +35,7 @@
 					foreach($query->result() as $row)
 					{
 						++$cnt;
-						$nPrs = count($row->rq_subject);
+						$nPrs = strlen($row->rq_subject);
 						$strPrsNames = '';
 						for($cPrs=0; $cPrs<$nPrs && $cPrs<=5 && is_array($row->rq_subject); $cPrs++){
 							$strPrsNames .= $row->rq_subject[$cPrs];
@@ -43,8 +43,8 @@
 						
 						$pdf->Cell(15,7,iconv("UTF-8","TIS-620",$index++),1,0,'C'); //ปริ๊นเลขลำดับ
 						
-						//$pdf->Cell(100,7,iconv("UTF-8","TIS-620",$row->rq_subject),1,0,'L'); // ปริ๊นชื่อกิจกรรม
-							if($nPrs > 35){ 
+						$pdf->Cell(100,7,iconv("UTF-8","TIS-620",$row->rq_subject),1,0,'L'); // ปริ๊นชื่อกิจกรรม
+							if($nPrs > 30){ 
 								$pdf->Ln(7);
 									$strPrsNames = '';
 									for($cPrs=6; $cPrs<$nPrs ; $cPrs++){
