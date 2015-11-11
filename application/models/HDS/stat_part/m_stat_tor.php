@@ -21,7 +21,8 @@ class M_stat_tor extends CI_Model
 		$this->hds	
 			->SELECT('*')
 			->FROM('hds_request')
-			->join('hds_contract',' hds_request.rq_ctr_id = hds_contract.ctr_id','inner');
+			->join('hds_contract',' hds_request.rq_ctr_id = hds_contract.ctr_id','left')
+			->order_by('hds_request.rq_date', 'desc');
 		
 		return $this->hds->get();
 	}

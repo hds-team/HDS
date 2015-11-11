@@ -39,5 +39,17 @@ class Stats extends HDS_Controller
 	public function get_stat_chart($table_main, $key_main, $key_rq, $system){
 		include('stat_part/c_get_stat_chart.php');
 	}
+
+	public function update_date_tor($rq_id, $date){
+		include('stat_part/c_update_date_tor.php');
+	}
+
+	public function get_tor_contract($ctr_tp_id){
+		include('stat_part/c_get_tor_contract.php');
+	}
+
+	public function update_tor($rq_id, $ctr_id){
+		include('stat_part/c_update_tor.php');
+	}
 }
 
