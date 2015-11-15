@@ -51,5 +51,13 @@ class Stats extends HDS_Controller
 	public function update_tor($rq_id, $ctr_id){
 		include('stat_part/c_update_tor.php');
 	}
+
+	public function check_tor($rq_id){
+		include('stat_part/c_check_tor.php');
+	}
+
+	public function default_tor($rq_id){
+		include('stat_part/c_tor_default.php');
+	}
 }
 

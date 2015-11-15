@@ -13,5 +13,12 @@ class Date_time{
 		$strMonthThai=$strMonthCut[$strMonth];
 		return "$strDay $strMonthThai $strYear";
 	}
+
+	public function date_textbox($strDate)
+	{
+		$splite = explode("-",$strDate);
+		$date_temp = $splite[2]."/".$splite[1]."/".((int)$splite[0]+543);
+		return $date_temp;
+	}
 }
 ?>

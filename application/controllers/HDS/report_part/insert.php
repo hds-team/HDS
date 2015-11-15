@@ -16,7 +16,18 @@
 	else
 	{
 		$rq_date = explode("/",$this->input->post('rq_date'));
+		$rq_date[2] = intval($rq_date[2]) - 543;
 		$data['rq_date'] = $rq_date[2]."-".$rq_date[1]."-".$rq_date[0];
+	}
+
+	//-------- Check date for set TOR date
+	$now_year = date('y');
+	$date_format = date('Y-m-d', strtotime($date['rq_date']));
+	$date_from = date('Y-m-d', strtotime($now_year.'-10-1'));
+	$date_to = date('Y-m-d', strtotime(((int)$now_year+1).'-09-30'));
+	if($date_format >= $date_from && $date_format <= $date_to)
+	{
+		$data['rq_date_tor'] = $data['rq_date'];
 	}
 
 	//-------- Checl source of data
@@ -61,6 +72,7 @@
 
 		//------- Convert format mm/dd/yy to yyyy-mm-dd
 		$date_exp = explode("/",$this->input->post('lg_exp'));
+		$date_exp[2] = intval($date_exp[2]) - 543;
 		$hds_level_log['lg_exp'] = $date_exp[2]."-".$date_exp[1]."-".$date_exp[0];
 
 	}

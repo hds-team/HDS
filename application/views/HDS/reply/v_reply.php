@@ -1,6 +1,10 @@
 ﻿<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/hds/prog_bar/css/style.css" media="screen" />
+
 <?php
+	//-------- Load config
 	$this->load->config('hds_config');
+
+	//--------- Get rq_id and lg_if
 	foreach($request->result() as $row1)
 	{
 		$rq_id = $row1->rq_id;
@@ -10,6 +14,7 @@
 <script>
   $(document).ready(function() 
   {
+
     $("#tabs").tabs();
 
     $("#delete_btn").click(function(){
@@ -66,13 +71,33 @@
   
   $(function() {
     var today = new Date();
+    //------ Add for thai date
+    var d = new Date();
+    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/' + (d.getFullYear() + 543);
+
     $( "#datepicker_2" ).datepicker({ 
         dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        isBuddhist: true,
+        defaultDate: toDay,
+        dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+        dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+        monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+        monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
         minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
     });
 
 	$( "#datepicker_3" ).datepicker({ 
         dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        isBuddhist: true,
+        defaultDate: toDay,
+        dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+        dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+        monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+        monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
         minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
     });
 	
@@ -457,7 +482,7 @@
 							?>
 								<div class="da-form-inline">
 									<div class="da-form-item large">
-										<input id="datepicker_2" type="text" name="lg_exp" value="<?php echo date('d/m/Y',strtotime($row->lg_exp)); ?>">
+										<input id="datepicker_2" type="text" name="lg_exp" value="<?php  echo $this->date_time->date_textbox($row->lg_exp); ?> ">
 									</div>
 								</div>
 							<?php 
@@ -490,7 +515,7 @@
 												if($row->rq_est_date == NULL){
 													echo 'placeholder="ยังไม่ไดระบุ"';
 												}else{
-													echo 'value ='.date("d/m/Y",strtotime($row->rq_est_date));
+													echo 'value ='.$this->date_time->date_textbox($row->rq_est_date);
 												}
 											?>>
 										</div>
@@ -706,11 +731,22 @@
 		<span class="da-panel-toggler"></span>
 	</div>
 
-	<div class="da-panel-content">	
+	<div class="da-panel-content">
+	<?php $rs_cont = $request->row_array(); ?>
+		<table class="da-table da-detail-view">
+			<tr>
+				<th><b>ชื่อ-สกุล</b></th>
+				<td><?php echo $rs_cont['UsName']; ?></td>
+			</tr>
+			<tr>
+				<th><b>องค์กร</b></th>
+				<td><?php echo $rs_cont['dpName']; ?></td>
+			</tr>
+				<th colspan="2" border="1"><b>ช่องทางการสื่อสาร</b></th>
+
 	<?php
 		if($edit==0){
 	?>
-			<table class="da-table da-detail-view">
 				<?php
 					foreach($contact->result() as $ct_rs){
 				?>
@@ -734,7 +770,6 @@
 	<?php
 		}else{
 	?>
-			<table class="da-table da-detail-view" id="contact_group">
 				<?php
 					$index = 0;
 					foreach($contact->result() as $ct_rs){

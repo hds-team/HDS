@@ -2,7 +2,7 @@
 	if($this->input->post('rq_est_date') != NULL){
 		//covert format date mm/dd/yy to yyy-mm-dd
 		$est_date = explode("/",$this->input->post('rq_est_date'));
-		$data['rq_est_date'] = $est_date[2]."-".$est_date[1]."-".$est_date[0];
+		$data['rq_est_date'] = ((int)$est_date[2] - 543)."-".$est_date[1]."-".$est_date[0];
 	}else{
 		$data['rq_est_date'] = NULL;
 	}
@@ -46,7 +46,7 @@
 	if($this->input->post('lg_exp') != NULL){
 		//------- Convert format mm/dd/yy to yyyy-mm-dd
 		$date_exp = explode("/",$this->input->post('lg_exp'));
-		$data_level['lg_exp'] = $date_exp[2]."-".$date_exp[1]."-".$date_exp[0];
+		$data_level['lg_exp'] = ((int)$date_exp[2]-543)."-".$date_exp[1]."-".$date_exp[0];
 
 	}
 	//------------------------------------

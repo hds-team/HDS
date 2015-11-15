@@ -26,4 +26,15 @@ class M_stat_tor extends CI_Model
 		
 		return $this->hds->get();
 	}
+
+	public function set_default_tor($rq_id){
+		$this->hds
+		->select('*')
+		->from('hds_request')
+		->join('hds_contract', 'hds_contract.ctr_id = hds_request.rq_ctr_id' , 'inner')
+		->join('hds_tor_proj', 'hds_tor_proj.tp_id = hds_contract.ctr_tp_id' , 'inner')
+		->where('hds_request.rq_id', $rq_id);
+		return $this->hds->get();
+
+	}
 }
