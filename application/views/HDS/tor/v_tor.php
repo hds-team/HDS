@@ -3,6 +3,14 @@
 		text-align: center;
 	}
 </style>
+<div class="grid_3">
+	<div class="da-panel">
+</div>
+</div>
+   <div class="grid_1">
+       <a href="<?php echo base_url('index.php/HDS/tor/ins_tor/'); ?>"><button class="da-ex-buttons" role="button" aria-disabled="false" style="float:right;"><span class="ui-button-text">เพิ่มโครงการ</span></button></a>
+   </div>
+<div class="clear"></div>
 <div class="da-panel">
     <div class="da-panel-header">
     <span class="da-panel-title">
@@ -10,22 +18,6 @@
           จัดการ TOR
       </span>
     </div><!-- da-panel-header -->
-    <div class="da-panel-content">
-        <form class="da-form">
-            <div class="da-form-row">
-				<div class="grid_3">
-					<div class="da-panel">
-					</div>
-				</div>
-                <div class="grid_1">
-                    
-                    <div class="da-form-item large">
-                        <a href="<?php echo base_url('index.php/HDS/tor/ins_tor/'); ?>"><input type="button" class="da-button blue gray" value="เพิ่มโครงการ"  style='height:6%'></a>
-                    </div>
-                </div>
-            </div>	
-		</form>
-    </div>
 	<div class="da-panel-content">
 		<table id="da-ex-datatable-numberpaging" class="da-table">
 			<thead>
@@ -47,7 +39,7 @@
 					
 					<td class="center"><?php echo $index++; ?></td>
 					<td><?php echo $value['tp_name'] ?></td>
-					<td><center><?php echo $value['tp_year'] ?></center></td>
+					<td><center><?php echo $value['tp_year'] + 543; ?></center></td>
 					<td>
 						<?php if($value['tp_status'] == 1)
 						{
