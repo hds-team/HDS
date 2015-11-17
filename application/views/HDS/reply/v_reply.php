@@ -678,7 +678,7 @@
 	<div class="da-panel-header">
 		<span class="da-panel-title">
 			<img src="<?php echo base_url('images/icons/color/blog.png'); ?>" alt="">
-				<b>ประวัตสถานะ</b>
+				<b>ประวัติสถานะ</b>
 		</span>
 		<span class="da-panel-toggler"></span>
 	</div>
