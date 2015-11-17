@@ -22,9 +22,21 @@
 
 	//-------- Check date for set TOR date
 	$now_year = date('y');
-	$date_format = date('Y-m-d', strtotime($date['rq_date']));
+	echo $now_year;
+	echo "<BR>";
+
+	$date_format = date('Y-m-d', strtotime($data['rq_date']));
+	echo $date_format;
+	echo "<BR>";
+
 	$date_from = date('Y-m-d', strtotime($now_year.'-10-1'));
+	echo $date_from;
+	echo "<BR>";
+
 	$date_to = date('Y-m-d', strtotime(((int)$now_year+1).'-09-30'));
+	echo $date_to;
+	echo "<BR>";
+
 	if($date_format >= $date_from && $date_format <= $date_to)
 	{
 		$data['rq_date_tor'] = $data['rq_date'];

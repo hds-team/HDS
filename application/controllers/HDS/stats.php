@@ -36,7 +36,7 @@ class Stats extends HDS_Controller
 		$this->layout_output($data);
 	}
 
-	public function get_stat_chart($table_main, $key_main, $key_rq, $system){
+	public function get_stat_chart($table_main = "", $key_main = "", $key_rq = "", $system = "", $from = "", $to = ""){
 		include('stat_part/c_get_stat_chart.php');
 	}
 

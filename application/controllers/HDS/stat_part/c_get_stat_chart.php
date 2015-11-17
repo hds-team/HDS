@@ -1,14 +1,43 @@
 <?php
 	//header("content-type: application/json");
+
+	//---- Set time rang to array
+	$date_temp = array();
+	$date_rang = array();
+
+	//------ Convert year to christ
+	$date_temp = explode("-", $from);
+	$date_temp[0] = (int)$date_temp[0] - 543;
+	$time_rang['from'] = $date_temp[0]."-".$date_temp[1]."-".$date_temp[2];
+
+	//------ Convert year to christ
+	$date_temp = explode("-", $to);
+	$date_temp[0] = (int)$date_temp[0] - 543;
+	$time_rang['to'] = $date_temp[0]."-".$date_temp[1]."-".$date_temp[2];
+
 	$arr = array();
 
-	$query = $this->m_stat_chart->get_data($table_main, $key_main, $key_rq);
+	if($table_main == "hds_tor_proj")
+	{
+		$query = $this->m_stat_chart->get_tor($key_main, $time_rang); //pass key_main is a group by 
+	}
+	else
+	{
+		$query = $this->m_stat_chart->get_data($table_main, $key_main, $key_rq, $time_rang);
+	}
 
 	if($system == "HDS")
 	{
-		$arr_fk_1 = explode("/", $key_main);
-		$arr_fk_2 = explode("_", $arr_fk_1[0]);
-		$arr = $this->array_convert($query, $arr_fk_2[0]."_name", "STAT");
+		if($table_main == "hds_tor_proj")
+		{
+			$arr = $this->array_convert($query, "tp_name", "STAT");
+		}
+		else
+		{
+			$arr_fk_1 = explode("/", $key_main);
+			$arr_fk_2 = explode("_", $arr_fk_1[0]);
+			$arr = $this->array_convert($query, $arr_fk_2[0]."_name", "STAT");
+		}
 	}
 	else if($system == "UMS")
 	{

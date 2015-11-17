@@ -14,14 +14,15 @@
                     'hds_category/ct_id/rq_ct_id/HDS' => 'ประเภท',
                     'hds_kind/kn_id/rq_kn_id/HDS' => 'หมวด',
                     $this->config->item('UMS').'.umsystem/StID/rq_sys_id/UMS' => 'ระบบ',
-                    $this->config->item('UMS').'.umdepartment/dpID/rq_comp_id/UMS' => 'องค์กรณ์'
+                    $this->config->item('UMS').'.umdepartment/dpID/rq_comp_id/UMS' => 'องค์กรณ',
+                    'hds_tor_proj/hds_contract.ctr_tp_id/x/HDS' => 'สัญญา TOR'
                 ];
 ?>
 <div class="da-panel">
 	<div class="da-panel-header">
     	<span class="da-panel-title">
             <img src="<?php echo base_url('images/icons/black/16/computer_imac.png'); ?>" alt="Panel">
-            กราฟรายงานสถิติคำร้อง
+            กราฟรายงานสถิติจำนวนคำร้อง
         </span>
     </div>
     <div class="da-panel-content with-padding">
@@ -71,6 +72,18 @@ Dialog Filter
 		<div class="grid_4" id="confirm_text" align="center">
 			<div class="da-panel-content">
 		    	<form class="da-form">
+                    <div class="da-form-row">
+                        <label>เริ่ม</label>
+                        <div class="da-form-item large">
+                            <input type="text" id="from" tabindex="-1">
+                        </div>
+                    </div>
+                    <div class="da-form-row">
+                        <label>ถึง</label>
+                        <div class="da-form-item large">
+                            <input type="text" id="to" tabindex="-1">
+                        </div>
+                    </div>
 		        	<div class="da-form-row">
 		            	<label>ประเภทรายงาน</label>
 		                <div class="da-form-item large">
@@ -106,17 +119,25 @@ $(document).ready(function(){
         resizable: false,
         modal: false,
         width: 500,
+        
         dialogClass: "noclose"
 	});
 
 
     $('#filter_by').change(function(){
+
+        //-------- Get Date from controller
         var key = $('#filter_by').val();
-        var url = "<?php echo base_url('index.php/'.$this->config->item('sys_name').'/stats/get_stat_chart'); ?>"+"/"+key;
+        var from = $('#from').val().split("/").reverse().join("-");
+        var to = $('#to').val().split("/").reverse().join("-");
+
+        var url = "<?php echo base_url('index.php/'.$this->config->item('sys_name').'/stats/get_stat_chart'); ?>"+"/"+key+"/"+from+"/"+to;
         console.log(url);
         $.getJSON(url, function(res){
             console.log(res);
-            //var arr = [[],[]];
+            //-------- Replace Graph head
+            var title = $( "#filter_by option:selected" ).text();
+            set_title(title);
 
             //------ Decllare Arr
             var arr = new Array(res.name.length);
@@ -192,6 +213,43 @@ $(document).ready(function(){
         }]
     });
 
+    //-------- Date rang
+
+    //------ Add for thai date
+    var d = new Date();
+    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/' + (d.getFullYear() + 543);
+
+    $( "#from" ).datepicker({
+        defaultDate: "+1w",
+        onClose: function( selectedDate ) {
+            $( "#to" ).datepicker( "option", "minDate", selectedDate );
+        },
+        dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        isBuddhist: true,
+        defaultDate: toDay,
+        dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+        dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+        monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+        monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+    });
+    $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        onClose: function( selectedDate ) {
+            $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+        },
+        dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        isBuddhist: true,
+        defaultDate: toDay,
+        dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+        dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+        monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+        monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+    });
+
 });
 
 function addSerie(res){
@@ -201,6 +259,13 @@ function addSerie(res){
         data: res
     });
     
+}
+
+function set_title(str){
+    var chart = $('#container').highcharts();
+    chart.setTitle({
+        text: 'กราฟรายงานสถิติจำนวนคำร้องต่อ'+str
+    });
 }
 
 
