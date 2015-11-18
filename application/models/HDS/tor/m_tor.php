@@ -197,5 +197,14 @@ class M_tor extends CI_Model
 		";
 		$query = $this->hds->query($sql,array( $this->tp_status,$this->tp_id));
 	}
+	public function group_year()
+	{
+		$sql = "SELECT * FROM hds_tor_proj 
+		GROUP BY tp_year
+		ORDER BY tp_year DESC
+		";
+		$query = $this->hds->query($sql,array());
+		return $query;
+	}
 
 }

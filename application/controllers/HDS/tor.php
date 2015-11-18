@@ -8,7 +8,8 @@ class Tor extends HDS_Controller
 	}
 
 	public function index()
-	{ 
+	{
+		$data['year'] = $this->m_tor->group_year()->result_array();
 		$data['query'] = $this->m_tor->tor_open()->result_array();
 		$data['content'] = $this->hds_output("tor/v_tor", $data, true);
 		$this->layout_output($data);
@@ -37,11 +38,25 @@ class Tor extends HDS_Controller
 		$this->m_tor->tp_year = $tp_year;
 		$this->m_tor->tp_status = 1;
 		
+		if($this->input->post('dayf') != NULL)
+		{
+		//------- Convert format mm/dd/yy to yyyy-mm-dd
 		$dayf = explode("/",$this->input->post('dayf'));
+		$dayf[2] = intval($dayf[2]) - 543;
+		$this->m_tor->tp_date_start = $dayf[2]."-".$dayf[1]."-".$dayf[0];
+		}
+		if($this->input->post('dayf') != NULL)
+		{
+		//------- Convert format mm/dd/yy to yyyy-mm-dd
+		$dayend = explode("/",$this->input->post('dayend'));
+		$dayend[2] = intval($dayend[2]) - 543;
+		$this->m_tor->tp_date_stop = $dayend[2]."-".$dayend[1]."-".$dayend[0];
+		}
+		/* $dayf = explode("/",$this->input->post('dayf'));
 		$this->m_tor->tp_date_start = $dayf[2]."-".$dayf[1]."-".$dayf[0];
 		
 		$dayend = explode("/",$this->input->post('dayend'));
-		$this->m_tor->tp_date_stop = $dayend[2]."-".$dayend[1]."-".$dayend[0];
+		$this->m_tor->tp_date_stop = $dayend[2]."-".$dayend[1]."-".$dayend[0]; */
 
 		$this->m_tor->ins_hds_tor_proj();
 		

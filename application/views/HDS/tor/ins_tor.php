@@ -2,8 +2,22 @@
   $(document).ready(function() {
 	
 	var today = new Date();
-    $( ".datepicker_2" ).datepicker({ 
-	dateFormat: 'dd/mm/yy',});
+	var d = new Date();
+    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/' + (d.getFullYear() + 543);
+ 
+	$( ".datepicker_2" ).datepicker({ 
+	dateFormat: "dd/mm/yy",
+	   changeMonth: true,
+        changeYear: true,
+        isBuddhist: true,
+        defaultDate: toDay,
+        dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+        dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+        monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+        monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+	}); 
+	
 
     //------- Add Field input contact
     var i = $('#contact_group label').size() + 1;
@@ -31,6 +45,7 @@
 <!-- Demo JavaScript Files -->
 <script type="text/javascript" src="<?php echo base_url(); ?>plugins/elastic/jquery.elastic.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/demo/demo.form.js"></script>
+
 <div class="grid_1">
 	 <div class="da-panel"></div>
 </div>

@@ -19,70 +19,86 @@
       </span>
     </div><!-- da-panel-header -->
 	<div class="da-panel-content">
-		<table id="da-ex-datatable-numberpaging" class="da-table">
+		<table class="da-table">
 			<thead>
 				<tr>
 					<th style="width:10%" class="center"><B>ลำดับ</B></th>
+					<th style="width:20%"><center><B>ระยะเวลาสัญญา</B></center></th>
 					<th style="width:30%"><center><B>ชื่อโครงการ</B></center></th>
-					<th style="width:20%"><center><B>ปีงบประมาณ</B></center></th>
-					<th style="width:15%"><center><B>สถานะ</B></center></th>
+					<th style="width:15%"><center><B>สถานะการใช้งาน</B></center></th>
 					<th style="width:25%"><center><B>ดำเนินการ</B></center></th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php 
-					$index = 1;	
+			<?php 
+				foreach($year as $key => $ye)
+				{ 
+				?>
+					<tr>
+						<td colspan="5">
+								<?php echo "<B>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ปีงบประมาณ "; echo $ye['tp_year']+543; echo "</B>"; ?>
+						</td>
+					</tr>
+				<?php
 					foreach($query as $key => $value)
-					{ 
-					?>
-				<tr>
+					{ ?>
+						<?php
+						if($value['tp_year'] == $ye['tp_year'])
+						{
+							$index = 1;	
+						?>
+							<tr>
 					
-					<td class="center"><?php echo $index++; ?></td>
-					<td><?php echo $value['tp_name'] ?></td>
-					<td><center><?php echo $value['tp_year'] + 543; ?></center></td>
-					<td>
-						<?php if($value['tp_status'] == 1)
-						{
-						?>
-							<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/0/'.$value['tp_id']); ?>"><input type='submit' value='เปิด' class='da-button green' style='width:70%' /></a>
-							</center>
-						<?php 
+								<td class="center"><?php echo $index++; ?></td>
+								<td><center><?php echo $this->date_time->DateThai($value['tp_date_start'])." - ".$this->date_time->DateThai($value['tp_date_stop']); ?></center></td>
+								<td><?php echo $value['tp_name'] ?></td>
+								<td>
+									<?php if($value['tp_status'] == 1)
+									{
+									?>
+										<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/0/'.$value['tp_id']); ?>"><input type='submit' value='เปิด' class='da-button green' style='width:70%' /></a>
+										</center>
+									<?php 
+									}
+									else
+									{
+									?>
+										<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/1/'.$value['tp_id']); ?>"><input type='submit' value='ปิด' class='da-button red' style='width:70%' /></a>
+										</center>
+									<?php 
+									}
+									?>
+								</td>
+								<td>
+									<center>
+										<?php 
+										if($value['rq_id'] == NULL)
+										{ ?>
+										<div class="grid_2">
+											<a href="<?php echo base_url('index.php/HDS/tor/delete_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button red large" value="ลบ" style='width:70%'></a>
+										</div>
+										<?php 
+										} 
+										else
+										{ ?>
+										<div class="grid_2">
+											<a href=""><input type="button" class="da-button gray large" value="ลบ" style='width:70%'></a>
+										</div>
+										<?php
+										}
+										?>
+										
+										<div class="grid_2">
+											<a href="<?php echo base_url('index.php/HDS/tor/show_edit_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button blue large" value="แก้ไข" style='width:70%'></a>
+										</div>
+									</center>
+								</td>
+							</tr>  	
+			<?php 
 						}
-						else
-						{
-						?>
-							<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/1/'.$value['tp_id']); ?>"><input type='submit' value='ปิด' class='da-button red' style='width:70%' /></a>
-							</center>
-						<?php 
-						}
-						?>
-					</td>
-					<td>
-						<center>
-							<?php 
-							if($value['rq_id'] == NULL)
-							{ ?>
-							<div class="grid_2">
-								<a href="<?php echo base_url('index.php/HDS/tor/delete_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button red large" value="ลบ" style='width:70%'></a>
-							</div>
-							<?php 
-							} 
-							else
-							{ ?>
-							<div class="grid_2">
-								<a href=""><input type="button" class="da-button gray large" value="ลบ" style='width:70%'></a>
-							</div>
-							<?php
-							}
-							?>
-							
-							<div class="grid_2">
-								<a href="<?php echo base_url('index.php/HDS/tor/show_edit_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button blue large" value="แก้ไข" style='width:70%'></a>
-							</div>
-						</center>
-					</td>
-				</tr>  	
-				<?php } ?>
+					}
+				}
+			?>
 			</tbody>
 		</table>
 	</div>

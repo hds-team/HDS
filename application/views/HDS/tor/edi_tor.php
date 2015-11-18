@@ -2,8 +2,21 @@
   $(document).ready(function() {
 	
 	var today = new Date();
-    $( ".datepicker_2" ).datepicker({ 
-	dateFormat: 'dd/mm/yy',});
+	var d = new Date();
+    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/' + (d.getFullYear() + 543);
+ 
+	$( ".datepicker_2" ).datepicker({ 
+	dateFormat: "dd/mm/yy",
+	   changeMonth: true,
+        changeYear: true,
+        isBuddhist: true,
+        defaultDate: toDay,
+        dayNames: ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+        dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+        monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+        monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+	}); 
 
     //------- Add Field input contact
     var i = $('#contact_group label').size() + 2;
@@ -57,13 +70,13 @@
 				<div class="da-form-row">
 				<label>วันที่เริ่ม <span class="required">*</span></label>
 					<div class="da-form-item large">
-						<input class="datepicker_2" type="text" name="dayf" value="<?php echo date("d/m/Y", strtotime($sh['tp_date_start'])); ?>" class="required" />
+						<input class="datepicker_2" type="text" name="dayf" value="<?php echo $this->date_time->date_textbox($sh['tp_date_start']); ?>" class="required" />
 					</div>	
 				</div>
 				<div class="da-form-row">
 				<label>วันที่สิ้นสุด <span class="required">*</span></label>
 					<div class="da-form-item large">
-						<input class="datepicker_2" type="text" name="dayend" value="<?php echo date("d/m/Y", strtotime($sh['tp_date_stop'])); ?>" class="required" />
+						<input class="datepicker_2" type="text" name="dayend" value="<?php echo $this->date_time->date_textbox($sh['tp_date_stop']); ?>" class="required" />
 					</div>	
 				</div>
 		
