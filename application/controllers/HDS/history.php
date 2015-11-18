@@ -9,6 +9,7 @@ class History extends HDS_Controller
 		
 		$this->benchmark->mark('code_start');
 		//------------CODE
+		
 		include('history_part/history_finish.php');
 	
 		//------------END CODE
