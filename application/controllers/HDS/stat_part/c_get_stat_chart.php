@@ -16,7 +16,7 @@
 	$time_rang['to'] = $date_temp[0]."-".$date_temp[1]."-".$date_temp[2];
 
 	$arr = array();
-
+	$id = array();
 	if($table_main == "hds_tor_proj")
 	{
 		$query = $this->m_stat_chart->get_tor($key_main, $time_rang); //pass key_main is a group by 
@@ -30,7 +30,14 @@
 	{
 		if($table_main == "hds_tor_proj")
 		{
+			//$arr = $this->array_convert($query, "tp_name", "STAT");
 			$arr = $this->array_convert($query, "tp_name", "STAT");
+
+			//-------- Set id
+			foreach($query->result() as $row)
+			{
+				$id[$row->tp_name] = $row->tp_id;
+			}
 		}
 		else
 		{
@@ -60,6 +67,13 @@
 	{
 		$arr_2['name'][] = $key;
 		$arr_2['value'][] = $value;
+		if($table_main == "hds_tor_proj")
+		{
+			$arr_2['id'][] = $id[$key];
+		}else
+		{
+			$arr_2['id'][] = 0;
+		}
 		//echo "['".$key."', ".$value."],";
 	}
 	

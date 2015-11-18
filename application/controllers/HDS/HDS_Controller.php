@@ -70,4 +70,14 @@ class HDS_Controller extends UMS_Controller
 		return $arr;
 	}
 
+	public function array_convert_chart($query, $index, $value, $id)
+	{
+		$arr = array();
+		foreach($query->result_array() as $row){
+			$arr[$row[$index]] = $row[$value];
+			$arr['id'] = $row[$id];
+		}
+		return $arr;
+	}
+
 }

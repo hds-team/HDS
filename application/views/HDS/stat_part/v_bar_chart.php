@@ -1,6 +1,9 @@
 <!-- code.highcharts.com -->
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script src="http://github.highcharts.com/highcharts.js"></script>
+<script src="http://github.highcharts.com/modules/exporting.js"></script>
+<script src="http://github.highcharts.com/modules/drilldown.js"></script>
+
 <style>
 .noclose .ui-dialog-titlebar-close
 {
@@ -14,7 +17,7 @@
                     'hds_category/ct_id/rq_ct_id/HDS' => 'ประเภท',
                     'hds_kind/kn_id/rq_kn_id/HDS' => 'หมวด',
                     $this->config->item('UMS').'.umsystem/StID/rq_sys_id/UMS' => 'ระบบ',
-                    $this->config->item('UMS').'.umdepartment/dpID/rq_comp_id/UMS' => 'องค์กรณ',
+                    $this->config->item('UMS').'.umdepartment/dpID/rq_comp_id/UMS' => 'องค์กร',
                     'hds_tor_proj/hds_contract.ctr_tp_id/x/HDS' => 'สัญญา TOR'
                 ];
 ?>
@@ -147,12 +150,41 @@ $(document).ready(function(){
             }
             
             //------ Assign Value
+            var chart = $('#container').highcharts();
+
+            //---------- Remove all series
+            while(chart.series.length > 0)
+                chart.series[0].remove(true);
+
+            //---------- Add Series
             for(var i=0; i < res.name.length; i++)
             {
                 arr[i][0] = res.name[i];
                 arr[i][1] = parseInt(res.value[i]);
+                //----- Add Series
+                chart.addSeries({
+                    data : [{
+                        name : res.name[i],
+                        id : i,
+                        y : parseInt(res.value[i]),
+                        drilldown : res.id[i]
+                    }]
+                });
+
+                console.log(res.id[i]);
             }
-           
+            //----- Add drilldown
+            var data = {
+                id : '2',
+                data : [
+                    ['Cat1', 4],
+                    ['Cat2', 7],
+                    ['Cat3', 9]
+                ]
+            };
+
+            chart.options.drilldown.series[0] = data;
+
             //------ Example Data 
             Data =  [
                         ['test',"194.1"],
@@ -160,7 +192,7 @@ $(document).ready(function(){
                         ['test', "54.4"]
                     ];
             //------ Add value to graph
-            addSerie(arr);
+            //addSerie(arr,title);
         });
     });
 
@@ -210,7 +242,12 @@ $(document).ready(function(){
                     fontFamily: 'Verdana, sans-serif'
                 }
             }
-        }]
+        }],
+        
+        drilldown: {
+            series: []
+        }
+        
     });
 
     //-------- Date rang
@@ -252,12 +289,24 @@ $(document).ready(function(){
 
 });
 
-function addSerie(res){
+function addSerie(res, title){
     var chart = $('#container').highcharts();
     chart.series[0].remove();
+    console.log(title);
     chart.addSeries({
         data: res
     });
+   /* 
+    var data = {
+        id : 2,
+        data : [
+            ['Cat1', 4],
+            ['Cat2', 7],
+            ['Cat3', 9]
+        ]
+    };
+    chart.options.drilldown.series[0] = data;
+    */
     
 }
 
@@ -266,6 +315,7 @@ function set_title(str){
     chart.setTitle({
         text: 'กราฟรายงานสถิติจำนวนคำร้องต่อ'+str
     });
+
 }
 
 
