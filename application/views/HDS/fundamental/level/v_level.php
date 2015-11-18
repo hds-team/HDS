@@ -97,27 +97,44 @@
                         <?php 
                         if ($row->lv_status==1)
 						{
-                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
+                        ?>
+                        <?php
+                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/0")."'>";
+                        ?>
+                        <img src="<?php echo base_url();?>images/icons/color/on.png" alt="" value='เปิด'></a>
+                        <?php
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
-						}
+                        ?>
+                        <?php
+						echo "<a href ='".base_url("index.php/HDS/fundamental/update_status_level/".$row->lv_id."/1")."'>";
+                        ?>
+                        <img src="<?php echo base_url();?>images/icons/color/off.png" alt="" value='ปิด'></a>
+						<?php
+                        }
                         ?>
                         </center>
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->lv_id; ?>', '<?php echo $row->lv_name; ?>');">แก้ไข</button>
+                              <img src="<?php echo base_url();?>images/icons/color/pencil.png" alt="" value='ลบ'id ='opener1' onclick="set_value('<?php echo $row->lv_id; ?>', '<?php echo $row->lv_name; ?>');">
                             </div>
                             <div class="grid_2">
-                               <?php 
-                               if($row->lg_lv_id==null){
-                              echo "<a href ='".base_url("index.php/HDS/fundamental/delete_level/".$row->lv_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+                               <?php
+									if($row->lg_lv_id==null){
+                                ?>
+                               <?php
+									echo "<a href ='".base_url("index.php/HDS/fundamental/delete_level/".$row->lv_id."/")."'>";
+                                ?>
+									<img src="<?php echo base_url();?>images/icons/color/cross.png" alt="" value='ลบ'></a>
+                                <?php
                                 }
-                           else{
-                               echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:60%' />"; 
-                           }
+                            else{
+                                ?>
+                                 <img src="<?php echo base_url();?>images/icons/color/cross.png" alt="" value='ลบ' id='opener' id='opener2' onclick='set_value2()'>
+                            <?php
+                            }
                                ?>
                             </div>
                         </center>
