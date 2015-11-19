@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="da-button-row">
-                	<input type="submit" value="Submit" class="da-button green" />  
+                	<input type="submit" value="ตกลง" class="da-button green" />  
                 </div>
             <?php echo form_close(); ?>
         </div>
@@ -118,7 +118,7 @@
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <img src="<?php echo base_url();?>images/icons/color/pencil.png" alt="" value='ลบ'id ='opener1' onclick="set_value('<?php echo $row->lv_id; ?>', '<?php echo $row->lv_name; ?>');">
+                              <img src="<?php echo base_url();?>images/icons/color/pencil.png" alt="" value='แก้ไข' id ='opener1' onclick="set_value('<?php echo $row->lv_id; ?>', '<?php echo $row->lv_name; ?>');">
                             </div>
                             <div class="grid_2">
                                <?php
