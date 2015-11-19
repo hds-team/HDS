@@ -1,5 +1,5 @@
 <?php
-echo "xx";
+//echo "xx";
 	//------ LOAD MODEL
 	$this->load->model('HDS/reply/m_reply');
 
