@@ -99,14 +99,14 @@
 					</div>
 				</div>
 				<div class="da-form-row">
-				<label>ระบบ</label>
+				<label>ระบบ<span class="required">*</span></label>
 					<div class="da-form-item large">
 						<select class="chzn-select" size="20" multiple="multiple" style='height:7%' name="sys[]">
 							<?php
 							foreach($query as $key => $sys)
 							{
 							?>
-								<option value="<?php echo $sys['StID']; ?>"><?php echo $sys['StNameT']; ?></option>
+								<option value="<?php echo $sys['StID']; ?>"><?php echo $sys['StNameT']." (".$sys['StAbbrE'].")"; ?></option>
 							<?php
 							}
 							?>

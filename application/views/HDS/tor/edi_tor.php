@@ -36,9 +36,11 @@
 
   });
 </script>
+
 <!-- Demo JavaScript Files -->
 <script type="text/javascript" src="<?php echo base_url(); ?>plugins/elastic/jquery.elastic.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/demo/demo.form.js"></script>
+
 <div class="grid_1">
 	 <div class="da-panel"></div>
 </div>
@@ -112,7 +114,7 @@
 								}
 								?>
 			
-								<option <?php if($check){ echo "selected"; } ?> value="<?php echo $sys['StID']; ?>"><?php echo $sys['StNameT']; ?></option>
+								<option <?php if($check){ echo "selected"; } ?> value="<?php echo $sys['StID']; ?>"><?php echo $sys['StNameT']." (".$sys['StAbbrE'].")"; ?></option>
 								<?php
 							}
 							?>
