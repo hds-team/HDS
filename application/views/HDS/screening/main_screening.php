@@ -104,7 +104,7 @@
       <div class="da-panel"></div>
     </div>
     <div class="grid_1">
-      <a href="<?php echo base_url('index.php/'.$this->config->item('sys_name').'/report/user_report'); ?>"><button class="da-ex-buttons" role="button" aria-disabled="false" style="float:right;"><span class="ui-button-text">ส่งคำร้อง</span></button></a>
+      <a href="<?php echo base_url('index.php/'.$this->config->item('sys_name').'/report/user_report'); ?>"><button aria-disabled="false" style="float:right;" class="da-button orange large">เพิ่มคำร้อง</button></a>
     </div>
 <div class="clear"></div>
 
