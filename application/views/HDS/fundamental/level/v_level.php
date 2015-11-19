@@ -132,7 +132,7 @@
                                 }
                             else{
                                 ?>
-                                 <img src="<?php echo base_url();?>images/icons/color/cross.png" alt="" value='ลบ' id='opener' id='opener2' onclick='set_value2()'>
+                                 <img src="<?php echo base_url();?>images/icons/black/16/cross_small.png" alt="" value='ลบ' id='opener' id='opener2' onclick='set_value2()'>
                             <?php
                             }
                                ?>
