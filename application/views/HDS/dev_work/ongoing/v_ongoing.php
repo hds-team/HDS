@@ -34,7 +34,7 @@
 	<table id="da-ex-datatable-numberpaging" class="da-table">
 		<thead>
 			<tr role="row"> <!-- row -->
-				<th style="width:7%"><center><b>ลำดับzzzzz</b></center></th>
+				<th style="width:7%"><center><b>ลำดับ</b></center></th>
 				<th><center><b>หัวเรื่อง</b></center></th>
 				<th style="width:11%"><center><b>วันที่</b></center></th>
 				<th style="width:10%"><center><b>ประเภท</b></center></th>

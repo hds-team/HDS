@@ -4,7 +4,7 @@
     $('.btn_1').click(function(){
         //--- Controller url
 		var rq_id = $(this).attr('rq_id');
-		var st_id = $(this).attr('st_id');
+		//var st_id = $(this).attr('st_id');
 		var sys_id = $(this).attr('sys_id');
 		console.log(rq_id);
 		console.log(sys_id);
@@ -89,10 +89,10 @@
                     ?>
                     <td class="da-icon-column"> <!-- working on button -->
 						<div class="grid_2">
-							<?php echo "<button style='width:100%' class='da-button blue btn_1' rq_id='".$row->rq_id."' st_id='".$row->st_id."' sys_id='".$sys_id."'>ตรวจรับ</button>"; ?>
+							<?php echo "<button style='width:100%' class='da-button blue btn_1' rq_id='".$row->rq_id."' sys_id='".$sys_id."'>ตรวจรับ</button>"; ?>
 						</div>
 						<div class="grid_2">
-							<?php echo "<button style='width:100%' class='da-button green btn_2' rq_id='".$row->rq_id."' st_id='".$row->st_id."' sys_id='".$sys_id."'>ตรวจรับ</button>"; ?>
+							<?php echo "<button style='width:100%' class='da-button green btn_2' rq_id='".$row->rq_id."' sys_id='".$sys_id."'>ตรวจรับ</button>"; ?>
 						</div>
                     </td>
                 </tr> <!-- class="odd" -->

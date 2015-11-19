@@ -1,4 +1,4 @@
-<?php
+ <?php
 	$data['rq_st_id'] = 6;
 	$st_id = 6;
 	$this->save_log( $st_id, $rq_id );
