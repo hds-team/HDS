@@ -56,14 +56,14 @@
 									<?php if($value['tp_status'] == 1)
 									{
 									?>
-										<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/0/'.$value['tp_id']); ?>"><input type='submit' value='เปิด' class='da-button green' style='width:70%' /></a>
+										<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/0/'.$value['tp_id']); ?>"><img src="<?php echo base_url(); ?>images/icons/color/on.png" alt=""></a>
 										</center>
 									<?php 
 									}
 									else
 									{
 									?>
-										<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/1/'.$value['tp_id']); ?>"><input type='submit' value='ปิด' class='da-button red' style='width:70%' /></a>
+										<center><a href ="<?php echo base_url('index.php/HDS/tor/update_open/1/'.$value['tp_id']); ?>"><img src="<?php echo base_url(); ?>images/icons/color/off.png" alt=""></a>
 										</center>
 									<?php 
 									}
@@ -75,21 +75,21 @@
 										if($value['rq_id'] == NULL)
 										{ ?>
 										<div class="grid_2">
-											<a href="<?php echo base_url('index.php/HDS/tor/delete_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button red large" value="ลบ" style='width:70%'></a>
+                                            <a href="<?php echo base_url('index.php/HDS/tor/delete_tor/'.$value['tp_id']); ?>"><img src="<?php echo base_url(); ?>images/icons/color/cross.png" alt=""></a>
 										</div>
 										<?php 
 										} 
 										else
 										{ ?>
 										<div class="grid_2">
-											<a href=""><input type="button" class="da-button gray large" value="ลบ" style='width:70%'></a>
+											<a href=""><img src="<?php echo base_url(); ?>images/icons/black/16/cross_small.png" alt=""></a>
 										</div>
 										<?php
 										}
 										?>
 										
 										<div class="grid_2">
-											<a href="<?php echo base_url('index.php/HDS/tor/show_edit_tor/'.$value['tp_id']); ?>"><input type="button" class="da-button blue large" value="แก้ไข" style='width:70%'></a>
+											<a href="<?php echo base_url('index.php/HDS/tor/show_edit_tor/'.$value['tp_id']); ?>"><img src="<?php echo base_url(); ?>images/icons/color/pencil.png" alt=""></a>
 										</div>
 									</center>
 								</td>

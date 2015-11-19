@@ -40,7 +40,10 @@
 <style>
 	.center{
 		text-align: center;
-	}
+	} 
+    #fn{
+        font-size: 12px;
+    }
 </style>
 <!-- Demo JavaScript Files -->
 <script type="text/javascript" src="<?php echo base_url(); ?>plugins/elastic/jquery.elastic.min.js"></script>
@@ -115,6 +118,7 @@
 						<label>สัญญา</label>
 						<div class="da-form-item large" id="contact_group">
 							<label>
+                                <span class="formNote" id="fn">หัวข้อและรายละเอียดข้อสัญญา</span>
 								<input style="width:30%" id="rq_tell20" type="text" name="ctr_number[]" required >
 								<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" required >
 								<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
