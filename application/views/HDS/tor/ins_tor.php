@@ -119,8 +119,8 @@
 						<div class="da-form-item large" id="contact_group">
 							<label>
                                 <span class="formNote" id="fn">หัวข้อและรายละเอียดข้อสัญญา</span>
-								<input style="width:30%" id="rq_tell20" type="text" name="ctr_number[]" required >
-								<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" required >
+								<input style="width:30%" id="rq_tell20" type="text" name="ctr_number[]" placeholder="1.1" required >
+								<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" placeholder="รายละเอียดของข้อสัญญา" required >
 								<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
 							</label>
 						</div>

@@ -138,6 +138,7 @@
 									{
 								?>
 										<label>
+                                            <span class="formNote" id="fn">หัวข้อและรายละเอียดข้อสัญญา</span>
 											<input style="width:30%" id="rq_tell0" type="text" name="ctr_number[]" value="<?php echo $cont['ctr_number']; ?>" required >
 											<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" value="<?php echo $cont['ctr_value']; ?>" required >
 											<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
@@ -170,6 +171,7 @@
 								{
 							?>
 								<label>
+                                    <span class="formNote" id="fn">หัวข้อและรายละเอียดข้อสัญญา</span>
 									<input style="width:30%" id="rq_tell0" type="text" name="ctr_number[]" value="<?php echo $cont['ctr_number']; ?>" required >
 									<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" value="<?php echo $cont['ctr_value']; ?>" required >
 									<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
@@ -185,6 +187,7 @@
 							<?php
 							?>
 									<label>
+                                        <span class="formNote" id="fn">หัวข้อและรายละเอียดข้อสัญญา</span>
 										<input style="width:30%" id="rq_tell0" type="text" name="ctr_number[]" >
 										<input style="width:60%" id="rq_tell0" type="text" name="ctr_value[]" >
 										<a id="add"><img src="<?php echo base_url(); ?>images/icons/color/add.png" title="เพิ่ม" style="width:4%"></a>
