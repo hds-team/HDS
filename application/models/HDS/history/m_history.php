@@ -15,7 +15,7 @@ class M_history extends CI_Model
 		$this->ums = $this->config->item('UMS');
 	}
 
-	public function get_request($rq_sys_id) //get request and  status
+	public function get_request() //get request and  status
 	{
 		$this->hds
 		->select('*')
@@ -25,8 +25,8 @@ class M_history extends CI_Model
 		->join($this->db_name.'.hds_category', 'hds_category.ct_id = hds_request.rq_ct_id', 'inner')
 		->join($this->db_name.'.hds_status', 'hds_request.rq_st_id = hds_status.st_id', 'inner') //inner status and request
 		->join($this->ums.'.umsystem', 'umsystem.StID = hds_request.rq_sys_id', 'inner')
-		->join($this->ums.'.umdepartment', 'umdepartment.dpID = hds_request.rq_comp_id', 'inner')
-		->where('al_mb_id', $this->session->userdata('UsID')); //check session
+		->join($this->ums.'.umdepartment', 'umdepartment.dpID = hds_request.rq_comp_id', 'inner');
+		//->where('al_mb_id', $this->session->userdata('UsID')); //check session
 		//->where('hds_request.rq_sys_id', $rq_sys_id);
 		$query = $this->hds->get();
 		return $query;

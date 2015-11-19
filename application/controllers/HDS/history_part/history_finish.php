@@ -1,5 +1,5 @@
 ﻿<?php
-	$rq_sys_id = $this->input->post('system');
+
 	$this->load->model($this->config->item('sys_name').'/history/m_history');
 	//------- Check show all
 	$this->session->userdata('UsID'); //show all
@@ -15,7 +15,7 @@
 	$data['dep_req'] = $this->m_dynamic->get_by_id('hds_request','rq_comp_id',0);
 	//system
 	$data['system'] = $this->m_history->get_system();
-	$data['query'] = $this->m_history->get_request($rq_sys_id); //show only one system
+	$data['query'] = $this->m_history->get_request(); //show only one system
 	//---------- LOAD VIEW
 	/*
 	foreach($data["kind_req"]->result() as $row){
