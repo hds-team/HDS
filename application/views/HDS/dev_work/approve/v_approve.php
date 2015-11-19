@@ -49,13 +49,9 @@
 					<center>
 					<?php 
 						if($row->rq_st_id == 6){
-							$row->st_id = 8;
-					?><!-- Loop of status of report. 6 is approve and 8 is not approve.-->
-					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
-						<!-- Sending value's status (st_id) to controller's update_approve.php -->
-						<button style="width:100%" class="da-button green">รับทราบ</button>
-					</a>
-					</center>
+							$st_id = $row->st_id = 8;
+						echo "<button rq_id = '".$row->rq_id."' style='width:100%' class='da-button green btn_1'>รับทราบ</button>";
+					?></center>
 					<?php
 						}
 					?>
@@ -68,6 +64,22 @@
         </tbody>
     </table>
 </div><!-- content-->
-
-    
-    
+<script>
+$(document).ready(function(){
+    $('.btn_1').click(function(){
+        var st_id = "<?php echo $st_id; ?>";
+        var rq_id = $(this).attr("rq_id");
+        var sys_id = "<?php echo $sys_id; ?>";
+        //console.log(rq_id);
+        //--- Controller url
+var url = "<?php echo base_url();?>" + "index.php/HDS/dev_work/update_approve/" + rq_id + "/" + st_id + "/" + sys_id;
+        
+        //--- Remove row
+        $(this).closest('tr').remove();
+        
+        //--- Send value to controller
+ 		$.post(url, function(data){
+        });
+    });
+});
+</script>
