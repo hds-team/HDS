@@ -9,5 +9,5 @@
 	
 	$this->m_dynamic->update('hds_request', 'rq_id', $rq_id, $data);		//Call model function update.
 	$system_name = $this->config->item('sys_name');							// add sys_name to call system name
-	redirect($system_name.'/dev_work/index/'.$sys_id.'#pending');			//Redirect page.
+	//redirect($system_name.'/dev_work/index/'.$sys_id.'#pending');			//Redirect page.
 ?>

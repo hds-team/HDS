@@ -1,4 +1,5 @@
 <?php
+echo "xx";
 	//------ LOAD MODEL
 	$this->load->model('HDS/reply/m_reply');
 
@@ -43,11 +44,17 @@
 	$data['user_edite'] = $user;
 	//echo $edit;
 	$data['rq_id'] = $rq_id;
+
 	$data['request'] = $this->m_reply->get_request($rq_id);
+	/*foreach($data['request']->result() as $row){
+		echo $row->rq_id;
+	}*/
+	
 	$data['file'] = $this->m_reply->get_file($rq_id);
 	$data['accept'] = $this->m_reply->get_accept_log($rq_id);
 	//------ Get status to progress bar
 	$data['status'] = $this->m_dynamic->get_all('hds_status');
 	//------ Output view
 	$data['content'] = $this->hds_output('reply/v_reply',$data,TRUE);
+	
 ?>
