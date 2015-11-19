@@ -1,3 +1,29 @@
+ <script>
+	$(document).ready(function(){
+    
+    $('.btn').click(function(){
+        //--- Controller url
+		console.log($(this).attr('rq_id'));
+		console.log($(this).attr('st_id'));
+		console.log($(this).attr('sys_id'));
+		var rq_id = $(this).attr('rq_id');
+		var st_id = $(this).attr('st_id');
+		var sys_id = $(this).attr('sys_id');
+		var rq_st_id = 4;
+        var url = "<?php echo base_url('index.php/HDS/dev_work/update_petition_accect'); ?>"+"/"+rq_id+"/"+sys_id+"/"+rq_st_id;
+        console.log(url);
+        //--- Remove row
+        $(this).closest('tr').remove();
+        
+        //--- Send value to controller
+ 		$.get(url, function(data){
+            //alert($(this).c.losest('tr'));
+        	//$(this).closest('tr').hide();
+           //$(this).hide();
+        });
+    });
+});
+</script>
  <style>
 	.center{
 		text-align: center;
@@ -46,9 +72,7 @@
                     ?>
                     <td class="da-icon-column"> <!-- working on button -->
 						<div class="grid_2">
-							<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_accect/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
-								<button style="width:100%" class="da-button blue">ตรวจรับ</button>
-							</a><!-- checking accept -->
+							<?php echo "<button style='width:100%' class='da-button blue btn_1' rq_id = '".$row->rq_id."' st_id = '".$row->st_id."' sys_id = '".$sys_id"'>ตรวจรับ</button>"; ?>
 						</div>
 						<div class="grid_2">
 							<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_complete/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
