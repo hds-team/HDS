@@ -55,7 +55,7 @@
 						
 						}else
 						{
-							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/4')."><button style='width:100%' class='da-button green'>ดำเนินงาน</button></a>";
+							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/4')."><button style='width:100%' class='da-button blue'>ดำเนินงาน</button></a>";
 						}
 					?>
 				</td>
