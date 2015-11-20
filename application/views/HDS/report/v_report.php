@@ -284,7 +284,7 @@
 
             <div class="da-button-row">
                 <input type="reset" value="รีเซ็ท" class="da-button gray left">
-                <input type="submit" value="ส่งคำร้อง" class="da-button blue">
+                <input type="submit" value="ส่งคำร้อง" class="da-button green">
             </div>
         <?php echo form_close(); ?>
     </div>

@@ -16,7 +16,7 @@ $num=mysql_num_rows($sql);*/
 </head>
 <body> 
 <strong>โครงการดูแลบำรุงรักษาระบบสารสนเทศและระบบเครื่องแม่ข่ายคอมพิวเตอร์ ของวิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</strong><br>
-<strong>รายงานสมาชิก วันที่ <?php echo date("d/m/Y");?> </strong><br>
+<strong>รายงาน วันที่ <?php echo date("d/m/Y");?> </strong><br>
 <br>
 <div id="SiXhEaD_Excel" align=center x:publishsource="Excel">
 <table x:str border=1 cellpadding=0 cellspacing=1 width=100% style="border-collapse:collapse">
@@ -38,7 +38,7 @@ foreach($query->result() as $row){
 <tr>
 <td height="35" align="center" valign="middle" ><?php echo $index++; ?></td>
 <td width="200" align="center" valign="middle" ><?php echo $row->rq_subject; ?></td>
-<td width="200" align="center" valign="middle" ><?php echo $this->date_time->DateThai($row->rq_date); ?></td>
+<td width="200" align="center" valign="middle" ><?php echo $this->date_time->DateThai($row->rq_date_tor); ?></td>
 <td width="200" align="center" valign="middle" ><?php echo 'TOR ข้อ'.$row->ctr_number; ?></td> 
 </tr>
 <?php

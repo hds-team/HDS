@@ -49,9 +49,19 @@
 					<center>
 					<?php 
 						if($row->rq_st_id == 6){
+<<<<<<< HEAD
 							$st_id = $row->st_id = 8;
 						echo "<button rq_id = '".$row->rq_id."' style='width:100%' class='da-button green btn_1'>รับทราบ</button>";
 					?></center>
+=======
+							$row->st_id = 8;
+					?><!-- Loop of status of report. 6 is approve and 8 is not approve.-->
+					<a href = "<?php echo base_url('index.php/HDS/dev_work/update_approve/'.$row->rq_id.'/'.$row->st_id).'/'.$sys_id; ?>" />
+						<!-- Sending value's status (st_id) to controller's update_approve.php -->
+						<button style="width:100%" class="da-button blue">รับทราบ</button>
+					</a>
+					</center>
+>>>>>>> origin/master
 					<?php
 						}
 					?>

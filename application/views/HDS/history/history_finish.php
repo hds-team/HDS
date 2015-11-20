@@ -1,3 +1,5 @@
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <style>
 	.center{
 		text-align: center;
@@ -12,7 +14,72 @@
 		display: none;
 	}
 </style>
+<script>
+$(document).ready(function(){
+	$("#filter").click(function() {
+		//alert("TEST");
+		
+		var value = new Array();
+		
+		value[0] = $("#depart").val();
+		value[1] = $("#category").val();
+		value[2] = $("#kind").val();
+		value[3] = $("#system").val();
+		for(var i=0;i<4;i++)
+		{
+			console.log(value[i]);
+		}
+		
+		var id = new Array();
+		$("table tr").each(function(index) {
+			
+			if (index !== 0) {
+
+				$row = $(this);
+				//var test = $row.find("td:nth-child(7)").text();
+				//console.log(test);
+				
+				id[0] = $row.find("td:nth-child(7)").text(); //depart
+				id[1] = $row.find("td:nth-child(5)").text();
+				id[2] = $row.find("td:nth-child(6)").text();
+				id[3] = $row.find("td:nth-child(4)").text();
+				
+				//alert(id_1.indexOf(value_1)+"-"+id_2.indexOf(value_2));
+				/*
+				if(id[0].indexOf(value[0]) !== 0 || id[1].indexOf(value[1]) !== 0 || id[2].indexOf(value[2]) !== 0 || id[3].indexOf(value[3]) !== 0) {
+					$row.hide();
+				}
+				else {
+					$row.show();
+				}
+				*/
+				//console.log("+++++++++++");
+				var hide = 0;
+				var show = 0;
+				for(var i=0;i<4;i++)
+				{
+					if(value[i] !== 0)
+					{
+						//console.log("I: "+i+"value:" + value[i]);
+						if(id[i].indexOf(value[i]) !== 0){
+							$row.hide();
+						}
+						else {
+							$row.show();
+						}
+					}
+				}
+			}
+		});	
+	});
+});
+
+</script>
 <!-- use system -->
+<div class="grid_1">'
+	<div class="da-panel"></div>
+</div>
+<div class="grid_2">
     <div class="da-panel">
       <div class="da-panel-header">
         <span class="da-panel-title">
@@ -29,8 +96,8 @@
                   <div class="da-form-row">
                       <label>องค์กร<span class="required">*</span></label>
                       <div class="da-form-item large">
-                        <select name="system">
-							<option value="">เลือกองค์กร</option>
+                        <select id="depart">
+							<option value="0">เลือกองค์กร</option>
 							<?php
 								foreach($depart->result() as $dep){
 							?>
@@ -38,64 +105,68 @@
 							<?php
 								}
 							?>
+							<option value="1">ทั้งหมด</option>
                         </select>
                       </div>
                   </div>
 				  <div class="da-form-row">
                       <label>ประเภท<span class="required">*</span></label>
                       <div class="da-form-item large">
-                        <select name="system">
-                          <option value="">เลือกประเภท</option>
+                        <select id="category">
+                          <option value="0">เลือกประเภท</option>
 						  	<?php
 								foreach($category->result() as $cat){
 							?>
-							  <option value="<?php echo $cat->ct_id; ?>"><?php echo $cat->ct_name; ?></option>
+							  <option value="<?php echo $cat->ct_name; ?>"><?php echo $cat->ct_name; ?></option>
 							<?php
 								}
 							?>
-
+							<option value="1">ทั้งหมด</option>
                         </select>
                       </div>
                   </div>
 				  <div class="da-form-row">
                       <label>หมวด<span class="required">*</span></label>
                       <div class="da-form-item large">
-                        <select name="system">
-                          <option value="">เลือกหมวด</option>
+                        <select id="kind">
+                          <option value="0">เลือกหมวด</option>
 							<?php
 								foreach($kind->result() as $kind){
 							?>
-							  <option value="<?php echo $kind->kn_id; ?>"><?php echo $kind->kn_name; ?></option>
+							  <option value="<?php echo $kind->kn_name; ?>"><?php echo $kind->kn_name; ?></option>
 							<?php
 								}
 							?>
+							<option value="1">ทั้งหมด</option>
                         </select>
                       </div>
                   </div>
 				  <div class="da-form-row">
                       <label>ระบบ <span class="required">*</span></label>
                       <div class="da-form-item large">
-                        <select name="system">
-                          <option>เลือกระบบ</option>
+                        <select id="system">
+                          <option value="0">เลือกระบบ</option>
 							<?php
 								foreach($system->result() as $sys){
 							?>
-							  <option value="<?php echo $sys->StID; ?>"><?php echo $sys->StNameT; ?></option>
+							  <option value="<?php echo $sys->StNameT; ?>"><?php echo $sys->StNameT; ?></option>
 							<?php
 								}
 							?>
+							<option value="1">ทั้งหมด</option>
                         </select>
                       </div>
                   </div>
               </div>
               <div class="da-button-row">
-                <input type="submit" value="ตกลง" class="da-button green">
+				<div class="da-button green" id="filter" onclick="test();"> คัดกรอง </div>
               </div>
 			  <?php
 				echo form_close();
 			  ?>
       </div><!-- da-panel-content -->
-    </div><!-- da-panel -->   
+    </div><!-- da-panel -->
+</div>	
   <div class="clear"></div>
 <!-- history --> 
 <div class="da-panel collapsible">
@@ -107,7 +178,7 @@
         
     <span class="da-panel-toggler"></span></div>
     <div class="da-panel-content">
-        <table id="da-ex-datatable-numberpaging" class="da-table">
+        <table id="da-ex-datatable" class="da-table">
             <thead>
                 <tr>
                 	<th><center><b>ลำดับ</b></center></th>

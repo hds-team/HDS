@@ -3,12 +3,13 @@
 		text-align: center;
 	}
 </style>
+<div>
 <div class="grid_3">
 	<div class="da-panel">
 </div>
 </div>
    <div class="grid_1">
-       <a href="<?php echo base_url('index.php/HDS/tor/ins_tor/'); ?>"><button class="da-ex-buttons" role="button" aria-disabled="false" style="float:right;"><span class="ui-button-text">เพิ่มโครงการ</span></button></a>
+       <a href="<?php echo base_url('index.php/HDS/tor/ins_tor/'); ?>"><button aria-disabled="false" style="float:right;" class="da-button orange large">เพิ่มโครงการ</span></button></a>
    </div>
 <div class="clear"></div>
 <div class="da-panel">
@@ -102,4 +103,5 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 </div>

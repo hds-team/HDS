@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="da-button-row">
-                	<input type="submit" value="Submit" class="da-button green" />  
+                	<input type="submit" value="ตกลง" class="da-button green" />  
                 </div>
             <?php echo form_close(); ?>
         </div>
@@ -93,27 +93,45 @@
                         <?php 
                         if ($row->ctt_status==1)
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_communcate/".$row->ctt_id."/0")."'><input type='submit' value='เปิด' class='da-button green' style='width:60%' /></a>";
+                        ?>
+                        <?php
+                        echo "<a href ='".base_url("index.php/HDS/fundamental/update_communcate/".$row->ctt_id."/0")."'>";
+                        ?>
+                        <img src="<?php echo base_url();?>images/icons/color/on.png" alt="" value='เปิด'></a>
+                        <?php
 						}
 						else
 						{
-							echo "<a href ='".base_url("index.php/HDS/fundamental/update_communcate/".$row->ctt_id."/1")."'><input type='submit' value='ปิด' class='da-button red' style='width:60%' /></a>";
-						}
+                        ?>
+                        <?php
+						echo "<a href ='".base_url("index.php/HDS/fundamental/update_communcate/".$row->ctt_id."/1")."'>";
+                        ?>
+                        <img src="<?php echo base_url();?>images/icons/color/off.png" alt="" value='ปิด'></a>
+						<?php
+                        }
                         ?>
                         </center>
                     </td>
                     <td><center>
                             <div class="grid_2">
-                              <button id="opener1"  class="da-button blue" style="width:60%" onclick="set_value('<?php echo $row->ctt_id; ?>', '<?php echo $row->ctt_name; ?>');">แก้ไข</button>
-                            </div>
+                                 <img src="<?php echo base_url();?>images/icons/color/pencil.png" alt="" value='ลบ'id ='opener1' onclick="set_value('<?php echo $row->ctt_id; ?>', '<?php echo $row->ctt_name; ?>');">
+							</div>
                             <div class="grid_2">
-                               <?php 
-                               if($row->ctl_rq_id==null){
-									echo "<a href ='".base_url("index.php/HDS/fundamental/delete_communcate/".$row->ctt_id."/")."'><input type='submit' value='ลบ' class='da-button red' style='width:60%' /></a>";
+         						   
+							    <?php
+									if($row->ctl_rq_id==null){
+                                ?>
+                               <?php
+									echo "<a href ='".base_url("index.php/HDS/fundamental/delete_communcate/".$row->ctt_id."/")."'>";
+                                ?>
+									<img src="<?php echo base_url();?>images/icons/color/cross.png" alt="" value='ลบ'></a>
+                                <?php
                                 }
-							   else{
-								   echo "<input type='submit' value='ลบ' id='opener' class='da-button gray' style='width:60%' />"; 
-							   }
+                            else{
+                                ?>
+                                 <img src="<?php echo base_url();?>images/icons/black/16/cross_small.png" alt="" value='ลบ' id='opener' id='opener2' onclick='set_value2()'>
+                            <?php
+                            }
                                ?>
                             </div>
                         </center>

@@ -52,7 +52,7 @@
 						</div>
 						<div class="grid_2">
 							<a href = "<?php echo base_url('index.php/HDS/screening/update_petition_complete/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" />
-								<button style="width:100%" class="da-button blue">เสร็จสิ้น</button>
+								<button style="width:100%" class="da-button green">เสร็จสิ้น</button>
 							</a><!-- Complete button -->
 						</div>
                     </td>
