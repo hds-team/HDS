@@ -10,6 +10,7 @@ class Reply extends HDS_Controller
 	}
 	public function detail_sys($rq_id, $edit=false, $user=false)
 	{
+		//echo "test";
 		$this->benchmark->mark('code_start');
 		include('reply_part/c_reply.php');
 		$this->benchmark->mark('code_end');

@@ -1,8 +1,35 @@
+<script>
+	$(document).ready(function(){
+    
+   $('.btn_1').click(function(){
+        //--- Controller url
+		
+		console.log($(this).attr('rq_id'));
+		console.log($(this).attr('sys_id'));
+		console.log($(this).attr('st_id'));
+		var rq_id = $(this).attr('rq_id');
+		var st_id = 4;
+		var sys_id = $(this).attr('sys_id');
+		
+        var url = "<?php echo base_url('index.php/HDS/dev_work/update_ongoing'); ?>"+"/"+rq_id+"/"+sys_id+"/"+st_id;
+        console.log(url);
+        //--- Remove row
+        $(this).removeClass('green');
+        $(this).addClass('gray');
+        //--- Send value to controller
+ 		$.get(url, function(data){
+            //alert($(this).c.losest('tr'));
+        	//$(this).closest('tr').hide();
+           //$(this).hide();
+        });
+    });
+});
+</script>
 <style>
 	.center{
 		text-align: center;
 	}
-</style>  
+</style>
 <div class="da-panel-content" style="border: 0;">
 	<table id="da-ex-datatable-numberpaging" class="da-table">
 		<thead>
@@ -53,9 +80,9 @@
 							{
 						?>
 						<center>
-							<a href = "<?php echo base_url('index.php/HDS/dev_work/update_ongoing/'.$row->rq_id.'/'.$row->st_id.'/'.$sys_id); ?>" /> 
-								<button style="width:100%" class="da-button green">ส่งตรวจ</button><!-- button submit -->
-							</a>
+						<?php
+							echo "<button style='width:100%' class='da-button green btn_1' rq_id='".$row->rq_id."' sys_id='".$sys_id."'>ส่งตรวจ</button>";
+						?>
 						</center>
 						<?php
 							}

@@ -1,3 +1,27 @@
+<script>
+	$(document).ready(function(){
+    
+    $('.btn').click(function(){
+        //--- Controller url
+		console.log($(this).attr('rq_id'));
+		console.log($(this).attr('sys_id'));
+		var rq_id = $(this).attr('rq_id');
+		var sys_id = $(this).attr('sys_id');
+		var rq_st_id = 4;
+        var url = "<?php echo base_url('index.php/HDS/dev_work/update_pending'); ?>"+"/"+rq_id+"/"+sys_id+"/"+rq_st_id;
+        console.log(url);
+        //--- Remove row
+        $(this).closest('tr').remove();
+        
+        //--- Send value to controller
+ 		$.get(url, function(data){
+            //alert($(this).c.losest('tr'));
+        	//$(this).closest('tr').hide();
+           //$(this).hide();
+        });
+    });
+});
+</script>
 <style>
 	.center{
 		text-align: center;
@@ -55,7 +79,8 @@
 						
 						}else
 						{
-							echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/4')."><button style='width:100%' class='da-button blue'>ดำเนินงาน</button></a>";
+							//echo "<a href = ".base_url('index.php/HDS/dev_work/update_pending/'.$row->rq_id.'/'.$sys_id.'/4')."><button style='width:100%' class='da-button green btn'>ดำเนินงาน</button></a>";
+							echo "<button style='width:100%' class='da-button green btn' rq_id='".$row->rq_id."' sys_id='".$sys_id."'>ดำเนินงาน</button>";
 						}
 					?>
 				</td>
