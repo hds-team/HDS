@@ -133,6 +133,7 @@ $(document).ready(function(){
         var key = $('#filter_by').val();
         var from = $('#from').val().split("/").reverse().join("-");
         var to = $('#to').val().split("/").reverse().join("-");
+        var index = $("#filter_by option:selected").index();
 
         var url = "<?php echo base_url('index.php/'.$this->config->item('sys_name').'/stats/get_stat_chart'); ?>"+"/"+key+"/"+from+"/"+to;
         console.log(url);
@@ -204,8 +205,11 @@ $(document).ready(function(){
                 options.series[0] = new Object();
                 options.series[0].data = new Array();
                 
-                options.drilldown = new Object();
-                options.drilldown.series = new Array();
+                if(index == 5)
+                { 
+                    options.drilldown = new Object();
+                    options.drilldown.series = new Array();
+                }
                 
 
             for(var i=0; i < res.name.length; i++)
@@ -224,10 +228,13 @@ $(document).ready(function(){
                         y: parseInt(res.value[i]),
                         drilldown: res.id[i]
                 };
-                
-                options.drilldown.series[i] = new Object();
-                options.drilldown.series[i].id = res.id[i];
-                options.drilldown.series[i].name = res.name[i];
+
+                if(index == 5)
+                { 
+                    options.drilldown.series[i] = new Object();
+                    options.drilldown.series[i].id = res.id[i];
+                    options.drilldown.series[i].name = res.name[i];
+                }
 
                 /*###########################################################
                   Add drilldown
@@ -266,9 +273,10 @@ $(document).ready(function(){
                     options.drilldown.series[i].data = arr_j;
                     //options.drilldown.series[i].drilldown = res_drill.id[i];
                     console.log(options);
-                    var chart = new Highcharts.Chart(options);
+                    
 
                 });
+                var chart = new Highcharts.Chart(options);
             }
     
             //------ Example Data 
