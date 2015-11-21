@@ -137,7 +137,7 @@ $(document).ready(function(){
         var url = "<?php echo base_url('index.php/'.$this->config->item('sys_name').'/stats/get_stat_chart'); ?>"+"/"+key+"/"+from+"/"+to;
         console.log(url);
         $.getJSON(url, function(res){
-            console.log(res);
+            //console.log(res);
             //-------- Replace Graph head
             var title = $( "#filter_by option:selected" ).text();
             set_title(title);
@@ -153,38 +153,124 @@ $(document).ready(function(){
             var chart = $('#container').highcharts();
 
             //---------- Remove all series
+            /*
             while(chart.series.length > 0)
                 chart.series[0].remove(true);
-
+            */
             //---------- Add Series
+            var ary_temp = new Array();
+            var options = {
+                    chart: {
+                        renderTo: 'container',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'รายงานเปรียบเทียบจำนวนคำร้อง'
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    xAxis: {
+                        type: 'category',
+                        labels: {
+                            rotation: -45,
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'จำนวนคำร้อง'
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    tooltip: {
+                        pointFormat: '{point.y:.0f} คำร้อง</b>'
+                    },
+                    series: [{
+
+                    }],
+            
+                    drilldown: {
+                        series: [{}]
+                    }
+                };
+                options.series = new Array();
+                options.series[0] = new Object();
+                options.series[0].data = new Array();
+                
+                options.drilldown = new Object();
+                options.drilldown.series = new Array();
+                
+
             for(var i=0; i < res.name.length; i++)
             {
                 arr[i][0] = res.name[i];
                 arr[i][1] = parseInt(res.value[i]);
-                //----- Add Series
-                chart.addSeries({
-                    data : [{
-                        name : res.name[i],
-                        id : i,
-                        y : parseInt(res.value[i]),
-                        drilldown : res.id[i]
-                    }]
+
+                
+                
+                //options.series[i].name = res.name[i];
+                
+                //options.series[0].data = new Array();
+                options.series[0].data[i] = new Object();
+                options.series[0].data[i] = {
+                        name: res.name[i],
+                        y: parseInt(res.value[i]),
+                        drilldown: res.id[i]
+                };
+                
+                options.drilldown.series[i] = new Object();
+                options.drilldown.series[i].id = res.id[i];
+                options.drilldown.series[i].name = res.name[i];
+
+                /*###########################################################
+                  Add drilldown
+                ###########################################################*/
+
+                group_by = "ctr_id";
+                name = "ctr_value";
+                url = "<?php echo base_url('index.php/'.$this->config->item('sys_name').'/stats/get_drilldown'); ?>"+"/"+res.id[i]+"/"+group_by+"/"+name+"/"+from+"/"+to;
+                console.log(url);
+                $.ajaxSetup({
+                    async: false
                 });
+                
 
-                console.log(res.id[i]);
+                $.getJSON(url, function(res_drill){
+                    var arr_j = new Array(res_drill.name.length);
+                                    
+                    for(var j=0; j < arr_j.length; j++)
+                    {
+                        arr_j[j] = new Array(2);
+                    }
+
+                    //---------- Add Drilldown
+                    var tp_id = "";
+
+                    var str_ary = "["
+
+                    for(var j=0; j < res_drill.name.length; j++)
+                    {
+                        arr_j[j][0] = res_drill.name[j];
+                        arr_j[j][1] = parseInt(res_drill.value[j]);
+                        //tp_id = res_drill.tp_id[j]
+
+                    }
+
+                    options.drilldown.series[i].data = arr_j;
+                    //options.drilldown.series[i].drilldown = res_drill.id[i];
+                    console.log(options);
+                    var chart = new Highcharts.Chart(options);
+
+                });
             }
-            //----- Add drilldown
-            var data = {
-                id : '2',
-                data : [
-                    ['Cat1', 4],
-                    ['Cat2', 7],
-                    ['Cat3', 9]
-                ]
-            };
-
-            chart.options.drilldown.series[0] = data;
-
+    
             //------ Example Data 
             Data =  [
                         ['test',"194.1"],
@@ -229,20 +315,8 @@ $(document).ready(function(){
             pointFormat: '{point.y:.0f} คำร้อง</b>'
         },
         series: [{
-            name: 'Population',
-            dataLabels: {
-                enabled: true,
-                rotation: -90,
-                color: '#FFFFFF',
-                align: 'right',
-                format: '{point.y:.1f}', // one decimal
-                y: 10, // 10 pixels down from the top
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            }
-        }],
+                data: []
+            }],
         
         drilldown: {
             series: []
@@ -289,25 +363,12 @@ $(document).ready(function(){
 
 });
 
-function addSerie(res, title){
+function addSerie(res){
     var chart = $('#container').highcharts();
     chart.series[0].remove();
-    console.log(title);
     chart.addSeries({
         data: res
     });
-   /* 
-    var data = {
-        id : 2,
-        data : [
-            ['Cat1', 4],
-            ['Cat2', 7],
-            ['Cat3', 9]
-        ]
-    };
-    chart.options.drilldown.series[0] = data;
-    */
-    
 }
 
 function set_title(str){
@@ -316,6 +377,16 @@ function set_title(str){
         text: 'กราฟรายงานสถิติจำนวนคำร้องต่อ'+str
     });
 
+}
+
+function drill_add(where, i, from, to){
+    
+        group_by = "ctr_id";
+        name = "ctr_value";
+        temp = "";
+        url = "<?php echo base_url('index.php/'.$this->config->item('sys_name').'/stats/get_drilldown'); ?>"+"/"+where+"/"+group_by+"/"+name+"/"+from+"/"+to;
+       
+        return $.getJSON(url);
 }
 
 

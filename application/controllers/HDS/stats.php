@@ -59,5 +59,10 @@ class Stats extends HDS_Controller
 	public function default_tor($rq_id){
 		include('stat_part/c_tor_default.php');
 	}
+
+	public function get_drilldown($where_str, $group_by, $name, $from, $to){
+		include('stat_part/c_get_drilldown.php');
+	}
+
 }
 

@@ -33,10 +33,23 @@ class M_stat_chart extends CI_Model
 		->select('*, COUNT(hds_request.rq_id) as STAT')
 		->from('hds_request')
 		->join('hds_contract', 'hds_contract.ctr_id = hds_request.rq_ctr_id', 'right')
-		->join('hds_tor_proj', 'hds_tor_proj.tp_id = hds_contract.ctr_tp_id', 'right')
+		->join('hds_tor_proj', 'hds_tor_proj.tp_id = hds_contract.ctr_tp_id', 'left')
 		->where('hds_request.rq_date >=', $time_rang['from'])
 		->where('hds_request.rq_date <=', $time_rang['to'])
 		->group_by($group_by);
+		return $this->hds->get();
+	}
+
+	public function get_drilldown($where_val, $group_by, $time_rang, $where_col){
+		$this->hds
+			->select('*, COUNT(hds_request.rq_id) as STAT')
+			->from('hds_request')
+			->join('hds_contract', 'hds_contract.ctr_id = hds_request.rq_ctr_id', 'right')
+			->join('hds_tor_proj', 'hds_tor_proj.tp_id = hds_contract.ctr_tp_id', 'left')
+			->where('hds_request.rq_date >=', $time_rang['from'])
+			->where('hds_request.rq_date <=', $time_rang['to'])
+			->where($where_col, $where_val)
+			->group_by($group_by);
 		return $this->hds->get();
 	}
 }
